@@ -2734,6 +2734,35 @@ pub mod capacity {
         pub struct OemActions {}
     }
 }
+pub mod capacity_source_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct CapacitySourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::capacity::CapacitySource>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
 pub mod certificate {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -4081,6 +4110,125 @@ pub mod circuit_collection {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CircuitCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod class_of_service {
+    pub mod v1_2_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::class_of_service::v1_2_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ClassOfService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::class_of_service::v1_2_0::Actions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ClassOfServiceVersion"
+            )]
+            pub class_of_service_version: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataProtectionLinesOfService"
+            )]
+            pub data_protection_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataProtectionLinesOfService@odata.count"
+            )]
+            pub data_protection_lines_of_service_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataSecurityLinesOfService"
+            )]
+            pub data_security_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataSecurityLinesOfService@odata.count"
+            )]
+            pub data_security_lines_of_service_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataStorageLinesOfService"
+            )]
+            pub data_storage_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataStorageLinesOfService@odata.count"
+            )]
+            pub data_storage_lines_of_service_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOConnectivityLinesOfService"
+            )]
+            pub io_connectivity_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOConnectivityLinesOfService@odata.count"
+            )]
+            pub io_connectivity_lines_of_service_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOPerformanceLinesOfService"
+            )]
+            pub io_performance_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOPerformanceLinesOfService@odata.count"
+            )]
+            pub io_performance_lines_of_service_odata_count: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod class_of_service_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ClassOfServiceCollection {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Members")]
@@ -5930,6 +6078,268 @@ pub mod connection_method_collection {
         pub oem: Option<crate::resource::Oem>,
     }
 }
+pub mod consistency_group {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ApplicationConsistencyMethod {
+        #[default]
+        #[serde(rename = "HotStandby")]
+        HotStandby,
+        #[serde(rename = "Other")]
+        Other,
+        #[serde(rename = "VASA")]
+        VASA,
+        #[serde(rename = "VDI")]
+        VDI,
+        #[serde(rename = "VSS")]
+        VSS,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ConsistencyType {
+        #[default]
+        #[serde(rename = "ApplicationConsistent")]
+        ApplicationConsistent,
+        #[serde(rename = "CrashConsistent")]
+        CrashConsistent,
+    }
+    pub mod v1_1_1 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#ConsistencyGroup.AssignReplicaTarget"
+            )]
+            pub consistency_group_assign_replica_target:
+                Option<crate::consistency_group::v1_1_1::AssignReplicaTarget>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#ConsistencyGroup.CreateReplicaTarget"
+            )]
+            pub consistency_group_create_replica_target:
+                Option<crate::consistency_group::v1_1_1::CreateReplicaTarget>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#ConsistencyGroup.RemoveReplicaRelationship"
+            )]
+            pub consistency_group_remove_replica_relationship:
+                Option<crate::consistency_group::v1_1_1::RemoveReplicaRelationship>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#ConsistencyGroup.ResumeReplication"
+            )]
+            pub consistency_group_resume_replication:
+                Option<crate::consistency_group::v1_1_1::ResumeReplication>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#ConsistencyGroup.ReverseReplicationRelationship"
+            )]
+            pub consistency_group_reverse_replication_relationship:
+                Option<crate::consistency_group::v1_1_1::ReverseReplicationRelationship>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#ConsistencyGroup.SplitReplication"
+            )]
+            pub consistency_group_split_replication:
+                Option<crate::consistency_group::v1_1_1::SplitReplication>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#ConsistencyGroup.SuspendReplication"
+            )]
+            pub consistency_group_suspend_replication:
+                Option<crate::consistency_group::v1_1_1::SuspendReplication>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::consistency_group::v1_1_1::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct AssignReplicaTarget {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct AssignReplicaTargetRequestBody {
+            #[serde(rename = "ReplicaType")]
+            pub replica_type: String,
+            #[serde(rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: String,
+            #[serde(rename = "TargetConsistencyGroup")]
+            pub target_consistency_group: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ConsistencyGroup {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::consistency_group::v1_1_1::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyMethod")]
+            pub consistency_method: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
+            pub consistency_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IsConsistent")]
+            pub is_consistent: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::consistency_group::v1_1_1::Links>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RemoteReplicaTargets"
+            )]
+            pub remote_replica_targets: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaInfo")]
+            pub replica_info: Option<crate::storage_replica_info::v1_4_0::ReplicaInfo>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaTargets")]
+            pub replica_targets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaTargets@odata.count"
+            )]
+            pub replica_targets_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+            pub status: Option<crate::resource::Status>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Volumes")]
+            pub volumes: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "Volumes@odata.count"
+            )]
+            pub volumes_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CreateReplicaTarget {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CreateReplicaTargetRequestBody {
+            #[serde(rename = "ConsistencyGroupName")]
+            pub consistency_group_name: String,
+            #[serde(rename = "ReplicaType")]
+            pub replica_type: String,
+            #[serde(rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: String,
+            #[serde(rename = "TargetStoragePool")]
+            pub target_storage_pool: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct RemoveReplicaRelationship {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct RemoveReplicaRelationshipRequestBody {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DeleteTargetConsistencyGroup"
+            )]
+            pub delete_target_consistency_group: Option<bool>,
+            #[serde(rename = "TargetConsistencyGroup")]
+            pub target_consistency_group: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ResumeReplication {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ResumeReplicationRequestBody {
+            #[serde(rename = "TargetConsistencyGroup")]
+            pub target_consistency_group: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReverseReplicationRelationship {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReverseReplicationRelationshipRequestBody {
+            #[serde(rename = "TargetConsistencyGroup")]
+            pub target_consistency_group: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SplitReplication {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SplitReplicationRequestBody {
+            #[serde(rename = "TargetConsistencyGroup")]
+            pub target_consistency_group: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SuspendReplication {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SuspendReplicationRequestBody {
+            #[serde(rename = "TargetConsistencyGroup")]
+            pub target_consistency_group: String,
+        }
+    }
+}
+pub mod consistency_group_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ConsistencyGroupCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
 pub mod control {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
@@ -6989,6 +7399,488 @@ pub mod cxl_logical_device_collection {
         pub oem: Option<crate::resource::Oem>,
     }
 }
+pub mod data_protection_line_of_service {
+    pub mod v1_3_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#DataProtectionLineOfService.CreateReplicas"
+            )]
+            pub data_protection_line_of_service_create_replicas:
+                Option<crate::data_protection_line_of_service::v1_3_0::CreateReplicas>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::data_protection_line_of_service::v1_3_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CreateReplicas {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CreateReplicasRequestBody {
+            #[serde(rename = "ReplicaLineOfService")]
+            pub replica_line_of_service: crate::odata_v4::IdRef,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRequests")]
+            pub replica_requests:
+                Option<Vec<crate::data_protection_line_of_service::v1_3_0::ReplicaRequest>>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct DataProtectionLineOfService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::data_protection_line_of_service::v1_3_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IsIsolated")]
+            pub is_isolated: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MinLifetime")]
+            pub min_lifetime: Option<String>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoveryGeographicObjective"
+            )]
+            pub recovery_geographic_objective: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoveryPointObjectiveTime"
+            )]
+            pub recovery_point_objective_time: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoveryTimeObjective"
+            )]
+            pub recovery_time_objective: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaAccessLocation"
+            )]
+            pub replica_access_location: Option<crate::resource::v1_3_0::Location>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaClassOfService"
+            )]
+            pub replica_class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
+            pub replica_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Schedule")]
+            pub schedule: Option<crate::schedule::Schedule>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReplicaRequest {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaName")]
+            pub replica_name: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSource")]
+            pub replica_source: Option<crate::odata_v4::IdRef>,
+        }
+    }
+}
+pub mod data_protection_los_capabilities {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum FailureDomainScope {
+        #[default]
+        #[serde(rename = "Datacenter")]
+        Datacenter,
+        #[serde(rename = "Rack")]
+        Rack,
+        #[serde(rename = "RackGroup")]
+        RackGroup,
+        #[serde(rename = "Region")]
+        Region,
+        #[serde(rename = "Row")]
+        Row,
+        #[serde(rename = "Server")]
+        Server,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum RecoveryAccessScope {
+        #[default]
+        #[serde(rename = "Nearline")]
+        Nearline,
+        #[serde(rename = "Offline")]
+        Offline,
+        #[serde(rename = "OnlineActive")]
+        OnlineActive,
+        #[serde(rename = "OnlinePassive")]
+        OnlinePassive,
+    }
+    pub mod v1_2_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::data_protection_los_capabilities::v1_2_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct DataProtectionLoSCapabilities {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::data_protection_los_capabilities::v1_2_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::data_protection_los_capabilities::v1_2_0::Links>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService"
+            )]
+            pub supported_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService@odata.count"
+            )]
+            pub supported_lines_of_service_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedMinLifetimes"
+            )]
+            pub supported_min_lifetimes: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedRecoveryGeographicObjectives"
+            )]
+            pub supported_recovery_geographic_objectives: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedRecoveryPointObjectiveTimes"
+            )]
+            pub supported_recovery_point_objective_times: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedRecoveryTimeObjectives"
+            )]
+            pub supported_recovery_time_objectives: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedReplicaTypes"
+            )]
+            pub supported_replica_types: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SupportsIsolated")]
+            pub supports_isolated: Option<bool>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedReplicaOptions"
+            )]
+            pub supported_replica_options: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedReplicaOptions@odata.count"
+            )]
+            pub supported_replica_options_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod data_security_line_of_service {
+    pub mod v1_1_1 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::data_security_line_of_service::v1_1_1::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct DataSecurityLineOfService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::data_security_line_of_service::v1_1_1::Actions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AntivirusEngineProvider"
+            )]
+            pub antivirus_engine_provider: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AntivirusScanPolicies"
+            )]
+            pub antivirus_scan_policies: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ChannelEncryptionStrength"
+            )]
+            pub channel_encryption_strength: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataSanitizationPolicy"
+            )]
+            pub data_sanitization_policy: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "HostAuthenticationType"
+            )]
+            pub host_authentication_type: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MediaEncryptionStrength"
+            )]
+            pub media_encryption_strength: Option<String>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SecureChannelProtocol"
+            )]
+            pub secure_channel_protocol: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UserAuthenticationType"
+            )]
+            pub user_authentication_type: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod data_security_los_capabilities {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AntiVirusScanTrigger {
+        #[default]
+        #[serde(rename = "None")]
+        None,
+        #[serde(rename = "OnFirstRead")]
+        OnFirstRead,
+        #[serde(rename = "OnPatternUpdate")]
+        OnPatternUpdate,
+        #[serde(rename = "OnRename")]
+        OnRename,
+        #[serde(rename = "OnUpdate")]
+        OnUpdate,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AuthenticationType {
+        #[default]
+        #[serde(rename = "None")]
+        None,
+        #[serde(rename = "PKI")]
+        PKI,
+        #[serde(rename = "Password")]
+        Password,
+        #[serde(rename = "Ticket")]
+        Ticket,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum DataSanitizationPolicy {
+        #[default]
+        #[serde(rename = "Clear")]
+        Clear,
+        #[serde(rename = "CryptographicErase")]
+        CryptographicErase,
+        #[serde(rename = "None")]
+        None,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum KeySize {
+        #[default]
+        #[serde(rename = "Bits_0")]
+        BitsN0,
+        #[serde(rename = "Bits_112")]
+        BitsN112,
+        #[serde(rename = "Bits_128")]
+        BitsN128,
+        #[serde(rename = "Bits_192")]
+        BitsN192,
+        #[serde(rename = "Bits_256")]
+        BitsN256,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SecureChannelProtocol {
+        #[default]
+        #[serde(rename = "IPsec")]
+        IPsec,
+        #[serde(rename = "None")]
+        None,
+        #[serde(rename = "RPCSEC_GSS")]
+        RPCSECGSS,
+        #[serde(rename = "TLS")]
+        TLS,
+    }
+    pub mod v1_2_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::data_security_los_capabilities::v1_2_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct DataSecurityLoSCapabilities {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::data_security_los_capabilities::v1_2_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedAntivirusEngineProviders"
+            )]
+            pub supported_antivirus_engine_providers: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedAntivirusScanPolicies"
+            )]
+            pub supported_antivirus_scan_policies: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedChannelEncryptionStrengths"
+            )]
+            pub supported_channel_encryption_strengths: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedDataSanitizationPolicies"
+            )]
+            pub supported_data_sanitization_policies: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedHostAuthenticationTypes"
+            )]
+            pub supported_host_authentication_types: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService"
+            )]
+            pub supported_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService@odata.count"
+            )]
+            pub supported_lines_of_service_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedMediaEncryptionStrengths"
+            )]
+            pub supported_media_encryption_strengths: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedSecureChannelProtocols"
+            )]
+            pub supported_secure_channel_protocols: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedUserAuthenticationTypes"
+            )]
+            pub supported_user_authentication_types: Option<Vec<String>>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod data_storage_line_of_service {
+    pub mod v1_3_1 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::data_storage_line_of_service::v1_3_1::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct DataStorageLineOfService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
+            pub access_capabilities: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::data_storage_line_of_service::v1_3_1::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IsSpaceEfficient")]
+            pub is_space_efficient: Option<bool>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ProvisioningPolicy")]
+            pub provisioning_policy: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoverableCapacitySourceCount"
+            )]
+            pub recoverable_capacity_source_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoveryTimeObjectives"
+            )]
+            pub recovery_time_objectives: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
 pub mod data_storage_los_capabilities {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -7014,6 +7906,74 @@ pub mod data_storage_los_capabilities {
         Write,
         #[serde(rename = "WriteOnce")]
         WriteOnce,
+    }
+    pub mod v1_2_2 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::data_storage_los_capabilities::v1_2_2::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct DataStorageLoSCapabilities {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::data_storage_los_capabilities::v1_2_2::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MaximumRecoverableCapacitySourceCount"
+            )]
+            pub maximum_recoverable_capacity_source_count: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedAccessCapabilities"
+            )]
+            pub supported_access_capabilities: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService"
+            )]
+            pub supported_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService@odata.count"
+            )]
+            pub supported_lines_of_service_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedProvisioningPolicies"
+            )]
+            pub supported_provisioning_policies: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedRecoveryTimeObjectives"
+            )]
+            pub supported_recovery_time_objectives: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportsSpaceEfficiency"
+            )]
+            pub supports_space_efficiency: Option<bool>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
     }
 }
 pub mod drive {
@@ -9635,6 +10595,326 @@ pub mod fan_collection {
         pub oem: Option<crate::resource::Oem>,
     }
 }
+pub mod file_share {
+    pub mod v1_3_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::file_share::v1_3_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct FileShare {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::file_share::v1_3_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CASupported")]
+            pub ca_supported: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultAccessCapabilities"
+            )]
+            pub default_access_capabilities: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "EthernetInterfaces")]
+            pub ethernet_interfaces: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ExecuteSupport")]
+            pub execute_support: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "FileSharePath")]
+            pub file_share_path: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "FileShareQuotaType")]
+            pub file_share_quota_type: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "FileShareRemainingQuotaBytes"
+            )]
+            pub file_share_remaining_quota_bytes: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "FileShareTotalQuotaBytes"
+            )]
+            pub file_share_total_quota_bytes: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "FileSharingProtocols"
+            )]
+            pub file_sharing_protocols: Option<Vec<String>>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::file_share::v1_3_0::Links>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LowSpaceWarningThresholdPercents"
+            )]
+            pub low_space_warning_threshold_percents: Option<Vec<i64>>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RemainingCapacityPercent"
+            )]
+            pub remaining_capacity_percent: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicationEnabled")]
+            pub replication_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RootAccess")]
+            pub root_access: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+            pub status: Option<crate::resource::Status>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WritePolicy")]
+            pub write_policy: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClassOfService")]
+            pub class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "FileSystem")]
+            pub file_system: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum QuotaType {
+            #[default]
+            #[serde(rename = "Hard")]
+            Hard,
+            #[serde(rename = "Soft")]
+            Soft,
+        }
+    }
+}
+pub mod file_share_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct FileShareCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod file_system {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum FileProtocol {
+        #[default]
+        #[serde(rename = "NFSv3")]
+        NFSv3,
+        #[serde(rename = "NFSv4_0")]
+        NFSv4N0,
+        #[serde(rename = "NFSv4_1")]
+        NFSv4N1,
+        #[serde(rename = "SMBv2_0")]
+        SMBv2N0,
+        #[serde(rename = "SMBv2_1")]
+        SMBv2N1,
+        #[serde(rename = "SMBv3_0")]
+        SMBv3N0,
+        #[serde(rename = "SMBv3_0_2")]
+        SMBv3N0N2,
+        #[serde(rename = "SMBv3_1_1")]
+        SMBv3N1N1,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ImportedShare {}
+    pub mod v1_3_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::file_system::v1_3_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum CharacterCodeSet {
+            #[default]
+            #[serde(rename = "ASCII")]
+            ASCII,
+            #[serde(rename = "ExtendedUNIXCode")]
+            ExtendedUNIXCode,
+            #[serde(rename = "ISO2022")]
+            ISO2022,
+            #[serde(rename = "ISO8859_1")]
+            ISO8859N1,
+            #[serde(rename = "UCS_2")]
+            UCSN2,
+            #[serde(rename = "UTF_16")]
+            UTFN16,
+            #[serde(rename = "UTF_8")]
+            UTFN8,
+            #[serde(rename = "Unicode")]
+            Unicode,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct FileSystem {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
+            pub access_capabilities: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::file_system::v1_3_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeBytes")]
+            pub block_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Capacity")]
+            pub capacity: Option<crate::capacity::v1_0_0::Capacity>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CapacitySources")]
+            pub capacity_sources: Option<Vec<crate::capacity::CapacitySource>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "CapacitySources@odata.count"
+            )]
+            pub capacity_sources_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CasePreserved")]
+            pub case_preserved: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CaseSensitive")]
+            pub case_sensitive: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CharacterCodeSet")]
+            pub character_code_set: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClusterSizeBytes")]
+            pub cluster_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ExportedShares")]
+            pub exported_shares: Option<crate::odata_v4::IdRef>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
+            pub identifiers: Option<Vec<crate::resource::Identifier>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ImportedShares")]
+            pub imported_shares: Option<Vec<crate::file_system::ImportedShare>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
+            pub io_statistics: Option<crate::io_statistics::v1_0_1::IOStatistics>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::file_system::v1_3_0::Links>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LowSpaceWarningThresholdPercents"
+            )]
+            pub low_space_warning_threshold_percents: Option<Vec<i64>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MaxFileNameLengthBytes"
+            )]
+            pub max_file_name_length_bytes: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoverableCapacitySourceCount"
+            )]
+            pub recoverable_capacity_source_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RemainingCapacity")]
+            pub remaining_capacity: Option<crate::capacity::v1_0_0::Capacity>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RemainingCapacityPercent"
+            )]
+            pub remaining_capacity_percent: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaInfo")]
+            pub replica_info: Option<crate::storage_replica_info::ReplicaInfo>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaTargets")]
+            pub replica_targets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaTargets@odata.count"
+            )]
+            pub replica_targets_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicationEnabled")]
+            pub replication_enabled: Option<bool>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClassOfService")]
+            pub class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaCollection")]
+            pub replica_collection: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaCollection@odata.count"
+            )]
+            pub replica_collection_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SpareResourceSets")]
+            pub spare_resource_sets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SpareResourceSets@odata.count"
+            )]
+            pub spare_resource_sets_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod file_system_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct FileSystemCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
 pub mod filter {
     pub mod v1_0_0 {
         use serde::{Deserialize, Serialize};
@@ -10192,8 +11472,359 @@ pub mod host_interface_collection {
         pub oem: Option<crate::resource::Oem>,
     }
 }
+pub mod hosted_storage_services {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct HostedStorageServices {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod io_connectivity_line_of_service {
+    pub mod v1_2_1 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::io_connectivity_line_of_service::v1_2_1::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOConnectivityLineOfService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AccessProtocols")]
+            pub access_protocols: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::io_connectivity_line_of_service::v1_2_1::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MaxBytesPerSecond")]
+            pub max_bytes_per_second: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MaxIOPS")]
+            pub max_iops: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod io_connectivity_los_capabilities {
+    pub mod v1_2_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::io_connectivity_los_capabilities::v1_2_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOConnectivityLoSCapabilities {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::io_connectivity_los_capabilities::v1_2_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MaxSupportedBytesPerSecond"
+            )]
+            pub max_supported_bytes_per_second: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MaxSupportedIOPS")]
+            pub max_supported_iops: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedAccessProtocols"
+            )]
+            pub supported_access_protocols: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService"
+            )]
+            pub supported_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService@odata.count"
+            )]
+            pub supported_lines_of_service_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod io_performance_line_of_service {
+    pub mod v1_1_1 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::io_performance_line_of_service::v1_1_1::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOPerformanceLineOfService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::io_performance_line_of_service::v1_1_1::Actions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AverageIOOperationLatencyMicroseconds"
+            )]
+            pub average_io_operation_latency_microseconds: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOOperationsPerSecondIsLimited"
+            )]
+            pub io_operations_per_second_is_limited: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOWorkload")]
+            pub io_workload: Option<crate::io_performance_los_capabilities::v1_0_0::IOWorkload>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MaxIOOperationsPerSecondPerTerabyte"
+            )]
+            pub max_io_operations_per_second_per_terabyte: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SamplePeriod")]
+            pub sample_period: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod io_performance_los_capabilities {
+    pub mod v1_0_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum IOAccessPattern {
+            #[default]
+            #[serde(rename = "RandomReadAgain")]
+            RandomReadAgain,
+            #[serde(rename = "RandomReadNew")]
+            RandomReadNew,
+            #[serde(rename = "ReadWrite")]
+            ReadWrite,
+            #[serde(rename = "SequentialRead")]
+            SequentialRead,
+            #[serde(rename = "SequentialWrite")]
+            SequentialWrite,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOWorkload {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Components")]
+            pub components:
+                Option<Vec<crate::io_performance_los_capabilities::v1_0_0::IOWorkloadComponent>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
+            pub name: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOWorkloadComponent {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AverageIOBytes")]
+            pub average_io_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Duration")]
+            pub duration: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOAccessPattern")]
+            pub io_access_pattern: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfData")]
+            pub percent_of_data: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfIOPS")]
+            pub percent_of_iops: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Schedule")]
+            pub schedule: Option<crate::schedule::Schedule>,
+        }
+    }
+    pub mod v1_3_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::io_performance_los_capabilities::v1_3_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum IOAccessPattern {
+            #[default]
+            #[serde(rename = "RandomReadAgain")]
+            RandomReadAgain,
+            #[serde(rename = "RandomReadNew")]
+            RandomReadNew,
+            #[serde(rename = "ReadWrite")]
+            ReadWrite,
+            #[serde(rename = "SequentialRead")]
+            SequentialRead,
+            #[serde(rename = "SequentialWrite")]
+            SequentialWrite,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOPerformanceLoSCapabilities {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::io_performance_los_capabilities::v1_3_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOLimitingIsSupported"
+            )]
+            pub io_limiting_is_supported: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MaxSamplePeriod")]
+            pub max_sample_period: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MinSamplePeriod")]
+            pub min_sample_period: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MinSupportedIoOperationLatencyMicroseconds"
+            )]
+            pub min_supported_io_operation_latency_microseconds: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedIOWorkloads"
+            )]
+            pub supported_io_workloads:
+                Option<Vec<crate::io_performance_los_capabilities::v1_3_0::IOWorkload>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService"
+            )]
+            pub supported_lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedLinesOfService@odata.count"
+            )]
+            pub supported_lines_of_service_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOWorkload {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Components")]
+            pub components:
+                Option<Vec<crate::io_performance_los_capabilities::v1_3_0::IOWorkloadComponent>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
+            pub name: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOWorkloadComponent {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AverageIOBytes")]
+            pub average_io_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Duration")]
+            pub duration: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOAccessPattern")]
+            pub io_access_pattern: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfData")]
+            pub percent_of_data: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfIOPS")]
+            pub percent_of_iops: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Schedule")]
+            pub schedule: Option<crate::schedule::Schedule>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
 pub mod io_statistics {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum IOStatistics {
+        IOStatisticsV1N0N4IOStatistics(crate::io_statistics::v1_0_4::IOStatistics),
+    }
     pub mod v1_0_1 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct IOStatistics {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NonIORequestTime")]
+            pub non_io_request_time: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NonIORequests")]
+            pub non_io_requests: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReadHitIORequests")]
+            pub read_hit_io_requests: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReadIOKiBytes")]
+            pub read_io_ki_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReadIORequestTime")]
+            pub read_io_request_time: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReadIORequests")]
+            pub read_io_requests: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WriteHitIORequests")]
+            pub write_hit_io_requests: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WriteIOKiBytes")]
+            pub write_io_ki_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WriteIORequestTime")]
+            pub write_io_request_time: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WriteIORequests")]
+            pub write_io_requests: Option<i64>,
+        }
+    }
+    pub mod v1_0_4 {
         use serde::{Deserialize, Serialize};
         #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
         pub struct IOStatistics {
@@ -11426,6 +13057,59 @@ pub mod license_service {
             #[serde(rename = "TFTP")]
             TFTP,
         }
+    }
+}
+pub mod line_of_service {
+    pub mod v1_1_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct LineOfService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+        }
+    }
+}
+pub mod line_of_service_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct LineOfServiceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
     }
 }
 pub mod log_entry {
@@ -16480,6 +18164,166 @@ pub mod network_port_collection {
         pub odata_type: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod nvme_domain {
+    pub mod v1_1_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::nvme_domain::v1_1_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AssociatedDomains")]
+            pub associated_domains: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AssociatedDomains@odata.count"
+            )]
+            pub associated_domains_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct NVMeDomain {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::nvme_domain::v1_1_0::Actions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AvailableFirmwareImages"
+            )]
+            pub available_firmware_images: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AvailableFirmwareImages@odata.count"
+            )]
+            pub available_firmware_images_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "DomainMembers")]
+            pub domain_members: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DomainMembers@odata.count"
+            )]
+            pub domain_members_odata_count: Option<i64>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::nvme_domain::v1_1_0::Links>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MaximumCapacityPerEnduranceGroupBytes"
+            )]
+            pub maximum_capacity_per_endurance_group_bytes: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+            pub status: Option<crate::resource::Status>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "TotalDomainCapacityBytes"
+            )]
+            pub total_domain_capacity_bytes: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UnallocatedDomainCapacityBytes"
+            )]
+            pub unallocated_domain_capacity_bytes: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+    }
+}
+pub mod nvme_domain_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct NVMeDomainCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod nvme_firmware_image {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NVMeDeviceType {
+        #[default]
+        #[serde(rename = "Drive")]
+        Drive,
+        #[serde(rename = "FabricAttachArray")]
+        FabricAttachArray,
+        #[serde(rename = "JBOF")]
+        JBOF,
+    }
+    pub mod v1_1_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::nvme_firmware_image::v1_1_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct NVMeFirmwareImage {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::nvme_firmware_image::v1_1_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
+            pub firmware_version: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeDeviceType")]
+            pub nvme_device_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Vendor")]
+            pub vendor: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
     }
 }
 pub mod odata_v4 {
@@ -23759,6 +25603,114 @@ pub mod resource {
             pub odata_type: String,
             #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
             pub oem: Option<crate::resource::Oem>,
+        }
+    }
+    pub mod v1_3_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Location {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Info")]
+            pub info: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "InfoFormat")]
+            pub info_format: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Placement")]
+            pub placement: Option<crate::resource::v1_3_0::Placement>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PostalAddress")]
+            pub postal_address: Option<crate::resource::v1_3_0::PostalAddress>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Placement {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Rack")]
+            pub rack: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
+            pub rack_offset: Option<f64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
+            pub rack_offset_units: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
+            pub row: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct PostalAddress {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AdditionalCode")]
+            pub additional_code: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Building")]
+            pub building: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "City")]
+            pub city: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Community")]
+            pub community: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Country")]
+            pub country: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "District")]
+            pub district: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Division")]
+            pub division: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Floor")]
+            pub floor: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "GPSCoords")]
+            pub gps_coords: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "HouseNumber")]
+            pub house_number: Option<f64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "HouseNumberSuffix")]
+            pub house_number_suffix: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Landmark")]
+            pub landmark: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LeadingStreetDirection"
+            )]
+            pub leading_street_direction: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
+            pub location: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
+            pub name: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Neighborhood")]
+            pub neighborhood: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PlaceType")]
+            pub place_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "POBox")]
+            pub po_box: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PostalCode")]
+            pub postal_code: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Road")]
+            pub road: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RoadBranch")]
+            pub road_branch: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RoadPostModifier")]
+            pub road_post_modifier: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RoadPreModifier")]
+            pub road_pre_modifier: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RoadSection")]
+            pub road_section: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RoadSubBranch")]
+            pub road_sub_branch: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Room")]
+            pub room: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Seat")]
+            pub seat: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Street")]
+            pub street: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StreetSuffix")]
+            pub street_suffix: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Territory")]
+            pub territory: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "TrailingStreetSuffix"
+            )]
+            pub trailing_street_suffix: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Unit")]
+            pub unit: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum RackUnits {
+            #[default]
+            #[serde(rename = "EIA_310")]
+            EIAN310,
+            #[serde(rename = "OpenU")]
+            OpenU,
         }
     }
     pub mod v1_3_13 {
@@ -31094,6 +33046,623 @@ pub mod storage_controller_metrics {
         }
     }
 }
+pub mod storage_group {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AccessCapability {
+        #[default]
+        #[serde(rename = "Read")]
+        Read,
+        #[serde(rename = "ReadWrite")]
+        ReadWrite,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct MappedVolume {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapability")]
+        pub access_capability: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "LogicalUnitNumber")]
+        pub logical_unit_number: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Volume")]
+        pub volume: Option<crate::odata_v4::IdRef>,
+    }
+    pub mod v1_5_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::storage_group::v1_5_0::OemActions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StorageGroup.ExposeVolumes"
+            )]
+            pub storage_group_expose_volumes: Option<crate::storage_group::v1_5_0::ExposeVolumes>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StorageGroup.HideVolumes"
+            )]
+            pub storage_group_hide_volumes: Option<crate::storage_group::v1_5_0::HideVolumes>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum AuthenticationMethod {
+            #[default]
+            #[serde(rename = "CHAP")]
+            CHAP,
+            #[serde(rename = "DHCHAP")]
+            DHCHAP,
+            #[serde(rename = "MutualCHAP")]
+            MutualCHAP,
+            #[serde(rename = "None")]
+            None,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CHAPInformation {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPPassword")]
+            pub chap_password: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPUser")]
+            pub chap_user: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "InitiatorCHAPPassword"
+            )]
+            pub initiator_chap_password: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "InitiatorCHAPUser")]
+            pub initiator_chap_user: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "TargetCHAPPassword")]
+            pub target_chap_password: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "TargetCHAPUser")]
+            pub target_chap_user: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "TargetPassword")]
+            pub target_password: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct DHCHAPInformation {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LocalDHCHAPAuthSecret"
+            )]
+            pub local_dhchap_auth_secret: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "PeerDHCHAPAuthSecret"
+            )]
+            pub peer_dhchap_auth_secret: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ExposeVolumes {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ExposeVolumesRequestBody {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct HideVolumes {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct HideVolumesRequestBody {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ChildStorageGroups")]
+            pub child_storage_groups: Option<Vec<crate::storage_group::v1_5_0::StorageGroup>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ChildStorageGroups@odata.count"
+            )]
+            pub child_storage_groups_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClassOfService")]
+            pub class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ParentStorageGroups"
+            )]
+            pub parent_storage_groups: Option<Vec<crate::storage_group::v1_5_0::StorageGroup>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ParentStorageGroups@odata.count"
+            )]
+            pub parent_storage_groups_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct StorageGroup {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
+            pub access_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::storage_group::v1_5_0::Actions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AuthenticationMethod"
+            )]
+            pub authentication_method: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ChapInfo")]
+            pub chap_info: Option<Vec<crate::storage_group::v1_5_0::CHAPInformation>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ClientEndpointGroups"
+            )]
+            pub client_endpoint_groups: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ClientEndpointGroups@odata.count"
+            )]
+            pub client_endpoint_groups_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "DHChapInfo")]
+            pub dh_chap_info: Option<Vec<crate::storage_group::v1_5_0::DHCHAPInformation>>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::storage_group::v1_5_0::Links>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MappedVolumes")]
+            pub mapped_volumes: Option<Vec<crate::storage_group::MappedVolume>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MembersAreConsistent"
+            )]
+            pub members_are_consistent: Option<bool>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaInfo")]
+            pub replica_info: Option<crate::storage_replica_info::ReplicaInfo>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaTargets")]
+            pub replica_targets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaTargets@odata.count"
+            )]
+            pub replica_targets_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ServerEndpointGroups"
+            )]
+            pub server_endpoint_groups: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ServerEndpointGroups@odata.count"
+            )]
+            pub server_endpoint_groups_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+            pub status: Option<crate::resource::Status>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Volumes")]
+            pub volumes: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "VolumesAreExposed")]
+            pub volumes_are_exposed: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "Volumes@odata.count"
+            )]
+            pub volumes_odata_count: Option<i64>,
+        }
+    }
+}
+pub mod storage_group_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct StorageGroupCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod storage_pool {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NVMePoolType {
+        #[default]
+        #[serde(rename = "EnduranceGroup")]
+        EnduranceGroup,
+        #[serde(rename = "NVMSet")]
+        NVMSet,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PoolType {
+        #[default]
+        #[serde(rename = "Block")]
+        Block,
+        #[serde(rename = "File")]
+        File,
+        #[serde(rename = "Object")]
+        Object,
+        #[serde(rename = "Pool")]
+        Pool,
+    }
+    pub mod v1_8_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::storage_pool::v1_8_0::OemActions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StoragePool.AddDrives"
+            )]
+            pub storage_pool_add_drives: Option<crate::storage_pool::v1_8_0::AddDrives>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StoragePool.RemoveDrives"
+            )]
+            pub storage_pool_remove_drives: Option<crate::storage_pool::v1_8_0::RemoveDrives>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StoragePool.SetCompressionState"
+            )]
+            pub storage_pool_set_compression_state:
+                Option<crate::storage_pool::v1_8_0::SetCompressionState>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StoragePool.SetDeduplicationState"
+            )]
+            pub storage_pool_set_deduplication_state:
+                Option<crate::storage_pool::v1_8_0::SetDeduplicationState>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StoragePool.SetEncryptionState"
+            )]
+            pub storage_pool_set_encryption_state:
+                Option<crate::storage_pool::v1_8_0::SetEncryptionState>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct AddDrives {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct AddDrivesRequestBody {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CapacitySource")]
+            pub capacity_source: Option<crate::capacity::CapacitySource>,
+            #[serde(rename = "Drives")]
+            pub drives: Vec<crate::odata_v4::IdRef>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct EndGrpLifetime {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "DataUnitsRead")]
+            pub data_units_read: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "DataUnitsWritten")]
+            pub data_units_written: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "EnduranceEstimate")]
+            pub endurance_estimate: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ErrorInformationLogEntryCount"
+            )]
+            pub error_information_log_entry_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "HostReadCommandCount"
+            )]
+            pub host_read_command_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "HostWriteCommandCount"
+            )]
+            pub host_write_command_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MediaAndDataIntegrityErrorCount"
+            )]
+            pub media_and_data_integrity_error_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MediaUnitsWritten")]
+            pub media_units_written: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentUsed")]
+            pub percent_used: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DedicatedSpareDrives"
+            )]
+            pub dedicated_spare_drives: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DedicatedSpareDrives@odata.count"
+            )]
+            pub dedicated_spare_drives_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultClassOfService"
+            )]
+            pub default_class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "OwningStorageResource"
+            )]
+            pub owning_storage_resource: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SpareResourceSets")]
+            pub spare_resource_sets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SpareResourceSets@odata.count"
+            )]
+            pub spare_resource_sets_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct NVMeEnduranceGroupProperties {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "EndGrpLifetime")]
+            pub end_grp_lifetime: Option<crate::storage_pool::v1_8_0::EndGrpLifetime>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "PredictedMediaLifeLeftPercent"
+            )]
+            pub predicted_media_life_left_percent: Option<f64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct NVMeProperties {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NVMePoolType")]
+            pub nvme_pool_type: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct NVMeSetProperties {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "EnduranceGroupIdentifier"
+            )]
+            pub endurance_group_identifier: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "OptimalWriteSizeBytes"
+            )]
+            pub optimal_write_size_bytes: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "Random4kReadTypicalNanoSeconds"
+            )]
+            pub random4k_read_typical_nano_seconds: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SetIdentifier")]
+            pub set_identifier: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UnallocatedNVMNamespaceCapacityBytes"
+            )]
+            pub unallocated_nvm_namespace_capacity_bytes: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct RemoveDrives {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct RemoveDrivesRequestBody {
+            #[serde(rename = "Drives")]
+            pub drives: Vec<crate::odata_v4::IdRef>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetCompressionState {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetCompressionStateRequestBody {
+            #[serde(rename = "Enable")]
+            pub enable: bool,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetDeduplicationState {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetDeduplicationStateRequestBody {
+            #[serde(rename = "Enable")]
+            pub enable: bool,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetEncryptionState {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetEncryptionStateRequestBody {
+            #[serde(rename = "Enable")]
+            pub enable: bool,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct StoragePool {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::storage_pool::v1_8_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedPools")]
+            pub allocated_pools: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedVolumes")]
+            pub allocated_volumes: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeBytes")]
+            pub block_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Capacity")]
+            pub capacity: Option<crate::capacity::v1_0_0::Capacity>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CapacitySources")]
+            pub capacity_sources: Option<Vec<crate::capacity::CapacitySource>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "CapacitySources@odata.count"
+            )]
+            pub capacity_sources_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClassesOfService")]
+            pub classes_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Compressed")]
+            pub compressed: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CompressionEnabled")]
+            pub compression_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Deduplicated")]
+            pub deduplicated: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DeduplicationEnabled"
+            )]
+            pub deduplication_enabled: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultClassOfService"
+            )]
+            pub default_class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultCompressionBehavior"
+            )]
+            pub default_compression_behavior: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultDeduplicationBehavior"
+            )]
+            pub default_deduplication_behavior: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultEncryptionBehavior"
+            )]
+            pub default_encryption_behavior: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Encrypted")]
+            pub encrypted: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionEnabled")]
+            pub encryption_enabled: Option<bool>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
+            pub io_statistics: Option<crate::io_statistics::v1_0_1::IOStatistics>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::storage_pool::v1_8_0::Links>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LowSpaceWarningThresholdPercents"
+            )]
+            pub low_space_warning_threshold_percents: Option<Vec<i64>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MaxBlockSizeBytes")]
+            pub max_block_size_bytes: Option<i64>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "NVMeEnduranceGroupProperties"
+            )]
+            pub nvme_endurance_group_properties:
+                Option<crate::storage_pool::v1_8_0::NVMeEnduranceGroupProperties>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeProperties")]
+            pub nvme_properties: Option<crate::storage_pool::v1_8_0::NVMeProperties>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeSetProperties")]
+            pub nvme_set_properties: Option<crate::storage_pool::v1_8_0::NVMeSetProperties>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PoolType")]
+            pub pool_type: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoverableCapacitySourceCount"
+            )]
+            pub recoverable_capacity_source_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RemainingCapacityPercent"
+            )]
+            pub remaining_capacity_percent: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicationEnabled")]
+            pub replication_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+            pub status: Option<crate::resource::Status>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedPoolTypes")]
+            pub supported_pool_types: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportedProvisioningPolicies"
+            )]
+            pub supported_provisioning_policies: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
+            pub supported_raid_types: Option<Vec<String>>,
+        }
+    }
+}
+pub mod storage_pool_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct StoragePoolCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
 pub mod storage_replica_info {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -31103,6 +33672,15 @@ pub mod storage_replica_info {
         Local,
         #[serde(rename = "Remote")]
         Remote,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ReplicaInfo {
+        StorageReplicaInfoV1N0N2ReplicaInfo(crate::storage_replica_info::v1_0_2::ReplicaInfo),
+        StorageReplicaInfoV1N1N2ReplicaInfo(crate::storage_replica_info::v1_1_2::ReplicaInfo),
+        StorageReplicaInfoV1N2N0ReplicaInfo(crate::storage_replica_info::v1_2_0::ReplicaInfo),
+        StorageReplicaInfoV1N3N0ReplicaInfo(crate::storage_replica_info::v1_3_0::ReplicaInfo),
+        StorageReplicaInfoV1N4N0ReplicaInfo(crate::storage_replica_info::v1_4_0::ReplicaInfo),
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ReplicaType {
@@ -31127,6 +33705,955 @@ pub mod storage_replica_info {
         Asynchronous,
         #[serde(rename = "Synchronous")]
         Synchronous,
+    }
+    pub mod v1_0_2 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyState {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Inconsistent")]
+            Inconsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyStatus {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Disabled")]
+            Disabled,
+            #[serde(rename = "InError")]
+            InError,
+            #[serde(rename = "InProgress")]
+            InProgress,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyType {
+            #[default]
+            #[serde(rename = "SequentiallyConsistent")]
+            SequentiallyConsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReplicaInfo {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
+            pub consistency_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
+            pub consistency_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
+            pub consistency_status: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
+            pub consistency_type: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "FailedCopyStopsHostIO"
+            )]
+            pub failed_copy_stops_host_io: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentSynced")]
+            pub percent_synced: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
+            pub replica: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
+            pub replica_priority: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaProgressStatus"
+            )]
+            pub replica_progress_status: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaReadOnlyAccess"
+            )]
+            pub replica_read_only_access: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaRecoveryMode"
+            )]
+            pub replica_recovery_mode: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
+            pub replica_role: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
+            pub replica_skew_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
+            pub replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
+            pub replica_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RequestedReplicaState"
+            )]
+            pub requested_replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
+            pub sync_maintained: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UndiscoveredElement"
+            )]
+            pub undiscovered_element: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
+            pub when_activated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
+            pub when_deactivated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenEstablished")]
+            pub when_established: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSuspended")]
+            pub when_suspended: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynced")]
+            pub when_synced: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynchronized")]
+            pub when_synchronized: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaPriority {
+            #[default]
+            #[serde(rename = "High")]
+            High,
+            #[serde(rename = "Low")]
+            Low,
+            #[serde(rename = "Same")]
+            Same,
+            #[serde(rename = "Urgent")]
+            Urgent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaProgressStatus {
+            #[default]
+            #[serde(rename = "Aborting")]
+            Aborting,
+            #[serde(rename = "Completed")]
+            Completed,
+            #[serde(rename = "Detaching")]
+            Detaching,
+            #[serde(rename = "Dormant")]
+            Dormant,
+            #[serde(rename = "FailingBack")]
+            FailingBack,
+            #[serde(rename = "FailingOver")]
+            FailingOver,
+            #[serde(rename = "Fracturing")]
+            Fracturing,
+            #[serde(rename = "Initializing")]
+            Initializing,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Pending")]
+            Pending,
+            #[serde(rename = "Preparing")]
+            Preparing,
+            #[serde(rename = "RequiresActivate")]
+            RequiresActivate,
+            #[serde(rename = "RequiresDetach")]
+            RequiresDetach,
+            #[serde(rename = "RequiresFracture")]
+            RequiresFracture,
+            #[serde(rename = "RequiresResume")]
+            RequiresResume,
+            #[serde(rename = "RequiresResync")]
+            RequiresResync,
+            #[serde(rename = "RequiresSplit")]
+            RequiresSplit,
+            #[serde(rename = "Restoring")]
+            Restoring,
+            #[serde(rename = "Resyncing")]
+            Resyncing,
+            #[serde(rename = "Splitting")]
+            Splitting,
+            #[serde(rename = "Suspending")]
+            Suspending,
+            #[serde(rename = "Synchronizing")]
+            Synchronizing,
+            #[serde(rename = "Terminating")]
+            Terminating,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaReadOnlyAccess {
+            #[default]
+            #[serde(rename = "Both")]
+            Both,
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRecoveryMode {
+            #[default]
+            #[serde(rename = "Automatic")]
+            Automatic,
+            #[serde(rename = "Manual")]
+            Manual,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRole {
+            #[default]
+            #[serde(rename = "Source")]
+            Source,
+            #[serde(rename = "Target")]
+            Target,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaState {
+            #[default]
+            #[serde(rename = "Aborted")]
+            Aborted,
+            #[serde(rename = "Broken")]
+            Broken,
+            #[serde(rename = "Failedover")]
+            Failedover,
+            #[serde(rename = "Fractured")]
+            Fractured,
+            #[serde(rename = "Inactive")]
+            Inactive,
+            #[serde(rename = "Initialized")]
+            Initialized,
+            #[serde(rename = "Invalid")]
+            Invalid,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Partitioned")]
+            Partitioned,
+            #[serde(rename = "Prepared")]
+            Prepared,
+            #[serde(rename = "Restored")]
+            Restored,
+            #[serde(rename = "Skewed")]
+            Skewed,
+            #[serde(rename = "Split")]
+            Split,
+            #[serde(rename = "Suspended")]
+            Suspended,
+            #[serde(rename = "Synchronized")]
+            Synchronized,
+            #[serde(rename = "Unsynchronized")]
+            Unsynchronized,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum UndiscoveredElement {
+            #[default]
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
+    }
+    pub mod v1_1_2 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyState {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Inconsistent")]
+            Inconsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyStatus {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Disabled")]
+            Disabled,
+            #[serde(rename = "InError")]
+            InError,
+            #[serde(rename = "InProgress")]
+            InProgress,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyType {
+            #[default]
+            #[serde(rename = "SequentiallyConsistent")]
+            SequentiallyConsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReplicaInfo {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
+            pub consistency_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
+            pub consistency_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
+            pub consistency_status: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
+            pub consistency_type: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataProtectionLineOfService"
+            )]
+            pub data_protection_line_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "FailedCopyStopsHostIO"
+            )]
+            pub failed_copy_stops_host_io: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentSynced")]
+            pub percent_synced: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
+            pub replica: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
+            pub replica_priority: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaProgressStatus"
+            )]
+            pub replica_progress_status: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaReadOnlyAccess"
+            )]
+            pub replica_read_only_access: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaRecoveryMode"
+            )]
+            pub replica_recovery_mode: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
+            pub replica_role: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
+            pub replica_skew_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
+            pub replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
+            pub replica_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RequestedReplicaState"
+            )]
+            pub requested_replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
+            pub sync_maintained: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UndiscoveredElement"
+            )]
+            pub undiscovered_element: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
+            pub when_activated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
+            pub when_deactivated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenEstablished")]
+            pub when_established: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSuspended")]
+            pub when_suspended: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynced")]
+            pub when_synced: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynchronized")]
+            pub when_synchronized: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaPriority {
+            #[default]
+            #[serde(rename = "High")]
+            High,
+            #[serde(rename = "Low")]
+            Low,
+            #[serde(rename = "Same")]
+            Same,
+            #[serde(rename = "Urgent")]
+            Urgent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaProgressStatus {
+            #[default]
+            #[serde(rename = "Aborting")]
+            Aborting,
+            #[serde(rename = "Completed")]
+            Completed,
+            #[serde(rename = "Detaching")]
+            Detaching,
+            #[serde(rename = "Dormant")]
+            Dormant,
+            #[serde(rename = "FailingBack")]
+            FailingBack,
+            #[serde(rename = "FailingOver")]
+            FailingOver,
+            #[serde(rename = "Fracturing")]
+            Fracturing,
+            #[serde(rename = "Initializing")]
+            Initializing,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Pending")]
+            Pending,
+            #[serde(rename = "Preparing")]
+            Preparing,
+            #[serde(rename = "RequiresActivate")]
+            RequiresActivate,
+            #[serde(rename = "RequiresDetach")]
+            RequiresDetach,
+            #[serde(rename = "RequiresFracture")]
+            RequiresFracture,
+            #[serde(rename = "RequiresResume")]
+            RequiresResume,
+            #[serde(rename = "RequiresResync")]
+            RequiresResync,
+            #[serde(rename = "RequiresSplit")]
+            RequiresSplit,
+            #[serde(rename = "Restoring")]
+            Restoring,
+            #[serde(rename = "Resyncing")]
+            Resyncing,
+            #[serde(rename = "Splitting")]
+            Splitting,
+            #[serde(rename = "Suspending")]
+            Suspending,
+            #[serde(rename = "Synchronizing")]
+            Synchronizing,
+            #[serde(rename = "Terminating")]
+            Terminating,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaReadOnlyAccess {
+            #[default]
+            #[serde(rename = "Both")]
+            Both,
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRecoveryMode {
+            #[default]
+            #[serde(rename = "Automatic")]
+            Automatic,
+            #[serde(rename = "Manual")]
+            Manual,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRole {
+            #[default]
+            #[serde(rename = "Source")]
+            Source,
+            #[serde(rename = "Target")]
+            Target,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaState {
+            #[default]
+            #[serde(rename = "Aborted")]
+            Aborted,
+            #[serde(rename = "Broken")]
+            Broken,
+            #[serde(rename = "Failedover")]
+            Failedover,
+            #[serde(rename = "Fractured")]
+            Fractured,
+            #[serde(rename = "Inactive")]
+            Inactive,
+            #[serde(rename = "Initialized")]
+            Initialized,
+            #[serde(rename = "Invalid")]
+            Invalid,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Partitioned")]
+            Partitioned,
+            #[serde(rename = "Prepared")]
+            Prepared,
+            #[serde(rename = "Restored")]
+            Restored,
+            #[serde(rename = "Skewed")]
+            Skewed,
+            #[serde(rename = "Split")]
+            Split,
+            #[serde(rename = "Suspended")]
+            Suspended,
+            #[serde(rename = "Synchronized")]
+            Synchronized,
+            #[serde(rename = "Unsynchronized")]
+            Unsynchronized,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum UndiscoveredElement {
+            #[default]
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
+    }
+    pub mod v1_2_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyState {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Inconsistent")]
+            Inconsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyStatus {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Disabled")]
+            Disabled,
+            #[serde(rename = "InError")]
+            InError,
+            #[serde(rename = "InProgress")]
+            InProgress,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyType {
+            #[default]
+            #[serde(rename = "SequentiallyConsistent")]
+            SequentiallyConsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReplicaInfo {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
+            pub consistency_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
+            pub consistency_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
+            pub consistency_status: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
+            pub consistency_type: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataProtectionLineOfService"
+            )]
+            pub data_protection_line_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "FailedCopyStopsHostIO"
+            )]
+            pub failed_copy_stops_host_io: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentSynced")]
+            pub percent_synced: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
+            pub replica: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
+            pub replica_priority: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaProgressStatus"
+            )]
+            pub replica_progress_status: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaReadOnlyAccess"
+            )]
+            pub replica_read_only_access: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaRecoveryMode"
+            )]
+            pub replica_recovery_mode: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
+            pub replica_role: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
+            pub replica_skew_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
+            pub replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
+            pub replica_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RequestedReplicaState"
+            )]
+            pub requested_replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SourceReplica")]
+            pub source_replica: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
+            pub sync_maintained: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UndiscoveredElement"
+            )]
+            pub undiscovered_element: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
+            pub when_activated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
+            pub when_deactivated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenEstablished")]
+            pub when_established: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSuspended")]
+            pub when_suspended: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynced")]
+            pub when_synced: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynchronized")]
+            pub when_synchronized: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaPriority {
+            #[default]
+            #[serde(rename = "High")]
+            High,
+            #[serde(rename = "Low")]
+            Low,
+            #[serde(rename = "Same")]
+            Same,
+            #[serde(rename = "Urgent")]
+            Urgent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaProgressStatus {
+            #[default]
+            #[serde(rename = "Aborting")]
+            Aborting,
+            #[serde(rename = "Completed")]
+            Completed,
+            #[serde(rename = "Detaching")]
+            Detaching,
+            #[serde(rename = "Dormant")]
+            Dormant,
+            #[serde(rename = "FailingBack")]
+            FailingBack,
+            #[serde(rename = "FailingOver")]
+            FailingOver,
+            #[serde(rename = "Fracturing")]
+            Fracturing,
+            #[serde(rename = "Initializing")]
+            Initializing,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Pending")]
+            Pending,
+            #[serde(rename = "Preparing")]
+            Preparing,
+            #[serde(rename = "RequiresActivate")]
+            RequiresActivate,
+            #[serde(rename = "RequiresDetach")]
+            RequiresDetach,
+            #[serde(rename = "RequiresFracture")]
+            RequiresFracture,
+            #[serde(rename = "RequiresResume")]
+            RequiresResume,
+            #[serde(rename = "RequiresResync")]
+            RequiresResync,
+            #[serde(rename = "RequiresSplit")]
+            RequiresSplit,
+            #[serde(rename = "Restoring")]
+            Restoring,
+            #[serde(rename = "Resyncing")]
+            Resyncing,
+            #[serde(rename = "Splitting")]
+            Splitting,
+            #[serde(rename = "Suspending")]
+            Suspending,
+            #[serde(rename = "Synchronizing")]
+            Synchronizing,
+            #[serde(rename = "Terminating")]
+            Terminating,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaReadOnlyAccess {
+            #[default]
+            #[serde(rename = "Both")]
+            Both,
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRecoveryMode {
+            #[default]
+            #[serde(rename = "Automatic")]
+            Automatic,
+            #[serde(rename = "Manual")]
+            Manual,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRole {
+            #[default]
+            #[serde(rename = "Source")]
+            Source,
+            #[serde(rename = "Target")]
+            Target,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaState {
+            #[default]
+            #[serde(rename = "Aborted")]
+            Aborted,
+            #[serde(rename = "Broken")]
+            Broken,
+            #[serde(rename = "Failedover")]
+            Failedover,
+            #[serde(rename = "Fractured")]
+            Fractured,
+            #[serde(rename = "Inactive")]
+            Inactive,
+            #[serde(rename = "Initialized")]
+            Initialized,
+            #[serde(rename = "Invalid")]
+            Invalid,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Partitioned")]
+            Partitioned,
+            #[serde(rename = "Prepared")]
+            Prepared,
+            #[serde(rename = "Restored")]
+            Restored,
+            #[serde(rename = "Skewed")]
+            Skewed,
+            #[serde(rename = "Split")]
+            Split,
+            #[serde(rename = "Suspended")]
+            Suspended,
+            #[serde(rename = "Synchronized")]
+            Synchronized,
+            #[serde(rename = "Unsynchronized")]
+            Unsynchronized,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum UndiscoveredElement {
+            #[default]
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
+    }
+    pub mod v1_3_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyState {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Inconsistent")]
+            Inconsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyStatus {
+            #[default]
+            #[serde(rename = "Consistent")]
+            Consistent,
+            #[serde(rename = "Disabled")]
+            Disabled,
+            #[serde(rename = "InError")]
+            InError,
+            #[serde(rename = "InProgress")]
+            InProgress,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ConsistencyType {
+            #[default]
+            #[serde(rename = "SequentiallyConsistent")]
+            SequentiallyConsistent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReplicaInfo {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
+            pub consistency_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
+            pub consistency_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
+            pub consistency_status: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
+            pub consistency_type: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataProtectionLineOfService"
+            )]
+            pub data_protection_line_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "FailedCopyStopsHostIO"
+            )]
+            pub failed_copy_stops_host_io: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentSynced")]
+            pub percent_synced: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
+            pub replica: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaFaultDomain")]
+            pub replica_fault_domain: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
+            pub replica_priority: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaProgressStatus"
+            )]
+            pub replica_progress_status: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaReadOnlyAccess"
+            )]
+            pub replica_read_only_access: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaRecoveryMode"
+            )]
+            pub replica_recovery_mode: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
+            pub replica_role: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
+            pub replica_skew_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
+            pub replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
+            pub replica_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RequestedReplicaState"
+            )]
+            pub requested_replica_state: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SourceReplica")]
+            pub source_replica: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
+            pub sync_maintained: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UndiscoveredElement"
+            )]
+            pub undiscovered_element: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
+            pub when_activated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
+            pub when_deactivated: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenEstablished")]
+            pub when_established: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSuspended")]
+            pub when_suspended: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynced")]
+            pub when_synced: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WhenSynchronized")]
+            pub when_synchronized: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaPriority {
+            #[default]
+            #[serde(rename = "High")]
+            High,
+            #[serde(rename = "Low")]
+            Low,
+            #[serde(rename = "Same")]
+            Same,
+            #[serde(rename = "Urgent")]
+            Urgent,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaProgressStatus {
+            #[default]
+            #[serde(rename = "Aborting")]
+            Aborting,
+            #[serde(rename = "Completed")]
+            Completed,
+            #[serde(rename = "Detaching")]
+            Detaching,
+            #[serde(rename = "Dormant")]
+            Dormant,
+            #[serde(rename = "FailingBack")]
+            FailingBack,
+            #[serde(rename = "FailingOver")]
+            FailingOver,
+            #[serde(rename = "Fracturing")]
+            Fracturing,
+            #[serde(rename = "Initializing")]
+            Initializing,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Pending")]
+            Pending,
+            #[serde(rename = "Preparing")]
+            Preparing,
+            #[serde(rename = "RequiresActivate")]
+            RequiresActivate,
+            #[serde(rename = "RequiresDetach")]
+            RequiresDetach,
+            #[serde(rename = "RequiresFracture")]
+            RequiresFracture,
+            #[serde(rename = "RequiresResume")]
+            RequiresResume,
+            #[serde(rename = "RequiresResync")]
+            RequiresResync,
+            #[serde(rename = "RequiresSplit")]
+            RequiresSplit,
+            #[serde(rename = "Restoring")]
+            Restoring,
+            #[serde(rename = "Resyncing")]
+            Resyncing,
+            #[serde(rename = "Splitting")]
+            Splitting,
+            #[serde(rename = "Suspending")]
+            Suspending,
+            #[serde(rename = "Synchronizing")]
+            Synchronizing,
+            #[serde(rename = "Terminating")]
+            Terminating,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaReadOnlyAccess {
+            #[default]
+            #[serde(rename = "Both")]
+            Both,
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRecoveryMode {
+            #[default]
+            #[serde(rename = "Automatic")]
+            Automatic,
+            #[serde(rename = "Manual")]
+            Manual,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaRole {
+            #[default]
+            #[serde(rename = "Source")]
+            Source,
+            #[serde(rename = "Target")]
+            Target,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum ReplicaState {
+            #[default]
+            #[serde(rename = "Aborted")]
+            Aborted,
+            #[serde(rename = "Broken")]
+            Broken,
+            #[serde(rename = "Failedover")]
+            Failedover,
+            #[serde(rename = "Fractured")]
+            Fractured,
+            #[serde(rename = "Inactive")]
+            Inactive,
+            #[serde(rename = "Initialized")]
+            Initialized,
+            #[serde(rename = "Invalid")]
+            Invalid,
+            #[serde(rename = "Mixed")]
+            Mixed,
+            #[serde(rename = "Partitioned")]
+            Partitioned,
+            #[serde(rename = "Prepared")]
+            Prepared,
+            #[serde(rename = "Restored")]
+            Restored,
+            #[serde(rename = "Skewed")]
+            Skewed,
+            #[serde(rename = "Split")]
+            Split,
+            #[serde(rename = "Suspended")]
+            Suspended,
+            #[serde(rename = "Synchronized")]
+            Synchronized,
+            #[serde(rename = "Unsynchronized")]
+            Unsynchronized,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub enum UndiscoveredElement {
+            #[default]
+            #[serde(rename = "ReplicaElement")]
+            ReplicaElement,
+            #[serde(rename = "SourceElement")]
+            SourceElement,
+        }
     }
     pub mod v1_4_0 {
         use serde::{Deserialize, Serialize};
@@ -31373,6 +34900,248 @@ pub mod storage_replica_info {
             #[serde(rename = "SourceElement")]
             SourceElement,
         }
+    }
+}
+pub mod storage_service {
+    pub mod v1_6_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::storage_service::v1_6_0::OemActions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#StorageService.SetEncryptionKey"
+            )]
+            pub storage_service_set_encryption_key:
+                Option<crate::storage_service::v1_6_0::SetEncryptionKey>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataProtectionLoSCapabilities"
+            )]
+            pub data_protection_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataSecurityLoSCapabilities"
+            )]
+            pub data_security_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataStorageLoSCapabilities"
+            )]
+            pub data_storage_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultClassOfService"
+            )]
+            pub default_class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "HostingSystem")]
+            pub hosting_system: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOConnectivityLoSCapabilities"
+            )]
+            pub io_connectivity_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOPerformanceLoSCapabilities"
+            )]
+            pub io_performance_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetEncryptionKey {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SetEncryptionKeyRequestBody {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
+            pub encryption_key: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct StorageService {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::storage_service::v1_6_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClassesOfService")]
+            pub classes_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ClientEndpointGroups"
+            )]
+            pub client_endpoint_groups: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Connections")]
+            pub connections: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyGroups")]
+            pub consistency_groups: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataProtectionLoSCapabilities"
+            )]
+            pub data_protection_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataSecurityLoSCapabilities"
+            )]
+            pub data_security_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DataStorageLoSCapabilities"
+            )]
+            pub data_storage_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DefaultClassOfService"
+            )]
+            pub default_class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Drives")]
+            pub drives: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "EndpointGroups")]
+            pub endpoint_groups: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Endpoints")]
+            pub endpoints: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "FileSystems")]
+            pub file_systems: Option<crate::odata_v4::IdRef>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]
+            pub identifier: Option<crate::resource::Identifier>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOConnectivityLoSCapabilities"
+            )]
+            pub io_connectivity_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "IOPerformanceLoSCapabilities"
+            )]
+            pub io_performance_los_capabilities: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
+            pub io_statistics: Option<crate::io_statistics::IOStatistics>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "LinesOfService")]
+            pub lines_of_service: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LinesOfService@odata.count"
+            )]
+            pub lines_of_service_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::storage_service::v1_6_0::Links>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
+            pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "Redundancy@odata.count"
+            )]
+            pub redundancy_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ServerEndpointGroups"
+            )]
+            pub server_endpoint_groups: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SpareResourceSets")]
+            pub spare_resource_sets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SpareResourceSets@odata.count"
+            )]
+            pub spare_resource_sets_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+            pub status: Option<crate::resource::Status>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StorageGroups")]
+            pub storage_groups: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StoragePools")]
+            pub storage_pools: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StorageSubsystems")]
+            pub storage_subsystems: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "StorageSubsystems@odata.count"
+            )]
+            pub storage_subsystems_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Volumes")]
+            pub volumes: Option<crate::odata_v4::IdRef>,
+        }
+    }
+}
+pub mod storage_service_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct StorageServiceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod storage_system_collection {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct StorageSystemCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Members")]
+        pub members: Vec<crate::odata_v4::IdRef>,
+        #[serde(rename = "Members@odata.count")]
+        pub members_odata_count: i64,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Members@odata.nextLink"
+        )]
+        pub members_odata_next_link: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
     }
 }
 pub mod switch {
@@ -33556,6 +37325,8 @@ pub mod volume {
         #[default]
         #[serde(rename = "ChangeRAIDType")]
         ChangeRAIDType,
+        #[serde(rename = "ChangeStripSize")]
+        ChangeStripSize,
         #[serde(rename = "CheckConsistency")]
         CheckConsistency,
         #[serde(rename = "Compress")]
@@ -33692,6 +37463,533 @@ pub mod volume {
         Oem,
         #[serde(rename = "Off")]
         Off,
+    }
+    pub mod v1_10_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::volume::v1_10_0::OemActions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.AssignReplicaTarget"
+            )]
+            pub volume_assign_replica_target: Option<crate::volume::v1_10_0::AssignReplicaTarget>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.ChangeRAIDLayout"
+            )]
+            pub volume_change_raid_layout: Option<crate::volume::v1_10_0::ChangeRAIDLayout>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.CheckConsistency"
+            )]
+            pub volume_check_consistency: Option<crate::volume::v1_10_0::CheckConsistency>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.CreateReplicaTarget"
+            )]
+            pub volume_create_replica_target: Option<crate::volume::v1_10_0::CreateReplicaTarget>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.ForceEnable"
+            )]
+            pub volume_force_enable: Option<crate::volume::v1_10_0::ForceEnable>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "#Volume.Initialize")]
+            pub volume_initialize: Option<crate::volume::v1_10_0::Initialize>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.RemoveReplicaRelationship"
+            )]
+            pub volume_remove_replica_relationship:
+                Option<crate::volume::v1_10_0::RemoveReplicaRelationship>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.ResumeReplication"
+            )]
+            pub volume_resume_replication: Option<crate::volume::v1_10_0::ResumeReplication>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.ReverseReplicationRelationship"
+            )]
+            pub volume_reverse_replication_relationship:
+                Option<crate::volume::v1_10_0::ReverseReplicationRelationship>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.SplitReplication"
+            )]
+            pub volume_split_replication: Option<crate::volume::v1_10_0::SplitReplication>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "#Volume.SuspendReplication"
+            )]
+            pub volume_suspend_replication: Option<crate::volume::v1_10_0::SuspendReplication>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct AssignReplicaTarget {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct AssignReplicaTargetRequestBody {
+            #[serde(rename = "ReplicaType")]
+            pub replica_type: String,
+            #[serde(rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: String,
+            #[serde(rename = "TargetVolume")]
+            pub target_volume: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ChangeRAIDLayout {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ChangeRAIDLayoutRequestBody {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Drives")]
+            pub drives: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MediaSpanCount")]
+            pub media_span_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RAIDType")]
+            pub raid_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StripSizeBytes")]
+            pub strip_size_bytes: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CheckConsistency {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CheckConsistencyRequestBody {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CreateReplicaTarget {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct CreateReplicaTargetRequestBody {
+            #[serde(rename = "ReplicaType")]
+            pub replica_type: String,
+            #[serde(rename = "ReplicaUpdateMode")]
+            pub replica_update_mode: String,
+            #[serde(rename = "TargetStoragePool")]
+            pub target_storage_pool: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeName")]
+            pub volume_name: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ForceEnable {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ForceEnableRequestBody {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Initialize {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct InitializeRequestBody {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeMethod")]
+            pub initialize_method: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeType")]
+            pub initialize_type: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct LBAFormat {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "LBADataSizeBytes")]
+            pub lba_data_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "LBAFormatType")]
+            pub lba_format_type: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LBAMetadataSizeBytes"
+            )]
+            pub lba_metadata_size_bytes: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RelativePerformance"
+            )]
+            pub relative_performance: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Links {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CacheDataVolumes")]
+            pub cache_data_volumes: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "CacheDataVolumes@odata.count"
+            )]
+            pub cache_data_volumes_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CacheVolumeSource")]
+            pub cache_volume_source: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClassOfService")]
+            pub class_of_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ClientEndpoints")]
+            pub client_endpoints: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ClientEndpoints@odata.count"
+            )]
+            pub client_endpoints_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyGroups")]
+            pub consistency_groups: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ConsistencyGroups@odata.count"
+            )]
+            pub consistency_groups_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Controllers")]
+            pub controllers: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "Controllers@odata.count"
+            )]
+            pub controllers_odata_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DedicatedSpareDrives"
+            )]
+            pub dedicated_spare_drives: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "DedicatedSpareDrives@odata.count"
+            )]
+            pub dedicated_spare_drives_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Drives")]
+            pub drives: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Drives@odata.count")]
+            pub drives_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "JournalingMedia")]
+            pub journaling_media: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "OwningStorageResource"
+            )]
+            pub owning_storage_resource: Option<crate::odata_v4::IdRef>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "OwningStorageService"
+            )]
+            pub owning_storage_service: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ServerEndpoints")]
+            pub server_endpoints: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ServerEndpoints@odata.count"
+            )]
+            pub server_endpoints_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SpareResourceSets")]
+            pub spare_resource_sets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SpareResourceSets@odata.count"
+            )]
+            pub spare_resource_sets_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StorageGroups")]
+            pub storage_groups: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "StorageGroups@odata.count"
+            )]
+            pub storage_groups_odata_count: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct NVMeNamespaceProperties {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "FormattedLBASize")]
+            pub formatted_lba_size: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IsShareable")]
+            pub is_shareable: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "LBAFormat")]
+            pub lba_format: Option<crate::volume::v1_10_0::LBAFormat>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "LBAFormats")]
+            pub lba_formats: Option<Vec<crate::volume::v1_10_0::LBAFormat>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LBAFormatsSupported"
+            )]
+            pub lba_formats_supported: Option<Vec<String>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "MetadataTransferredAtEndOfDataLBA"
+            )]
+            pub metadata_transferred_at_end_of_data_lba: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NamespaceFeatures")]
+            pub namespace_features: Option<crate::volume::v1_10_0::NamespaceFeatures>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NamespaceId")]
+            pub namespace_id: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NamespaceType")]
+            pub namespace_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NumberLBAFormats")]
+            pub number_lba_formats: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeVersion")]
+            pub nvme_version: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
+            pub r#type: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct NamespaceFeatures {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportsAtomicTransactionSize"
+            )]
+            pub supports_atomic_transaction_size: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportsDeallocatedOrUnwrittenLBError"
+            )]
+            pub supports_deallocated_or_unwritten_lb_error: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportsIOPerformanceHints"
+            )]
+            pub supports_io_performance_hints: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "SupportsNGUIDReuse")]
+            pub supports_nguid_reuse: Option<bool>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "SupportsThinProvisioning"
+            )]
+            pub supports_thin_provisioning: Option<bool>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Operation {
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "AssociatedFeaturesRegistry"
+            )]
+            pub associated_features_registry: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Operation")]
+            pub operation: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "OperationName")]
+            pub operation_name: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "PercentageComplete")]
+            pub percentage_complete: Option<i64>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct RemoveReplicaRelationship {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct RemoveReplicaRelationshipRequestBody {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "DeleteTargetVolume")]
+            pub delete_target_volume: Option<bool>,
+            #[serde(rename = "TargetVolume")]
+            pub target_volume: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ResumeReplication {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ResumeReplicationRequestBody {
+            #[serde(rename = "TargetVolume")]
+            pub target_volume: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReverseReplicationRelationship {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct ReverseReplicationRelationshipRequestBody {
+            #[serde(rename = "TargetVolume")]
+            pub target_volume: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SplitReplication {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SplitReplicationRequestBody {
+            #[serde(rename = "TargetVolume")]
+            pub target_volume: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SuspendReplication {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+            pub target: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+            pub title: Option<String>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct SuspendReplicationRequestBody {
+            #[serde(rename = "TargetVolume")]
+            pub target_volume: String,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Volume {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
+            pub access_capabilities: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::volume::v1_10_0::Actions>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedPools")]
+            pub allocated_pools: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeBytes")]
+            pub block_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Capacity")]
+            pub capacity: Option<crate::capacity::v1_0_0::Capacity>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CapacityBytes")]
+            pub capacity_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "CapacitySources")]
+            pub capacity_sources: Option<Vec<crate::capacity::CapacitySource>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "CapacitySources@odata.count"
+            )]
+            pub capacity_sources_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Compressed")]
+            pub compressed: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Connections")]
+            pub connections: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "Connections@odata.count"
+            )]
+            pub connections_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Deduplicated")]
+            pub deduplicated: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "DisplayName")]
+            pub display_name: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Encrypted")]
+            pub encrypted: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionTypes")]
+            pub encryption_types: Option<Vec<String>>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
+            pub identifiers: Option<Vec<crate::resource::Identifier>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeMethod")]
+            pub initialize_method: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOPerfModeEnabled")]
+            pub io_perf_mode_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
+            pub io_statistics: Option<crate::io_statistics::v1_0_1::IOStatistics>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "IsBootCapable")]
+            pub is_boot_capable: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+            pub links: Option<crate::volume::v1_10_0::Links>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "LogicalUnitNumber")]
+            pub logical_unit_number: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "LowSpaceWarningThresholdPercents"
+            )]
+            pub low_space_warning_threshold_percents: Option<Vec<i64>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
+            pub manufacturer: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MaxBlockSizeBytes")]
+            pub max_block_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "MediaSpanCount")]
+            pub media_span_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
+            pub metrics: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
+            pub model: Option<String>,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "NVMeNamespaceProperties"
+            )]
+            pub nvme_namespace_properties: Option<crate::volume::v1_10_0::NVMeNamespaceProperties>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Operations")]
+            pub operations: Option<Vec<crate::volume::v1_10_0::Operation>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "OptimumIOSizeBytes")]
+            pub optimum_io_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ProvisioningPolicy")]
+            pub provisioning_policy: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RAIDType")]
+            pub raid_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReadCachePolicy")]
+            pub read_cache_policy: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RecoverableCapacitySourceCount"
+            )]
+            pub recoverable_capacity_source_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RemainingCapacityPercent"
+            )]
+            pub remaining_capacity_percent: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "RemoteReplicaTargets"
+            )]
+            pub remote_replica_targets: Option<Vec<String>>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaInfo")]
+            pub replica_info: Option<crate::storage_replica_info::v1_4_0::ReplicaInfo>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaTargets")]
+            pub replica_targets: Option<Vec<crate::odata_v4::IdRef>>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ReplicaTargets@odata.count"
+            )]
+            pub replica_targets_odata_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicationEnabled")]
+            pub replication_enabled: Option<bool>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+            pub status: Option<crate::resource::Status>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StorageGroups")]
+            pub storage_groups: Option<crate::odata_v4::IdRef>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StripSizeBytes")]
+            pub strip_size_bytes: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeType")]
+            pub volume_type: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeUsage")]
+            pub volume_usage: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCachePolicy")]
+            pub write_cache_policy: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCacheState")]
+            pub write_cache_state: Option<String>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "WriteHoleProtectionPolicy"
+            )]
+            pub write_hole_protection_policy: Option<String>,
+        }
     }
     pub mod v1_9_0 {
         use serde::{Deserialize, Serialize};
@@ -34248,6 +38546,68 @@ pub mod volume_collection {
         pub odata_type: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
+    }
+}
+pub mod volume_metrics {
+    pub mod v1_0_0 {
+        use serde::{Deserialize, Serialize};
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct Actions {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::volume_metrics::v1_0_0::OemActions>,
+        }
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct OemActions {}
+        #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+        pub struct VolumeMetrics {
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+            pub actions: Option<crate::volume_metrics::v1_0_0::Actions>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "ConsistencyCheckErrorCount"
+            )]
+            pub consistency_check_error_count: Option<f64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "CorrectableIOReadErrorCount"
+            )]
+            pub correctable_io_read_error_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "CorrectableIOWriteErrorCount"
+            )]
+            pub correctable_io_write_error_count: Option<i64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+            pub description: Option<String>,
+            #[serde(rename = "Id")]
+            pub id: String,
+            #[serde(rename = "Name")]
+            pub name: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+            pub odata_context: Option<String>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+            pub odata_etag: Option<String>,
+            #[serde(rename = "@odata.id")]
+            pub odata_id: String,
+            #[serde(rename = "@odata.type")]
+            pub odata_type: String,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+            pub oem: Option<crate::resource::Oem>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "RebuildErrorCount")]
+            pub rebuild_error_count: Option<f64>,
+            #[serde(skip_serializing_if = "Option::is_none", rename = "StateChangeCount")]
+            pub state_change_count: Option<f64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UncorrectableIOReadErrorCount"
+            )]
+            pub uncorrectable_io_read_error_count: Option<i64>,
+            #[serde(
+                skip_serializing_if = "Option::is_none",
+                rename = "UncorrectableIOWriteErrorCount"
+            )]
+            pub uncorrectable_io_write_error_count: Option<i64>,
+        }
     }
 }
 pub mod zone {
