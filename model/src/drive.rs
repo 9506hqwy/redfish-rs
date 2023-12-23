@@ -38,11 +38,11 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DriveFormFactor")]
-        pub drive_form_factor: Option<String>,
+        pub drive_form_factor: Option<crate::drive::v1_17_0::FormFactor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionAbility")]
-        pub encryption_ability: Option<String>,
+        pub encryption_ability: Option<crate::drive::v1_17_0::EncryptionAbility>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionStatus")]
-        pub encryption_status: Option<String>,
+        pub encryption_status: Option<crate::drive::v1_17_0::EncryptionStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FailurePredicted")]
@@ -53,15 +53,15 @@ pub mod v1_17_0 {
             skip_serializing_if = "Option::is_none",
             rename = "HotspareReplacementMode"
         )]
-        pub hotspare_replacement_mode: Option<String>,
+        pub hotspare_replacement_mode: Option<crate::drive::v1_17_0::HotspareReplacementModeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotspareType")]
-        pub hotspare_type: Option<String>,
+        pub hotspare_type: Option<crate::drive::v1_17_0::HotspareType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<String>,
+        pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::drive::v1_17_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -76,7 +76,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::software_inventory::MeasurementBlock>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaType")]
-        pub media_type: Option<String>,
+        pub media_type: Option<crate::drive::v1_17_0::MediaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
         pub metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
@@ -109,7 +109,7 @@ pub mod v1_17_0 {
         )]
         pub predicted_media_life_left_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Protocol")]
-        pub protocol: Option<String>,
+        pub protocol: Option<crate::protocol::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadyToRemove")]
         pub ready_to_remove: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Revision")]
@@ -124,13 +124,13 @@ pub mod v1_17_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SlotCapableProtocols"
         )]
-        pub slot_capable_protocols: Option<Vec<String>>,
+        pub slot_capable_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotFormFactor")]
-        pub slot_form_factor: Option<String>,
+        pub slot_form_factor: Option<crate::drive::v1_17_0::FormFactor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StatusIndicator")]
-        pub status_indicator: Option<String>,
+        pub status_indicator: Option<crate::drive::v1_17_0::StatusIndicator>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCacheEnabled")]
         pub write_cache_enabled: Option<bool>,
     }
@@ -290,7 +290,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssociatedTask")]
         pub associated_task: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Operation")]
-        pub operation: Option<String>,
+        pub operation: Option<crate::swordfish::volume::OperationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperationName")]
         pub operation_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentageComplete")]
@@ -306,7 +306,7 @@ pub mod v1_17_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SecureErase {
@@ -320,7 +320,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverwritePasses")]
         pub overwrite_passes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SanitizationType")]
-        pub sanitization_type: Option<String>,
+        pub sanitization_type: Option<crate::drive::v1_17_0::DataSanitizationType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum StatusIndicator {

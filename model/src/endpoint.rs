@@ -12,9 +12,9 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntityPciId")]
         pub entity_pci_id: Option<crate::endpoint::v1_8_0::PciId>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntityRole")]
-        pub entity_role: Option<String>,
+        pub entity_role: Option<crate::endpoint::v1_8_0::EntityRole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntityType")]
-        pub entity_type: Option<String>,
+        pub entity_type: Option<crate::endpoint::v1_8_0::EntityType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
         pub gen_z: Option<crate::endpoint::v1_8_0::GenZ>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
@@ -35,7 +35,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EndpointProtocol")]
-        pub endpoint_protocol: Option<String>,
+        pub endpoint_protocol: Option<crate::protocol::Protocol>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "HostReservationMemoryBytes"
@@ -148,7 +148,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Port")]
         pub port: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransportProtocol")]
-        pub transport_protocol: Option<String>,
+        pub transport_protocol: Option<crate::protocol::Protocol>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {

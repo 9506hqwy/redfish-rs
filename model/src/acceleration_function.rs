@@ -6,7 +6,8 @@ pub mod v1_0_3 {
             skip_serializing_if = "Option::is_none",
             rename = "AccelerationFunctionType"
         )]
-        pub acceleration_function_type: Option<String>,
+        pub acceleration_function_type:
+            Option<crate::acceleration_function::v1_0_3::AccelerationFunctionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::acceleration_function::v1_0_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]

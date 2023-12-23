@@ -198,7 +198,7 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ANACharacteristics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<String>,
+        pub access_state: Option<crate::storage_controller::v1_7_0::ANAAccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Volume")]
         pub volume: Option<crate::odata_v4::IdRef>,
     }
@@ -397,7 +397,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ANACharacteristics")]
         pub ana_characteristics: Option<Vec<crate::storage_controller::v1_7_0::ANACharacteristics>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControllerType")]
-        pub controller_type: Option<String>,
+        pub controller_type: Option<crate::storage_controller::v1_7_0::NVMeControllerType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxQueueSize")]
         pub max_queue_size: Option<i64>,
         #[serde(
@@ -570,13 +570,13 @@ pub mod v1_7_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
 }

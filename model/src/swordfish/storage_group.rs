@@ -10,7 +10,7 @@ pub enum AccessCapability {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct MappedVolume {
     #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapability")]
-    pub access_capability: Option<String>,
+    pub access_capability: Option<crate::swordfish::storage_group::AccessCapability>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "LogicalUnitNumber")]
     pub logical_unit_number: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Volume")]
@@ -129,14 +129,15 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageGroup {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<String>,
+        pub access_state: Option<crate::endpoint_group::AccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::swordfish::storage_group::v1_5_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AuthenticationMethod"
         )]
-        pub authentication_method: Option<String>,
+        pub authentication_method:
+            Option<crate::swordfish::storage_group::v1_5_0::AuthenticationMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChapInfo")]
         pub chap_info: Option<Vec<crate::swordfish::storage_group::v1_5_0::CHAPInformation>>,
         #[serde(

@@ -90,7 +90,7 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PermanentWWPN")]
         pub permanent_wwpn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWNSource")]
-        pub wwn_source: Option<String>,
+        pub wwn_source: Option<crate::network_device_function::v1_9_0::WWNSource>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWNN")]
         pub wwnn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWPN")]
@@ -115,7 +115,8 @@ pub mod v1_9_0 {
             skip_serializing_if = "Option::is_none",
             rename = "AuthenticationMethod"
         )]
-        pub authentication_method: Option<String>,
+        pub authentication_method:
+            Option<crate::network_device_function::v1_9_0::AuthenticationMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPSecret")]
         pub chap_secret: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPUsername")]
@@ -132,7 +133,7 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitiatorNetmask")]
         pub initiator_netmask: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressType")]
-        pub ip_address_type: Option<String>,
+        pub ip_address_type: Option<crate::network_device_function::v1_9_0::IPAddressType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPMaskDNSViaDHCP")]
         pub ip_mask_dns_via_dhcp: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MutualCHAPSecret")]
@@ -228,7 +229,7 @@ pub mod v1_9_0 {
         )]
         pub burst_packets_per_second: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Direction")]
-        pub direction: Option<String>,
+        pub direction: Option<crate::network_device_function::v1_9_0::DataDirection>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SustainedBytesPerSecond"
@@ -309,7 +310,7 @@ pub mod v1_9_0 {
         )]
         pub assignable_physical_ports_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootMode")]
-        pub boot_mode: Option<String>,
+        pub boot_mode: Option<crate::network_device_function::v1_9_0::BootMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceEnabled")]
@@ -343,9 +344,11 @@ pub mod v1_9_0 {
             skip_serializing_if = "Option::is_none",
             rename = "NetDevFuncCapabilities"
         )]
-        pub net_dev_func_capabilities: Option<Vec<String>>,
+        pub net_dev_func_capabilities:
+            Option<Vec<crate::network_device_function::v1_9_0::NetworkDeviceTechnology>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NetDevFuncType")]
-        pub net_dev_func_type: Option<String>,
+        pub net_dev_func_type:
+            Option<crate::network_device_function::v1_9_0::NetworkDeviceTechnology>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]

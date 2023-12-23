@@ -52,7 +52,8 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct FileSystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<String>>,
+        pub access_capabilities:
+            Option<Vec<crate::swordfish::data_storage_los_capabilities::StorageAccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::swordfish::file_system::v1_3_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeBytes")]
@@ -71,7 +72,8 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CaseSensitive")]
         pub case_sensitive: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CharacterCodeSet")]
-        pub character_code_set: Option<Vec<String>>,
+        pub character_code_set:
+            Option<Vec<crate::swordfish::file_system::v1_3_0::CharacterCodeSet>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClusterSizeBytes")]
         pub cluster_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]

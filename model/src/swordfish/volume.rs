@@ -305,9 +305,9 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssignReplicaTargetRequestBody {
         #[serde(rename = "ReplicaType")]
-        pub replica_type: String,
+        pub replica_type: crate::swordfish::storage_replica_info::ReplicaType,
         #[serde(rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: String,
+        pub replica_update_mode: crate::swordfish::storage_replica_info::ReplicaUpdateMode,
         #[serde(rename = "TargetVolume")]
         pub target_volume: String,
     }
@@ -325,7 +325,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaSpanCount")]
         pub media_span_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RAIDType")]
-        pub raid_type: Option<String>,
+        pub raid_type: Option<crate::swordfish::volume::RAIDType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StripSizeBytes")]
         pub strip_size_bytes: Option<i64>,
     }
@@ -348,9 +348,9 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CreateReplicaTargetRequestBody {
         #[serde(rename = "ReplicaType")]
-        pub replica_type: String,
+        pub replica_type: crate::swordfish::storage_replica_info::ReplicaType,
         #[serde(rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: String,
+        pub replica_update_mode: crate::swordfish::storage_replica_info::ReplicaUpdateMode,
         #[serde(rename = "TargetStoragePool")]
         pub target_storage_pool: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeName")]
@@ -375,16 +375,16 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct InitializeRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeMethod")]
-        pub initialize_method: Option<String>,
+        pub initialize_method: Option<crate::swordfish::volume::InitializeMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeType")]
-        pub initialize_type: Option<String>,
+        pub initialize_type: Option<crate::swordfish::volume::InitializeType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LBAFormat {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LBADataSizeBytes")]
         pub lba_data_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LBAFormatType")]
-        pub lba_format_type: Option<String>,
+        pub lba_format_type: Option<crate::swordfish::volume::LBAFormatType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LBAMetadataSizeBytes"
@@ -394,7 +394,7 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "RelativePerformance"
         )]
-        pub relative_performance: Option<String>,
+        pub relative_performance: Option<crate::swordfish::volume::LBARelativePerformanceType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -494,7 +494,7 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "LBAFormatsSupported"
         )]
-        pub lba_formats_supported: Option<Vec<String>>,
+        pub lba_formats_supported: Option<Vec<crate::swordfish::volume::LBAFormatType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MetadataTransferredAtEndOfDataLBA"
@@ -505,13 +505,13 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NamespaceId")]
         pub namespace_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NamespaceType")]
-        pub namespace_type: Option<String>,
+        pub namespace_type: Option<crate::swordfish::volume::NamespaceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NumberLBAFormats")]
         pub number_lba_formats: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeVersion")]
         pub nvme_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<String>,
+        pub r#type: Option<crate::swordfish::volume::NamespaceType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NamespaceFeatures {
@@ -548,7 +548,7 @@ pub mod v1_10_0 {
         )]
         pub associated_features_registry: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Operation")]
-        pub operation: Option<String>,
+        pub operation: Option<crate::swordfish::volume::OperationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperationName")]
         pub operation_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentageComplete")]
@@ -619,7 +619,8 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Volume {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<String>>,
+        pub access_capabilities:
+            Option<Vec<crate::swordfish::data_storage_los_capabilities::StorageAccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::swordfish::volume::v1_10_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedPools")]
@@ -655,13 +656,13 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Encrypted")]
         pub encrypted: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionTypes")]
-        pub encryption_types: Option<Vec<String>>,
+        pub encryption_types: Option<Vec<crate::swordfish::volume::EncryptionTypes>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeMethod")]
-        pub initialize_method: Option<String>,
+        pub initialize_method: Option<crate::swordfish::volume::InitializeMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOPerfModeEnabled")]
         pub io_perf_mode_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
@@ -710,11 +711,12 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OptimumIOSizeBytes")]
         pub optimum_io_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProvisioningPolicy")]
-        pub provisioning_policy: Option<String>,
+        pub provisioning_policy:
+            Option<crate::swordfish::data_storage_los_capabilities::ProvisioningPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RAIDType")]
-        pub raid_type: Option<String>,
+        pub raid_type: Option<crate::swordfish::volume::RAIDType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadCachePolicy")]
-        pub read_cache_policy: Option<String>,
+        pub read_cache_policy: Option<crate::swordfish::volume::ReadCachePolicyType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RecoverableCapacitySourceCount"
@@ -748,18 +750,19 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "StripSizeBytes")]
         pub strip_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeType")]
-        pub volume_type: Option<String>,
+        pub volume_type: Option<crate::swordfish::volume::VolumeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeUsage")]
-        pub volume_usage: Option<String>,
+        pub volume_usage: Option<crate::swordfish::volume::VolumeUsageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCachePolicy")]
-        pub write_cache_policy: Option<String>,
+        pub write_cache_policy: Option<crate::swordfish::volume::WriteCachePolicyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCacheState")]
-        pub write_cache_state: Option<String>,
+        pub write_cache_state: Option<crate::swordfish::volume::WriteCacheStateType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "WriteHoleProtectionPolicy"
         )]
-        pub write_hole_protection_policy: Option<String>,
+        pub write_hole_protection_policy:
+            Option<crate::swordfish::volume::WriteHoleProtectionPolicyType>,
     }
 }
 pub mod v1_9_0 {
@@ -836,9 +839,9 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssignReplicaTargetRequestBody {
         #[serde(rename = "ReplicaType")]
-        pub replica_type: String,
+        pub replica_type: crate::swordfish::storage_replica_info::ReplicaType,
         #[serde(rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: String,
+        pub replica_update_mode: crate::swordfish::storage_replica_info::ReplicaUpdateMode,
         #[serde(rename = "TargetVolume")]
         pub target_volume: String,
     }
@@ -856,7 +859,7 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaSpanCount")]
         pub media_span_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RAIDType")]
-        pub raid_type: Option<String>,
+        pub raid_type: Option<crate::swordfish::volume::RAIDType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StripSizeBytes")]
         pub strip_size_bytes: Option<i64>,
     }
@@ -879,9 +882,9 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CreateReplicaTargetRequestBody {
         #[serde(rename = "ReplicaType")]
-        pub replica_type: String,
+        pub replica_type: crate::swordfish::storage_replica_info::ReplicaType,
         #[serde(rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: String,
+        pub replica_update_mode: crate::swordfish::storage_replica_info::ReplicaUpdateMode,
         #[serde(rename = "TargetStoragePool")]
         pub target_storage_pool: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeName")]
@@ -906,16 +909,16 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct InitializeRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeMethod")]
-        pub initialize_method: Option<String>,
+        pub initialize_method: Option<crate::swordfish::volume::InitializeMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeType")]
-        pub initialize_type: Option<String>,
+        pub initialize_type: Option<crate::swordfish::volume::InitializeType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LBAFormat {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LBADataSizeBytes")]
         pub lba_data_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LBAFormatType")]
-        pub lba_format_type: Option<String>,
+        pub lba_format_type: Option<crate::swordfish::volume::LBAFormatType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LBAMetadataSizeBytes"
@@ -925,7 +928,7 @@ pub mod v1_9_0 {
             skip_serializing_if = "Option::is_none",
             rename = "RelativePerformance"
         )]
-        pub relative_performance: Option<String>,
+        pub relative_performance: Option<crate::swordfish::volume::LBARelativePerformanceType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -1025,7 +1028,7 @@ pub mod v1_9_0 {
             skip_serializing_if = "Option::is_none",
             rename = "LBAFormatsSupported"
         )]
-        pub lba_formats_supported: Option<Vec<String>>,
+        pub lba_formats_supported: Option<Vec<crate::swordfish::volume::LBAFormatType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MetadataTransferredAtEndOfDataLBA"
@@ -1036,13 +1039,13 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NamespaceId")]
         pub namespace_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NamespaceType")]
-        pub namespace_type: Option<String>,
+        pub namespace_type: Option<crate::swordfish::volume::NamespaceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NumberLBAFormats")]
         pub number_lba_formats: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeVersion")]
         pub nvme_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<String>,
+        pub r#type: Option<crate::swordfish::volume::NamespaceType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NamespaceFeatures {
@@ -1079,7 +1082,7 @@ pub mod v1_9_0 {
         )]
         pub associated_features_registry: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Operation")]
-        pub operation: Option<String>,
+        pub operation: Option<crate::swordfish::volume::OperationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperationName")]
         pub operation_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentageComplete")]
@@ -1150,7 +1153,8 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Volume {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<String>>,
+        pub access_capabilities:
+            Option<Vec<crate::swordfish::data_storage_los_capabilities::StorageAccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::swordfish::volume::v1_9_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedPools")]
@@ -1186,13 +1190,13 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Encrypted")]
         pub encrypted: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionTypes")]
-        pub encryption_types: Option<Vec<String>>,
+        pub encryption_types: Option<Vec<crate::swordfish::volume::EncryptionTypes>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitializeMethod")]
-        pub initialize_method: Option<String>,
+        pub initialize_method: Option<crate::swordfish::volume::InitializeMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOPerfModeEnabled")]
         pub io_perf_mode_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
@@ -1241,11 +1245,12 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OptimumIOSizeBytes")]
         pub optimum_io_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProvisioningPolicy")]
-        pub provisioning_policy: Option<String>,
+        pub provisioning_policy:
+            Option<crate::swordfish::data_storage_los_capabilities::ProvisioningPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RAIDType")]
-        pub raid_type: Option<String>,
+        pub raid_type: Option<crate::swordfish::volume::RAIDType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadCachePolicy")]
-        pub read_cache_policy: Option<String>,
+        pub read_cache_policy: Option<crate::swordfish::volume::ReadCachePolicyType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RecoverableCapacitySourceCount"
@@ -1279,17 +1284,18 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "StripSizeBytes")]
         pub strip_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeType")]
-        pub volume_type: Option<String>,
+        pub volume_type: Option<crate::swordfish::volume::VolumeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeUsage")]
-        pub volume_usage: Option<String>,
+        pub volume_usage: Option<crate::swordfish::volume::VolumeUsageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCachePolicy")]
-        pub write_cache_policy: Option<String>,
+        pub write_cache_policy: Option<crate::swordfish::volume::WriteCachePolicyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCacheState")]
-        pub write_cache_state: Option<String>,
+        pub write_cache_state: Option<crate::swordfish::volume::WriteCacheStateType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "WriteHoleProtectionPolicy"
         )]
-        pub write_hole_protection_policy: Option<String>,
+        pub write_hole_protection_policy:
+            Option<crate::swordfish::volume::WriteHoleProtectionPolicyType>,
     }
 }

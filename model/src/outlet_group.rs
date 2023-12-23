@@ -85,9 +85,9 @@ pub mod v1_1_1 {
         )]
         pub power_restore_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerRestorePolicy")]
-        pub power_restore_policy: Option<String>,
+        pub power_restore_policy: Option<crate::circuit::PowerRestorePolicyTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::resource::PowerState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerStateInTransition"
@@ -108,7 +108,7 @@ pub mod v1_1_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerControlRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::circuit::PowerState>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetMetrics {

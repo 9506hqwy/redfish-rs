@@ -68,11 +68,11 @@ pub mod v1_10_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }
 pub mod v1_11_1 {
@@ -85,7 +85,7 @@ pub mod v1_11_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXLDevice {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceType")]
-        pub device_type: Option<String>,
+        pub device_type: Option<crate::pcie_device::v1_11_1::CXLDeviceType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EgressPortCongestionSupport"
@@ -174,7 +174,7 @@ pub mod v1_11_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceType")]
-        pub device_type: Option<String>,
+        pub device_type: Option<crate::pcie_device::v1_11_1::DeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -254,24 +254,24 @@ pub mod v1_11_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Slot {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LaneSplitting")]
-        pub lane_splitting: Option<String>,
+        pub lane_splitting: Option<crate::pcie_device::v1_11_1::LaneSplittingType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lanes")]
         pub lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotType")]
-        pub slot_type: Option<String>,
+        pub slot_type: Option<crate::pcie_device::v1_11_1::SlotType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SlotType {
@@ -305,11 +305,11 @@ pub mod v1_3_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }
 pub mod v1_4_2 {
@@ -321,11 +321,11 @@ pub mod v1_4_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }
 pub mod v1_5_2 {
@@ -337,11 +337,11 @@ pub mod v1_5_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }
 pub mod v1_6_2 {
@@ -353,11 +353,11 @@ pub mod v1_6_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }
 pub mod v1_7_1 {
@@ -369,11 +369,11 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }
 pub mod v1_8_1 {
@@ -410,11 +410,11 @@ pub mod v1_8_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }
 pub mod v1_9_1 {
@@ -451,10 +451,10 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<String>,
+        pub max_pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
     }
 }

@@ -42,7 +42,7 @@ pub mod v1_0_0 {
         pub qos_telemetry_capabilities:
             Option<crate::cxl_logical_device::v1_0_0::QoSTelemetryCapabilities>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SemanticsSupported")]
-        pub semantics_supported: Option<Vec<String>>,
+        pub semantics_supported: Option<Vec<crate::cxl_logical_device::v1_0_0::CXLSemantic>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
     }

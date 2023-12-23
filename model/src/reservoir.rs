@@ -24,7 +24,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FluidLevelPercent")]
         pub fluid_level_percent: Option<crate::sensor::SensorExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FluidLevelStatus")]
-        pub fluid_level_status: Option<String>,
+        pub fluid_level_status: Option<crate::resource::Health>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(
@@ -58,9 +58,9 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReservoirType")]
-        pub reservoir_type: Option<String>,
+        pub reservoir_type: Option<crate::reservoir::v1_0_0::ReservoirType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SparePartNumber")]

@@ -16,7 +16,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HealthRollup")]
-        pub health_rollup: Option<String>,
+        pub health_rollup: Option<crate::resource::Health>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]

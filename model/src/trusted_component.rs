@@ -97,7 +97,7 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TPM")]
         pub tpm: Option<crate::trusted_component::v1_1_0::TPM>,
         #[serde(rename = "TrustedComponentType")]
-        pub trusted_component_type: String,
+        pub trusted_component_type: crate::trusted_component::v1_1_0::TrustedComponentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
         pub uuid: Option<String>,
     }

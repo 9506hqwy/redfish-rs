@@ -14,7 +14,7 @@ pub struct Condition {
     #[serde(skip_serializing_if = "Option::is_none", rename = "Resolution")]
     pub resolution: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
-    pub severity: Option<String>,
+    pub severity: Option<crate::resource::Health>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Timestamp")]
     pub timestamp: Option<String>,
 }
@@ -177,13 +177,13 @@ pub struct Status {
     #[serde(skip_serializing_if = "Option::is_none", rename = "Conditions")]
     pub conditions: Option<Vec<crate::resource::Condition>>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Health")]
-    pub health: Option<String>,
+    pub health: Option<crate::resource::Health>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "HealthRollup")]
-    pub health_rollup: Option<String>,
+    pub health_rollup: Option<crate::resource::Health>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
     pub oem: Option<crate::resource::Oem>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "State")]
-    pub state: Option<String>,
+    pub state: Option<crate::resource::State>,
 }
 pub mod v1_0_13 {
     use serde::{Deserialize, Serialize};
@@ -243,7 +243,7 @@ pub mod v1_10_5 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_10_5::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -304,11 +304,11 @@ pub mod v1_10_5 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_10_5::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_10_5::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_10_5::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -321,7 +321,7 @@ pub mod v1_10_5 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_10_5::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -482,7 +482,7 @@ pub mod v1_11_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_11_4::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -543,11 +543,11 @@ pub mod v1_11_4 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_11_4::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_11_4::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_11_4::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -560,7 +560,7 @@ pub mod v1_11_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_11_4::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -721,7 +721,7 @@ pub mod v1_12_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_12_3::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -784,11 +784,11 @@ pub mod v1_12_3 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_12_3::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_12_3::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_12_3::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -801,7 +801,7 @@ pub mod v1_12_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_12_3::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -962,7 +962,7 @@ pub mod v1_13_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_13_2::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -1027,11 +1027,11 @@ pub mod v1_13_2 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_13_2::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_13_2::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_13_2::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -1044,7 +1044,7 @@ pub mod v1_13_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_13_2::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -1207,7 +1207,7 @@ pub mod v1_14_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_14_1::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -1272,11 +1272,11 @@ pub mod v1_14_1 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_14_1::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_14_1::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_14_1::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -1289,7 +1289,7 @@ pub mod v1_14_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_14_1::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -1454,7 +1454,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_15_0::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -1519,11 +1519,11 @@ pub mod v1_15_0 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_15_0::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_15_0::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_15_0::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -1536,7 +1536,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_15_0::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -1701,7 +1701,7 @@ pub mod v1_16_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_16_0::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -1771,11 +1771,11 @@ pub mod v1_16_0 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_16_0::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_16_0::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_16_0::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -1788,7 +1788,7 @@ pub mod v1_16_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_16_0::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -1934,7 +1934,7 @@ pub mod v1_1_15 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_1_15::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -1986,7 +1986,7 @@ pub mod v1_2_14 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_2_14::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -2039,7 +2039,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_3_0::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -2146,7 +2146,7 @@ pub mod v1_3_13 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_3_13::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -2168,7 +2168,7 @@ pub mod v1_3_13 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_3_13::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -2294,7 +2294,7 @@ pub mod v1_4_12 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_4_12::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -2316,7 +2316,7 @@ pub mod v1_4_12 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_4_12::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -2442,7 +2442,7 @@ pub mod v1_5_11 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_5_11::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -2495,11 +2495,11 @@ pub mod v1_5_11 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_5_11::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_5_11::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_5_11::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -2510,7 +2510,7 @@ pub mod v1_5_11 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_5_11::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -2658,7 +2658,7 @@ pub mod v1_6_11 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_6_11::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -2717,11 +2717,11 @@ pub mod v1_6_11 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_6_11::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_6_11::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_6_11::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -2732,7 +2732,7 @@ pub mod v1_6_11 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_6_11::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -2889,7 +2889,7 @@ pub mod v1_7_10 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_7_10::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -2950,11 +2950,11 @@ pub mod v1_7_10 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_7_10::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_7_10::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_7_10::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -2967,7 +2967,7 @@ pub mod v1_7_10 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_7_10::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -3126,7 +3126,7 @@ pub mod v1_8_10 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_8_10::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -3187,11 +3187,11 @@ pub mod v1_8_10 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_8_10::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_8_10::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_8_10::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -3204,7 +3204,7 @@ pub mod v1_8_10 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_8_10::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }
@@ -3363,7 +3363,7 @@ pub mod v1_9_8 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<String>,
+        pub durable_name_format: Option<crate::resource::v1_9_8::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
@@ -3424,11 +3424,11 @@ pub mod v1_9_8 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<String>,
+        pub location_type: Option<crate::resource::v1_9_8::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<String>,
+        pub orientation: Option<crate::resource::v1_9_8::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<String>,
+        pub reference: Option<crate::resource::v1_9_8::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -3441,7 +3441,7 @@ pub mod v1_9_8 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<String>,
+        pub rack_offset_units: Option<crate::resource::v1_9_8::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }

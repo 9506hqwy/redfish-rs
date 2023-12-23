@@ -32,7 +32,7 @@ pub mod v1_11_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HttpPushUriApplyTime {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ApplyTime")]
-        pub apply_time: Option<String>,
+        pub apply_time: Option<crate::update_service::v1_11_3::ApplyTime>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaintenanceWindowDurationInSeconds"
@@ -74,7 +74,7 @@ pub mod v1_11_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Targets")]
         pub targets: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
-        pub transfer_protocol: Option<String>,
+        pub transfer_protocol: Option<crate::update_service::v1_11_3::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Username")]
         pub username: Option<String>,
     }

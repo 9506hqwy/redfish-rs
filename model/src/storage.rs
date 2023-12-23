@@ -54,12 +54,12 @@ pub mod v1_0_11 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
     }
 }
 pub mod v1_10_1 {
@@ -145,14 +145,14 @@ pub mod v1_10_1 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -271,14 +271,14 @@ pub mod v1_11_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -397,14 +397,14 @@ pub mod v1_12_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -523,14 +523,14 @@ pub mod v1_13_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -649,14 +649,14 @@ pub mod v1_14_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -821,7 +821,7 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaultsRequestBody {
         #[serde(rename = "ResetType")]
-        pub reset_type: String,
+        pub reset_type: crate::storage::v1_15_0::ResetToDefaultsType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetToDefaultsType {
@@ -858,7 +858,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::storage::v1_15_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AutoVolumeCreate")]
-        pub auto_volume_create: Option<String>,
+        pub auto_volume_create: Option<crate::storage::v1_15_0::AutoVolumeCreate>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Connections")]
         pub connections: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyGroups")]
@@ -872,7 +872,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Drives@odata.count")]
         pub drives_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionMode")]
-        pub encryption_mode: Option<String>,
+        pub encryption_mode: Option<crate::storage::v1_15_0::EncryptionMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EndpointGroups")]
         pub endpoint_groups: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FileSystems")]
@@ -881,7 +881,7 @@ pub mod v1_15_0 {
             skip_serializing_if = "Option::is_none",
             rename = "HotspareActivationPolicy"
         )]
-        pub hotspare_activation_policy: Option<String>,
+        pub hotspare_activation_policy: Option<crate::storage::v1_15_0::HotspareActivationPolicy>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
@@ -982,14 +982,14 @@ pub mod v1_15_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1061,12 +1061,12 @@ pub mod v1_1_10 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerLinks {
@@ -1119,12 +1119,12 @@ pub mod v1_2_8 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1186,12 +1186,12 @@ pub mod v1_3_8 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1257,12 +1257,12 @@ pub mod v1_4_8 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1351,12 +1351,12 @@ pub mod v1_5_6 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1445,14 +1445,14 @@ pub mod v1_6_5 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1560,14 +1560,14 @@ pub mod v1_7_4 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1682,14 +1682,14 @@ pub mod v1_8_3 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
@@ -1804,14 +1804,14 @@ pub mod v1_9_2 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedControllerProtocols"
         )]
-        pub supported_controller_protocols: Option<Vec<String>>,
+        pub supported_controller_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDeviceProtocols"
         )]
-        pub supported_device_protocols: Option<Vec<String>>,
+        pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {

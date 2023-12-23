@@ -19,7 +19,7 @@ pub mod v1_5_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CapacityWatts")]
         pub capacity_watts: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NominalVoltageType")]
-        pub nominal_voltage_type: Option<String>,
+        pub nominal_voltage_type: Option<crate::circuit::NominalVoltageType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LineStatus {
@@ -59,7 +59,7 @@ pub mod v1_5_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NominalVoltage")]
         pub nominal_voltage: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerSupply {
@@ -91,11 +91,11 @@ pub mod v1_5_1 {
             skip_serializing_if = "Option::is_none",
             rename = "InputNominalVoltageType"
         )]
-        pub input_nominal_voltage_type: Option<String>,
+        pub input_nominal_voltage_type: Option<crate::circuit::NominalVoltageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InputRanges")]
         pub input_ranges: Option<Vec<crate::power_supply::v1_5_1::InputRange>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LineInputStatus")]
-        pub line_input_status: Option<String>,
+        pub line_input_status: Option<crate::power_supply::v1_5_1::LineStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::power_supply::v1_5_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -127,19 +127,19 @@ pub mod v1_5_1 {
             skip_serializing_if = "Option::is_none",
             rename = "OutputNominalVoltageType"
         )]
-        pub output_nominal_voltage_type: Option<String>,
+        pub output_nominal_voltage_type: Option<crate::circuit::NominalVoltageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OutputRails")]
         pub output_rails: Option<Vec<crate::power_supply::v1_5_1::OutputRail>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhaseWiringType")]
-        pub phase_wiring_type: Option<String>,
+        pub phase_wiring_type: Option<crate::circuit::PhaseWiringType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PlugType")]
-        pub plug_type: Option<String>,
+        pub plug_type: Option<crate::circuit::PlugType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerCapacityWatts")]
         pub power_capacity_watts: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSupplyType")]
-        pub power_supply_type: Option<String>,
+        pub power_supply_type: Option<crate::power_supply::v1_5_1::PowerSupplyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProductionDate")]
         pub production_date: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replaceable")]
@@ -175,6 +175,6 @@ pub mod v1_5_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
 }

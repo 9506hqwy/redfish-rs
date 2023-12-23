@@ -42,7 +42,7 @@ pub mod v1_0_2 {
             skip_serializing_if = "Option::is_none",
             rename = "SignatureTypeRegistry"
         )]
-        pub signature_type_registry: Option<String>,
+        pub signature_type_registry: Option<crate::signature::SignatureTypeRegistry>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UefiSignatureOwner")]
         pub uefi_signature_owner: Option<String>,
     }

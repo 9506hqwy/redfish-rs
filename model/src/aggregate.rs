@@ -95,7 +95,7 @@ pub mod v1_0_1 {
         )]
         pub delay_between_batches_in_seconds: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SetDefaultBootOrder {

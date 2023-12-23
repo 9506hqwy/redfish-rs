@@ -16,7 +16,7 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "FacilityType")]
-        pub facility_type: String,
+        pub facility_type: crate::facility::v1_4_0::FacilityType,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]

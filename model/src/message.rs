@@ -36,7 +36,7 @@ pub mod v1_1_2 {
         #[serde(rename = "MessageId")]
         pub message_id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MessageSeverity")]
-        pub message_severity: Option<String>,
+        pub message_severity: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RelatedProperties")]

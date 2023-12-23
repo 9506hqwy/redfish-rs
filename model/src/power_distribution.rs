@@ -45,7 +45,7 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "EquipmentType")]
-        pub equipment_type: String,
+        pub equipment_type: crate::power_distribution::v1_3_1::PowerEquipmentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Feeders")]
         pub feeders: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -197,7 +197,8 @@ pub mod v1_3_1 {
             skip_serializing_if = "Option::is_none",
             rename = "TransferSensitivity"
         )]
-        pub transfer_sensitivity: Option<String>,
+        pub transfer_sensitivity:
+            Option<crate::power_distribution::v1_3_1::TransferSensitivityType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UnderNominalFrequencyHz"

@@ -10,7 +10,7 @@ pub mod v1_0_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::boot_option::v1_0_4::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Alias")]
-        pub alias: Option<String>,
+        pub alias: Option<crate::computer_system::BootSource>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootOptionEnabled")]
         pub boot_option_enabled: Option<bool>,
         #[serde(rename = "BootOptionReference")]

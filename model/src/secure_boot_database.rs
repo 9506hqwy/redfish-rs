@@ -22,7 +22,7 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetKeysRequestBody {
         #[serde(rename = "ResetKeysType")]
-        pub reset_keys_type: String,
+        pub reset_keys_type: crate::secure_boot_database::v1_0_1::ResetKeysType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetKeysType {

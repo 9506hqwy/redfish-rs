@@ -20,7 +20,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Endpoints")]
         pub endpoints: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FabricType")]
-        pub fabric_type: Option<String>,
+        pub fabric_type: Option<crate::protocol::Protocol>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]

@@ -44,12 +44,14 @@ pub mod v1_4_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CollectionDuration")]
         pub collection_duration: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CollectionFunction")]
-        pub collection_function: Option<String>,
+        pub collection_function:
+            Option<crate::metric_report_definition::v1_4_3::CalculationAlgorithmEnum>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CollectionTimeScope"
         )]
-        pub collection_time_scope: Option<String>,
+        pub collection_time_scope:
+            Option<crate::metric_report_definition::v1_4_3::CollectionTimeScope>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricId")]
         pub metric_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricProperties")]
@@ -82,7 +84,8 @@ pub mod v1_4_3 {
             skip_serializing_if = "Option::is_none",
             rename = "MetricReportDefinitionType"
         )]
-        pub metric_report_definition_type: Option<String>,
+        pub metric_report_definition_type:
+            Option<crate::metric_report_definition::v1_4_3::MetricReportDefinitionType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MetricReportHeartbeatInterval"
@@ -103,11 +106,11 @@ pub mod v1_4_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReportActions")]
-        pub report_actions: Option<Vec<String>>,
+        pub report_actions: Option<Vec<crate::metric_report_definition::v1_4_3::ReportActionsEnum>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReportTimespan")]
         pub report_timespan: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReportUpdates")]
-        pub report_updates: Option<String>,
+        pub report_updates: Option<crate::metric_report_definition::v1_4_3::ReportUpdatesEnum>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Schedule")]
         pub schedule: Option<crate::schedule::Schedule>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]

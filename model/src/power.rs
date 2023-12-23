@@ -13,7 +13,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct InputRange {
         #[serde(skip_serializing_if = "Option::is_none", rename = "InputType")]
-        pub input_type: Option<String>,
+        pub input_type: Option<crate::power::v1_7_1::InputType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaximumFrequencyHz")]
         pub maximum_frequency_hz: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaximumVoltage")]
@@ -127,7 +127,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerAllocatedWatts"
@@ -173,7 +173,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CorrectionInMs")]
         pub correction_in_ms: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LimitException")]
-        pub limit_exception: Option<String>,
+        pub limit_exception: Option<crate::power::v1_7_1::PowerLimitException>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LimitInWatts")]
         pub limit_in_watts: Option<f64>,
     }
@@ -216,7 +216,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotPluggable")]
         pub hot_pluggable: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<String>,
+        pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InputRanges")]
         pub input_ranges: Option<Vec<crate::power::v1_7_1::InputRange>>,
         #[serde(
@@ -230,7 +230,7 @@ pub mod v1_7_1 {
             skip_serializing_if = "Option::is_none",
             rename = "LineInputVoltageType"
         )]
-        pub line_input_voltage_type: Option<String>,
+        pub line_input_voltage_type: Option<crate::power::v1_7_1::LineInputVoltageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
@@ -254,7 +254,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerOutputWatts")]
         pub power_output_watts: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSupplyType")]
-        pub power_supply_type: Option<String>,
+        pub power_supply_type: Option<crate::power::v1_7_1::PowerSupplyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -295,7 +295,7 @@ pub mod v1_7_1 {
         #[serde(rename = "MemberId")]
         pub member_id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum PowerSupplyType {
@@ -341,7 +341,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingVolts")]
         pub reading_volts: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RelatedItem")]

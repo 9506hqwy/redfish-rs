@@ -32,7 +32,7 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::registered_client::v1_1_0::Actions>,
         #[serde(rename = "ClientType")]
-        pub client_type: String,
+        pub client_type: crate::registered_client::v1_1_0::ClientType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientURI")]
         pub client_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]

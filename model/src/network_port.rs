@@ -67,7 +67,7 @@ pub mod v1_4_1 {
             skip_serializing_if = "Option::is_none",
             rename = "ActiveLinkTechnology"
         )]
-        pub active_link_technology: Option<String>,
+        pub active_link_technology: Option<crate::network_port::v1_4_1::LinkNetworkTechnology>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AssociatedNetworkAddresses"
@@ -88,18 +88,18 @@ pub mod v1_4_1 {
             skip_serializing_if = "Option::is_none",
             rename = "FCPortConnectionType"
         )]
-        pub fc_port_connection_type: Option<String>,
+        pub fc_port_connection_type: Option<crate::network_port::v1_4_1::PortConnectionType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FlowControlConfiguration"
         )]
-        pub flow_control_configuration: Option<String>,
+        pub flow_control_configuration: Option<crate::network_port::v1_4_1::FlowControl>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FlowControlStatus")]
-        pub flow_control_status: Option<String>,
+        pub flow_control_status: Option<crate::network_port::v1_4_1::FlowControl>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkStatus")]
-        pub link_status: Option<String>,
+        pub link_status: Option<crate::network_port::v1_4_1::LinkStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxFrameSize")]
         pub max_frame_size: Option<i64>,
         #[serde(rename = "Name")]
@@ -143,7 +143,8 @@ pub mod v1_4_1 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedEthernetCapabilities"
         )]
-        pub supported_ethernet_capabilities: Option<Vec<String>>,
+        pub supported_ethernet_capabilities:
+            Option<Vec<crate::network_port::v1_4_1::SupportedEthernetCapabilities>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedLinkCapabilities"
@@ -199,7 +200,7 @@ pub mod v1_4_1 {
             skip_serializing_if = "Option::is_none",
             rename = "LinkNetworkTechnology"
         )]
-        pub link_network_technology: Option<String>,
+        pub link_network_technology: Option<crate::network_port::v1_4_1::LinkNetworkTechnology>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkSpeedMbps")]
         pub link_speed_mbps: Option<i64>,
     }

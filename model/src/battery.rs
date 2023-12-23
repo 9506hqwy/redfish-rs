@@ -38,7 +38,7 @@ pub mod v1_2_1 {
         )]
         pub capacity_rated_watt_hours: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChargeState")]
-        pub charge_state: Option<String>,
+        pub charge_state: Option<crate::battery::v1_2_1::ChargeState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -150,7 +150,7 @@ pub mod v1_2_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SelfTest {

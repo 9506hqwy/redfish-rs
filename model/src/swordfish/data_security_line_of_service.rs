@@ -18,31 +18,36 @@ pub mod v1_1_1 {
             skip_serializing_if = "Option::is_none",
             rename = "AntivirusScanPolicies"
         )]
-        pub antivirus_scan_policies: Option<Vec<String>>,
+        pub antivirus_scan_policies:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::AntiVirusScanTrigger>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ChannelEncryptionStrength"
         )]
-        pub channel_encryption_strength: Option<String>,
+        pub channel_encryption_strength:
+            Option<crate::swordfish::data_security_los_capabilities::KeySize>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DataSanitizationPolicy"
         )]
-        pub data_sanitization_policy: Option<String>,
+        pub data_sanitization_policy:
+            Option<crate::swordfish::data_security_los_capabilities::DataSanitizationPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "HostAuthenticationType"
         )]
-        pub host_authentication_type: Option<String>,
+        pub host_authentication_type:
+            Option<crate::swordfish::data_security_los_capabilities::AuthenticationType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MediaEncryptionStrength"
         )]
-        pub media_encryption_strength: Option<String>,
+        pub media_encryption_strength:
+            Option<crate::swordfish::data_security_los_capabilities::KeySize>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -59,12 +64,14 @@ pub mod v1_1_1 {
             skip_serializing_if = "Option::is_none",
             rename = "SecureChannelProtocol"
         )]
-        pub secure_channel_protocol: Option<String>,
+        pub secure_channel_protocol:
+            Option<crate::swordfish::data_security_los_capabilities::SecureChannelProtocol>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UserAuthenticationType"
         )]
-        pub user_authentication_type: Option<String>,
+        pub user_authentication_type:
+            Option<crate::swordfish::data_security_los_capabilities::AuthenticationType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

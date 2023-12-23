@@ -61,7 +61,8 @@ pub mod v1_2_2 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedAccessCapabilities"
         )]
-        pub supported_access_capabilities: Option<Vec<String>>,
+        pub supported_access_capabilities:
+            Option<Vec<crate::swordfish::data_storage_los_capabilities::StorageAccessCapability>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedLinesOfService"
@@ -76,12 +77,14 @@ pub mod v1_2_2 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedProvisioningPolicies"
         )]
-        pub supported_provisioning_policies: Option<Vec<String>>,
+        pub supported_provisioning_policies:
+            Option<Vec<crate::swordfish::data_storage_los_capabilities::ProvisioningPolicy>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedRecoveryTimeObjectives"
         )]
-        pub supported_recovery_time_objectives: Option<Vec<String>>,
+        pub supported_recovery_time_objectives:
+            Option<Vec<crate::swordfish::data_protection_los_capabilities::RecoveryAccessScope>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportsSpaceEfficiency"

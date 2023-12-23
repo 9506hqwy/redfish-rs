@@ -71,9 +71,9 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TaskMonitor")]
         pub task_monitor: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TaskState")]
-        pub task_state: Option<String>,
+        pub task_state: Option<crate::task::v1_7_1::TaskState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TaskStatus")]
-        pub task_status: Option<String>,
+        pub task_status: Option<crate::resource::Health>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum TaskState {

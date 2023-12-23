@@ -77,7 +77,8 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedRecoveryGeographicObjectives"
         )]
-        pub supported_recovery_geographic_objectives: Option<Vec<String>>,
+        pub supported_recovery_geographic_objectives:
+            Option<Vec<crate::swordfish::data_protection_los_capabilities::FailureDomainScope>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedRecoveryPointObjectiveTimes"
@@ -87,12 +88,14 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedRecoveryTimeObjectives"
         )]
-        pub supported_recovery_time_objectives: Option<Vec<String>>,
+        pub supported_recovery_time_objectives:
+            Option<Vec<crate::swordfish::data_protection_los_capabilities::RecoveryAccessScope>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedReplicaTypes"
         )]
-        pub supported_replica_types: Option<Vec<String>>,
+        pub supported_replica_types:
+            Option<Vec<crate::swordfish::storage_replica_info::ReplicaType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportsIsolated")]
         pub supports_isolated: Option<bool>,
     }

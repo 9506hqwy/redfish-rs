@@ -80,9 +80,9 @@ pub mod v1_1_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssignReplicaTargetRequestBody {
         #[serde(rename = "ReplicaType")]
-        pub replica_type: String,
+        pub replica_type: crate::swordfish::storage_replica_info::ReplicaType,
         #[serde(rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: String,
+        pub replica_update_mode: crate::swordfish::storage_replica_info::ReplicaUpdateMode,
         #[serde(rename = "TargetConsistencyGroup")]
         pub target_consistency_group: String,
     }
@@ -91,9 +91,10 @@ pub mod v1_1_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::swordfish::consistency_group::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyMethod")]
-        pub consistency_method: Option<String>,
+        pub consistency_method:
+            Option<crate::swordfish::consistency_group::ApplicationConsistencyMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
-        pub consistency_type: Option<String>,
+        pub consistency_type: Option<crate::swordfish::consistency_group::ConsistencyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -150,9 +151,9 @@ pub mod v1_1_1 {
         #[serde(rename = "ConsistencyGroupName")]
         pub consistency_group_name: String,
         #[serde(rename = "ReplicaType")]
-        pub replica_type: String,
+        pub replica_type: crate::swordfish::storage_replica_info::ReplicaType,
         #[serde(rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: String,
+        pub replica_update_mode: crate::swordfish::storage_replica_info::ReplicaUpdateMode,
         #[serde(rename = "TargetStoragePool")]
         pub target_storage_pool: String,
     }

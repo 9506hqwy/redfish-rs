@@ -54,7 +54,8 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "RecoveryGeographicObjective"
         )]
-        pub recovery_geographic_objective: Option<String>,
+        pub recovery_geographic_objective:
+            Option<crate::swordfish::data_protection_los_capabilities::FailureDomainScope>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RecoveryPointObjectiveTime"
@@ -64,7 +65,8 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "RecoveryTimeObjective"
         )]
-        pub recovery_time_objective: Option<String>,
+        pub recovery_time_objective:
+            Option<crate::swordfish::data_protection_los_capabilities::RecoveryAccessScope>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaAccessLocation"
@@ -76,7 +78,7 @@ pub mod v1_3_0 {
         )]
         pub replica_class_of_service: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
-        pub replica_type: Option<String>,
+        pub replica_type: Option<crate::swordfish::storage_replica_info::ReplicaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Schedule")]
         pub schedule: Option<crate::schedule::Schedule>,
     }

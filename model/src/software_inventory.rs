@@ -216,7 +216,7 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VersionScheme")]
-        pub version_scheme: Option<String>,
+        pub version_scheme: Option<crate::software_inventory::v1_9_0::VersionScheme>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteProtected")]
         pub write_protected: Option<bool>,
     }

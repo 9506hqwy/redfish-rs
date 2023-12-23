@@ -91,17 +91,17 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Created")]
         pub created: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXLEntryType")]
-        pub cxl_entry_type: Option<String>,
+        pub cxl_entry_type: Option<crate::log_entry::v1_15_0::CXLEntryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticData")]
         pub diagnostic_data: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: Option<String>,
+        pub diagnostic_data_type: Option<crate::log_entry::v1_15_0::LogDiagnosticDataTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntryCode")]
-        pub entry_code: Option<String>,
+        pub entry_code: Option<crate::log_entry::v1_15_0::LogEntryCode>,
         #[serde(rename = "EntryType")]
-        pub entry_type: String,
+        pub entry_type: crate::log_entry::v1_15_0::LogEntryType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventGroupId")]
         pub event_group_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventId")]
@@ -109,7 +109,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventTimestamp")]
         pub event_timestamp: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventType")]
-        pub event_type: Option<String>,
+        pub event_type: Option<crate::event::EventType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FirstOverflowTimestamp"
@@ -160,7 +160,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Originator")]
         pub originator: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OriginatorType")]
-        pub originator_type: Option<String>,
+        pub originator_type: Option<crate::log_entry::v1_15_0::OriginatorTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverflowErrorCount")]
         pub overflow_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Persistency")]
@@ -172,14 +172,14 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensorNumber")]
         pub sensor_number: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensorType")]
-        pub sensor_type: Option<String>,
+        pub sensor_type: Option<crate::log_entry::v1_15_0::SensorType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ServiceProviderNotified"
         )]
         pub service_provider_notified: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
-        pub severity: Option<String>,
+        pub severity: Option<crate::log_entry::v1_15_0::EventSeverity>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SpecificEventExistsInGroup"

@@ -24,7 +24,7 @@ pub mod v1_4_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CompositionStatus {
         #[serde(rename = "CompositionState")]
-        pub composition_state: Option<String>,
+        pub composition_state: Option<crate::resource_block::v1_4_1::CompositionState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxCompositions")]
         pub max_compositions: Option<i64>,
         #[serde(
@@ -150,7 +150,7 @@ pub mod v1_4_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Pool")]
-        pub pool: Option<String>,
+        pub pool: Option<crate::resource_block::v1_4_1::PoolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Processors")]
         pub processors: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -159,7 +159,7 @@ pub mod v1_4_1 {
         )]
         pub processors_odata_count: Option<i64>,
         #[serde(rename = "ResourceBlockType")]
-        pub resource_block_type: Vec<String>,
+        pub resource_block_type: Vec<crate::resource_block::v1_4_1::ResourceBlockType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SimpleStorage")]
         pub simple_storage: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(

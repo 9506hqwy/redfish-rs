@@ -16,7 +16,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsDefault")]
         pub is_default: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyPolicyType")]
-        pub key_policy_type: Option<String>,
+        pub key_policy_type: Option<crate::key_policy::v1_0_0::KeyPolicyType>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeoF")]
@@ -44,9 +44,9 @@ pub mod v1_0_0 {
             skip_serializing_if = "Option::is_none",
             rename = "CipherSuiteAllowList"
         )]
-        pub cipher_suite_allow_list: Option<Vec<String>>,
+        pub cipher_suite_allow_list: Option<Vec<crate::key_policy::v1_0_0::NVMeoFCipherSuiteType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHGroupAllowList")]
-        pub dh_group_allow_list: Option<Vec<String>>,
+        pub dh_group_allow_list: Option<Vec<crate::key_policy::v1_0_0::NVMeoFDHGroupType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OEMSecurityProtocolAllowList"
@@ -56,17 +56,19 @@ pub mod v1_0_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SecureHashAllowList"
         )]
-        pub secure_hash_allow_list: Option<Vec<String>>,
+        pub secure_hash_allow_list: Option<Vec<crate::key_policy::v1_0_0::NVMeoFSecureHashType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SecurityProtocolAllowList"
         )]
-        pub security_protocol_allow_list: Option<Vec<String>>,
+        pub security_protocol_allow_list:
+            Option<Vec<crate::key_policy::v1_0_0::NVMeoFSecurityProtocolType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SecurityTransportAllowList"
         )]
-        pub security_transport_allow_list: Option<Vec<String>>,
+        pub security_transport_allow_list:
+            Option<Vec<crate::key_policy::v1_0_0::NVMeoFSecurityTransportType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum NVMeoFCipherSuiteType {

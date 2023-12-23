@@ -145,7 +145,8 @@ pub mod v1_3_2 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedCollectionFunctions"
         )]
-        pub supported_collection_functions: Option<Vec<String>>,
+        pub supported_collection_functions:
+            Option<Vec<crate::telemetry_service::v1_3_2::CollectionFunction>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Triggers")]
         pub triggers: Option<crate::odata_v4::IdRef>,
     }

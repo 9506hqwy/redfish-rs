@@ -111,7 +111,7 @@ pub mod v1_4_1 {
         )]
         pub electrical_consumer_names: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ElectricalContext")]
-        pub electrical_context: Option<String>,
+        pub electrical_context: Option<crate::sensor::ElectricalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnergykWh")]
         pub energyk_wh: Option<crate::sensor::SensorEnergykWhExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FrequencyHz")]
@@ -119,7 +119,7 @@ pub mod v1_4_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<String>,
+        pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::outlet::v1_4_1::Links>,
         #[serde(
@@ -130,7 +130,7 @@ pub mod v1_4_1 {
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NominalVoltage")]
-        pub nominal_voltage: Option<String>,
+        pub nominal_voltage: Option<crate::circuit::NominalVoltageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -142,9 +142,9 @@ pub mod v1_4_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OutletType")]
-        pub outlet_type: Option<String>,
+        pub outlet_type: Option<crate::outlet::ReceptacleType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhaseWiringType")]
-        pub phase_wiring_type: Option<String>,
+        pub phase_wiring_type: Option<crate::circuit::PhaseWiringType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PolyPhaseCurrentAmps"
@@ -179,9 +179,9 @@ pub mod v1_4_1 {
         )]
         pub power_restore_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerRestorePolicy")]
-        pub power_restore_policy: Option<String>,
+        pub power_restore_policy: Option<crate::circuit::PowerRestorePolicyTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::resource::PowerState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerStateInTransition"
@@ -198,7 +198,7 @@ pub mod v1_4_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Voltage")]
         pub voltage: Option<crate::sensor::SensorVoltageExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VoltageType")]
-        pub voltage_type: Option<String>,
+        pub voltage_type: Option<crate::outlet::v1_4_1::VoltageType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerControl {
@@ -210,7 +210,7 @@ pub mod v1_4_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerControlRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::circuit::PowerState>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetMetrics {

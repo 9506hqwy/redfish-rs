@@ -154,9 +154,9 @@ pub mod v1_0_9 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -181,9 +181,9 @@ pub mod v1_0_9 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -208,9 +208,9 @@ pub mod v1_1_5 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -248,9 +248,9 @@ pub mod v1_1_5 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -288,9 +288,9 @@ pub mod v1_2_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -330,9 +330,9 @@ pub mod v1_2_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedRPM")]
@@ -390,9 +390,9 @@ pub mod v1_3_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -432,9 +432,9 @@ pub mod v1_3_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedRPM")]
@@ -492,9 +492,9 @@ pub mod v1_4_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -534,9 +534,9 @@ pub mod v1_4_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedRPM")]
@@ -594,9 +594,9 @@ pub mod v1_5_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -640,9 +640,9 @@ pub mod v1_5_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedRPM")]
@@ -702,9 +702,9 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -748,9 +748,9 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedRPM")]
@@ -960,11 +960,11 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ElectricalContext")]
-        pub electrical_context: Option<String>,
+        pub electrical_context: Option<crate::sensor::ElectricalContext>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Implementation")]
-        pub implementation: Option<String>,
+        pub implementation: Option<crate::sensor::v1_7_0::ImplementationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LifetimeReading")]
         pub lifetime_reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
@@ -1006,9 +1006,9 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhaseAngleDegrees")]
         pub phase_angle_degrees: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerFactor")]
         pub power_factor: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Precision")]
@@ -1020,7 +1020,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingBasis")]
-        pub reading_basis: Option<String>,
+        pub reading_basis: Option<crate::sensor::v1_7_0::ReadingBasisType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingRangeMax")]
         pub reading_range_max: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingRangeMin")]
@@ -1028,7 +1028,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingTime")]
         pub reading_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingType")]
-        pub reading_type: Option<String>,
+        pub reading_type: Option<crate::sensor::v1_7_0::ReadingType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingUnits")]
         pub reading_units: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RelatedItem")]
@@ -1055,7 +1055,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Thresholds")]
         pub thresholds: Option<crate::sensor::v1_7_0::Thresholds>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VoltageType")]
-        pub voltage_type: Option<String>,
+        pub voltage_type: Option<crate::sensor::VoltageType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SensorArrayExcerpt {
@@ -1064,9 +1064,9 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
     }
@@ -1110,9 +1110,9 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceName")]
         pub device_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedRPM")]
@@ -1165,7 +1165,7 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Threshold {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Activation")]
-        pub activation: Option<String>,
+        pub activation: Option<crate::sensor::v1_7_0::ThresholdActivation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DwellTime")]
         pub dwell_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HysteresisDuration")]

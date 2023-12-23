@@ -51,7 +51,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Switch {
@@ -81,7 +81,7 @@ pub mod v1_9_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<String>,
+        pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsManaged")]
         pub is_managed: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
@@ -122,7 +122,7 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ports")]
         pub ports: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::resource::PowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -137,9 +137,9 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedProtocols")]
-        pub supported_protocols: Option<Vec<String>>,
+        pub supported_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SwitchType")]
-        pub switch_type: Option<String>,
+        pub switch_type: Option<crate::protocol::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalSwitchWidth")]
         pub total_switch_width: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]

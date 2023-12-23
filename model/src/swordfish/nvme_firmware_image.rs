@@ -29,7 +29,7 @@ pub mod v1_1_0 {
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeDeviceType")]
-        pub nvme_device_type: Option<String>,
+        pub nvme_device_type: Option<crate::swordfish::nvme_firmware_image::NVMeDeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]

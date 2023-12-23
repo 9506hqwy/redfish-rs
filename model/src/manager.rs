@@ -40,7 +40,8 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ConnectTypesSupported"
         )]
-        pub connect_types_supported: Option<Vec<String>>,
+        pub connect_types_supported:
+            Option<Vec<crate::manager::v1_18_0::CommandConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -75,7 +76,8 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ConnectTypesSupported"
         )]
-        pub connect_types_supported: Option<Vec<String>>,
+        pub connect_types_supported:
+            Option<Vec<crate::manager::v1_18_0::GraphicalConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -201,7 +203,7 @@ pub mod v1_18_0 {
         )]
         pub manager_diagnostic_data: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagerType")]
-        pub manager_type: Option<String>,
+        pub manager_type: Option<crate::manager::v1_18_0::ManagerType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
@@ -225,7 +227,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::resource::PowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -320,7 +322,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaults {
@@ -332,7 +334,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaultsRequestBody {
         #[serde(rename = "ResetType")]
-        pub reset_type: String,
+        pub reset_type: crate::manager::v1_18_0::ResetToDefaultsType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetToDefaultsType {
@@ -362,7 +364,8 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ConnectTypesSupported"
         )]
-        pub connect_types_supported: Option<Vec<String>>,
+        pub connect_types_supported:
+            Option<Vec<crate::manager::v1_18_0::SerialConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"

@@ -159,7 +159,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SNMPCommunity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessMode")]
-        pub access_mode: Option<String>,
+        pub access_mode: Option<crate::manager_network_protocol::v1_9_1::SNMPCommunityAccessMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommunityString")]
         pub community_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
@@ -191,12 +191,14 @@ pub mod v1_9_1 {
             skip_serializing_if = "Option::is_none",
             rename = "AuthenticationProtocol"
         )]
-        pub authentication_protocol: Option<String>,
+        pub authentication_protocol:
+            Option<crate::manager_network_protocol::v1_9_1::SNMPAuthenticationProtocols>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CommunityAccessMode"
         )]
-        pub community_access_mode: Option<String>,
+        pub community_access_mode:
+            Option<crate::manager_network_protocol::v1_9_1::SNMPCommunityAccessMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommunityStrings")]
         pub community_strings: Option<Vec<crate::manager_network_protocol::v1_9_1::SNMPCommunity>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnableSNMPv1")]
@@ -206,7 +208,8 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnableSNMPv3")]
         pub enable_snm_pv3: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<String>,
+        pub encryption_protocol:
+            Option<crate::manager_network_protocol::v1_9_1::SNMPEncryptionProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EngineId")]
         pub engine_id: Option<crate::manager_network_protocol::v1_9_1::EngineId>,
         #[serde(
@@ -222,7 +225,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SSDProtocol {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NotifyIPv6Scope")]
-        pub notify_ipv6_scope: Option<String>,
+        pub notify_ipv6_scope: Option<crate::manager_network_protocol::v1_9_1::NotifyIPv6Scope>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "NotifyMulticastIntervalSeconds"

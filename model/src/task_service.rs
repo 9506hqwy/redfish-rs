@@ -23,7 +23,7 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "CompletedTaskOverWritePolicy"
         )]
-        pub completed_task_over_write_policy: Option<String>,
+        pub completed_task_over_write_policy: Option<crate::task_service::v1_2_0::OverWritePolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DateTime")]
         pub date_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]

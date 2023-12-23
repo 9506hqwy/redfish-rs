@@ -99,22 +99,26 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedAntivirusScanPolicies"
         )]
-        pub supported_antivirus_scan_policies: Option<Vec<String>>,
+        pub supported_antivirus_scan_policies:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::AntiVirusScanTrigger>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedChannelEncryptionStrengths"
         )]
-        pub supported_channel_encryption_strengths: Option<Vec<String>>,
+        pub supported_channel_encryption_strengths:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::KeySize>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedDataSanitizationPolicies"
         )]
-        pub supported_data_sanitization_policies: Option<Vec<String>>,
+        pub supported_data_sanitization_policies:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::DataSanitizationPolicy>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedHostAuthenticationTypes"
         )]
-        pub supported_host_authentication_types: Option<Vec<String>>,
+        pub supported_host_authentication_types:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::AuthenticationType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedLinesOfService"
@@ -129,17 +133,20 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedMediaEncryptionStrengths"
         )]
-        pub supported_media_encryption_strengths: Option<Vec<String>>,
+        pub supported_media_encryption_strengths:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::KeySize>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedSecureChannelProtocols"
         )]
-        pub supported_secure_channel_protocols: Option<Vec<String>>,
+        pub supported_secure_channel_protocols:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::SecureChannelProtocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedUserAuthenticationTypes"
         )]
-        pub supported_user_authentication_types: Option<Vec<String>>,
+        pub supported_user_authentication_types:
+            Option<Vec<crate::swordfish::data_security_los_capabilities::AuthenticationType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

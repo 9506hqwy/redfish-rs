@@ -22,7 +22,7 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::aggregation_source::v1_3_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AggregationType")]
-        pub aggregation_type: Option<String>,
+        pub aggregation_type: Option<crate::aggregation_source::v1_3_1::AggregationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostName")]
@@ -100,11 +100,11 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GenerateSSHIdentityKeyPairRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Curve")]
-        pub curve: Option<String>,
+        pub curve: Option<crate::aggregation_source::v1_3_1::ECDSACurveType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyLength")]
         pub key_length: Option<i64>,
         #[serde(rename = "KeyType")]
-        pub key_type: String,
+        pub key_type: crate::aggregation_source::v1_3_1::SSHKeyType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -174,13 +174,14 @@ pub mod v1_3_1 {
             skip_serializing_if = "Option::is_none",
             rename = "AuthenticationProtocol"
         )]
-        pub authentication_protocol: Option<String>,
+        pub authentication_protocol:
+            Option<crate::aggregation_source::v1_3_1::SNMPAuthenticationProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<String>,
+        pub encryption_protocol: Option<crate::aggregation_source::v1_3_1::SNMPEncryptionProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrapCommunity")]
         pub trap_community: Option<String>,
     }
@@ -219,7 +220,8 @@ pub mod v1_3_1 {
             skip_serializing_if = "Option::is_none",
             rename = "UserAuthenticationMethod"
         )]
-        pub user_authentication_method: Option<String>,
+        pub user_authentication_method:
+            Option<crate::aggregation_source::v1_3_1::UserAuthenticationMethod>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum UserAuthenticationMethod {

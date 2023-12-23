@@ -49,13 +49,13 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProductionDate")]
         pub production_date: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PumpSpeedPercent")]
         pub pump_speed_percent: Option<crate::sensor::SensorPumpExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PumpType")]
-        pub pump_type: Option<String>,
+        pub pump_type: Option<crate::pump::v1_0_0::PumpType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceHours")]

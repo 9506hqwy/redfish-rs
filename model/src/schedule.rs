@@ -63,12 +63,12 @@ pub mod v1_0_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfMonth")]
         pub enabled_days_of_month: Option<Vec<i64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfWeek")]
-        pub enabled_days_of_week: Option<Vec<String>>,
+        pub enabled_days_of_week: Option<Vec<crate::schedule::v1_0_3::DayOfWeek>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EnabledMonthsOfYear"
         )]
-        pub enabled_months_of_year: Option<Vec<String>>,
+        pub enabled_months_of_year: Option<Vec<crate::schedule::v1_0_3::MonthOfYear>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitialStartTime")]
         pub initial_start_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lifetime")]
@@ -138,14 +138,14 @@ pub mod v1_1_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfMonth")]
         pub enabled_days_of_month: Option<Vec<i64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfWeek")]
-        pub enabled_days_of_week: Option<Vec<String>>,
+        pub enabled_days_of_week: Option<Vec<crate::schedule::v1_1_4::DayOfWeek>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledIntervals")]
         pub enabled_intervals: Option<Vec<String>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EnabledMonthsOfYear"
         )]
-        pub enabled_months_of_year: Option<Vec<String>>,
+        pub enabled_months_of_year: Option<Vec<crate::schedule::v1_1_4::MonthOfYear>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitialStartTime")]
         pub initial_start_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lifetime")]
@@ -215,14 +215,14 @@ pub mod v1_2_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfMonth")]
         pub enabled_days_of_month: Option<Vec<i64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfWeek")]
-        pub enabled_days_of_week: Option<Vec<String>>,
+        pub enabled_days_of_week: Option<Vec<crate::schedule::v1_2_4::DayOfWeek>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledIntervals")]
         pub enabled_intervals: Option<Vec<String>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EnabledMonthsOfYear"
         )]
-        pub enabled_months_of_year: Option<Vec<String>>,
+        pub enabled_months_of_year: Option<Vec<crate::schedule::v1_2_4::MonthOfYear>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitialStartTime")]
         pub initial_start_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lifetime")]

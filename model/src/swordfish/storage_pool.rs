@@ -147,7 +147,7 @@ pub mod v1_8_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NVMeProperties {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMePoolType")]
-        pub nvme_pool_type: Option<String>,
+        pub nvme_pool_type: Option<crate::swordfish::storage_pool::NVMePoolType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NVMeSetProperties {
@@ -320,7 +320,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PoolType")]
-        pub pool_type: Option<Vec<String>>,
+        pub pool_type: Option<Vec<crate::swordfish::storage_pool::PoolType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RecoverableCapacitySourceCount"
@@ -336,13 +336,14 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedPoolTypes")]
-        pub supported_pool_types: Option<Vec<String>>,
+        pub supported_pool_types: Option<Vec<crate::swordfish::storage_pool::PoolType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedProvisioningPolicies"
         )]
-        pub supported_provisioning_policies: Option<Vec<String>>,
+        pub supported_provisioning_policies:
+            Option<Vec<crate::swordfish::data_storage_los_capabilities::ProvisioningPolicy>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
-        pub supported_raid_types: Option<Vec<String>>,
+        pub supported_raid_types: Option<Vec<crate::swordfish::volume::RAIDType>>,
     }
 }

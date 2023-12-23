@@ -13,7 +13,7 @@ pub mod v1_1_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ConnectionMethodType"
         )]
-        pub connection_method_type: Option<String>,
+        pub connection_method_type: Option<crate::connection_method::v1_1_0::ConnectionMethodType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConnectionMethodVariant"
@@ -38,7 +38,7 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TunnelingProtocol")]
-        pub tunneling_protocol: Option<String>,
+        pub tunneling_protocol: Option<crate::connection_method::v1_1_0::TunnelingProtocolType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ConnectionMethodType {

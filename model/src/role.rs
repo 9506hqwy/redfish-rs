@@ -14,7 +14,7 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AlternateRoleId")]
         pub alternate_role_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssignedPrivileges")]
-        pub assigned_privileges: Option<Vec<String>>,
+        pub assigned_privileges: Option<Vec<crate::privileges::PrivilegeType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]

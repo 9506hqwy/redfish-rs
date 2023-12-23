@@ -29,7 +29,7 @@ pub mod v1_1_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::license::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthorizationScope")]
-        pub authorization_scope: Option<String>,
+        pub authorization_scope: Option<crate::license::v1_1_1::AuthorizationScope>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Contact")]
         pub contact: Option<crate::license::v1_1_1::ContactInfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -49,11 +49,11 @@ pub mod v1_1_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseInfoURI")]
         pub license_info_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseOrigin")]
-        pub license_origin: Option<String>,
+        pub license_origin: Option<crate::license::v1_1_1::LicenseOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseString")]
         pub license_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseType")]
-        pub license_type: Option<String>,
+        pub license_type: Option<crate::license::v1_1_1::LicenseType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::license::v1_1_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]

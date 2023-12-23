@@ -128,7 +128,7 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceClass")]
-        pub device_class: Option<String>,
+        pub device_class: Option<crate::pcie_function::v1_5_0::DeviceClass>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceId")]
         pub device_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
@@ -136,9 +136,9 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FunctionId")]
         pub function_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FunctionProtocol")]
-        pub function_protocol: Option<String>,
+        pub function_protocol: Option<crate::pcie_function::v1_5_0::FunctionProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FunctionType")]
-        pub function_type: Option<String>,
+        pub function_type: Option<crate::pcie_function::v1_5_0::FunctionType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]

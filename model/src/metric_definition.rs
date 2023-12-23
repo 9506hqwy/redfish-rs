@@ -69,12 +69,13 @@ pub mod v1_3_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::metric_definition::v1_3_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Calculable")]
-        pub calculable: Option<String>,
+        pub calculable: Option<crate::metric_definition::v1_3_2::Calculable>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CalculationAlgorithm"
         )]
-        pub calculation_algorithm: Option<String>,
+        pub calculation_algorithm:
+            Option<crate::metric_definition::v1_3_2::CalculationAlgorithmEnum>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CalculationParameters"
@@ -95,19 +96,19 @@ pub mod v1_3_2 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Implementation")]
-        pub implementation: Option<String>,
+        pub implementation: Option<crate::metric_definition::v1_3_2::ImplementationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsLinear")]
         pub is_linear: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogicalContexts")]
-        pub logical_contexts: Option<Vec<String>>,
+        pub logical_contexts: Option<Vec<crate::physical_context::LogicalContext>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxReadingRange")]
         pub max_reading_range: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricDataType")]
-        pub metric_data_type: Option<String>,
+        pub metric_data_type: Option<crate::metric_definition::v1_3_2::MetricDataType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricProperties")]
         pub metric_properties: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricType")]
-        pub metric_type: Option<String>,
+        pub metric_type: Option<crate::metric_definition::v1_3_2::MetricType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MinReadingRange")]
         pub min_reading_range: Option<f64>,
         #[serde(rename = "Name")]
@@ -128,7 +129,7 @@ pub mod v1_3_2 {
         )]
         pub oem_calculation_algorithm: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Precision")]
         pub precision: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensingInterval")]

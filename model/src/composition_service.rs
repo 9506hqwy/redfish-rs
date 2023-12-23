@@ -22,9 +22,9 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manifest")]
         pub manifest: Option<crate::manifest::Manifest>,
         #[serde(rename = "RequestFormat")]
-        pub request_format: String,
+        pub request_format: crate::composition_service::v1_2_1::ComposeRequestFormat,
         #[serde(rename = "RequestType")]
-        pub request_type: String,
+        pub request_type: crate::composition_service::v1_2_1::ComposeRequestType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReservationId")]
         pub reservation_id: Option<String>,
     }
@@ -49,9 +49,9 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manifest")]
         pub manifest: Option<crate::manifest::Manifest>,
         #[serde(rename = "RequestFormat")]
-        pub request_format: String,
+        pub request_format: crate::composition_service::v1_2_1::ComposeRequestFormat,
         #[serde(rename = "RequestType")]
-        pub request_type: String,
+        pub request_type: crate::composition_service::v1_2_1::ComposeRequestType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReservationId")]
         pub reservation_id: Option<String>,
     }

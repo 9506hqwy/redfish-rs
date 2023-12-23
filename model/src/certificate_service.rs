@@ -79,7 +79,7 @@ pub mod v1_0_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyPairAlgorithm")]
         pub key_pair_algorithm: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyUsage")]
-        pub key_usage: Option<Vec<String>>,
+        pub key_usage: Option<Vec<crate::certificate::KeyUsage>>,
         #[serde(rename = "Organization")]
         pub organization: String,
         #[serde(rename = "OrganizationalUnit")]
@@ -112,7 +112,7 @@ pub mod v1_0_4 {
         #[serde(rename = "CertificateString")]
         pub certificate_string: String,
         #[serde(rename = "CertificateType")]
-        pub certificate_type: String,
+        pub certificate_type: crate::certificate::CertificateType,
         #[serde(rename = "CertificateUri")]
         pub certificate_uri: crate::odata_v4::IdRef,
     }

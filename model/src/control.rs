@@ -41,7 +41,7 @@ pub mod v1_0_1 {
         )]
         pub allowable_numeric_values: Option<Vec<f64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_0_1::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -60,7 +60,7 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_0_1::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -97,7 +97,7 @@ pub mod v1_1_0 {
         )]
         pub allowable_numeric_values: Option<Vec<f64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_1_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -116,7 +116,7 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_1_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -153,7 +153,7 @@ pub mod v1_2_0 {
         )]
         pub allowable_numeric_values: Option<Vec<f64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_2_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -172,7 +172,7 @@ pub mod v1_2_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_2_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -225,9 +225,9 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlLoop")]
         pub control_loop: Option<crate::control::v1_3_0::ControlLoop>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_3_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlType")]
-        pub control_type: Option<String>,
+        pub control_type: Option<crate::control::v1_3_0::ControlType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeadBand")]
         pub dead_band: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DefaultSetPoint")]
@@ -237,7 +237,7 @@ pub mod v1_3_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Implementation")]
-        pub implementation: Option<String>,
+        pub implementation: Option<crate::control::v1_3_0::ImplementationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Increment")]
         pub increment: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -255,9 +255,9 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RelatedItem")]
         pub related_item: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -270,7 +270,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPoint")]
         pub set_point: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointType")]
-        pub set_point_type: Option<String>,
+        pub set_point_type: Option<crate::control::v1_3_0::SetPointType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointUnits")]
         pub set_point_units: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointUpdateTime")]
@@ -320,7 +320,7 @@ pub mod v1_3_0 {
         )]
         pub allowable_numeric_values: Option<Vec<f64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_3_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -339,7 +339,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<String>,
+        pub control_mode: Option<crate::control::v1_3_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DefaultSetPoint")]

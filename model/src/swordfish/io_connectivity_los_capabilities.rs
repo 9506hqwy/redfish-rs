@@ -38,7 +38,7 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedAccessProtocols"
         )]
-        pub supported_access_protocols: Option<Vec<String>>,
+        pub supported_access_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedLinesOfService"

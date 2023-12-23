@@ -102,15 +102,15 @@ pub mod v1_1_8 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::serial_interface::v1_1_8::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BitRate")]
-        pub bit_rate: Option<String>,
+        pub bit_rate: Option<crate::serial_interface::v1_1_8::BitRate>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectorType")]
-        pub connector_type: Option<String>,
+        pub connector_type: Option<crate::serial_interface::v1_1_8::ConnectorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataBits")]
-        pub data_bits: Option<String>,
+        pub data_bits: Option<crate::serial_interface::v1_1_8::DataBits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FlowControl")]
-        pub flow_control: Option<String>,
+        pub flow_control: Option<crate::serial_interface::v1_1_8::FlowControl>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceEnabled")]
@@ -128,13 +128,13 @@ pub mod v1_1_8 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Parity")]
-        pub parity: Option<String>,
+        pub parity: Option<crate::serial_interface::v1_1_8::Parity>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PinOut")]
-        pub pin_out: Option<String>,
+        pub pin_out: Option<crate::serial_interface::v1_1_8::PinOut>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SignalType")]
-        pub signal_type: Option<String>,
+        pub signal_type: Option<crate::serial_interface::v1_1_8::SignalType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StopBits")]
-        pub stop_bits: Option<String>,
+        pub stop_bits: Option<crate::serial_interface::v1_1_8::StopBits>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SignalType {

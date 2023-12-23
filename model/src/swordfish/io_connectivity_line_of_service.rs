@@ -8,7 +8,7 @@ pub mod v1_2_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct IOConnectivityLineOfService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessProtocols")]
-        pub access_protocols: Option<Vec<String>>,
+        pub access_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::swordfish::io_connectivity_line_of_service::v1_2_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]

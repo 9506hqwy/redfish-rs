@@ -61,12 +61,12 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CertificateString")]
         pub certificate_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CertificateType")]
-        pub certificate_type: Option<String>,
+        pub certificate_type: Option<crate::certificate::CertificateType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CertificateUsageTypes"
         )]
-        pub certificate_usage_types: Option<Vec<String>>,
+        pub certificate_usage_types: Option<Vec<crate::certificate::v1_7_0::CertificateUsageType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Fingerprint")]
@@ -81,7 +81,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Issuer")]
         pub issuer: Option<crate::certificate::v1_7_0::Identifier>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyUsage")]
-        pub key_usage: Option<Vec<String>>,
+        pub key_usage: Option<Vec<crate::certificate::KeyUsage>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::certificate::v1_7_0::Links>,
         #[serde(rename = "Name")]

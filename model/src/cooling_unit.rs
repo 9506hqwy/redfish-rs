@@ -35,7 +35,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "EquipmentType")]
-        pub equipment_type: String,
+        pub equipment_type: crate::cooling_unit::v1_0_0::CoolingEquipmentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FilterRedundancy")]
         pub filter_redundancy: Option<Vec<crate::redundancy::RedundantGroup>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Filters")]

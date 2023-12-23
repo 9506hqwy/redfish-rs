@@ -41,7 +41,7 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionType")]
-        pub session_type: Option<String>,
+        pub session_type: Option<crate::session::v1_6_0::SessionTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Token")]
         pub token: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]

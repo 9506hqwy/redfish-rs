@@ -44,9 +44,9 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<String>,
+        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotType")]
-        pub slot_type: Option<String>,
+        pub slot_type: Option<crate::pcie_slots::v1_5_0::SlotTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
     }

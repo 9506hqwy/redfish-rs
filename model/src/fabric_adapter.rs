@@ -21,12 +21,12 @@ pub mod v1_5_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FabricType")]
-        pub fabric_type: Option<String>,
+        pub fabric_type: Option<crate::protocol::Protocol>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FabricTypeCapabilities"
         )]
-        pub fabric_type_capabilities: Option<Vec<String>>,
+        pub fabric_type_capabilities: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]

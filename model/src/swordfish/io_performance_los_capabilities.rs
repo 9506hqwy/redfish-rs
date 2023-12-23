@@ -30,7 +30,8 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Duration")]
         pub duration: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOAccessPattern")]
-        pub io_access_pattern: Option<String>,
+        pub io_access_pattern:
+            Option<crate::swordfish::io_performance_los_capabilities::v1_0_0::IOAccessPattern>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfData")]
         pub percent_of_data: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfIOPS")]
@@ -129,7 +130,8 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Duration")]
         pub duration: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOAccessPattern")]
-        pub io_access_pattern: Option<String>,
+        pub io_access_pattern:
+            Option<crate::swordfish::io_performance_los_capabilities::v1_3_0::IOAccessPattern>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfData")]
         pub percent_of_data: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentOfIOPS")]

@@ -23,7 +23,7 @@ pub mod v1_3_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EndpointGroup {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<String>,
+        pub access_state: Option<crate::endpoint_group::AccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::endpoint_group::v1_3_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -36,7 +36,7 @@ pub mod v1_3_2 {
         )]
         pub endpoints_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GroupType")]
-        pub group_type: Option<String>,
+        pub group_type: Option<crate::endpoint_group::v1_3_2::GroupType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifier")]

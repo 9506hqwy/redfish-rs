@@ -11,7 +11,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotPluggable")]
         pub hot_pluggable: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<String>,
+        pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -48,11 +48,11 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingUnits")]
-        pub reading_units: Option<String>,
+        pub reading_units: Option<crate::thermal::v1_7_1::ReadingUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -124,7 +124,7 @@ pub mod v1_7_1 {
             skip_serializing_if = "Option::is_none",
             rename = "DeltaPhysicalContext"
         )]
-        pub delta_physical_context: Option<String>,
+        pub delta_physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DeltaReadingCelsius"
@@ -176,7 +176,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingCelsius")]
         pub reading_celsius: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RelatedItem")]

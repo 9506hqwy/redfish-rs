@@ -28,7 +28,7 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TargetServices")]
         pub target_services: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
-        pub transfer_protocol: Option<String>,
+        pub transfer_protocol: Option<crate::license_service::v1_1_0::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Username")]
         pub username: Option<String>,
     }

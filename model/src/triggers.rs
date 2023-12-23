@@ -12,7 +12,7 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
         pub name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
-        pub severity: Option<String>,
+        pub severity: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Value")]
         pub value: Option<String>,
     }
@@ -52,7 +52,7 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Threshold {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Activation")]
-        pub activation: Option<String>,
+        pub activation: Option<crate::triggers::v1_3_1::ThresholdActivation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DwellTime")]
         pub dwell_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -101,7 +101,8 @@ pub mod v1_3_1 {
             skip_serializing_if = "Option::is_none",
             rename = "DiscreteTriggerCondition"
         )]
-        pub discrete_trigger_condition: Option<String>,
+        pub discrete_trigger_condition:
+            Option<crate::triggers::v1_3_1::DiscreteTriggerConditionEnum>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiscreteTriggers")]
         pub discrete_triggers: Option<Vec<crate::triggers::v1_3_1::DiscreteTrigger>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventTriggers")]
@@ -119,7 +120,7 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricProperties")]
         pub metric_properties: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricType")]
-        pub metric_type: Option<String>,
+        pub metric_type: Option<crate::triggers::v1_3_1::MetricTypeEnum>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NumericThresholds")]
@@ -137,7 +138,7 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TriggerActions")]
-        pub trigger_actions: Option<Vec<String>>,
+        pub trigger_actions: Option<Vec<crate::triggers::v1_3_1::TriggerActionEnum>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Wildcards")]
         pub wildcards: Option<Vec<crate::triggers::v1_3_1::Wildcard>>,
     }

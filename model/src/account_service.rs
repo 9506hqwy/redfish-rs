@@ -26,7 +26,7 @@ pub mod v1_12_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MFABypass {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BypassTypes")]
-        pub bypass_types: Option<Vec<String>>,
+        pub bypass_types: Option<Vec<crate::account_service::MFABypassType>>,
     }
 }
 pub mod v1_13_0 {
@@ -92,7 +92,7 @@ pub mod v1_13_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LDAP")]
         pub ldap: Option<crate::account_service::v1_13_0::ExternalAccountProvider>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocalAccountAuth")]
-        pub local_account_auth: Option<String>,
+        pub local_account_auth: Option<crate::account_service::v1_13_0::LocalAccountAuth>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPasswordLength")]
         pub max_password_length: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MinPasswordLength")]
@@ -129,7 +129,7 @@ pub mod v1_13_0 {
             skip_serializing_if = "Option::is_none",
             rename = "RestrictedPrivileges"
         )]
-        pub restricted_privileges: Option<Vec<String>>,
+        pub restricted_privileges: Option<Vec<crate::privileges::PrivilegeType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Roles")]
         pub roles: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceEnabled")]
@@ -140,7 +140,7 @@ pub mod v1_13_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedAccountTypes"
         )]
-        pub supported_account_types: Option<Vec<String>>,
+        pub supported_account_types: Option<Vec<crate::manager_account::AccountTypes>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedOEMAccountTypes"
@@ -157,7 +157,7 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Authentication {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthenticationType")]
-        pub authentication_type: Option<String>,
+        pub authentication_type: Option<crate::account_service::v1_13_0::AuthenticationTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
@@ -201,7 +201,8 @@ pub mod v1_13_0 {
             skip_serializing_if = "Option::is_none",
             rename = "CertificateMappingAttribute"
         )]
-        pub certificate_mapping_attribute: Option<String>,
+        pub certificate_mapping_attribute:
+            Option<crate::account_service::v1_13_0::CertificateMappingAttribute>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
@@ -218,7 +219,7 @@ pub mod v1_13_0 {
             skip_serializing_if = "Option::is_none",
             rename = "AccountProviderType"
         )]
-        pub account_provider_type: Option<String>,
+        pub account_provider_type: Option<crate::account_service::v1_13_0::AccountProviderTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
         pub authentication: Option<crate::account_service::v1_13_0::Authentication>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
@@ -291,7 +292,7 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MFABypass {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BypassTypes")]
-        pub bypass_types: Option<Vec<String>>,
+        pub bypass_types: Option<Vec<crate::account_service::MFABypassType>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MicrosoftAuthenticator {
@@ -335,7 +336,7 @@ pub mod v1_13_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Issuer")]
         pub issuer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Mode")]
-        pub mode: Option<String>,
+        pub mode: Option<crate::account_service::v1_13_0::OAuth2Mode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OAuthServiceSigningKeys"
@@ -401,7 +402,8 @@ pub mod v1_13_0 {
             skip_serializing_if = "Option::is_none",
             rename = "PasswordExchangeProtocols"
         )]
-        pub password_exchange_protocols: Option<Vec<String>>,
+        pub password_exchange_protocols:
+            Option<Vec<crate::account_service::v1_13_0::TACACSplusPasswordExchangeProtocol>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PrivilegeLevelArgument"

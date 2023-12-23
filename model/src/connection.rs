@@ -53,7 +53,7 @@ pub mod v1_2_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectionKeys")]
         pub connection_keys: Option<crate::connection::v1_2_0::ConnectionKey>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectionType")]
-        pub connection_type: Option<String>,
+        pub connection_type: Option<crate::connection::v1_2_0::ConnectionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -165,9 +165,9 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryChunkInfo {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<String>>,
+        pub access_capabilities: Option<Vec<crate::connection::v1_2_0::AccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<String>,
+        pub access_state: Option<crate::connection::v1_2_0::AccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunk")]
         pub memory_chunk: Option<crate::odata_v4::IdRef>,
     }
@@ -176,9 +176,9 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VolumeInfo {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<String>>,
+        pub access_capabilities: Option<Vec<crate::connection::v1_2_0::AccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<String>,
+        pub access_state: Option<crate::connection::v1_2_0::AccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LUN")]
         pub lun: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Volume")]

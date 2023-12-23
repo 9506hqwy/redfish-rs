@@ -38,7 +38,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CollectDiagnosticDataRequestBody {
         #[serde(rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: String,
+        pub diagnostic_data_type: crate::log_service::v1_4_0::LogDiagnosticDataTypes,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OEMDiagnosticDataType"
@@ -105,9 +105,9 @@ pub mod v1_4_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogEntryType")]
-        pub log_entry_type: Option<String>,
+        pub log_entry_type: Option<crate::log_service::v1_4_0::LogEntryTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogPurposes")]
-        pub log_purposes: Option<Vec<String>>,
+        pub log_purposes: Option<Vec<crate::log_service::v1_4_0::LogPurpose>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxNumberOfRecords")]
         pub max_number_of_records: Option<i64>,
         #[serde(rename = "Name")]
@@ -125,7 +125,7 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OEMLogPurpose")]
         pub oem_log_purpose: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverWritePolicy")]
-        pub over_write_policy: Option<String>,
+        pub over_write_policy: Option<crate::log_service::v1_4_0::OverWritePolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Overflow")]
         pub overflow: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Persistency")]
@@ -204,9 +204,9 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SyslogFilter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogFacilities")]
-        pub log_facilities: Option<Vec<String>>,
+        pub log_facilities: Option<Vec<crate::log_service::v1_4_0::SyslogFacility>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowestSeverity")]
-        pub lowest_severity: Option<String>,
+        pub lowest_severity: Option<crate::log_service::v1_4_0::SyslogSeverity>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SyslogSeverity {

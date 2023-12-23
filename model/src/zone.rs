@@ -120,7 +120,7 @@ pub mod v1_6_1 {
             skip_serializing_if = "Option::is_none",
             rename = "ExternalAccessibility"
         )]
-        pub external_accessibility: Option<String>,
+        pub external_accessibility: Option<crate::zone::v1_6_1::ExternalAccessibility>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
@@ -142,7 +142,7 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ZoneType")]
-        pub zone_type: Option<String>,
+        pub zone_type: Option<crate::zone::v1_6_1::ZoneType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ZoneType {

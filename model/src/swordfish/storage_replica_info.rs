@@ -83,11 +83,14 @@ pub mod v1_0_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
         pub consistency_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
-        pub consistency_state: Option<String>,
+        pub consistency_state:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ConsistencyState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
-        pub consistency_status: Option<String>,
+        pub consistency_status:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ConsistencyStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
-        pub consistency_type: Option<String>,
+        pub consistency_type:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ConsistencyType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FailedCopyStopsHostIO"
@@ -98,44 +101,50 @@ pub mod v1_0_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
         pub replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
-        pub replica_priority: Option<String>,
+        pub replica_priority:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ReplicaPriority>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaProgressStatus"
         )]
-        pub replica_progress_status: Option<String>,
+        pub replica_progress_status:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ReplicaProgressStatus>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaReadOnlyAccess"
         )]
-        pub replica_read_only_access: Option<String>,
+        pub replica_read_only_access:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ReplicaReadOnlyAccess>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaRecoveryMode"
         )]
-        pub replica_recovery_mode: Option<String>,
+        pub replica_recovery_mode:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ReplicaRecoveryMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
-        pub replica_role: Option<String>,
+        pub replica_role: Option<crate::swordfish::storage_replica_info::v1_0_2::ReplicaRole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
         pub replica_skew_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
-        pub replica_state: Option<String>,
+        pub replica_state: Option<crate::swordfish::storage_replica_info::v1_0_2::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
-        pub replica_type: Option<String>,
+        pub replica_type: Option<crate::swordfish::storage_replica_info::ReplicaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: Option<String>,
+        pub replica_update_mode: Option<crate::swordfish::storage_replica_info::ReplicaUpdateMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RequestedReplicaState"
         )]
-        pub requested_replica_state: Option<String>,
+        pub requested_replica_state:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
         pub sync_maintained: Option<bool>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UndiscoveredElement"
         )]
-        pub undiscovered_element: Option<String>,
+        pub undiscovered_element:
+            Option<crate::swordfish::storage_replica_info::v1_0_2::UndiscoveredElement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
         pub when_activated: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
@@ -315,11 +324,14 @@ pub mod v1_1_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
         pub consistency_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
-        pub consistency_state: Option<String>,
+        pub consistency_state:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ConsistencyState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
-        pub consistency_status: Option<String>,
+        pub consistency_status:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ConsistencyStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
-        pub consistency_type: Option<String>,
+        pub consistency_type:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ConsistencyType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DataProtectionLineOfService"
@@ -335,44 +347,50 @@ pub mod v1_1_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
         pub replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
-        pub replica_priority: Option<String>,
+        pub replica_priority:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ReplicaPriority>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaProgressStatus"
         )]
-        pub replica_progress_status: Option<String>,
+        pub replica_progress_status:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ReplicaProgressStatus>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaReadOnlyAccess"
         )]
-        pub replica_read_only_access: Option<String>,
+        pub replica_read_only_access:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ReplicaReadOnlyAccess>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaRecoveryMode"
         )]
-        pub replica_recovery_mode: Option<String>,
+        pub replica_recovery_mode:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ReplicaRecoveryMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
-        pub replica_role: Option<String>,
+        pub replica_role: Option<crate::swordfish::storage_replica_info::v1_1_2::ReplicaRole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
         pub replica_skew_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
-        pub replica_state: Option<String>,
+        pub replica_state: Option<crate::swordfish::storage_replica_info::v1_1_2::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
-        pub replica_type: Option<String>,
+        pub replica_type: Option<crate::swordfish::storage_replica_info::ReplicaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: Option<String>,
+        pub replica_update_mode: Option<crate::swordfish::storage_replica_info::ReplicaUpdateMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RequestedReplicaState"
         )]
-        pub requested_replica_state: Option<String>,
+        pub requested_replica_state:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
         pub sync_maintained: Option<bool>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UndiscoveredElement"
         )]
-        pub undiscovered_element: Option<String>,
+        pub undiscovered_element:
+            Option<crate::swordfish::storage_replica_info::v1_1_2::UndiscoveredElement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
         pub when_activated: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
@@ -552,11 +570,14 @@ pub mod v1_2_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
         pub consistency_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
-        pub consistency_state: Option<String>,
+        pub consistency_state:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ConsistencyState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
-        pub consistency_status: Option<String>,
+        pub consistency_status:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ConsistencyStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
-        pub consistency_type: Option<String>,
+        pub consistency_type:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ConsistencyType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DataProtectionLineOfService"
@@ -572,37 +593,42 @@ pub mod v1_2_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
         pub replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
-        pub replica_priority: Option<String>,
+        pub replica_priority:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ReplicaPriority>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaProgressStatus"
         )]
-        pub replica_progress_status: Option<String>,
+        pub replica_progress_status:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ReplicaProgressStatus>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaReadOnlyAccess"
         )]
-        pub replica_read_only_access: Option<String>,
+        pub replica_read_only_access:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ReplicaReadOnlyAccess>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaRecoveryMode"
         )]
-        pub replica_recovery_mode: Option<String>,
+        pub replica_recovery_mode:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ReplicaRecoveryMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
-        pub replica_role: Option<String>,
+        pub replica_role: Option<crate::swordfish::storage_replica_info::v1_2_0::ReplicaRole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
         pub replica_skew_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
-        pub replica_state: Option<String>,
+        pub replica_state: Option<crate::swordfish::storage_replica_info::v1_2_0::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
-        pub replica_type: Option<String>,
+        pub replica_type: Option<crate::swordfish::storage_replica_info::ReplicaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: Option<String>,
+        pub replica_update_mode: Option<crate::swordfish::storage_replica_info::ReplicaUpdateMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RequestedReplicaState"
         )]
-        pub requested_replica_state: Option<String>,
+        pub requested_replica_state:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SourceReplica")]
         pub source_replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
@@ -611,7 +637,8 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "UndiscoveredElement"
         )]
-        pub undiscovered_element: Option<String>,
+        pub undiscovered_element:
+            Option<crate::swordfish::storage_replica_info::v1_2_0::UndiscoveredElement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
         pub when_activated: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
@@ -791,11 +818,14 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
         pub consistency_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
-        pub consistency_state: Option<String>,
+        pub consistency_state:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ConsistencyState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
-        pub consistency_status: Option<String>,
+        pub consistency_status:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ConsistencyStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
-        pub consistency_type: Option<String>,
+        pub consistency_type:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ConsistencyType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DataProtectionLineOfService"
@@ -811,39 +841,45 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
         pub replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaFaultDomain")]
-        pub replica_fault_domain: Option<String>,
+        pub replica_fault_domain:
+            Option<crate::swordfish::storage_replica_info::ReplicaFaultDomain>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
-        pub replica_priority: Option<String>,
+        pub replica_priority:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ReplicaPriority>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaProgressStatus"
         )]
-        pub replica_progress_status: Option<String>,
+        pub replica_progress_status:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ReplicaProgressStatus>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaReadOnlyAccess"
         )]
-        pub replica_read_only_access: Option<String>,
+        pub replica_read_only_access:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ReplicaReadOnlyAccess>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaRecoveryMode"
         )]
-        pub replica_recovery_mode: Option<String>,
+        pub replica_recovery_mode:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ReplicaRecoveryMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
-        pub replica_role: Option<String>,
+        pub replica_role: Option<crate::swordfish::storage_replica_info::v1_3_0::ReplicaRole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
         pub replica_skew_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
-        pub replica_state: Option<String>,
+        pub replica_state: Option<crate::swordfish::storage_replica_info::v1_3_0::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
-        pub replica_type: Option<String>,
+        pub replica_type: Option<crate::swordfish::storage_replica_info::ReplicaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: Option<String>,
+        pub replica_update_mode: Option<crate::swordfish::storage_replica_info::ReplicaUpdateMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RequestedReplicaState"
         )]
-        pub requested_replica_state: Option<String>,
+        pub requested_replica_state:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SourceReplica")]
         pub source_replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
@@ -852,7 +888,8 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "UndiscoveredElement"
         )]
-        pub undiscovered_element: Option<String>,
+        pub undiscovered_element:
+            Option<crate::swordfish::storage_replica_info::v1_3_0::UndiscoveredElement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
         pub when_activated: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]
@@ -1032,11 +1069,14 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyEnabled")]
         pub consistency_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyState")]
-        pub consistency_state: Option<String>,
+        pub consistency_state:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ConsistencyState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyStatus")]
-        pub consistency_status: Option<String>,
+        pub consistency_status:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ConsistencyStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyType")]
-        pub consistency_type: Option<String>,
+        pub consistency_type:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ConsistencyType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DataProtectionLineOfService"
@@ -1057,39 +1097,45 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replica")]
         pub replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaFaultDomain")]
-        pub replica_fault_domain: Option<String>,
+        pub replica_fault_domain:
+            Option<crate::swordfish::storage_replica_info::ReplicaFaultDomain>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaPriority")]
-        pub replica_priority: Option<String>,
+        pub replica_priority:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ReplicaPriority>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaProgressStatus"
         )]
-        pub replica_progress_status: Option<String>,
+        pub replica_progress_status:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ReplicaProgressStatus>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaReadOnlyAccess"
         )]
-        pub replica_read_only_access: Option<String>,
+        pub replica_read_only_access:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ReplicaReadOnlyAccess>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReplicaRecoveryMode"
         )]
-        pub replica_recovery_mode: Option<String>,
+        pub replica_recovery_mode:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ReplicaRecoveryMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaRole")]
-        pub replica_role: Option<String>,
+        pub replica_role: Option<crate::swordfish::storage_replica_info::v1_4_0::ReplicaRole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaSkewBytes")]
         pub replica_skew_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaState")]
-        pub replica_state: Option<String>,
+        pub replica_state: Option<crate::swordfish::storage_replica_info::v1_4_0::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaType")]
-        pub replica_type: Option<String>,
+        pub replica_type: Option<crate::swordfish::storage_replica_info::ReplicaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReplicaUpdateMode")]
-        pub replica_update_mode: Option<String>,
+        pub replica_update_mode: Option<crate::swordfish::storage_replica_info::ReplicaUpdateMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RequestedReplicaState"
         )]
-        pub requested_replica_state: Option<String>,
+        pub requested_replica_state:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::ReplicaState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SourceReplica")]
         pub source_replica: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyncMaintained")]
@@ -1098,7 +1144,8 @@ pub mod v1_4_0 {
             skip_serializing_if = "Option::is_none",
             rename = "UndiscoveredElement"
         )]
-        pub undiscovered_element: Option<String>,
+        pub undiscovered_element:
+            Option<crate::swordfish::storage_replica_info::v1_4_0::UndiscoveredElement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenActivated")]
         pub when_activated: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WhenDeactivated")]

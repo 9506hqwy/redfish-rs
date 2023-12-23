@@ -22,7 +22,7 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetKeysRequestBody {
         #[serde(rename = "ResetKeysType")]
-        pub reset_keys_type: String,
+        pub reset_keys_type: crate::secure_boot::v1_1_0::ResetKeysType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetKeysType {
@@ -58,7 +58,7 @@ pub mod v1_1_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SecureBootCurrentBoot"
         )]
-        pub secure_boot_current_boot: Option<String>,
+        pub secure_boot_current_boot: Option<crate::secure_boot::v1_1_0::SecureBootCurrentBootType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SecureBootDatabases"
@@ -67,7 +67,7 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecureBootEnable")]
         pub secure_boot_enable: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecureBootMode")]
-        pub secure_boot_mode: Option<String>,
+        pub secure_boot_mode: Option<crate::secure_boot::v1_1_0::SecureBootModeType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SecureBootCurrentBootType {

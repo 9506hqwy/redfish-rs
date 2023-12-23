@@ -33,12 +33,12 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventFormatTypes")]
-        pub event_format_types: Option<Vec<String>>,
+        pub event_format_types: Option<Vec<crate::event_destination::EventFormatType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EventTypesForSubscription"
         )]
-        pub event_types_for_subscription: Option<Vec<String>>,
+        pub event_types_for_subscription: Option<Vec<crate::event::EventType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExcludeMessageId")]
         pub exclude_message_id: Option<bool>,
         #[serde(
@@ -74,7 +74,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceEnabled")]
         pub service_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severities")]
-        pub severities: Option<Vec<String>>,
+        pub severities: Option<Vec<crate::resource::Health>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SMTP")]
         pub smtp: Option<crate::event_service::v1_10_0::SMTP>,
         #[serde(
@@ -98,9 +98,9 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SMTP {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
-        pub authentication: Option<String>,
+        pub authentication: Option<crate::event_service::v1_10_0::SMTPAuthenticationMethods>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectionProtocol")]
-        pub connection_protocol: Option<String>,
+        pub connection_protocol: Option<crate::event_service::v1_10_0::SMTPConnectionProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FromAddress")]
         pub from_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
@@ -183,7 +183,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventTimestamp")]
         pub event_timestamp: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventType")]
-        pub event_type: Option<String>,
+        pub event_type: Option<crate::event::EventType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Message")]
         pub message: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MessageArgs")]
@@ -191,7 +191,7 @@ pub mod v1_10_0 {
         #[serde(rename = "MessageId")]
         pub message_id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MessageSeverity")]
-        pub message_severity: Option<String>,
+        pub message_severity: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OriginOfCondition")]
         pub origin_of_condition: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]

@@ -224,7 +224,7 @@ pub mod v1_17_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BaseModuleType")]
-        pub base_module_type: Option<String>,
+        pub base_module_type: Option<crate::memory::v1_17_1::BaseModuleType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BusWidthBits")]
         pub bus_width_bits: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheSizeMiB")]
@@ -253,7 +253,7 @@ pub mod v1_17_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ErrorCorrection")]
-        pub error_correction: Option<String>,
+        pub error_correction: Option<crate::memory::v1_17_1::ErrorCorrection>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareApiVersion")]
         pub firmware_api_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareRevision")]
@@ -291,11 +291,11 @@ pub mod v1_17_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::software_inventory::MeasurementBlock>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryDeviceType")]
-        pub memory_device_type: Option<String>,
+        pub memory_device_type: Option<crate::memory::v1_17_1::MemoryDeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryLocation")]
         pub memory_location: Option<crate::memory::v1_17_1::MemoryLocation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryMedia")]
-        pub memory_media: Option<Vec<String>>,
+        pub memory_media: Option<Vec<crate::memory::v1_17_1::MemoryMedia>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MemorySubsystemControllerManufacturerID"
@@ -307,7 +307,7 @@ pub mod v1_17_1 {
         )]
         pub memory_subsystem_controller_product_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryType")]
-        pub memory_type: Option<String>,
+        pub memory_type: Option<crate::memory::v1_17_1::MemoryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
         pub metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
@@ -342,7 +342,7 @@ pub mod v1_17_1 {
             skip_serializing_if = "Option::is_none",
             rename = "OperatingMemoryModes"
         )]
-        pub operating_memory_modes: Option<Vec<String>>,
+        pub operating_memory_modes: Option<Vec<crate::memory::v1_17_1::OperatingMemoryModes>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperatingSpeedMhz")]
         pub operating_speed_mhz: Option<i64>,
         #[serde(
@@ -387,7 +387,7 @@ pub mod v1_17_1 {
         )]
         pub security_capabilities: Option<crate::memory::v1_17_1::SecurityCapabilities>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityState")]
-        pub security_state: Option<String>,
+        pub security_state: Option<crate::memory::v1_17_1::SecurityStates>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityStates")]
         pub security_states: Option<crate::memory::v1_17_1::SecurityStateInfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -598,7 +598,7 @@ pub mod v1_17_1 {
             skip_serializing_if = "Option::is_none",
             rename = "MemoryClassification"
         )]
-        pub memory_classification: Option<String>,
+        pub memory_classification: Option<crate::memory::v1_17_1::MemoryClassification>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OffsetMiB")]
         pub offset_mib: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PassphraseEnabled")]
@@ -620,7 +620,7 @@ pub mod v1_17_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaults {
@@ -680,7 +680,7 @@ pub mod v1_17_1 {
         )]
         pub passphrase_lock_limit: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityStates")]
-        pub security_states: Option<Vec<String>>,
+        pub security_states: Option<Vec<crate::memory::v1_17_1::SecurityStates>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SecurityStateInfo {

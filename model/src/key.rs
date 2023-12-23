@@ -16,7 +16,7 @@ pub mod v1_2_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyString")]
         pub key_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyType")]
-        pub key_type: Option<String>,
+        pub key_type: Option<crate::key::v1_2_0::KeyType>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeoF")]
@@ -59,12 +59,12 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SecureHashAllowList"
         )]
-        pub secure_hash_allow_list: Option<Vec<String>>,
+        pub secure_hash_allow_list: Option<Vec<crate::key::v1_2_0::NVMeoFSecureHashType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SecurityProtocolType"
         )]
-        pub security_protocol_type: Option<String>,
+        pub security_protocol_type: Option<crate::key::v1_2_0::NVMeoFSecurityProtocolType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum NVMeoFSecureHashType {

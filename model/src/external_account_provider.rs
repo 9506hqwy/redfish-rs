@@ -24,7 +24,8 @@ pub mod v1_6_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Authentication {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthenticationType")]
-        pub authentication_type: Option<String>,
+        pub authentication_type:
+            Option<crate::external_account_provider::v1_6_0::AuthenticationTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
@@ -58,7 +59,8 @@ pub mod v1_6_0 {
             skip_serializing_if = "Option::is_none",
             rename = "AccountProviderType"
         )]
-        pub account_provider_type: Option<String>,
+        pub account_provider_type:
+            Option<crate::external_account_provider::v1_6_0::AccountProviderTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::external_account_provider::v1_6_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
@@ -146,7 +148,7 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Issuer")]
         pub issuer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Mode")]
-        pub mode: Option<String>,
+        pub mode: Option<crate::external_account_provider::v1_6_0::OAuth2Mode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OAuthServiceSigningKeys"
@@ -197,7 +199,9 @@ pub mod v1_6_0 {
             skip_serializing_if = "Option::is_none",
             rename = "PasswordExchangeProtocols"
         )]
-        pub password_exchange_protocols: Option<Vec<String>>,
+        pub password_exchange_protocols: Option<
+            Vec<crate::external_account_provider::v1_6_0::TACACSplusPasswordExchangeProtocol>,
+        >,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PrivilegeLevelArgument"

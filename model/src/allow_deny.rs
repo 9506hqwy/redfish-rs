@@ -10,7 +10,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::allow_deny::v1_0_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowType")]
-        pub allow_type: Option<String>,
+        pub allow_type: Option<crate::allow_deny::v1_0_0::AllowType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
@@ -24,7 +24,7 @@ pub mod v1_0_0 {
         )]
         pub destination_port_upper: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Direction")]
-        pub direction: Option<String>,
+        pub direction: Option<crate::allow_deny::v1_0_0::DataDirection>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IANAProtocolNumber")]
         pub iana_protocol_number: Option<i64>,
         #[serde(rename = "Id")]
@@ -32,7 +32,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressLower")]
         pub ip_address_lower: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressType")]
-        pub ip_address_type: Option<String>,
+        pub ip_address_type: Option<crate::allow_deny::v1_0_0::IPAddressType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressUpper")]
         pub ip_address_upper: Option<String>,
         #[serde(rename = "Name")]

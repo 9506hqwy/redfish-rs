@@ -25,7 +25,7 @@ pub mod v1_0_10 {
         #[serde(rename = "MinNumNeeded")]
         pub min_num_needed: Option<i64>,
         #[serde(rename = "Mode")]
-        pub mode: Option<String>,
+        pub mode: Option<crate::redundancy::v1_0_10::RedundancyMode>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(rename = "@odata.id")]
@@ -66,7 +66,7 @@ pub mod v1_1_8 {
         #[serde(rename = "MinNumNeeded")]
         pub min_num_needed: Option<i64>,
         #[serde(rename = "Mode")]
-        pub mode: Option<String>,
+        pub mode: Option<crate::redundancy::v1_1_8::RedundancyMode>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(rename = "@odata.id")]
@@ -118,7 +118,7 @@ pub mod v1_2_6 {
         #[serde(rename = "MinNumNeeded")]
         pub min_num_needed: Option<i64>,
         #[serde(rename = "Mode")]
-        pub mode: Option<String>,
+        pub mode: Option<crate::redundancy::v1_2_6::RedundancyMode>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(rename = "@odata.id")]
@@ -170,7 +170,7 @@ pub mod v1_3_6 {
         #[serde(rename = "MinNumNeeded")]
         pub min_num_needed: Option<i64>,
         #[serde(rename = "Mode")]
-        pub mode: Option<String>,
+        pub mode: Option<crate::redundancy::v1_3_6::RedundancyMode>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(rename = "@odata.id")]
@@ -224,7 +224,7 @@ pub mod v1_4_1 {
         #[serde(rename = "MinNumNeeded")]
         pub min_num_needed: Option<i64>,
         #[serde(rename = "Mode")]
-        pub mode: Option<String>,
+        pub mode: Option<crate::redundancy::v1_4_1::RedundancyMode>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(rename = "@odata.id")]
@@ -288,7 +288,7 @@ pub mod v1_4_1 {
         )]
         pub redundancy_group_odata_count: Option<i64>,
         #[serde(rename = "RedundancyType")]
-        pub redundancy_type: Option<String>,
+        pub redundancy_type: Option<crate::redundancy::v1_4_1::RedundancyType>,
         #[serde(rename = "Status")]
         pub status: crate::resource::Status,
     }

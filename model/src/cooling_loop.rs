@@ -18,7 +18,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditivePercent")]
         pub additive_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantType")]
-        pub coolant_type: Option<String>,
+        pub coolant_type: Option<crate::cooling_loop::v1_0_0::CoolantType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DensityKgPerCubicMeter"
@@ -65,9 +65,9 @@ pub mod v1_0_0 {
         )]
         pub coolant_level_percent: Option<crate::sensor::SensorExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantLevelStatus")]
-        pub coolant_level_status: Option<String>,
+        pub coolant_level_status: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantQuality")]
-        pub coolant_quality: Option<String>,
+        pub coolant_quality: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingManagerURI")]
         pub cooling_manager_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]

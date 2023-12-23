@@ -40,7 +40,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccountExpiration")]
         pub account_expiration: Option<String>,
         #[serde(rename = "AccountTypes")]
-        pub account_types: Vec<String>,
+        pub account_types: Vec<crate::manager_account::AccountTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::manager_account::v1_10_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
@@ -139,12 +139,13 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "AuthenticationProtocol"
         )]
-        pub authentication_protocol: Option<String>,
+        pub authentication_protocol:
+            Option<crate::manager_account::v1_10_0::SNMPAuthenticationProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<String>,
+        pub encryption_protocol: Option<crate::manager_account::v1_10_0::SNMPEncryptionProtocols>,
     }
 }

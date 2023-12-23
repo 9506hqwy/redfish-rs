@@ -43,7 +43,7 @@ pub mod v1_0_10 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Address")]
         pub address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressOrigin")]
-        pub address_origin: Option<String>,
+        pub address_origin: Option<crate::ip_addresses::v1_0_10::IPv4AddressOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Gateway")]
         pub gateway: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -68,9 +68,9 @@ pub mod v1_0_10 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Address")]
         pub address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressOrigin")]
-        pub address_origin: Option<String>,
+        pub address_origin: Option<crate::ip_addresses::v1_0_10::IPv6AddressOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressState")]
-        pub address_state: Option<String>,
+        pub address_state: Option<crate::ip_addresses::v1_0_10::AddressState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PrefixLength")]
@@ -117,7 +117,7 @@ pub mod v1_1_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Address")]
         pub address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressOrigin")]
-        pub address_origin: Option<String>,
+        pub address_origin: Option<crate::ip_addresses::v1_1_3::IPv4AddressOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Gateway")]
         pub gateway: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -142,9 +142,9 @@ pub mod v1_1_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Address")]
         pub address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressOrigin")]
-        pub address_origin: Option<String>,
+        pub address_origin: Option<crate::ip_addresses::v1_1_3::IPv6AddressOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressState")]
-        pub address_state: Option<String>,
+        pub address_state: Option<crate::ip_addresses::v1_1_3::AddressState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PrefixLength")]

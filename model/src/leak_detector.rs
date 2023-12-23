@@ -20,11 +20,11 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DetectorState")]
-        pub detector_state: Option<String>,
+        pub detector_state: Option<crate::resource::Health>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LeakDetectorType")]
-        pub leak_detector_type: Option<String>,
+        pub leak_detector_type: Option<crate::leak_detector::v1_0_0::LeakDetectorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
@@ -46,9 +46,9 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensingFrequency")]
         pub sensing_frequency: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -65,11 +65,11 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DetectorState")]
-        pub detector_state: Option<String>,
+        pub detector_state: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<String>,
+        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LeakDetectorType {

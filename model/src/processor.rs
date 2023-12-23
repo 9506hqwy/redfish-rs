@@ -43,7 +43,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FpgaType")]
-        pub fpga_type: Option<String>,
+        pub fpga_type: Option<crate::processor::v1_18_0::FpgaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostInterface")]
         pub host_interface: Option<crate::processor::v1_18_0::ProcessorInterface>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
@@ -209,7 +209,7 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "BaseSpeedPriorityState"
         )]
-        pub base_speed_priority_state: Option<String>,
+        pub base_speed_priority_state: Option<crate::processor::v1_18_0::BaseSpeedPriorityState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -229,7 +229,7 @@ pub mod v1_18_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InstructionSet")]
-        pub instruction_set: Option<String>,
+        pub instruction_set: Option<crate::processor::v1_18_0::InstructionSet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::processor::v1_18_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -281,12 +281,12 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ports")]
         pub ports: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::resource::PowerState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ProcessorArchitecture"
         )]
-        pub processor_architecture: Option<String>,
+        pub processor_architecture: Option<crate::processor::v1_18_0::ProcessorArchitecture>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorId")]
         pub processor_id: Option<crate::processor::v1_18_0::ProcessorId>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorIndex")]
@@ -294,7 +294,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorMemory")]
         pub processor_memory: Option<Vec<crate::processor::v1_18_0::ProcessorMemory>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorType")]
-        pub processor_type: Option<String>,
+        pub processor_type: Option<crate::processor::v1_18_0::ProcessorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replaceable")]
         pub replaceable: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -316,7 +316,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TDPWatts")]
         pub tdp_watts: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ThrottleCauses")]
-        pub throttle_causes: Option<Vec<String>>,
+        pub throttle_causes: Option<Vec<crate::processor::v1_18_0::ThrottleCause>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Throttled")]
         pub throttled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalCores")]
@@ -326,7 +326,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalThreads")]
         pub total_threads: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TurboState")]
-        pub turbo_state: Option<String>,
+        pub turbo_state: Option<crate::processor::v1_18_0::TurboState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
         pub uuid: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
@@ -376,7 +376,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
         pub ethernet: Option<crate::processor::v1_18_0::EthernetInterface>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceType")]
-        pub interface_type: Option<String>,
+        pub interface_type: Option<crate::processor::v1_18_0::SystemInterfaceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIe")]
         pub pcie: Option<crate::pcie_device::PCIeInterface>,
     }
@@ -387,7 +387,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IntegratedMemory")]
         pub integrated_memory: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryType")]
-        pub memory_type: Option<String>,
+        pub memory_type: Option<crate::processor::v1_18_0::ProcessorMemoryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedMHz")]
         pub speed_mhz: Option<i64>,
     }
@@ -483,7 +483,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaults {

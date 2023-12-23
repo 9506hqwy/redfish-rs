@@ -18,7 +18,7 @@ pub mod v1_23_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "ChassisType")]
-        pub chassis_type: String,
+        pub chassis_type: crate::chassis::v1_23_0::ChassisType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Controls")]
         pub controls: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DepthMm")]
@@ -40,7 +40,7 @@ pub mod v1_23_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentalClass")]
-        pub environmental_class: Option<String>,
+        pub environmental_class: Option<crate::chassis::v1_23_0::EnvironmentalClass>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FabricAdapters")]
         pub fabric_adapters: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HeightMm")]
@@ -50,7 +50,7 @@ pub mod v1_23_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<String>,
+        pub indicator_led: Option<crate::chassis::v1_23_0::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::chassis::v1_23_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -103,7 +103,7 @@ pub mod v1_23_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Power")]
         pub power: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<String>,
+        pub power_state: Option<crate::resource::PowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSubsystem")]
         pub power_subsystem: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PoweredByParent")]
@@ -125,7 +125,7 @@ pub mod v1_23_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Thermal")]
         pub thermal: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ThermalDirection")]
-        pub thermal_direction: Option<String>,
+        pub thermal_direction: Option<crate::chassis::v1_23_0::ThermalDirection>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ThermalManagedByParent"
@@ -372,7 +372,7 @@ pub mod v1_23_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PhysicalSecurity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IntrusionSensor")]
-        pub intrusion_sensor: Option<String>,
+        pub intrusion_sensor: Option<crate::chassis::v1_23_0::IntrusionSensor>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "IntrusionSensorNumber"
@@ -382,7 +382,7 @@ pub mod v1_23_0 {
             skip_serializing_if = "Option::is_none",
             rename = "IntrusionSensorReArm"
         )]
-        pub intrusion_sensor_re_arm: Option<String>,
+        pub intrusion_sensor_re_arm: Option<crate::chassis::v1_23_0::IntrusionSensorReArm>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Reset {
@@ -394,7 +394,7 @@ pub mod v1_23_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ThermalDirection {

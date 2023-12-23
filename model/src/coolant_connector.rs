@@ -15,7 +15,7 @@ pub mod v1_0_0 {
             skip_serializing_if = "Option::is_none",
             rename = "CoolantConnectorType"
         )]
-        pub coolant_connector_type: Option<String>,
+        pub coolant_connector_type: Option<crate::coolant_connector::v1_0_0::CoolantConnectorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingLoopName")]
         pub cooling_loop_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingManagerURI")]

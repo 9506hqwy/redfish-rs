@@ -15,7 +15,8 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "DefaultAccessCapabilities"
         )]
-        pub default_access_capabilities: Option<Vec<String>>,
+        pub default_access_capabilities:
+            Option<Vec<crate::swordfish::data_storage_los_capabilities::StorageAccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EthernetInterfaces")]
@@ -25,7 +26,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FileSharePath")]
         pub file_share_path: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FileShareQuotaType")]
-        pub file_share_quota_type: Option<String>,
+        pub file_share_quota_type: Option<crate::swordfish::file_share::v1_3_0::QuotaType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FileShareRemainingQuotaBytes"
@@ -40,7 +41,7 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "FileSharingProtocols"
         )]
-        pub file_sharing_protocols: Option<Vec<String>>,
+        pub file_sharing_protocols: Option<Vec<crate::swordfish::file_system::FileProtocol>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
@@ -74,7 +75,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WritePolicy")]
-        pub write_policy: Option<String>,
+        pub write_policy: Option<crate::swordfish::storage_replica_info::ReplicaUpdateMode>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {

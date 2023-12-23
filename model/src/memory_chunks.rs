@@ -67,7 +67,7 @@ pub mod v1_5_0 {
         )]
         pub address_range_offset_mib: Option<i64>,
         #[serde(rename = "AddressRangeType")]
-        pub address_range_type: Option<String>,
+        pub address_range_type: Option<crate::memory_chunks::v1_5_0::AddressRangeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DisplayName")]
@@ -83,7 +83,7 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::memory_chunks::v1_5_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaLocation")]
-        pub media_location: Option<String>,
+        pub media_location: Option<crate::memory_chunks::v1_5_0::MediaLocation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunkSizeMiB")]
         pub memory_chunk_size_mib: Option<i64>,
         #[serde(rename = "Name")]
@@ -102,7 +102,7 @@ pub mod v1_5_0 {
             skip_serializing_if = "Option::is_none",
             rename = "RequestedOperationalState"
         )]
-        pub requested_operational_state: Option<String>,
+        pub requested_operational_state: Option<crate::memory_chunks::v1_5_0::OperationalState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
     }

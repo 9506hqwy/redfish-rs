@@ -47,7 +47,7 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<String>,
+        pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerWatts")]
         pub power_watts: Option<crate::sensor::SensorPowerExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replaceable")]

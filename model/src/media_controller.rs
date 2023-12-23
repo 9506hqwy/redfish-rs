@@ -47,7 +47,7 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "MediaControllerType"
         )]
-        pub media_controller_type: Option<String>,
+        pub media_controller_type: Option<crate::media_controller::v1_3_0::MediaControllerType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(rename = "Name")]
@@ -91,6 +91,6 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
-        pub reset_type: Option<String>,
+        pub reset_type: Option<crate::resource::ResetType>,
     }
 }

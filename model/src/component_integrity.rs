@@ -27,7 +27,7 @@ pub mod v1_2_1 {
         )]
         pub component_integrity_enabled: Option<bool>,
         #[serde(rename = "ComponentIntegrityType")]
-        pub component_integrity_type: String,
+        pub component_integrity_type: crate::component_integrity::v1_2_1::ComponentIntegrityType,
         #[serde(rename = "ComponentIntegrityTypeVersion")]
         pub component_integrity_type_version: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -184,7 +184,8 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "MeasurementSpecification"
         )]
-        pub measurement_specification: Option<String>,
+        pub measurement_specification:
+            Option<crate::component_integrity::v1_2_1::MeasurementSpecification>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementSummary")]
         pub measurement_summary: Option<String>,
         #[serde(
@@ -196,7 +197,8 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "MeasurementSummaryType"
         )]
-        pub measurement_summary_type: Option<String>,
+        pub measurement_summary_type:
+            Option<crate::component_integrity::v1_2_1::SPDMmeasurementSummaryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::component_integrity::v1_2_1::SPDMsingleMeasurement>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -226,7 +228,7 @@ pub mod v1_2_1 {
         )]
         pub component_certificate: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerificationStatus")]
-        pub verification_status: Option<String>,
+        pub verification_status: Option<crate::component_integrity::v1_2_1::VerificationStatus>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SPDMsingleMeasurement {
@@ -242,7 +244,7 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementIndex")]
         pub measurement_index: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementType")]
-        pub measurement_type: Option<String>,
+        pub measurement_type: Option<crate::component_integrity::v1_2_1::DMTFmeasurementTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartofSummaryHash")]
@@ -268,7 +270,7 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionId")]
         pub session_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionType")]
-        pub session_type: Option<String>,
+        pub session_type: Option<crate::component_integrity::v1_2_1::SecureSessionType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TPMGetSignedMeasurements {
@@ -303,7 +305,7 @@ pub mod v1_2_1 {
         )]
         pub component_certificate: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerificationStatus")]
-        pub verification_status: Option<String>,
+        pub verification_status: Option<crate::component_integrity::v1_2_1::VerificationStatus>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TPMcommunication {

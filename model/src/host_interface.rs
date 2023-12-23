@@ -36,7 +36,7 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "AuthenticationModes"
         )]
-        pub authentication_modes: Option<Vec<String>>,
+        pub authentication_modes: Option<Vec<crate::host_interface::v1_3_0::AuthenticationMode>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CredentialBootstrapping"
@@ -63,7 +63,7 @@ pub mod v1_3_0 {
         )]
         pub host_ethernet_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostInterfaceType")]
-        pub host_interface_type: Option<String>,
+        pub host_interface_type: Option<crate::host_interface::v1_3_0::HostInterfaceType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceEnabled")]

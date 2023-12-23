@@ -22,9 +22,9 @@ pub mod v1_2_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "JobState")]
-        pub job_state: Option<String>,
+        pub job_state: Option<crate::job::v1_2_1::JobState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "JobStatus")]
-        pub job_status: Option<String>,
+        pub job_status: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
         pub links: Option<crate::job::v1_2_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxExecutionTime")]
