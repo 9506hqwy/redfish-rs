@@ -1,3 +1,10 @@
+use serde::{Deserialize, Serialize};
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum Heater {
+    V010000(crate::heater::v1_0_0::Heater),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

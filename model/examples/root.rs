@@ -1,4 +1,4 @@
-use redfish_model::service_root::v1_16_0::ServiceRoot;
+use redfish_model::service_root::ServiceRoot;
 use reqwest::blocking::ClientBuilder;
 use std::env::args;
 use std::error::Error;

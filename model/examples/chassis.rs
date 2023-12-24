@@ -1,4 +1,4 @@
-use redfish_model::chassis::v1_23_0::Chassis;
+use redfish_model::chassis::Chassis;
 use redfish_model::chassis_collection::ChassisCollection;
 use redfish_model::service_root::v1_16_0::ServiceRoot;
 use reqwest::blocking::ClientBuilder;

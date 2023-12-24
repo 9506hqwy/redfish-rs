@@ -1,3 +1,10 @@
+use serde::{Deserialize, Serialize};
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum CompositionReservation {
+    V010000(crate::composition_reservation::v1_0_0::CompositionReservation),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

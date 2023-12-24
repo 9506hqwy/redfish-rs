@@ -1,3 +1,10 @@
+use serde::{Deserialize, Serialize};
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum CertificateLocations {
+    V010002(crate::certificate_locations::v1_0_2::CertificateLocations),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
