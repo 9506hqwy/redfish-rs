@@ -112,6 +112,15 @@ pub mod v1_11_3 {
         TFTP,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct UpdateParameters {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ForceUpdate")]
+        pub force_update: Option<bool>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Targets")]
+        pub targets: Option<Vec<String>>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct UpdateService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::update_service::v1_11_3::Actions>,

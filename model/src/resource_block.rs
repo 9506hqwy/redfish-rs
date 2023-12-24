@@ -178,6 +178,37 @@ pub mod v1_4_1 {
         pub storage_odata_count: Option<i64>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceBlockLimits {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MaxCompute")]
+        pub max_compute: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MaxComputerSystem")]
+        pub max_computer_system: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MaxExpansion")]
+        pub max_expansion: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MaxMemory")]
+        pub max_memory: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MaxNetwork")]
+        pub max_network: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MaxProcessor")]
+        pub max_processor: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MaxStorage")]
+        pub max_storage: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MinCompute")]
+        pub min_compute: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MinComputerSystem")]
+        pub min_computer_system: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MinExpansion")]
+        pub min_expansion: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MinMemory")]
+        pub min_memory: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MinNetwork")]
+        pub min_network: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MinProcessor")]
+        pub min_processor: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MinStorage")]
+        pub min_storage: Option<i64>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResourceBlockType {
         #[default]
         #[serde(rename = "Compute")]

@@ -281,6 +281,16 @@ pub mod v1_18_0 {
         pub virtual_media: Option<crate::odata_v4::IdRef>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ManagerService {
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "MaxConcurrentSessions"
+        )]
+        pub max_concurrent_sessions: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceEnabled")]
+        pub service_enabled: Option<bool>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ManagerType {
         #[default]
         #[serde(rename = "AuxiliaryController")]

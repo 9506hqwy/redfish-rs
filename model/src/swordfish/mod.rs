@@ -36,3 +36,21 @@ pub mod storage_system_collection;
 pub mod volume;
 pub mod volume_collection;
 pub mod volume_metrics;
+use serde::{Deserialize, Serialize};
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub struct RedfishError {
+    #[serde(rename = "error")]
+    pub error: crate::swordfish::RedfishErrorError,
+}
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub struct RedfishErrorError {
+    #[serde(rename = "code")]
+    pub code: String,
+    #[serde(rename = "message")]
+    pub message: String,
+    #[serde(
+        skip_serializing_if = "Option::is_none",
+        rename = "@Message.ExtendedInfo"
+    )]
+    pub message_extended_info: Option<Vec<crate::message::v1_1_2::Message>>,
+}

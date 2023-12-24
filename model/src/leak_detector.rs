@@ -1,10 +1,21 @@
 use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
+pub enum LeakDetector {
+    LeakDetectorV1N0N0LeakDetector(crate::leak_detector::v1_0_0::LeakDetector),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
 pub enum LeakDetectorArrayExcerpt {
     LeakDetectorV1N0N0LeakDetectorArrayExcerpt(
         crate::leak_detector::v1_0_0::LeakDetectorArrayExcerpt,
     ),
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum LeakDetectorExcerpt {
+    LeakDetectorV1N0N0LeakDetectorExcerpt(crate::leak_detector::v1_0_0::LeakDetectorExcerpt),
 }
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
@@ -70,6 +81,13 @@ pub mod v1_0_0 {
         pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
         pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct LeakDetectorExcerpt {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
+        pub data_source_uri: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DetectorState")]
+        pub detector_state: Option<crate::resource::Health>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LeakDetectorType {

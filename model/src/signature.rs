@@ -1,4 +1,10 @@
 use serde::{Deserialize, Serialize};
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum Signature {
+    SignatureV1N0N2Signature(crate::signature::v1_0_2::Signature),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum SignatureTypeRegistry {
     #[default]

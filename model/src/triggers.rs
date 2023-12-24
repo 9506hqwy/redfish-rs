@@ -6,6 +6,14 @@ pub mod v1_3_1 {
         pub oem: Option<crate::triggers::v1_3_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum DirectionOfCrossingEnum {
+        #[default]
+        #[serde(rename = "Decreasing")]
+        Decreasing,
+        #[serde(rename = "Increasing")]
+        Increasing,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct DiscreteTrigger {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DwellTime")]
         pub dwell_time: Option<String>,

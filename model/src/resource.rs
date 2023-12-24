@@ -60,6 +60,25 @@ pub enum IndicatorLED {
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
+pub enum Item {
+    ResourceReferenceableMember(crate::resource::ReferenceableMember),
+    ResourceResource(crate::resource::Resource),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum ItemOrCollection {
+    ResourceItem(crate::resource::Item),
+    ResourceResourceCollection(crate::resource::ResourceCollection),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub struct Links {
+    #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+    pub oem: Option<crate::resource::Oem>,
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
 pub enum Location {
     ResourceV1N10N5Location(crate::resource::v1_10_5::Location),
     ResourceV1N11N4Location(crate::resource::v1_11_4::Location),
@@ -81,6 +100,8 @@ pub enum Location {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Oem {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub struct OemObject {}
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum PowerState {
     #[default]
     #[serde(rename = "Off")]
@@ -93,6 +114,28 @@ pub enum PowerState {
     PoweringOff,
     #[serde(rename = "PoweringOn")]
     PoweringOn,
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum ReferenceableMember {
+    ResourceV1N0N13ReferenceableMember(crate::resource::v1_0_13::ReferenceableMember),
+    ResourceV1N10N5ReferenceableMember(crate::resource::v1_10_5::ReferenceableMember),
+    ResourceV1N11N4ReferenceableMember(crate::resource::v1_11_4::ReferenceableMember),
+    ResourceV1N12N3ReferenceableMember(crate::resource::v1_12_3::ReferenceableMember),
+    ResourceV1N13N2ReferenceableMember(crate::resource::v1_13_2::ReferenceableMember),
+    ResourceV1N14N1ReferenceableMember(crate::resource::v1_14_1::ReferenceableMember),
+    ResourceV1N15N0ReferenceableMember(crate::resource::v1_15_0::ReferenceableMember),
+    ResourceV1N16N0ReferenceableMember(crate::resource::v1_16_0::ReferenceableMember),
+    ResourceV1N1N15ReferenceableMember(crate::resource::v1_1_15::ReferenceableMember),
+    ResourceV1N2N14ReferenceableMember(crate::resource::v1_2_14::ReferenceableMember),
+    ResourceV1N3N13ReferenceableMember(crate::resource::v1_3_13::ReferenceableMember),
+    ResourceV1N4N12ReferenceableMember(crate::resource::v1_4_12::ReferenceableMember),
+    ResourceV1N5N11ReferenceableMember(crate::resource::v1_5_11::ReferenceableMember),
+    ResourceV1N6N11ReferenceableMember(crate::resource::v1_6_11::ReferenceableMember),
+    ResourceV1N7N10ReferenceableMember(crate::resource::v1_7_10::ReferenceableMember),
+    ResourceV1N8N10ReferenceableMember(crate::resource::v1_8_10::ReferenceableMember),
+    ResourceV1N9N8ReferenceableMember(crate::resource::v1_9_8::ReferenceableMember),
+    OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum ResetType {
@@ -144,6 +187,28 @@ pub enum Resource {
     ResourceV1N9N8Resource(crate::resource::v1_9_8::Resource),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum ResourceCollection {
+    ResourceV1N0N13ResourceCollection(crate::resource::v1_0_13::ResourceCollection),
+    ResourceV1N10N5ResourceCollection(crate::resource::v1_10_5::ResourceCollection),
+    ResourceV1N11N4ResourceCollection(crate::resource::v1_11_4::ResourceCollection),
+    ResourceV1N12N3ResourceCollection(crate::resource::v1_12_3::ResourceCollection),
+    ResourceV1N13N2ResourceCollection(crate::resource::v1_13_2::ResourceCollection),
+    ResourceV1N14N1ResourceCollection(crate::resource::v1_14_1::ResourceCollection),
+    ResourceV1N15N0ResourceCollection(crate::resource::v1_15_0::ResourceCollection),
+    ResourceV1N16N0ResourceCollection(crate::resource::v1_16_0::ResourceCollection),
+    ResourceV1N1N15ResourceCollection(crate::resource::v1_1_15::ResourceCollection),
+    ResourceV1N2N14ResourceCollection(crate::resource::v1_2_14::ResourceCollection),
+    ResourceV1N3N13ResourceCollection(crate::resource::v1_3_13::ResourceCollection),
+    ResourceV1N4N12ResourceCollection(crate::resource::v1_4_12::ResourceCollection),
+    ResourceV1N5N11ResourceCollection(crate::resource::v1_5_11::ResourceCollection),
+    ResourceV1N6N11ResourceCollection(crate::resource::v1_6_11::ResourceCollection),
+    ResourceV1N7N10ResourceCollection(crate::resource::v1_7_10::ResourceCollection),
+    ResourceV1N8N10ResourceCollection(crate::resource::v1_8_10::ResourceCollection),
+    ResourceV1N9N8ResourceCollection(crate::resource::v1_9_8::ResourceCollection),
+    OdataV4IdRef(crate::odata_v4::IdRef),
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum State {
     #[default]
@@ -188,11 +253,37 @@ pub struct Status {
 pub mod v1_0_13 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -427,11 +518,37 @@ pub mod v1_10_5 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -666,11 +783,37 @@ pub mod v1_11_4 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -907,11 +1050,37 @@ pub mod v1_12_3 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -1150,11 +1319,37 @@ pub mod v1_13_2 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -1395,11 +1590,37 @@ pub mod v1_14_1 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -1642,11 +1863,37 @@ pub mod v1_15_0 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -1894,11 +2141,37 @@ pub mod v1_16_0 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -1946,11 +2219,37 @@ pub mod v1_1_15 {
         pub oem: Option<crate::resource::Oem>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -1998,6 +2297,15 @@ pub mod v1_2_14 {
         pub oem: Option<crate::resource::Oem>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
@@ -2016,9 +2324,57 @@ pub mod v1_2_14 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
     }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
 }
 pub mod v1_3_0 {
     use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum DurableNameFormat {
+        #[default]
+        #[serde(rename = "EUI")]
+        EUI,
+        #[serde(rename = "FC_WWN")]
+        FCWWN,
+        #[serde(rename = "NAA")]
+        NAA,
+        #[serde(rename = "UUID")]
+        UUID,
+        #[serde(rename = "iQN")]
+        IQN,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Identifier {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
+        pub durable_name: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
+        pub durable_name_format: Option<crate::resource::v1_3_0::DurableNameFormat>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum IndicatorLED {
+        #[default]
+        #[serde(rename = "Blinking")]
+        Blinking,
+        #[serde(rename = "Lit")]
+        Lit,
+        #[serde(rename = "Off")]
+        Off,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Info")]
@@ -2117,12 +2473,69 @@ pub mod v1_3_0 {
         pub unit: Option<String>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PowerState {
+        #[default]
+        #[serde(rename = "Off")]
+        Off,
+        #[serde(rename = "On")]
+        On,
+        #[serde(rename = "PoweringOff")]
+        PoweringOff,
+        #[serde(rename = "PoweringOn")]
+        PoweringOn,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum RackUnits {
         #[default]
         #[serde(rename = "EIA_310")]
         EIAN310,
         #[serde(rename = "OpenU")]
         OpenU,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MemberId")]
+        pub member_id: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.id")]
+        pub odata_id: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.type")]
+        pub odata_type: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Resource {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Id")]
+        pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.id")]
+        pub odata_id: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.type")]
+        pub odata_type: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
+        pub name: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.id")]
+        pub odata_id: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.type")]
+        pub odata_type: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
     }
 }
 pub mod v1_3_13 {
@@ -2254,11 +2667,37 @@ pub mod v1_3_13 {
         OpenU,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -2402,11 +2841,37 @@ pub mod v1_4_12 {
         OpenU,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -2614,11 +3079,37 @@ pub mod v1_5_11 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -2836,11 +3327,37 @@ pub mod v1_6_11 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -3073,11 +3590,37 @@ pub mod v1_7_10 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -3310,11 +3853,37 @@ pub mod v1_8_10 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -3547,11 +4116,37 @@ pub mod v1_9_8 {
         Top,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ReferenceableMember {
+        #[serde(rename = "MemberId")]
+        pub member_id: String,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Resource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResourceCollection {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]

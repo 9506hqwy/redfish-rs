@@ -137,6 +137,7 @@ pub mod network_interface;
 pub mod network_interface_collection;
 pub mod network_port;
 pub mod network_port_collection;
+pub mod odata;
 pub mod odata_v4;
 pub mod operating_config;
 pub mod operating_config_collection;
@@ -241,7 +242,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RedfishError {
     #[serde(rename = "error")]
-    pub error: RedfishErrorError,
+    pub error: crate::RedfishErrorError,
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RedfishErrorError {

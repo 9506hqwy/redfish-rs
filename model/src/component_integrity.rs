@@ -18,6 +18,21 @@ pub mod v1_2_1 {
         pub oem: Option<crate::component_integrity::v1_2_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct CommonAuthInfo {
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ComponentCertificate"
+        )]
+        pub component_certificate: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "VerificationStatus")]
+        pub verification_status: Option<crate::component_integrity::v1_2_1::VerificationStatus>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct CommunicationInfo {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Sessions")]
+        pub sessions: Option<Vec<crate::component_integrity::v1_2_1::SingleSessionInfo>>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ComponentIntegrity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
         pub actions: Option<crate::component_integrity::v1_2_1::Actions>,

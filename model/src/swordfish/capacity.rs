@@ -1,6 +1,20 @@
 use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
+pub enum Capacity {
+    CapacityV1N0N4Capacity(crate::swordfish::capacity::v1_0_4::Capacity),
+    CapacityV1N1N4Capacity(crate::swordfish::capacity::v1_1_4::Capacity),
+    CapacityV1N2N1Capacity(crate::swordfish::capacity::v1_2_1::Capacity),
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum CapacityInfo {
+    CapacityV1N0N4CapacityInfo(crate::swordfish::capacity::v1_0_4::CapacityInfo),
+    CapacityV1N1N4CapacityInfo(crate::swordfish::capacity::v1_1_4::CapacityInfo),
+    CapacityV1N2N1CapacityInfo(crate::swordfish::capacity::v1_2_1::CapacityInfo),
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
 pub enum CapacitySource {
     CapacityV1N0N4CapacitySource(crate::swordfish::capacity::v1_0_4::CapacitySource),
     CapacityV1N1N4CapacitySource(crate::swordfish::capacity::v1_1_4::CapacitySource),
@@ -30,6 +44,38 @@ pub mod v1_0_0 {
         pub guaranteed_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProvisionedBytes")]
         pub provisioned_bytes: Option<i64>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct CapacitySource {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<String>,
+        #[serde(rename = "Id")]
+        pub id: String,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ProvidedCapacity")]
+        pub provided_capacity: Option<crate::swordfish::capacity::v1_0_0::Capacity>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ProvidedClassOfService"
+        )]
+        pub provided_class_of_service: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ProvidingDrives")]
+        pub providing_drives: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ProvidingPools")]
+        pub providing_pools: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ProvidingVolumes")]
+        pub providing_volumes: Option<crate::odata_v4::IdRef>,
     }
 }
 pub mod v1_0_4 {
