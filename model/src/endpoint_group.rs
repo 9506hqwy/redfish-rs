@@ -16,10 +16,10 @@ pub enum AccessState {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum EndpointGroup {
-    EndpointGroupV1N0N5EndpointGroup(crate::endpoint_group::v1_0_5::EndpointGroup),
-    EndpointGroupV1N1N6EndpointGroup(crate::endpoint_group::v1_1_6::EndpointGroup),
-    EndpointGroupV1N2N4EndpointGroup(crate::endpoint_group::v1_2_4::EndpointGroup),
-    EndpointGroupV1N3N2EndpointGroup(crate::endpoint_group::v1_3_2::EndpointGroup),
+    V010302(crate::endpoint_group::v1_3_2::EndpointGroup),
+    V010204(crate::endpoint_group::v1_2_4::EndpointGroup),
+    V010106(crate::endpoint_group::v1_1_6::EndpointGroup),
+    V010005(crate::endpoint_group::v1_0_5::EndpointGroup),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_5 {

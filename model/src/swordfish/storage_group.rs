@@ -19,12 +19,12 @@ pub struct MappedVolume {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum StorageGroup {
-    StorageGroupV1N0N3StorageGroup(crate::swordfish::storage_group::v1_0_3::StorageGroup),
-    StorageGroupV1N1N2StorageGroup(crate::swordfish::storage_group::v1_1_2::StorageGroup),
-    StorageGroupV1N2N2StorageGroup(crate::swordfish::storage_group::v1_2_2::StorageGroup),
-    StorageGroupV1N3N0StorageGroup(crate::swordfish::storage_group::v1_3_0::StorageGroup),
-    StorageGroupV1N4N0StorageGroup(crate::swordfish::storage_group::v1_4_0::StorageGroup),
-    StorageGroupV1N5N0StorageGroup(crate::swordfish::storage_group::v1_5_0::StorageGroup),
+    V010500(crate::swordfish::storage_group::v1_5_0::StorageGroup),
+    V010400(crate::swordfish::storage_group::v1_4_0::StorageGroup),
+    V010300(crate::swordfish::storage_group::v1_3_0::StorageGroup),
+    V010202(crate::swordfish::storage_group::v1_2_2::StorageGroup),
+    V010102(crate::swordfish::storage_group::v1_1_2::StorageGroup),
+    V010003(crate::swordfish::storage_group::v1_0_3::StorageGroup),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_3 {

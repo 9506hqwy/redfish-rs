@@ -38,15 +38,9 @@ pub enum DataSanitizationPolicy {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum DataSecurityLoSCapabilities {
-    DataSecurityLoSCapabilitiesV1N0N2DataSecurityLoSCapabilities(
-        crate::swordfish::data_security_los_capabilities::v1_0_2::DataSecurityLoSCapabilities,
-    ),
-    DataSecurityLoSCapabilitiesV1N1N3DataSecurityLoSCapabilities(
-        crate::swordfish::data_security_los_capabilities::v1_1_3::DataSecurityLoSCapabilities,
-    ),
-    DataSecurityLoSCapabilitiesV1N2N0DataSecurityLoSCapabilities(
-        crate::swordfish::data_security_los_capabilities::v1_2_0::DataSecurityLoSCapabilities,
-    ),
+    V010200(crate::swordfish::data_security_los_capabilities::v1_2_0::DataSecurityLoSCapabilities),
+    V010103(crate::swordfish::data_security_los_capabilities::v1_1_3::DataSecurityLoSCapabilities),
+    V010002(crate::swordfish::data_security_los_capabilities::v1_0_2::DataSecurityLoSCapabilities),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

@@ -2,40 +2,40 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum PCIeDevice {
-    PCIeDeviceV1N0N7PCIeDevice(crate::pcie_device::v1_0_7::PCIeDevice),
-    PCIeDeviceV1N10N1PCIeDevice(crate::pcie_device::v1_10_1::PCIeDevice),
-    PCIeDeviceV1N11N1PCIeDevice(crate::pcie_device::v1_11_1::PCIeDevice),
-    PCIeDeviceV1N1N5PCIeDevice(crate::pcie_device::v1_1_5::PCIeDevice),
-    PCIeDeviceV1N2N5PCIeDevice(crate::pcie_device::v1_2_5::PCIeDevice),
-    PCIeDeviceV1N3N4PCIeDevice(crate::pcie_device::v1_3_4::PCIeDevice),
-    PCIeDeviceV1N4N2PCIeDevice(crate::pcie_device::v1_4_2::PCIeDevice),
-    PCIeDeviceV1N5N2PCIeDevice(crate::pcie_device::v1_5_2::PCIeDevice),
-    PCIeDeviceV1N6N2PCIeDevice(crate::pcie_device::v1_6_2::PCIeDevice),
-    PCIeDeviceV1N7N1PCIeDevice(crate::pcie_device::v1_7_1::PCIeDevice),
-    PCIeDeviceV1N8N1PCIeDevice(crate::pcie_device::v1_8_1::PCIeDevice),
-    PCIeDeviceV1N9N1PCIeDevice(crate::pcie_device::v1_9_1::PCIeDevice),
+    V011101(crate::pcie_device::v1_11_1::PCIeDevice),
+    V011001(crate::pcie_device::v1_10_1::PCIeDevice),
+    V010901(crate::pcie_device::v1_9_1::PCIeDevice),
+    V010801(crate::pcie_device::v1_8_1::PCIeDevice),
+    V010701(crate::pcie_device::v1_7_1::PCIeDevice),
+    V010602(crate::pcie_device::v1_6_2::PCIeDevice),
+    V010502(crate::pcie_device::v1_5_2::PCIeDevice),
+    V010402(crate::pcie_device::v1_4_2::PCIeDevice),
+    V010304(crate::pcie_device::v1_3_4::PCIeDevice),
+    V010205(crate::pcie_device::v1_2_5::PCIeDevice),
+    V010105(crate::pcie_device::v1_1_5::PCIeDevice),
+    V010007(crate::pcie_device::v1_0_7::PCIeDevice),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum PCIeErrors {
-    PCIeDeviceV1N10N1PCIeErrors(crate::pcie_device::v1_10_1::PCIeErrors),
-    PCIeDeviceV1N11N1PCIeErrors(crate::pcie_device::v1_11_1::PCIeErrors),
-    PCIeDeviceV1N8N1PCIeErrors(crate::pcie_device::v1_8_1::PCIeErrors),
-    PCIeDeviceV1N9N1PCIeErrors(crate::pcie_device::v1_9_1::PCIeErrors),
+    V011101(crate::pcie_device::v1_11_1::PCIeErrors),
+    V011001(crate::pcie_device::v1_10_1::PCIeErrors),
+    V010901(crate::pcie_device::v1_9_1::PCIeErrors),
+    V010801(crate::pcie_device::v1_8_1::PCIeErrors),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum PCIeInterface {
-    PCIeDeviceV1N10N1PCIeInterface(crate::pcie_device::v1_10_1::PCIeInterface),
-    PCIeDeviceV1N11N1PCIeInterface(crate::pcie_device::v1_11_1::PCIeInterface),
-    PCIeDeviceV1N3N4PCIeInterface(crate::pcie_device::v1_3_4::PCIeInterface),
-    PCIeDeviceV1N4N2PCIeInterface(crate::pcie_device::v1_4_2::PCIeInterface),
-    PCIeDeviceV1N5N2PCIeInterface(crate::pcie_device::v1_5_2::PCIeInterface),
-    PCIeDeviceV1N6N2PCIeInterface(crate::pcie_device::v1_6_2::PCIeInterface),
-    PCIeDeviceV1N7N1PCIeInterface(crate::pcie_device::v1_7_1::PCIeInterface),
-    PCIeDeviceV1N8N1PCIeInterface(crate::pcie_device::v1_8_1::PCIeInterface),
-    PCIeDeviceV1N9N1PCIeInterface(crate::pcie_device::v1_9_1::PCIeInterface),
+    V011101(crate::pcie_device::v1_11_1::PCIeInterface),
+    V011001(crate::pcie_device::v1_10_1::PCIeInterface),
+    V010901(crate::pcie_device::v1_9_1::PCIeInterface),
+    V010801(crate::pcie_device::v1_8_1::PCIeInterface),
+    V010701(crate::pcie_device::v1_7_1::PCIeInterface),
+    V010602(crate::pcie_device::v1_6_2::PCIeInterface),
+    V010502(crate::pcie_device::v1_5_2::PCIeInterface),
+    V010402(crate::pcie_device::v1_4_2::PCIeInterface),
+    V010304(crate::pcie_device::v1_3_4::PCIeInterface),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum PCIeTypes {

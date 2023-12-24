@@ -2,26 +2,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum VLAN {
-    VLanNetworkInterfaceV1N0N9VLAN(crate::vlan_network_interface::v1_0_9::VLAN),
-    VLanNetworkInterfaceV1N1N5VLAN(crate::vlan_network_interface::v1_1_5::VLAN),
-    VLanNetworkInterfaceV1N2N0VLAN(crate::vlan_network_interface::v1_2_0::VLAN),
-    VLanNetworkInterfaceV1N3N0VLAN(crate::vlan_network_interface::v1_3_0::VLAN),
+    V010300(crate::vlan_network_interface::v1_3_0::VLAN),
+    V010200(crate::vlan_network_interface::v1_2_0::VLAN),
+    V010105(crate::vlan_network_interface::v1_1_5::VLAN),
+    V010009(crate::vlan_network_interface::v1_0_9::VLAN),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum VLanNetworkInterface {
-    VLanNetworkInterfaceV1N0N9VLanNetworkInterface(
-        crate::vlan_network_interface::v1_0_9::VLanNetworkInterface,
-    ),
-    VLanNetworkInterfaceV1N1N5VLanNetworkInterface(
-        crate::vlan_network_interface::v1_1_5::VLanNetworkInterface,
-    ),
-    VLanNetworkInterfaceV1N2N0VLanNetworkInterface(
-        crate::vlan_network_interface::v1_2_0::VLanNetworkInterface,
-    ),
-    VLanNetworkInterfaceV1N3N0VLanNetworkInterface(
-        crate::vlan_network_interface::v1_3_0::VLanNetworkInterface,
-    ),
+    V010300(crate::vlan_network_interface::v1_3_0::VLanNetworkInterface),
+    V010200(crate::vlan_network_interface::v1_2_0::VLanNetworkInterface),
+    V010105(crate::vlan_network_interface::v1_1_5::VLanNetworkInterface),
+    V010009(crate::vlan_network_interface::v1_0_9::VLanNetworkInterface),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_9 {

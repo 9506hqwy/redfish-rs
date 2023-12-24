@@ -22,15 +22,15 @@ pub enum PoolType {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum StoragePool {
-    StoragePoolV1N0N2StoragePool(crate::swordfish::storage_pool::v1_0_2::StoragePool),
-    StoragePoolV1N1N3StoragePool(crate::swordfish::storage_pool::v1_1_3::StoragePool),
-    StoragePoolV1N2N1StoragePool(crate::swordfish::storage_pool::v1_2_1::StoragePool),
-    StoragePoolV1N3N1StoragePool(crate::swordfish::storage_pool::v1_3_1::StoragePool),
-    StoragePoolV1N4N1StoragePool(crate::swordfish::storage_pool::v1_4_1::StoragePool),
-    StoragePoolV1N5N0StoragePool(crate::swordfish::storage_pool::v1_5_0::StoragePool),
-    StoragePoolV1N6N1StoragePool(crate::swordfish::storage_pool::v1_6_1::StoragePool),
-    StoragePoolV1N7N2StoragePool(crate::swordfish::storage_pool::v1_7_2::StoragePool),
-    StoragePoolV1N8N0StoragePool(crate::swordfish::storage_pool::v1_8_0::StoragePool),
+    V010800(crate::swordfish::storage_pool::v1_8_0::StoragePool),
+    V010702(crate::swordfish::storage_pool::v1_7_2::StoragePool),
+    V010601(crate::swordfish::storage_pool::v1_6_1::StoragePool),
+    V010500(crate::swordfish::storage_pool::v1_5_0::StoragePool),
+    V010401(crate::swordfish::storage_pool::v1_4_1::StoragePool),
+    V010301(crate::swordfish::storage_pool::v1_3_1::StoragePool),
+    V010201(crate::swordfish::storage_pool::v1_2_1::StoragePool),
+    V010103(crate::swordfish::storage_pool::v1_1_3::StoragePool),
+    V010002(crate::swordfish::storage_pool::v1_0_2::StoragePool),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_2 {

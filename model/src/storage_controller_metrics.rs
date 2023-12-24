@@ -2,16 +2,12 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum NVMeSMARTMetrics {
-    StorageControllerMetricsV1N0N0NVMeSMARTMetrics(
-        crate::storage_controller_metrics::v1_0_0::NVMeSMARTMetrics,
-    ),
+    V010000(crate::storage_controller_metrics::v1_0_0::NVMeSMARTMetrics),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum StorageControllerMetrics {
-    StorageControllerMetricsV1N0N0StorageControllerMetrics(
-        crate::storage_controller_metrics::v1_0_0::StorageControllerMetrics,
-    ),
+    V010000(crate::storage_controller_metrics::v1_0_0::StorageControllerMetrics),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_0 {

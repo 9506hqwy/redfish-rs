@@ -12,12 +12,8 @@ pub enum NVMeDeviceType {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum NVMeFirmwareImage {
-    NVMeFirmwareImageV1N0N0NVMeFirmwareImage(
-        crate::swordfish::nvme_firmware_image::v1_0_0::NVMeFirmwareImage,
-    ),
-    NVMeFirmwareImageV1N1N0NVMeFirmwareImage(
-        crate::swordfish::nvme_firmware_image::v1_1_0::NVMeFirmwareImage,
-    ),
+    V010100(crate::swordfish::nvme_firmware_image::v1_1_0::NVMeFirmwareImage),
+    V010000(crate::swordfish::nvme_firmware_image::v1_0_0::NVMeFirmwareImage),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_0 {

@@ -12,14 +12,14 @@ pub enum BreakerStates {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Circuit {
-    CircuitV1N0N3Circuit(crate::circuit::v1_0_3::Circuit),
-    CircuitV1N1N2Circuit(crate::circuit::v1_1_2::Circuit),
-    CircuitV1N2N1Circuit(crate::circuit::v1_2_1::Circuit),
-    CircuitV1N3N1Circuit(crate::circuit::v1_3_1::Circuit),
-    CircuitV1N4N1Circuit(crate::circuit::v1_4_1::Circuit),
-    CircuitV1N5N0Circuit(crate::circuit::v1_5_0::Circuit),
-    CircuitV1N6N0Circuit(crate::circuit::v1_6_0::Circuit),
-    CircuitV1N7N0Circuit(crate::circuit::v1_7_0::Circuit),
+    V010700(crate::circuit::v1_7_0::Circuit),
+    V010600(crate::circuit::v1_6_0::Circuit),
+    V010500(crate::circuit::v1_5_0::Circuit),
+    V010401(crate::circuit::v1_4_1::Circuit),
+    V010301(crate::circuit::v1_3_1::Circuit),
+    V010201(crate::circuit::v1_2_1::Circuit),
+    V010102(crate::circuit::v1_1_2::Circuit),
+    V010003(crate::circuit::v1_0_3::Circuit),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

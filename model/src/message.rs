@@ -2,8 +2,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Message {
-    MessageV1N0N10Message(crate::message::v1_0_10::Message),
-    MessageV1N1N2Message(crate::message::v1_1_2::Message),
+    V010102(crate::message::v1_1_2::Message),
+    V010010(crate::message::v1_0_10::Message),
 }
 pub mod v1_0_10 {
     use serde::{Deserialize, Serialize};

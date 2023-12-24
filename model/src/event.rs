@@ -2,15 +2,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Event {
-    EventV1N0N14Event(crate::event::v1_0_14::Event),
-    EventV1N1N12Event(crate::event::v1_1_12::Event),
-    EventV1N2N9Event(crate::event::v1_2_9::Event),
-    EventV1N3N7Event(crate::event::v1_3_7::Event),
-    EventV1N4N5Event(crate::event::v1_4_5::Event),
-    EventV1N5N3Event(crate::event::v1_5_3::Event),
-    EventV1N6N2Event(crate::event::v1_6_2::Event),
-    EventV1N7N1Event(crate::event::v1_7_1::Event),
-    EventV1N8N0Event(crate::event::v1_8_0::Event),
+    V010800(crate::event::v1_8_0::Event),
+    V010701(crate::event::v1_7_1::Event),
+    V010602(crate::event::v1_6_2::Event),
+    V010503(crate::event::v1_5_3::Event),
+    V010405(crate::event::v1_4_5::Event),
+    V010307(crate::event::v1_3_7::Event),
+    V010209(crate::event::v1_2_9::Event),
+    V010112(crate::event::v1_1_12::Event),
+    V010014(crate::event::v1_0_14::Event),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

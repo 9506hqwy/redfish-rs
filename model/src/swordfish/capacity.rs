@@ -2,23 +2,23 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Capacity {
-    CapacityV1N0N4Capacity(crate::swordfish::capacity::v1_0_4::Capacity),
-    CapacityV1N1N4Capacity(crate::swordfish::capacity::v1_1_4::Capacity),
-    CapacityV1N2N1Capacity(crate::swordfish::capacity::v1_2_1::Capacity),
+    V010201(crate::swordfish::capacity::v1_2_1::Capacity),
+    V010104(crate::swordfish::capacity::v1_1_4::Capacity),
+    V010004(crate::swordfish::capacity::v1_0_4::Capacity),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum CapacityInfo {
-    CapacityV1N0N4CapacityInfo(crate::swordfish::capacity::v1_0_4::CapacityInfo),
-    CapacityV1N1N4CapacityInfo(crate::swordfish::capacity::v1_1_4::CapacityInfo),
-    CapacityV1N2N1CapacityInfo(crate::swordfish::capacity::v1_2_1::CapacityInfo),
+    V010201(crate::swordfish::capacity::v1_2_1::CapacityInfo),
+    V010104(crate::swordfish::capacity::v1_1_4::CapacityInfo),
+    V010004(crate::swordfish::capacity::v1_0_4::CapacityInfo),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum CapacitySource {
-    CapacityV1N0N4CapacitySource(crate::swordfish::capacity::v1_0_4::CapacitySource),
-    CapacityV1N1N4CapacitySource(crate::swordfish::capacity::v1_1_4::CapacitySource),
-    CapacityV1N2N1CapacitySource(crate::swordfish::capacity::v1_2_1::CapacitySource),
+    V010201(crate::swordfish::capacity::v1_2_1::CapacitySource),
+    V010104(crate::swordfish::capacity::v1_1_4::CapacitySource),
+    V010004(crate::swordfish::capacity::v1_0_4::CapacitySource),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_0 {

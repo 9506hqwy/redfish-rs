@@ -2,39 +2,33 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum AdditionalVersions {
-    SoftwareInventoryV1N7N0AdditionalVersions(
-        crate::software_inventory::v1_7_0::AdditionalVersions,
-    ),
-    SoftwareInventoryV1N8N0AdditionalVersions(
-        crate::software_inventory::v1_8_0::AdditionalVersions,
-    ),
-    SoftwareInventoryV1N9N0AdditionalVersions(
-        crate::software_inventory::v1_9_0::AdditionalVersions,
-    ),
+    V010900(crate::software_inventory::v1_9_0::AdditionalVersions),
+    V010800(crate::software_inventory::v1_8_0::AdditionalVersions),
+    V010700(crate::software_inventory::v1_7_0::AdditionalVersions),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum MeasurementBlock {
-    SoftwareInventoryV1N4N0MeasurementBlock(crate::software_inventory::v1_4_0::MeasurementBlock),
-    SoftwareInventoryV1N5N0MeasurementBlock(crate::software_inventory::v1_5_0::MeasurementBlock),
-    SoftwareInventoryV1N6N0MeasurementBlock(crate::software_inventory::v1_6_0::MeasurementBlock),
-    SoftwareInventoryV1N7N0MeasurementBlock(crate::software_inventory::v1_7_0::MeasurementBlock),
-    SoftwareInventoryV1N8N0MeasurementBlock(crate::software_inventory::v1_8_0::MeasurementBlock),
-    SoftwareInventoryV1N9N0MeasurementBlock(crate::software_inventory::v1_9_0::MeasurementBlock),
+    V010900(crate::software_inventory::v1_9_0::MeasurementBlock),
+    V010800(crate::software_inventory::v1_8_0::MeasurementBlock),
+    V010700(crate::software_inventory::v1_7_0::MeasurementBlock),
+    V010600(crate::software_inventory::v1_6_0::MeasurementBlock),
+    V010500(crate::software_inventory::v1_5_0::MeasurementBlock),
+    V010400(crate::software_inventory::v1_4_0::MeasurementBlock),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SoftwareInventory {
-    SoftwareInventoryV1N0N5SoftwareInventory(crate::software_inventory::v1_0_5::SoftwareInventory),
-    SoftwareInventoryV1N1N4SoftwareInventory(crate::software_inventory::v1_1_4::SoftwareInventory),
-    SoftwareInventoryV1N2N3SoftwareInventory(crate::software_inventory::v1_2_3::SoftwareInventory),
-    SoftwareInventoryV1N3N0SoftwareInventory(crate::software_inventory::v1_3_0::SoftwareInventory),
-    SoftwareInventoryV1N4N0SoftwareInventory(crate::software_inventory::v1_4_0::SoftwareInventory),
-    SoftwareInventoryV1N5N0SoftwareInventory(crate::software_inventory::v1_5_0::SoftwareInventory),
-    SoftwareInventoryV1N6N0SoftwareInventory(crate::software_inventory::v1_6_0::SoftwareInventory),
-    SoftwareInventoryV1N7N0SoftwareInventory(crate::software_inventory::v1_7_0::SoftwareInventory),
-    SoftwareInventoryV1N8N0SoftwareInventory(crate::software_inventory::v1_8_0::SoftwareInventory),
-    SoftwareInventoryV1N9N0SoftwareInventory(crate::software_inventory::v1_9_0::SoftwareInventory),
+    V010900(crate::software_inventory::v1_9_0::SoftwareInventory),
+    V010800(crate::software_inventory::v1_8_0::SoftwareInventory),
+    V010700(crate::software_inventory::v1_7_0::SoftwareInventory),
+    V010600(crate::software_inventory::v1_6_0::SoftwareInventory),
+    V010500(crate::software_inventory::v1_5_0::SoftwareInventory),
+    V010400(crate::software_inventory::v1_4_0::SoftwareInventory),
+    V010300(crate::software_inventory::v1_3_0::SoftwareInventory),
+    V010203(crate::software_inventory::v1_2_3::SoftwareInventory),
+    V010104(crate::software_inventory::v1_1_4::SoftwareInventory),
+    V010005(crate::software_inventory::v1_0_5::SoftwareInventory),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_5 {

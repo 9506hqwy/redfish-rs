@@ -2,12 +2,12 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Coolant {
-    CoolingLoopV1N0N0Coolant(crate::cooling_loop::v1_0_0::Coolant),
+    V010000(crate::cooling_loop::v1_0_0::Coolant),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum CoolingLoop {
-    CoolingLoopV1N0N0CoolingLoop(crate::cooling_loop::v1_0_0::CoolingLoop),
+    V010000(crate::cooling_loop::v1_0_0::CoolingLoop),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_0 {

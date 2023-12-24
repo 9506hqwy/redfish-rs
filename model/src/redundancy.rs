@@ -2,17 +2,17 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Redundancy {
-    RedundancyV1N0N10Redundancy(crate::redundancy::v1_0_10::Redundancy),
-    RedundancyV1N1N8Redundancy(crate::redundancy::v1_1_8::Redundancy),
-    RedundancyV1N2N6Redundancy(crate::redundancy::v1_2_6::Redundancy),
-    RedundancyV1N3N6Redundancy(crate::redundancy::v1_3_6::Redundancy),
-    RedundancyV1N4N1Redundancy(crate::redundancy::v1_4_1::Redundancy),
+    V010401(crate::redundancy::v1_4_1::Redundancy),
+    V010306(crate::redundancy::v1_3_6::Redundancy),
+    V010206(crate::redundancy::v1_2_6::Redundancy),
+    V010108(crate::redundancy::v1_1_8::Redundancy),
+    V010010(crate::redundancy::v1_0_10::Redundancy),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum RedundantGroup {
-    RedundancyV1N4N1RedundantGroup(crate::redundancy::v1_4_1::RedundantGroup),
+    V010401(crate::redundancy::v1_4_1::RedundantGroup),
 }
 pub mod v1_0_10 {
     use serde::{Deserialize, Serialize};

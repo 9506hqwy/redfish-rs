@@ -2,35 +2,35 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Control {
-    ControlV1N0N1Control(crate::control::v1_0_1::Control),
-    ControlV1N1N0Control(crate::control::v1_1_0::Control),
-    ControlV1N2N0Control(crate::control::v1_2_0::Control),
-    ControlV1N3N0Control(crate::control::v1_3_0::Control),
+    V010300(crate::control::v1_3_0::Control),
+    V010200(crate::control::v1_2_0::Control),
+    V010100(crate::control::v1_1_0::Control),
+    V010001(crate::control::v1_0_1::Control),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ControlExcerpt {
-    ControlV1N0N1ControlExcerpt(crate::control::v1_0_1::ControlExcerpt),
-    ControlV1N1N0ControlExcerpt(crate::control::v1_1_0::ControlExcerpt),
-    ControlV1N2N0ControlExcerpt(crate::control::v1_2_0::ControlExcerpt),
-    ControlV1N3N0ControlExcerpt(crate::control::v1_3_0::ControlExcerpt),
+    V010300(crate::control::v1_3_0::ControlExcerpt),
+    V010200(crate::control::v1_2_0::ControlExcerpt),
+    V010100(crate::control::v1_1_0::ControlExcerpt),
+    V010001(crate::control::v1_0_1::ControlExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ControlRangeExcerpt {
-    ControlV1N0N1ControlRangeExcerpt(crate::control::v1_0_1::ControlRangeExcerpt),
-    ControlV1N1N0ControlRangeExcerpt(crate::control::v1_1_0::ControlRangeExcerpt),
-    ControlV1N2N0ControlRangeExcerpt(crate::control::v1_2_0::ControlRangeExcerpt),
-    ControlV1N3N0ControlRangeExcerpt(crate::control::v1_3_0::ControlRangeExcerpt),
+    V010300(crate::control::v1_3_0::ControlRangeExcerpt),
+    V010200(crate::control::v1_2_0::ControlRangeExcerpt),
+    V010100(crate::control::v1_1_0::ControlRangeExcerpt),
+    V010001(crate::control::v1_0_1::ControlRangeExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ControlSingleExcerpt {
-    ControlV1N0N1ControlSingleExcerpt(crate::control::v1_0_1::ControlSingleExcerpt),
-    ControlV1N1N0ControlSingleExcerpt(crate::control::v1_1_0::ControlSingleExcerpt),
-    ControlV1N2N0ControlSingleExcerpt(crate::control::v1_2_0::ControlSingleExcerpt),
-    ControlV1N3N0ControlSingleExcerpt(crate::control::v1_3_0::ControlSingleExcerpt),
+    V010300(crate::control::v1_3_0::ControlSingleExcerpt),
+    V010200(crate::control::v1_2_0::ControlSingleExcerpt),
+    V010100(crate::control::v1_1_0::ControlSingleExcerpt),
+    V010001(crate::control::v1_0_1::ControlSingleExcerpt),
 }
 pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};

@@ -2,42 +2,26 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum NVMeSMARTCriticalWarnings {
-    StorageControllerV1N0N2NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_0_2::NVMeSMARTCriticalWarnings,
-    ),
-    StorageControllerV1N1N1NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_1_1::NVMeSMARTCriticalWarnings,
-    ),
-    StorageControllerV1N2N0NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_2_0::NVMeSMARTCriticalWarnings,
-    ),
-    StorageControllerV1N3N0NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_3_0::NVMeSMARTCriticalWarnings,
-    ),
-    StorageControllerV1N4N0NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_4_0::NVMeSMARTCriticalWarnings,
-    ),
-    StorageControllerV1N5N0NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_5_0::NVMeSMARTCriticalWarnings,
-    ),
-    StorageControllerV1N6N0NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_6_0::NVMeSMARTCriticalWarnings,
-    ),
-    StorageControllerV1N7N0NVMeSMARTCriticalWarnings(
-        crate::storage_controller::v1_7_0::NVMeSMARTCriticalWarnings,
-    ),
+    V010700(crate::storage_controller::v1_7_0::NVMeSMARTCriticalWarnings),
+    V010600(crate::storage_controller::v1_6_0::NVMeSMARTCriticalWarnings),
+    V010500(crate::storage_controller::v1_5_0::NVMeSMARTCriticalWarnings),
+    V010400(crate::storage_controller::v1_4_0::NVMeSMARTCriticalWarnings),
+    V010300(crate::storage_controller::v1_3_0::NVMeSMARTCriticalWarnings),
+    V010200(crate::storage_controller::v1_2_0::NVMeSMARTCriticalWarnings),
+    V010101(crate::storage_controller::v1_1_1::NVMeSMARTCriticalWarnings),
+    V010002(crate::storage_controller::v1_0_2::NVMeSMARTCriticalWarnings),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum StorageController {
-    StorageControllerV1N0N2StorageController(crate::storage_controller::v1_0_2::StorageController),
-    StorageControllerV1N1N1StorageController(crate::storage_controller::v1_1_1::StorageController),
-    StorageControllerV1N2N0StorageController(crate::storage_controller::v1_2_0::StorageController),
-    StorageControllerV1N3N0StorageController(crate::storage_controller::v1_3_0::StorageController),
-    StorageControllerV1N4N0StorageController(crate::storage_controller::v1_4_0::StorageController),
-    StorageControllerV1N5N0StorageController(crate::storage_controller::v1_5_0::StorageController),
-    StorageControllerV1N6N0StorageController(crate::storage_controller::v1_6_0::StorageController),
-    StorageControllerV1N7N0StorageController(crate::storage_controller::v1_7_0::StorageController),
+    V010700(crate::storage_controller::v1_7_0::StorageController),
+    V010600(crate::storage_controller::v1_6_0::StorageController),
+    V010500(crate::storage_controller::v1_5_0::StorageController),
+    V010400(crate::storage_controller::v1_4_0::StorageController),
+    V010300(crate::storage_controller::v1_3_0::StorageController),
+    V010200(crate::storage_controller::v1_2_0::StorageController),
+    V010101(crate::storage_controller::v1_1_1::StorageController),
+    V010002(crate::storage_controller::v1_0_2::StorageController),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_2 {

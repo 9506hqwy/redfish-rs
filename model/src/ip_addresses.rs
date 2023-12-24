@@ -2,27 +2,25 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum IPv4Address {
-    IPAddressesV1N0N10IPv4Address(crate::ip_addresses::v1_0_10::IPv4Address),
-    IPAddressesV1N1N3IPv4Address(crate::ip_addresses::v1_1_3::IPv4Address),
+    V010103(crate::ip_addresses::v1_1_3::IPv4Address),
+    V010010(crate::ip_addresses::v1_0_10::IPv4Address),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum IPv6Address {
-    IPAddressesV1N0N10IPv6Address(crate::ip_addresses::v1_0_10::IPv6Address),
-    IPAddressesV1N1N3IPv6Address(crate::ip_addresses::v1_1_3::IPv6Address),
+    V010103(crate::ip_addresses::v1_1_3::IPv6Address),
+    V010010(crate::ip_addresses::v1_0_10::IPv6Address),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum IPv6GatewayStaticAddress {
-    IPAddressesV1N1N3IPv6GatewayStaticAddress(
-        crate::ip_addresses::v1_1_3::IPv6GatewayStaticAddress,
-    ),
+    V010103(crate::ip_addresses::v1_1_3::IPv6GatewayStaticAddress),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum IPv6StaticAddress {
-    IPAddressesV1N0N10IPv6StaticAddress(crate::ip_addresses::v1_0_10::IPv6StaticAddress),
-    IPAddressesV1N1N3IPv6StaticAddress(crate::ip_addresses::v1_1_3::IPv6StaticAddress),
+    V010103(crate::ip_addresses::v1_1_3::IPv6StaticAddress),
+    V010010(crate::ip_addresses::v1_0_10::IPv6StaticAddress),
 }
 pub mod v1_0_10 {
     use serde::{Deserialize, Serialize};

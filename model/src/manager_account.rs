@@ -24,17 +24,17 @@ pub enum AccountTypes {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ManagerAccount {
-    ManagerAccountV1N0N13ManagerAccount(crate::manager_account::v1_0_13::ManagerAccount),
-    ManagerAccountV1N10N0ManagerAccount(crate::manager_account::v1_10_0::ManagerAccount),
-    ManagerAccountV1N1N9ManagerAccount(crate::manager_account::v1_1_9::ManagerAccount),
-    ManagerAccountV1N2N6ManagerAccount(crate::manager_account::v1_2_6::ManagerAccount),
-    ManagerAccountV1N3N5ManagerAccount(crate::manager_account::v1_3_5::ManagerAccount),
-    ManagerAccountV1N4N7ManagerAccount(crate::manager_account::v1_4_7::ManagerAccount),
-    ManagerAccountV1N5N6ManagerAccount(crate::manager_account::v1_5_6::ManagerAccount),
-    ManagerAccountV1N6N5ManagerAccount(crate::manager_account::v1_6_5::ManagerAccount),
-    ManagerAccountV1N7N3ManagerAccount(crate::manager_account::v1_7_3::ManagerAccount),
-    ManagerAccountV1N8N2ManagerAccount(crate::manager_account::v1_8_2::ManagerAccount),
-    ManagerAccountV1N9N1ManagerAccount(crate::manager_account::v1_9_1::ManagerAccount),
+    V011000(crate::manager_account::v1_10_0::ManagerAccount),
+    V010901(crate::manager_account::v1_9_1::ManagerAccount),
+    V010802(crate::manager_account::v1_8_2::ManagerAccount),
+    V010703(crate::manager_account::v1_7_3::ManagerAccount),
+    V010605(crate::manager_account::v1_6_5::ManagerAccount),
+    V010506(crate::manager_account::v1_5_6::ManagerAccount),
+    V010407(crate::manager_account::v1_4_7::ManagerAccount),
+    V010305(crate::manager_account::v1_3_5::ManagerAccount),
+    V010206(crate::manager_account::v1_2_6::ManagerAccount),
+    V010109(crate::manager_account::v1_1_9::ManagerAccount),
+    V010013(crate::manager_account::v1_0_13::ManagerAccount),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_13 {

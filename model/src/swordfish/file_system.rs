@@ -22,10 +22,10 @@ pub enum FileProtocol {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum FileSystem {
-    FileSystemV1N0N3FileSystem(crate::swordfish::file_system::v1_0_3::FileSystem),
-    FileSystemV1N1N4FileSystem(crate::swordfish::file_system::v1_1_4::FileSystem),
-    FileSystemV1N2N2FileSystem(crate::swordfish::file_system::v1_2_2::FileSystem),
-    FileSystemV1N3N0FileSystem(crate::swordfish::file_system::v1_3_0::FileSystem),
+    V010300(crate::swordfish::file_system::v1_3_0::FileSystem),
+    V010202(crate::swordfish::file_system::v1_2_2::FileSystem),
+    V010104(crate::swordfish::file_system::v1_1_4::FileSystem),
+    V010003(crate::swordfish::file_system::v1_0_3::FileSystem),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]

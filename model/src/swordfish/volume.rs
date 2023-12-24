@@ -170,17 +170,17 @@ pub enum ReadCachePolicyType {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Volume {
-    VolumeV1N0N4Volume(crate::swordfish::volume::v1_0_4::Volume),
-    VolumeV1N10N0Volume(crate::swordfish::volume::v1_10_0::Volume),
-    VolumeV1N1N5Volume(crate::swordfish::volume::v1_1_5::Volume),
-    VolumeV1N2N5Volume(crate::swordfish::volume::v1_2_5::Volume),
-    VolumeV1N3N4Volume(crate::swordfish::volume::v1_3_4::Volume),
-    VolumeV1N4N3Volume(crate::swordfish::volume::v1_4_3::Volume),
-    VolumeV1N5N1Volume(crate::swordfish::volume::v1_5_1::Volume),
-    VolumeV1N6N2Volume(crate::swordfish::volume::v1_6_2::Volume),
-    VolumeV1N7N0Volume(crate::swordfish::volume::v1_7_0::Volume),
-    VolumeV1N8N0Volume(crate::swordfish::volume::v1_8_0::Volume),
-    VolumeV1N9N0Volume(crate::swordfish::volume::v1_9_0::Volume),
+    V011000(crate::swordfish::volume::v1_10_0::Volume),
+    V010900(crate::swordfish::volume::v1_9_0::Volume),
+    V010800(crate::swordfish::volume::v1_8_0::Volume),
+    V010700(crate::swordfish::volume::v1_7_0::Volume),
+    V010602(crate::swordfish::volume::v1_6_2::Volume),
+    V010501(crate::swordfish::volume::v1_5_1::Volume),
+    V010403(crate::swordfish::volume::v1_4_3::Volume),
+    V010304(crate::swordfish::volume::v1_3_4::Volume),
+    V010205(crate::swordfish::volume::v1_2_5::Volume),
+    V010105(crate::swordfish::volume::v1_1_5::Volume),
+    V010004(crate::swordfish::volume::v1_0_4::Volume),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

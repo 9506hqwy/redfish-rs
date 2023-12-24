@@ -16,12 +16,8 @@ pub enum ApplicationConsistencyMethod {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ConsistencyGroup {
-    ConsistencyGroupV1N0N1ConsistencyGroup(
-        crate::swordfish::consistency_group::v1_0_1::ConsistencyGroup,
-    ),
-    ConsistencyGroupV1N1N1ConsistencyGroup(
-        crate::swordfish::consistency_group::v1_1_1::ConsistencyGroup,
-    ),
+    V010101(crate::swordfish::consistency_group::v1_1_1::ConsistencyGroup),
+    V010001(crate::swordfish::consistency_group::v1_0_1::ConsistencyGroup),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

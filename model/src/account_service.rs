@@ -2,27 +2,27 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum AccountService {
-    AccountServiceV1N0N13AccountService(crate::account_service::v1_0_13::AccountService),
-    AccountServiceV1N10N4AccountService(crate::account_service::v1_10_4::AccountService),
-    AccountServiceV1N11N4AccountService(crate::account_service::v1_11_4::AccountService),
-    AccountServiceV1N12N1AccountService(crate::account_service::v1_12_1::AccountService),
-    AccountServiceV1N13N0AccountService(crate::account_service::v1_13_0::AccountService),
-    AccountServiceV1N1N10AccountService(crate::account_service::v1_1_10::AccountService),
-    AccountServiceV1N2N10AccountService(crate::account_service::v1_2_10::AccountService),
-    AccountServiceV1N3N11AccountService(crate::account_service::v1_3_11::AccountService),
-    AccountServiceV1N4N9AccountService(crate::account_service::v1_4_9::AccountService),
-    AccountServiceV1N5N8AccountService(crate::account_service::v1_5_8::AccountService),
-    AccountServiceV1N6N7AccountService(crate::account_service::v1_6_7::AccountService),
-    AccountServiceV1N7N7AccountService(crate::account_service::v1_7_7::AccountService),
-    AccountServiceV1N8N4AccountService(crate::account_service::v1_8_4::AccountService),
-    AccountServiceV1N9N3AccountService(crate::account_service::v1_9_3::AccountService),
+    V011300(crate::account_service::v1_13_0::AccountService),
+    V011201(crate::account_service::v1_12_1::AccountService),
+    V011104(crate::account_service::v1_11_4::AccountService),
+    V011004(crate::account_service::v1_10_4::AccountService),
+    V010903(crate::account_service::v1_9_3::AccountService),
+    V010804(crate::account_service::v1_8_4::AccountService),
+    V010707(crate::account_service::v1_7_7::AccountService),
+    V010607(crate::account_service::v1_6_7::AccountService),
+    V010508(crate::account_service::v1_5_8::AccountService),
+    V010409(crate::account_service::v1_4_9::AccountService),
+    V010311(crate::account_service::v1_3_11::AccountService),
+    V010210(crate::account_service::v1_2_10::AccountService),
+    V010110(crate::account_service::v1_1_10::AccountService),
+    V010013(crate::account_service::v1_0_13::AccountService),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum MFABypass {
-    AccountServiceV1N12N1MFABypass(crate::account_service::v1_12_1::MFABypass),
-    AccountServiceV1N13N0MFABypass(crate::account_service::v1_13_0::MFABypass),
+    V011300(crate::account_service::v1_13_0::MFABypass),
+    V011201(crate::account_service::v1_12_1::MFABypass),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum MFABypassType {

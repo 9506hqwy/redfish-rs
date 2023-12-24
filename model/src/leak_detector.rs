@@ -2,20 +2,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum LeakDetector {
-    LeakDetectorV1N0N0LeakDetector(crate::leak_detector::v1_0_0::LeakDetector),
+    V010000(crate::leak_detector::v1_0_0::LeakDetector),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum LeakDetectorArrayExcerpt {
-    LeakDetectorV1N0N0LeakDetectorArrayExcerpt(
-        crate::leak_detector::v1_0_0::LeakDetectorArrayExcerpt,
-    ),
+    V010000(crate::leak_detector::v1_0_0::LeakDetectorArrayExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum LeakDetectorExcerpt {
-    LeakDetectorV1N0N0LeakDetectorExcerpt(crate::leak_detector::v1_0_0::LeakDetectorExcerpt),
+    V010000(crate::leak_detector::v1_0_0::LeakDetectorExcerpt),
 }
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};

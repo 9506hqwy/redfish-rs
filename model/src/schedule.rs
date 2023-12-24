@@ -2,9 +2,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Schedule {
-    ScheduleV1N0N3Schedule(crate::schedule::v1_0_3::Schedule),
-    ScheduleV1N1N4Schedule(crate::schedule::v1_1_4::Schedule),
-    ScheduleV1N2N4Schedule(crate::schedule::v1_2_4::Schedule),
+    V010204(crate::schedule::v1_2_4::Schedule),
+    V010104(crate::schedule::v1_1_4::Schedule),
+    V010003(crate::schedule::v1_0_3::Schedule),
 }
 pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};

@@ -2,8 +2,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Manifest {
-    ManifestV1N0N0Manifest(crate::manifest::v1_0_0::Manifest),
-    ManifestV1N1N0Manifest(crate::manifest::v1_1_0::Manifest),
+    V010100(crate::manifest::v1_1_0::Manifest),
+    V010000(crate::manifest::v1_0_0::Manifest),
 }
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};

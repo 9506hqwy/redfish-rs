@@ -2,11 +2,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Outlet {
-    OutletV1N0N4Outlet(crate::outlet::v1_0_4::Outlet),
-    OutletV1N1N3Outlet(crate::outlet::v1_1_3::Outlet),
-    OutletV1N2N2Outlet(crate::outlet::v1_2_2::Outlet),
-    OutletV1N3N2Outlet(crate::outlet::v1_3_2::Outlet),
-    OutletV1N4N1Outlet(crate::outlet::v1_4_1::Outlet),
+    V010401(crate::outlet::v1_4_1::Outlet),
+    V010302(crate::outlet::v1_3_2::Outlet),
+    V010202(crate::outlet::v1_2_2::Outlet),
+    V010103(crate::outlet::v1_1_3::Outlet),
+    V010004(crate::outlet::v1_0_4::Outlet),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

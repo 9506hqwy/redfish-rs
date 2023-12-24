@@ -40,129 +40,129 @@ pub enum ElectricalContext {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Sensor {
-    SensorV1N0N9Sensor(crate::sensor::v1_0_9::Sensor),
-    SensorV1N1N5Sensor(crate::sensor::v1_1_5::Sensor),
-    SensorV1N2N3Sensor(crate::sensor::v1_2_3::Sensor),
-    SensorV1N3N3Sensor(crate::sensor::v1_3_3::Sensor),
-    SensorV1N4N2Sensor(crate::sensor::v1_4_2::Sensor),
-    SensorV1N5N1Sensor(crate::sensor::v1_5_1::Sensor),
-    SensorV1N6N1Sensor(crate::sensor::v1_6_1::Sensor),
-    SensorV1N7N0Sensor(crate::sensor::v1_7_0::Sensor),
+    V010700(crate::sensor::v1_7_0::Sensor),
+    V010601(crate::sensor::v1_6_1::Sensor),
+    V010501(crate::sensor::v1_5_1::Sensor),
+    V010402(crate::sensor::v1_4_2::Sensor),
+    V010303(crate::sensor::v1_3_3::Sensor),
+    V010203(crate::sensor::v1_2_3::Sensor),
+    V010105(crate::sensor::v1_1_5::Sensor),
+    V010009(crate::sensor::v1_0_9::Sensor),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorArrayExcerpt {
-    SensorV1N0N9SensorArrayExcerpt(crate::sensor::v1_0_9::SensorArrayExcerpt),
-    SensorV1N1N5SensorArrayExcerpt(crate::sensor::v1_1_5::SensorArrayExcerpt),
-    SensorV1N2N3SensorArrayExcerpt(crate::sensor::v1_2_3::SensorArrayExcerpt),
-    SensorV1N3N3SensorArrayExcerpt(crate::sensor::v1_3_3::SensorArrayExcerpt),
-    SensorV1N4N2SensorArrayExcerpt(crate::sensor::v1_4_2::SensorArrayExcerpt),
-    SensorV1N5N1SensorArrayExcerpt(crate::sensor::v1_5_1::SensorArrayExcerpt),
-    SensorV1N6N1SensorArrayExcerpt(crate::sensor::v1_6_1::SensorArrayExcerpt),
-    SensorV1N7N0SensorArrayExcerpt(crate::sensor::v1_7_0::SensorArrayExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorArrayExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorArrayExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorArrayExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorArrayExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorArrayExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorArrayExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorArrayExcerpt),
+    V010009(crate::sensor::v1_0_9::SensorArrayExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorCurrentExcerpt {
-    SensorV1N1N5SensorCurrentExcerpt(crate::sensor::v1_1_5::SensorCurrentExcerpt),
-    SensorV1N2N3SensorCurrentExcerpt(crate::sensor::v1_2_3::SensorCurrentExcerpt),
-    SensorV1N3N3SensorCurrentExcerpt(crate::sensor::v1_3_3::SensorCurrentExcerpt),
-    SensorV1N4N2SensorCurrentExcerpt(crate::sensor::v1_4_2::SensorCurrentExcerpt),
-    SensorV1N5N1SensorCurrentExcerpt(crate::sensor::v1_5_1::SensorCurrentExcerpt),
-    SensorV1N6N1SensorCurrentExcerpt(crate::sensor::v1_6_1::SensorCurrentExcerpt),
-    SensorV1N7N0SensorCurrentExcerpt(crate::sensor::v1_7_0::SensorCurrentExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorCurrentExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorCurrentExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorCurrentExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorCurrentExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorCurrentExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorCurrentExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorCurrentExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorEnergykWhExcerpt {
-    SensorV1N0N9SensorEnergykWhExcerpt(crate::sensor::v1_0_9::SensorEnergykWhExcerpt),
-    SensorV1N1N5SensorEnergykWhExcerpt(crate::sensor::v1_1_5::SensorEnergykWhExcerpt),
-    SensorV1N2N3SensorEnergykWhExcerpt(crate::sensor::v1_2_3::SensorEnergykWhExcerpt),
-    SensorV1N3N3SensorEnergykWhExcerpt(crate::sensor::v1_3_3::SensorEnergykWhExcerpt),
-    SensorV1N4N2SensorEnergykWhExcerpt(crate::sensor::v1_4_2::SensorEnergykWhExcerpt),
-    SensorV1N5N1SensorEnergykWhExcerpt(crate::sensor::v1_5_1::SensorEnergykWhExcerpt),
-    SensorV1N6N1SensorEnergykWhExcerpt(crate::sensor::v1_6_1::SensorEnergykWhExcerpt),
-    SensorV1N7N0SensorEnergykWhExcerpt(crate::sensor::v1_7_0::SensorEnergykWhExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorEnergykWhExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorEnergykWhExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorEnergykWhExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorEnergykWhExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorEnergykWhExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorEnergykWhExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorEnergykWhExcerpt),
+    V010009(crate::sensor::v1_0_9::SensorEnergykWhExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorExcerpt {
-    SensorV1N0N9SensorExcerpt(crate::sensor::v1_0_9::SensorExcerpt),
-    SensorV1N1N5SensorExcerpt(crate::sensor::v1_1_5::SensorExcerpt),
-    SensorV1N2N3SensorExcerpt(crate::sensor::v1_2_3::SensorExcerpt),
-    SensorV1N3N3SensorExcerpt(crate::sensor::v1_3_3::SensorExcerpt),
-    SensorV1N4N2SensorExcerpt(crate::sensor::v1_4_2::SensorExcerpt),
-    SensorV1N5N1SensorExcerpt(crate::sensor::v1_5_1::SensorExcerpt),
-    SensorV1N6N1SensorExcerpt(crate::sensor::v1_6_1::SensorExcerpt),
-    SensorV1N7N0SensorExcerpt(crate::sensor::v1_7_0::SensorExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorExcerpt),
+    V010009(crate::sensor::v1_0_9::SensorExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorFanArrayExcerpt {
-    SensorV1N0N9SensorFanArrayExcerpt(crate::sensor::v1_0_9::SensorFanArrayExcerpt),
-    SensorV1N1N5SensorFanArrayExcerpt(crate::sensor::v1_1_5::SensorFanArrayExcerpt),
-    SensorV1N2N3SensorFanArrayExcerpt(crate::sensor::v1_2_3::SensorFanArrayExcerpt),
-    SensorV1N3N3SensorFanArrayExcerpt(crate::sensor::v1_3_3::SensorFanArrayExcerpt),
-    SensorV1N4N2SensorFanArrayExcerpt(crate::sensor::v1_4_2::SensorFanArrayExcerpt),
-    SensorV1N5N1SensorFanArrayExcerpt(crate::sensor::v1_5_1::SensorFanArrayExcerpt),
-    SensorV1N6N1SensorFanArrayExcerpt(crate::sensor::v1_6_1::SensorFanArrayExcerpt),
-    SensorV1N7N0SensorFanArrayExcerpt(crate::sensor::v1_7_0::SensorFanArrayExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorFanArrayExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorFanArrayExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorFanArrayExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorFanArrayExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorFanArrayExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorFanArrayExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorFanArrayExcerpt),
+    V010009(crate::sensor::v1_0_9::SensorFanArrayExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorFanExcerpt {
-    SensorV1N2N3SensorFanExcerpt(crate::sensor::v1_2_3::SensorFanExcerpt),
-    SensorV1N3N3SensorFanExcerpt(crate::sensor::v1_3_3::SensorFanExcerpt),
-    SensorV1N4N2SensorFanExcerpt(crate::sensor::v1_4_2::SensorFanExcerpt),
-    SensorV1N5N1SensorFanExcerpt(crate::sensor::v1_5_1::SensorFanExcerpt),
-    SensorV1N6N1SensorFanExcerpt(crate::sensor::v1_6_1::SensorFanExcerpt),
-    SensorV1N7N0SensorFanExcerpt(crate::sensor::v1_7_0::SensorFanExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorFanExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorFanExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorFanExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorFanExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorFanExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorFanExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorPowerArrayExcerpt {
-    SensorV1N0N9SensorPowerArrayExcerpt(crate::sensor::v1_0_9::SensorPowerArrayExcerpt),
-    SensorV1N1N5SensorPowerArrayExcerpt(crate::sensor::v1_1_5::SensorPowerArrayExcerpt),
-    SensorV1N2N3SensorPowerArrayExcerpt(crate::sensor::v1_2_3::SensorPowerArrayExcerpt),
-    SensorV1N3N3SensorPowerArrayExcerpt(crate::sensor::v1_3_3::SensorPowerArrayExcerpt),
-    SensorV1N4N2SensorPowerArrayExcerpt(crate::sensor::v1_4_2::SensorPowerArrayExcerpt),
-    SensorV1N5N1SensorPowerArrayExcerpt(crate::sensor::v1_5_1::SensorPowerArrayExcerpt),
-    SensorV1N6N1SensorPowerArrayExcerpt(crate::sensor::v1_6_1::SensorPowerArrayExcerpt),
-    SensorV1N7N0SensorPowerArrayExcerpt(crate::sensor::v1_7_0::SensorPowerArrayExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorPowerArrayExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorPowerArrayExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorPowerArrayExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorPowerArrayExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorPowerArrayExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorPowerArrayExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorPowerArrayExcerpt),
+    V010009(crate::sensor::v1_0_9::SensorPowerArrayExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorPowerExcerpt {
-    SensorV1N0N9SensorPowerExcerpt(crate::sensor::v1_0_9::SensorPowerExcerpt),
-    SensorV1N1N5SensorPowerExcerpt(crate::sensor::v1_1_5::SensorPowerExcerpt),
-    SensorV1N2N3SensorPowerExcerpt(crate::sensor::v1_2_3::SensorPowerExcerpt),
-    SensorV1N3N3SensorPowerExcerpt(crate::sensor::v1_3_3::SensorPowerExcerpt),
-    SensorV1N4N2SensorPowerExcerpt(crate::sensor::v1_4_2::SensorPowerExcerpt),
-    SensorV1N5N1SensorPowerExcerpt(crate::sensor::v1_5_1::SensorPowerExcerpt),
-    SensorV1N6N1SensorPowerExcerpt(crate::sensor::v1_6_1::SensorPowerExcerpt),
-    SensorV1N7N0SensorPowerExcerpt(crate::sensor::v1_7_0::SensorPowerExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorPowerExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorPowerExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorPowerExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorPowerExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorPowerExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorPowerExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorPowerExcerpt),
+    V010009(crate::sensor::v1_0_9::SensorPowerExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorPumpExcerpt {
-    SensorV1N2N3SensorPumpExcerpt(crate::sensor::v1_2_3::SensorPumpExcerpt),
-    SensorV1N3N3SensorPumpExcerpt(crate::sensor::v1_3_3::SensorPumpExcerpt),
-    SensorV1N4N2SensorPumpExcerpt(crate::sensor::v1_4_2::SensorPumpExcerpt),
-    SensorV1N5N1SensorPumpExcerpt(crate::sensor::v1_5_1::SensorPumpExcerpt),
-    SensorV1N6N1SensorPumpExcerpt(crate::sensor::v1_6_1::SensorPumpExcerpt),
-    SensorV1N7N0SensorPumpExcerpt(crate::sensor::v1_7_0::SensorPumpExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorPumpExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorPumpExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorPumpExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorPumpExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorPumpExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorPumpExcerpt),
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum SensorVoltageExcerpt {
-    SensorV1N1N5SensorVoltageExcerpt(crate::sensor::v1_1_5::SensorVoltageExcerpt),
-    SensorV1N2N3SensorVoltageExcerpt(crate::sensor::v1_2_3::SensorVoltageExcerpt),
-    SensorV1N3N3SensorVoltageExcerpt(crate::sensor::v1_3_3::SensorVoltageExcerpt),
-    SensorV1N4N2SensorVoltageExcerpt(crate::sensor::v1_4_2::SensorVoltageExcerpt),
-    SensorV1N5N1SensorVoltageExcerpt(crate::sensor::v1_5_1::SensorVoltageExcerpt),
-    SensorV1N6N1SensorVoltageExcerpt(crate::sensor::v1_6_1::SensorVoltageExcerpt),
-    SensorV1N7N0SensorVoltageExcerpt(crate::sensor::v1_7_0::SensorVoltageExcerpt),
+    V010700(crate::sensor::v1_7_0::SensorVoltageExcerpt),
+    V010601(crate::sensor::v1_6_1::SensorVoltageExcerpt),
+    V010501(crate::sensor::v1_5_1::SensorVoltageExcerpt),
+    V010402(crate::sensor::v1_4_2::SensorVoltageExcerpt),
+    V010303(crate::sensor::v1_3_3::SensorVoltageExcerpt),
+    V010203(crate::sensor::v1_2_3::SensorVoltageExcerpt),
+    V010105(crate::sensor::v1_1_5::SensorVoltageExcerpt),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum VoltageType {

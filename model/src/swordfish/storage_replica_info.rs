@@ -10,21 +10,11 @@ pub enum ReplicaFaultDomain {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ReplicaInfo {
-    StorageReplicaInfoV1N0N2ReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_0_2::ReplicaInfo,
-    ),
-    StorageReplicaInfoV1N1N2ReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_1_2::ReplicaInfo,
-    ),
-    StorageReplicaInfoV1N2N0ReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_2_0::ReplicaInfo,
-    ),
-    StorageReplicaInfoV1N3N0ReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_3_0::ReplicaInfo,
-    ),
-    StorageReplicaInfoV1N4N0ReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_4_0::ReplicaInfo,
-    ),
+    V010400(crate::swordfish::storage_replica_info::v1_4_0::ReplicaInfo),
+    V010300(crate::swordfish::storage_replica_info::v1_3_0::ReplicaInfo),
+    V010200(crate::swordfish::storage_replica_info::v1_2_0::ReplicaInfo),
+    V010102(crate::swordfish::storage_replica_info::v1_1_2::ReplicaInfo),
+    V010002(crate::swordfish::storage_replica_info::v1_0_2::ReplicaInfo),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum ReplicaType {
@@ -53,21 +43,11 @@ pub enum ReplicaUpdateMode {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum StorageReplicaInfo {
-    StorageReplicaInfoV1N0N2StorageReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_0_2::StorageReplicaInfo,
-    ),
-    StorageReplicaInfoV1N1N2StorageReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_1_2::StorageReplicaInfo,
-    ),
-    StorageReplicaInfoV1N2N0StorageReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_2_0::StorageReplicaInfo,
-    ),
-    StorageReplicaInfoV1N3N0StorageReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_3_0::StorageReplicaInfo,
-    ),
-    StorageReplicaInfoV1N4N0StorageReplicaInfo(
-        crate::swordfish::storage_replica_info::v1_4_0::StorageReplicaInfo,
-    ),
+    V010400(crate::swordfish::storage_replica_info::v1_4_0::StorageReplicaInfo),
+    V010300(crate::swordfish::storage_replica_info::v1_3_0::StorageReplicaInfo),
+    V010200(crate::swordfish::storage_replica_info::v1_2_0::StorageReplicaInfo),
+    V010102(crate::swordfish::storage_replica_info::v1_1_2::StorageReplicaInfo),
+    V010002(crate::swordfish::storage_replica_info::v1_0_2::StorageReplicaInfo),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 pub mod v1_0_2 {

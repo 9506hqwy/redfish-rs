@@ -2,14 +2,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum Certificate {
-    CertificateV1N0N5Certificate(crate::certificate::v1_0_5::Certificate),
-    CertificateV1N1N4Certificate(crate::certificate::v1_1_4::Certificate),
-    CertificateV1N2N4Certificate(crate::certificate::v1_2_4::Certificate),
-    CertificateV1N3N1Certificate(crate::certificate::v1_3_1::Certificate),
-    CertificateV1N4N1Certificate(crate::certificate::v1_4_1::Certificate),
-    CertificateV1N5N1Certificate(crate::certificate::v1_5_1::Certificate),
-    CertificateV1N6N0Certificate(crate::certificate::v1_6_0::Certificate),
-    CertificateV1N7N0Certificate(crate::certificate::v1_7_0::Certificate),
+    V010700(crate::certificate::v1_7_0::Certificate),
+    V010600(crate::certificate::v1_6_0::Certificate),
+    V010501(crate::certificate::v1_5_1::Certificate),
+    V010401(crate::certificate::v1_4_1::Certificate),
+    V010301(crate::certificate::v1_3_1::Certificate),
+    V010204(crate::certificate::v1_2_4::Certificate),
+    V010104(crate::certificate::v1_1_4::Certificate),
+    V010005(crate::certificate::v1_0_5::Certificate),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

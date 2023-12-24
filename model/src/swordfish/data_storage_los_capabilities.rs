@@ -2,15 +2,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum DataStorageLoSCapabilities {
-    DataStorageLoSCapabilitiesV1N0N2DataStorageLoSCapabilities(
-        crate::swordfish::data_storage_los_capabilities::v1_0_2::DataStorageLoSCapabilities,
-    ),
-    DataStorageLoSCapabilitiesV1N1N3DataStorageLoSCapabilities(
-        crate::swordfish::data_storage_los_capabilities::v1_1_3::DataStorageLoSCapabilities,
-    ),
-    DataStorageLoSCapabilitiesV1N2N2DataStorageLoSCapabilities(
-        crate::swordfish::data_storage_los_capabilities::v1_2_2::DataStorageLoSCapabilities,
-    ),
+    V010202(crate::swordfish::data_storage_los_capabilities::v1_2_2::DataStorageLoSCapabilities),
+    V010103(crate::swordfish::data_storage_los_capabilities::v1_1_3::DataStorageLoSCapabilities),
+    V010002(crate::swordfish::data_storage_los_capabilities::v1_0_2::DataStorageLoSCapabilities),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
