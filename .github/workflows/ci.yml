@@ -34,6 +34,8 @@ jobs:
       run: |
         RUST_TARGET=`rustup show active-toolchain | sed -e 's/[^-]*-\(.*\)\s.*/\1/'`
 
+        mkdir ./artifacts
+
         CUR_DIR=$(pwd)
         LIB_DIR='./target/release'
         pushd "$LIB_DIR"
@@ -58,6 +60,8 @@ jobs:
       if: matrix.os == 'windows-latest'
       run: |
         $RUST_TARGET = $(rustup show active-toolchain) -replace '[^-]*-(?<host>.*)\s.*', '${host}'
+
+        mkdir .\artifacts
 
         $TARGETS = @(
           'target\release\*.exe',
