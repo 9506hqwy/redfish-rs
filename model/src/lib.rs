@@ -240,6 +240,22 @@ pub mod zone;
 pub mod zone_collection;
 use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub struct GetOdata200Response {
+    #[serde(rename = "@odata.context")]
+    pub odata_context: String,
+    #[serde(rename = "value")]
+    pub value: Vec<crate::GetOdata200ResponseValue>,
+}
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub struct GetOdata200ResponseValue {
+    #[serde(rename = "kind")]
+    pub kind: String,
+    #[serde(rename = "name")]
+    pub name: String,
+    #[serde(rename = "url")]
+    pub url: String,
+}
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct RedfishError {
     #[serde(rename = "error")]
     pub error: crate::RedfishErrorError,
