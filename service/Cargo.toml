@@ -1,0 +1,20 @@
+[package]
+name = "redfish-service"
+keywords = ["redfish"]
+# https://crates.io/category_slugs
+categories = ["development-tools"]
+
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+license.workspace = true
+
+[dependencies]
+axum = "0.7.2"
+serde = { version = "1.0.188", features = ["derive"] }
+redfish-model = { path = "../model" }
+
+[dev-dependencies]
+tokio = { version = "1.35.1", features = ["macros", "net"] }

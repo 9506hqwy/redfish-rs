@@ -1,7 +1,8 @@
 [workspace]
 resolver = "2"
 members = [
-  "model"
+  "model",
+  "service",
 ]
 
 [workspace.package]
