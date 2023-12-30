@@ -19,6 +19,22 @@ where
 
 impl Response<RedfishError> {
     // TODO: DSP8011
+    pub fn authentication_token_required() -> Self {
+        let body = RedfishError {
+            error: RedfishErrorError {
+                code: "Base.1.17.AuthenticationTokenRequired".to_string(),
+                message: "The request could not be performed because an authentication token was not provided.".to_string(),
+                message_extended_info: None,
+            },
+        };
+
+        Response {
+            status: StatusCode::UNAUTHORIZED,
+            headers: HeaderMap::new(),
+            body,
+        }
+    }
+
     pub fn general_error_client() -> Self {
         let body = RedfishError {
             error: RedfishErrorError {

@@ -1,10 +1,11 @@
 use axum::{
     async_trait, extract,
-    http::header::{HeaderMap, HeaderValue, CONTENT_TYPE, LOCATION},
+    http::header::{HeaderMap, HeaderValue, AUTHORIZATION, CONTENT_TYPE, LOCATION},
     http::status::StatusCode,
     middleware,
     response::IntoResponse,
 };
+use base64::Engine;
 use redfish_model::{
     odata_v4::IdRef,
     service_root::v1_16_0::{Links, ServiceRoot},
@@ -23,10 +24,65 @@ use tokio::net::TcpListener;
 async fn main() {
     let state = Box::<Redfish>::default();
 
-    let app = routes(state).layer(middleware::from_fn(handle_error));
+    let app = routes(state.clone())
+        .route_layer(middleware::from_fn_with_state(state, handle_authentication))
+        .layer(middleware::from_fn(handle_error));
 
     let listener = TcpListener::bind("0.0.0.0:3000").await.unwrap();
     axum::serve(listener, app).await.unwrap();
+}
+
+async fn handle_authentication(
+    extract::State(_redfish): extract::State<Box<Redfish>>,
+    req: extract::Request,
+    next: middleware::Next,
+) -> impl IntoResponse {
+    let path = req.uri().path();
+    let header = req.headers();
+
+    if path == "/redfish" || path == "/redfish/v1" || path == "/redfish/v1/" {
+        return next.run(req).await;
+    }
+
+    // TODO: X-Auth-Token
+    match header.get(AUTHORIZATION) {
+        Some(auth) => match basic_auth(auth) {
+            Some((u, p)) if authentication((&u, &p)) => next.run(req).await,
+            _ => Response::authentication_token_required().into_response(),
+        },
+        _ => {
+            let authority = req.uri().authority();
+            match authority
+                .and_then(|m| m.as_str().split_once('@'))
+                .and_then(|(a, _)| a.split_once(':'))
+            {
+                Some(a) if authentication(a) => next.run(req).await,
+                _ => Response::authentication_token_required().into_response(),
+            }
+        }
+    }
+}
+
+fn basic_auth(value: &HeaderValue) -> Option<(String, String)> {
+    value
+        .to_str()
+        .unwrap()
+        .strip_prefix("Basic ")
+        .map(|encoded| base64::engine::general_purpose::STANDARD.decode(encoded))
+        .transpose()
+        .ok()
+        .flatten()
+        .map(String::from_utf8)
+        .transpose()
+        .ok()
+        .flatten()
+        .as_ref()
+        .and_then(|auth| auth.split_once(':'))
+        .map(|(u, p)| (u.to_string(), p.to_string()))
+}
+
+fn authentication((username, password): (&str, &str)) -> bool {
+    username == "admin" && password == "admin"
 }
 
 async fn handle_error(req: extract::Request, next: middleware::Next) -> impl IntoResponse {

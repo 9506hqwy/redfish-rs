@@ -9,7 +9,7 @@ use axum::{extract, http::header::HeaderMap, routing, Router};
 use std::collections::HashMap;
 
 pub fn routes(service: Box<impl Service>) -> Router {
-    // TODO: AuthN, AuthZ
+    // TODO: AuthZ
     // TODO: 7 Service requests
     // TODO: 8 Service responses
     Router::new()
