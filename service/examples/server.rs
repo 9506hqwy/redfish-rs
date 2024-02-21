@@ -14,7 +14,12 @@ use redfish_model::{
     session_service::v1_1_8::SessionService,
     RedfishError,
 };
-use redfish_service::{model, response::Response, routes, service::Service};
+use redfish_service::service::{
+    Service as SerticeTrait, SessionService as SessionServiceTrait,
+    SessionServiceSessions as SessionServiceSessionsTrait,
+    SessionServiceSessionsSessionId as SessionServiceSessionsSessionIdTrait,
+};
+use redfish_service::{model, response::Response, routes};
 use std::boxed::Box;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
@@ -22,7 +27,7 @@ use tokio::net::TcpListener;
 
 #[tokio::main]
 async fn main() {
-    let state = Box::<Redfish>::default();
+    let state = Arc::new(Redfish::default());
 
     let app = routes(state.clone())
         .route_layer(middleware::from_fn_with_state(state, handle_authentication))
@@ -33,7 +38,7 @@ async fn main() {
 }
 
 async fn handle_authentication(
-    extract::State(_redfish): extract::State<Box<Redfish>>,
+    extract::State(_redfish): extract::State<Arc<Redfish>>,
     req: extract::Request,
     next: middleware::Next,
 ) -> impl IntoResponse {
@@ -113,25 +118,43 @@ struct Redfish {
 
 #[allow(unused_variables)]
 #[async_trait]
-impl Service for Redfish {
-    async fn get_service_root(
-        self,
+impl SerticeTrait for Redfish {
+    async fn get(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<Response<ServiceRoot>, Response<RedfishError>> {
-        Ok(Response::<ServiceRoot>::from(self.service_root))
+        Ok(Response::<ServiceRoot>::from(self.service_root.clone()))
     }
 
-    async fn get_session_service(
-        self,
+    fn session_service(&self) -> Option<Arc<dyn SessionServiceTrait>> {
+        Some(Arc::new(self.clone()))
+    }
+}
+
+#[allow(unused_variables)]
+#[async_trait]
+impl SessionServiceTrait for Redfish {
+    async fn get(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<Response<SessionService>, Response<RedfishError>> {
-        Ok(Response::<SessionService>::from(self.session_service))
+        Ok(Response::<SessionService>::from(
+            self.session_service.clone(),
+        ))
     }
 
-    async fn get_session_service_sessions(
-        self,
+    fn sessions(&self) -> Option<Arc<dyn SessionServiceSessionsTrait>> {
+        Some(Arc::new(self.clone()))
+    }
+}
+
+#[allow(unused_variables)]
+#[async_trait]
+impl SessionServiceSessionsTrait for Redfish {
+    async fn get(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<Response<SessionCollection>, Response<RedfishError>> {
@@ -152,8 +175,8 @@ impl Service for Redfish {
         Ok(Response::<SessionCollection>::from(m))
     }
 
-    async fn post_session_service_sessions(
-        self,
+    async fn post(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
         mut payload: Session,
@@ -187,8 +210,16 @@ impl Service for Redfish {
         Ok(res)
     }
 
-    async fn delete_session_service_sessions_sessionid(
-        self,
+    fn session_id(&self) -> Option<Arc<dyn SessionServiceSessionsSessionIdTrait>> {
+        Some(Arc::new(self.clone()))
+    }
+}
+
+#[allow(unused_variables)]
+#[async_trait]
+impl SessionServiceSessionsSessionIdTrait for Redfish {
+    async fn delete(
+        &self,
         session_id: String,
         queries: HashMap<String, String>,
         headers: HeaderMap,
@@ -212,8 +243,8 @@ impl Service for Redfish {
         Ok(res)
     }
 
-    async fn get_session_service_sessions_sessionid(
-        self,
+    async fn get(
+        &self,
         session_id: String,
         queries: HashMap<String, String>,
         headers: HeaderMap,

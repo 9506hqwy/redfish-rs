@@ -4,124 +4,149 @@ pub mod response;
 pub mod service;
 
 use crate::response::Response;
-use crate::service::Service;
+use crate::service::{
+    Service, SessionService, SessionServiceSessions, SessionServiceSessionsSessionId,
+};
 use axum::{extract, http::header::HeaderMap, routing, Router};
 use std::collections::HashMap;
+use std::sync::Arc;
 
-pub fn routes(service: Box<impl Service>) -> Router {
+pub fn routes(state: Arc<dyn Service>) -> Router {
+    async fn get(
+        extract::State(redfish): extract::State<Arc<dyn Service>>,
+        extract::Query(queries): extract::Query<HashMap<String, String>>,
+        headers: HeaderMap,
+    ) -> Result<
+        Response<redfish_model::service_root::v1_16_0::ServiceRoot>,
+        Response<redfish_model::RedfishError>,
+    > {
+        redfish.get(queries, headers).await
+    }
+
     // TODO: AuthZ
     // TODO: 7 Service requests
     // TODO: 8 Service responses
-    Router::new()
-        .route("/redfish/v1", routing::get(get_service_root))
-        .route("/redfish/v1/", routing::get(get_service_root))
-        .route(
+    let mut router = Router::new()
+        .route("/redfish/v1", routing::get(get))
+        .route("/redfish/v1/", routing::get(get));
+
+    if let Some(session_service) = state.session_service() {
+        router = router.nest(
             "/redfish/v1/SessionService",
-            routing::get(get_session_service),
-        )
-        .route(
-            "/redfish/v1/SessionService/Sessions",
-            routing::get(get_session_service_sessions),
-        )
-        .route(
-            "/redfish/v1/SessionService/Sessions",
-            routing::post(post_session_service_sessions),
-        )
-        .route(
-            "/redfish/v1/SessionService/Sessions/:session_id",
-            routing::delete(delete_session_service_sessions_sessionid),
-        )
-        .route(
-            "/redfish/v1/SessionService/Sessions/:session_id",
-            routing::get(get_session_service_sessions_sessionid),
-        )
-        .with_state(service)
-}
-
-async fn get_service_root(
-    extract::State(redfish): extract::State<Box<impl Service>>,
-    extract::Query(queries): extract::Query<HashMap<String, String>>,
-    headers: HeaderMap,
-) -> Result<
-    Response<redfish_model::service_root::v1_16_0::ServiceRoot>,
-    Response<redfish_model::RedfishError>,
-> {
-    redfish.get_service_root(queries, headers).await
-}
-
-async fn get_session_service(
-    extract::State(redfish): extract::State<Box<impl Service>>,
-    extract::Query(queries): extract::Query<HashMap<String, String>>,
-    headers: HeaderMap,
-) -> Result<
-    Response<redfish_model::session_service::v1_1_8::SessionService>,
-    Response<redfish_model::RedfishError>,
-> {
-    redfish.get_session_service(queries, headers).await
-}
-
-async fn get_session_service_sessions(
-    extract::State(redfish): extract::State<Box<impl Service>>,
-    extract::Query(queries): extract::Query<HashMap<String, String>>,
-    headers: HeaderMap,
-) -> Result<
-    Response<redfish_model::session_collection::SessionCollection>,
-    Response<redfish_model::RedfishError>,
-> {
-    redfish.get_session_service_sessions(queries, headers).await
-}
-
-async fn post_session_service_sessions(
-    extract::State(redfish): extract::State<Box<impl Service>>,
-    extract::Query(queries): extract::Query<HashMap<String, String>>,
-    headers: HeaderMap,
-    payload: Result<
-        extract::Json<redfish_model::session::v1_6_0::Session>,
-        extract::rejection::JsonRejection,
-    >,
-) -> Result<
-    Response<model::PostSessionServiceSessionsResponse>,
-    Response<redfish_model::RedfishError>,
-> {
-    match payload {
-        Ok(extract::Json(payload)) => {
-            redfish
-                .post_session_service_sessions(queries, headers, payload)
-                .await
-        }
-        Err(err) => match err {
-            extract::rejection::JsonRejection::JsonDataError(_) => Err(Response::malformed_json()),
-            extract::rejection::JsonRejection::JsonSyntaxError(_) => Err(Response::invalid_json(0)),
-            extract::rejection::JsonRejection::MissingJsonContentType(_) => {
-                Err(Response::general_error_client())
-            }
-            _ => Err(Response::general_error_server()),
-        },
+            session_service_router(session_service),
+        );
     }
+
+    router.with_state(state)
 }
 
-async fn delete_session_service_sessions_sessionid(
-    extract::State(redfish): extract::State<Box<impl Service>>,
-    extract::Path(session_id): extract::Path<String>,
-    extract::Query(queries): extract::Query<HashMap<String, String>>,
-    headers: HeaderMap,
-) -> Result<
-    Response<model::DeleteSessionServiceSessionsSessionIdResponse>,
-    Response<redfish_model::RedfishError>,
-> {
-    redfish
-        .delete_session_service_sessions_sessionid(session_id, queries, headers)
-        .await
+fn session_service_router(state: Arc<dyn SessionService>) -> Router<Arc<dyn Service>> {
+    async fn get(
+        extract::State(redfish): extract::State<Arc<dyn SessionService>>,
+        extract::Query(queries): extract::Query<HashMap<String, String>>,
+        headers: HeaderMap,
+    ) -> Result<
+        Response<redfish_model::session_service::v1_1_8::SessionService>,
+        Response<redfish_model::RedfishError>,
+    > {
+        redfish.get(queries, headers).await
+    }
+
+    let mut router = Router::new().route("/", routing::get(get));
+
+    if let Some(sessions) = state.sessions() {
+        router = router.nest("/Sessions", session_service_sessions_router(sessions));
+    }
+
+    router.with_state(state)
 }
 
-async fn get_session_service_sessions_sessionid(
-    extract::State(redfish): extract::State<Box<impl Service>>,
-    extract::Path(session_id): extract::Path<String>,
-    extract::Query(queries): extract::Query<HashMap<String, String>>,
-    headers: HeaderMap,
-) -> Result<Response<redfish_model::session::v1_6_0::Session>, Response<redfish_model::RedfishError>>
-{
-    redfish
-        .get_session_service_sessions_sessionid(session_id, queries, headers)
-        .await
+fn session_service_sessions_router(
+    state: Arc<dyn SessionServiceSessions>,
+) -> Router<Arc<dyn SessionService>> {
+    async fn get(
+        extract::State(redfish): extract::State<Arc<dyn SessionServiceSessions>>,
+        extract::Query(queries): extract::Query<HashMap<String, String>>,
+        headers: HeaderMap,
+    ) -> Result<
+        Response<redfish_model::session_collection::SessionCollection>,
+        Response<redfish_model::RedfishError>,
+    > {
+        redfish.get(queries, headers).await
+    }
+
+    async fn post(
+        extract::State(redfish): extract::State<Arc<dyn SessionServiceSessions>>,
+        extract::Query(queries): extract::Query<HashMap<String, String>>,
+        headers: HeaderMap,
+        payload: Result<
+            extract::Json<redfish_model::session::v1_6_0::Session>,
+            extract::rejection::JsonRejection,
+        >,
+    ) -> Result<
+        Response<model::PostSessionServiceSessionsResponse>,
+        Response<redfish_model::RedfishError>,
+    > {
+        match payload {
+            Ok(extract::Json(payload)) => redfish.post(queries, headers, payload).await,
+            Err(err) => match err {
+                extract::rejection::JsonRejection::JsonDataError(_) => {
+                    Err(Response::malformed_json())
+                }
+                extract::rejection::JsonRejection::JsonSyntaxError(_) => {
+                    Err(Response::invalid_json(0))
+                }
+                extract::rejection::JsonRejection::MissingJsonContentType(_) => {
+                    Err(Response::general_error_client())
+                }
+                _ => Err(Response::general_error_server()),
+            },
+        }
+    }
+
+    let mut router = Router::new()
+        .route("/", routing::get(get))
+        .route("/", routing::post(post));
+
+    if let Some(session_id) = state.session_id() {
+        router = router.nest(
+            "/:session_id",
+            session_service_sessions_session_router(session_id),
+        );
+    }
+
+    router.with_state(state)
+}
+
+fn session_service_sessions_session_router(
+    state: Arc<dyn SessionServiceSessionsSessionId>,
+) -> Router<Arc<dyn SessionServiceSessions>> {
+    async fn delete(
+        extract::State(redfish): extract::State<Arc<dyn SessionServiceSessionsSessionId>>,
+        extract::Path(session_id): extract::Path<String>,
+        extract::Query(queries): extract::Query<HashMap<String, String>>,
+        headers: HeaderMap,
+    ) -> Result<
+        Response<model::DeleteSessionServiceSessionsSessionIdResponse>,
+        Response<redfish_model::RedfishError>,
+    > {
+        redfish.delete(session_id, queries, headers).await
+    }
+
+    async fn get(
+        extract::State(redfish): extract::State<Arc<dyn SessionServiceSessionsSessionId>>,
+        extract::Path(session_id): extract::Path<String>,
+        extract::Query(queries): extract::Query<HashMap<String, String>>,
+        headers: HeaderMap,
+    ) -> Result<
+        Response<redfish_model::session::v1_6_0::Session>,
+        Response<redfish_model::RedfishError>,
+    > {
+        redfish.get(session_id, queries, headers).await
+    }
+
+    Router::new()
+        .route("/", routing::delete(delete))
+        .route("/", routing::get(get))
+        .with_state(state)
 }

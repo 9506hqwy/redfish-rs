@@ -3,12 +3,13 @@ use crate::model;
 use crate::response::Response;
 use axum::{async_trait, http::header::HeaderMap};
 use std::collections::HashMap;
+use std::sync::Arc;
 
 #[allow(unused_variables)]
 #[async_trait]
-pub trait Service: Clone + Send + Sync + 'static {
-    async fn get_service_root(
-        self,
+pub trait Service: Send + Sync + 'static {
+    async fn get(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<
@@ -18,8 +19,16 @@ pub trait Service: Clone + Send + Sync + 'static {
         Err(Response::operation_not_allowed())
     }
 
-    async fn get_session_service(
-        self,
+    fn session_service(&self) -> Option<Arc<dyn SessionService>> {
+        None
+    }
+}
+
+#[allow(unused_variables)]
+#[async_trait]
+pub trait SessionService: Send + Sync + 'static {
+    async fn get(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<
@@ -29,8 +38,16 @@ pub trait Service: Clone + Send + Sync + 'static {
         Err(Response::operation_not_allowed())
     }
 
-    async fn get_session_service_sessions(
-        self,
+    fn sessions(&self) -> Option<Arc<dyn SessionServiceSessions>> {
+        None
+    }
+}
+
+#[allow(unused_variables)]
+#[async_trait]
+pub trait SessionServiceSessions: Send + Sync + 'static {
+    async fn get(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<
@@ -40,8 +57,8 @@ pub trait Service: Clone + Send + Sync + 'static {
         Err(Response::operation_not_allowed())
     }
 
-    async fn post_session_service_sessions(
-        self,
+    async fn post(
+        &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
         payload: redfish_model::session::v1_6_0::Session,
@@ -52,8 +69,16 @@ pub trait Service: Clone + Send + Sync + 'static {
         Err(Response::operation_not_allowed())
     }
 
-    async fn delete_session_service_sessions_sessionid(
-        self,
+    fn session_id(&self) -> Option<Arc<dyn SessionServiceSessionsSessionId>> {
+        None
+    }
+}
+
+#[allow(unused_variables)]
+#[async_trait]
+pub trait SessionServiceSessionsSessionId: Send + Sync + 'static {
+    async fn delete(
+        &self,
         session_id: String,
         queries: HashMap<String, String>,
         headers: HeaderMap,
@@ -64,8 +89,8 @@ pub trait Service: Clone + Send + Sync + 'static {
         Err(Response::operation_not_allowed())
     }
 
-    async fn get_session_service_sessions_sessionid(
-        self,
+    async fn get(
+        &self,
         session_id: String,
         queries: HashMap<String, String>,
         headers: HeaderMap,
