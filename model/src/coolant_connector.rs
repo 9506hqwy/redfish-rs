@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum CoolantConnector {
-    V010000(crate::coolant_connector::v1_0_0::CoolantConnector),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type CoolantConnector = crate::coolant_connector::v1_0_0::CoolantConnector;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

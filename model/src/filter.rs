@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum Filter {
-    V010000(crate::filter::v1_0_0::Filter),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type Filter = crate::filter::v1_0_0::Filter;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

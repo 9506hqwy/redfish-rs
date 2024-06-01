@@ -50,6 +50,8 @@ pub enum Protocol {
     OEM,
     #[serde(rename = "PCIe")]
     PCIe,
+    #[serde(rename = "QPI")]
+    QPI,
     #[serde(rename = "RoCE")]
     RoCE,
     #[serde(rename = "RoCEv2")]
@@ -70,6 +72,8 @@ pub enum Protocol {
     UDP,
     #[serde(rename = "UHCI")]
     UHCI,
+    #[serde(rename = "UPI")]
+    UPI,
     #[serde(rename = "USB")]
     USB,
     #[serde(rename = "VGA")]

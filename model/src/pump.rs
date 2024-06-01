@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum Pump {
-    V010000(crate::pump::v1_0_0::Pump),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type Pump = crate::pump::v1_0_0::Pump;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

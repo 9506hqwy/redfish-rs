@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum GraphicsController {
-    V010000(crate::graphics_controller::v1_0_0::GraphicsController),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type GraphicsController = crate::graphics_controller::v1_0_0::GraphicsController;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

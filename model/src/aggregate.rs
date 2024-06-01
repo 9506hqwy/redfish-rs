@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum Aggregate {
-    V010001(crate::aggregate::v1_0_1::Aggregate),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type Aggregate = crate::aggregate::v1_0_1::Aggregate;
 pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

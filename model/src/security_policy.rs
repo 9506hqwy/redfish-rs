@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum SecurityPolicy {
-    V010000(crate::security_policy::v1_0_0::SecurityPolicy),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type SecurityPolicy = crate::security_policy::v1_0_0::SecurityPolicy;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

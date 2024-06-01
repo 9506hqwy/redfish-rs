@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum RouteSetEntry {
-    V010001(crate::route_set_entry::v1_0_1::RouteSetEntry),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type RouteSetEntry = crate::route_set_entry::v1_0_1::RouteSetEntry;
 pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

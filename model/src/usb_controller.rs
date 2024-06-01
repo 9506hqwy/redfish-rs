@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum USBController {
-    V010000(crate::usb_controller::v1_0_0::USBController),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type USBController = crate::usb_controller::v1_0_0::USBController;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

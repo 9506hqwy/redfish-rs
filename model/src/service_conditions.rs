@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum ServiceConditions {
-    V010000(crate::service_conditions::v1_0_0::ServiceConditions),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type ServiceConditions = crate::service_conditions::v1_0_0::ServiceConditions;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

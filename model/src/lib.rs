@@ -10,6 +10,8 @@ pub mod aggregation_source;
 pub mod aggregation_source_collection;
 pub mod allow_deny;
 pub mod allow_deny_collection;
+pub mod application;
+pub mod application_collection;
 pub mod assembly;
 pub mod battery;
 pub mod battery_collection;
@@ -38,6 +40,10 @@ pub mod connection;
 pub mod connection_collection;
 pub mod connection_method;
 pub mod connection_method_collection;
+pub mod container;
+pub mod container_collection;
+pub mod container_image;
+pub mod container_image_collection;
 pub mod control;
 pub mod control_collection;
 pub mod coolant_connector;
@@ -118,6 +124,8 @@ pub mod memory_collection;
 pub mod memory_domain;
 pub mod memory_domain_collection;
 pub mod memory_metrics;
+pub mod memory_region;
+pub mod memory_region_collection;
 pub mod message;
 pub mod message_registry_file;
 pub mod message_registry_file_collection;
@@ -141,6 +149,9 @@ pub mod odata;
 pub mod odata_v4;
 pub mod operating_config;
 pub mod operating_config_collection;
+pub mod operating_system;
+pub mod outbound_connection;
+pub mod outbound_connection_collection;
 pub mod outlet;
 pub mod outlet_collection;
 pub mod outlet_group;
@@ -270,5 +281,5 @@ pub struct RedfishErrorError {
         skip_serializing_if = "Option::is_none",
         rename = "@Message.ExtendedInfo"
     )]
-    pub message_extended_info: Option<Vec<crate::message::v1_1_2::Message>>,
+    pub message_extended_info: Option<Vec<crate::message::v1_1_3::Message>>,
 }

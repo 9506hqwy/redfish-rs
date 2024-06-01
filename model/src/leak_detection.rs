@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum LeakDetection {
-    V010000(crate::leak_detection::v1_0_0::LeakDetection),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type LeakDetection = crate::leak_detection::v1_0_0::LeakDetection;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

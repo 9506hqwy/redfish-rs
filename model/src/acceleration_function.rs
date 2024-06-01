@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum AccelerationFunction {
-    V010003(crate::acceleration_function::v1_0_3::AccelerationFunction),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
+pub type AccelerationFunction = crate::acceleration_function::v1_0_3::AccelerationFunction;
 pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
