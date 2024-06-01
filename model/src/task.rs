@@ -1,4 +1,4 @@
-pub type Task = crate::task::v1_7_2::Task;
+pub type Task = crate::task::v1_7_3::Task;
 pub mod v1_7_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -107,12 +107,12 @@ pub mod v1_7_1 {
         Suspended,
     }
 }
-pub mod v1_7_2 {
+pub mod v1_7_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::task::v1_7_2::OemActions>,
+        pub oem: Option<crate::task::v1_7_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -142,7 +142,7 @@ pub mod v1_7_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Task {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::task::v1_7_2::Actions>,
+        pub actions: Option<crate::task::v1_7_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EndTime")]
@@ -154,7 +154,7 @@ pub mod v1_7_2 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::task::v1_7_2::Links>,
+        pub links: Option<crate::task::v1_7_3::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Messages")]
         pub messages: Option<Vec<crate::message::Message>>,
         #[serde(rename = "Name")]
@@ -170,7 +170,7 @@ pub mod v1_7_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Payload")]
-        pub payload: Option<crate::task::v1_7_2::Payload>,
+        pub payload: Option<crate::task::v1_7_3::Payload>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentComplete")]
         pub percent_complete: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StartTime")]
@@ -180,7 +180,7 @@ pub mod v1_7_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TaskMonitor")]
         pub task_monitor: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TaskState")]
-        pub task_state: Option<crate::task::v1_7_2::TaskState>,
+        pub task_state: Option<crate::task::v1_7_3::TaskState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TaskStatus")]
         pub task_status: Option<crate::resource::Health>,
     }

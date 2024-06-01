@@ -37,17 +37,17 @@ pub enum ElectricalContext {
     #[serde(rename = "Total")]
     Total,
 }
-pub type Sensor = crate::sensor::v1_8_0::Sensor;
-pub type SensorArrayExcerpt = crate::sensor::v1_8_0::SensorArrayExcerpt;
-pub type SensorCurrentExcerpt = crate::sensor::v1_8_0::SensorCurrentExcerpt;
-pub type SensorEnergykWhExcerpt = crate::sensor::v1_8_0::SensorEnergykWhExcerpt;
-pub type SensorExcerpt = crate::sensor::v1_8_0::SensorExcerpt;
-pub type SensorFanArrayExcerpt = crate::sensor::v1_8_0::SensorFanArrayExcerpt;
-pub type SensorFanExcerpt = crate::sensor::v1_8_0::SensorFanExcerpt;
-pub type SensorPowerArrayExcerpt = crate::sensor::v1_8_0::SensorPowerArrayExcerpt;
-pub type SensorPowerExcerpt = crate::sensor::v1_8_0::SensorPowerExcerpt;
-pub type SensorPumpExcerpt = crate::sensor::v1_8_0::SensorPumpExcerpt;
-pub type SensorVoltageExcerpt = crate::sensor::v1_8_0::SensorVoltageExcerpt;
+pub type Sensor = crate::sensor::v1_8_1::Sensor;
+pub type SensorArrayExcerpt = crate::sensor::v1_8_1::SensorArrayExcerpt;
+pub type SensorCurrentExcerpt = crate::sensor::v1_8_1::SensorCurrentExcerpt;
+pub type SensorEnergykWhExcerpt = crate::sensor::v1_8_1::SensorEnergykWhExcerpt;
+pub type SensorExcerpt = crate::sensor::v1_8_1::SensorExcerpt;
+pub type SensorFanArrayExcerpt = crate::sensor::v1_8_1::SensorFanArrayExcerpt;
+pub type SensorFanExcerpt = crate::sensor::v1_8_1::SensorFanExcerpt;
+pub type SensorPowerArrayExcerpt = crate::sensor::v1_8_1::SensorPowerArrayExcerpt;
+pub type SensorPowerExcerpt = crate::sensor::v1_8_1::SensorPowerExcerpt;
+pub type SensorPumpExcerpt = crate::sensor::v1_8_1::SensorPumpExcerpt;
+pub type SensorVoltageExcerpt = crate::sensor::v1_8_1::SensorVoltageExcerpt;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum VoltageType {
     #[default]
@@ -485,22 +485,22 @@ pub mod v1_7_0 {
         pub upper_fatal: Option<crate::sensor::v1_7_0::Threshold>,
     }
 }
-pub mod v1_8_0 {
+pub mod v1_8_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::sensor::v1_8_0::OemActions>,
+        pub oem: Option<crate::sensor::v1_8_1::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Sensor.ResetMetrics"
         )]
-        pub sensor_reset_metrics: Option<crate::sensor::v1_8_0::ResetMetrics>,
+        pub sensor_reset_metrics: Option<crate::sensor::v1_8_1::ResetMetrics>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Sensor.ResetToDefaults"
         )]
-        pub sensor_reset_to_defaults: Option<crate::sensor::v1_8_0::ResetToDefaults>,
+        pub sensor_reset_to_defaults: Option<crate::sensor::v1_8_1::ResetToDefaults>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ImplementationType {
@@ -611,7 +611,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Accuracy")]
         pub accuracy: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::sensor::v1_8_0::Actions>,
+        pub actions: Option<crate::sensor::v1_8_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdjustedMaxAllowableOperatingValue"
@@ -648,11 +648,11 @@ pub mod v1_8_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Implementation")]
-        pub implementation: Option<crate::sensor::v1_8_0::ImplementationType>,
+        pub implementation: Option<crate::sensor::v1_8_1::ImplementationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LifetimeReading")]
         pub lifetime_reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::sensor::v1_8_0::Links>,
+        pub links: Option<crate::sensor::v1_8_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LoadPercent")]
         pub load_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -706,7 +706,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingAccuracy")]
         pub reading_accuracy: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingBasis")]
-        pub reading_basis: Option<crate::sensor::v1_8_0::ReadingBasisType>,
+        pub reading_basis: Option<crate::sensor::v1_8_1::ReadingBasisType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingRangeMax")]
         pub reading_range_max: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingRangeMin")]
@@ -714,7 +714,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingTime")]
         pub reading_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingType")]
-        pub reading_type: Option<crate::sensor::v1_8_0::ReadingType>,
+        pub reading_type: Option<crate::sensor::v1_8_1::ReadingType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingUnits")]
         pub reading_units: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RelatedItem")]
@@ -739,7 +739,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "THDPercent")]
         pub thd_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Thresholds")]
-        pub thresholds: Option<crate::sensor::v1_8_0::Thresholds>,
+        pub thresholds: Option<crate::sensor::v1_8_1::Thresholds>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VoltageType")]
         pub voltage_type: Option<crate::sensor::VoltageType>,
     }
@@ -870,7 +870,7 @@ pub mod v1_8_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Threshold {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Activation")]
-        pub activation: Option<crate::sensor::v1_8_0::ThresholdActivation>,
+        pub activation: Option<crate::sensor::v1_8_1::ThresholdActivation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DwellTime")]
         pub dwell_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HysteresisDuration")]
@@ -895,24 +895,24 @@ pub mod v1_8_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Thresholds {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowerCaution")]
-        pub lower_caution: Option<crate::sensor::v1_8_0::Threshold>,
+        pub lower_caution: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowerCautionUser")]
-        pub lower_caution_user: Option<crate::sensor::v1_8_0::Threshold>,
+        pub lower_caution_user: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowerCritical")]
-        pub lower_critical: Option<crate::sensor::v1_8_0::Threshold>,
+        pub lower_critical: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowerCriticalUser")]
-        pub lower_critical_user: Option<crate::sensor::v1_8_0::Threshold>,
+        pub lower_critical_user: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowerFatal")]
-        pub lower_fatal: Option<crate::sensor::v1_8_0::Threshold>,
+        pub lower_fatal: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpperCaution")]
-        pub upper_caution: Option<crate::sensor::v1_8_0::Threshold>,
+        pub upper_caution: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpperCautionUser")]
-        pub upper_caution_user: Option<crate::sensor::v1_8_0::Threshold>,
+        pub upper_caution_user: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpperCritical")]
-        pub upper_critical: Option<crate::sensor::v1_8_0::Threshold>,
+        pub upper_critical: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpperCriticalUser")]
-        pub upper_critical_user: Option<crate::sensor::v1_8_0::Threshold>,
+        pub upper_critical_user: Option<crate::sensor::v1_8_1::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpperFatal")]
-        pub upper_fatal: Option<crate::sensor::v1_8_0::Threshold>,
+        pub upper_fatal: Option<crate::sensor::v1_8_1::Threshold>,
     }
 }

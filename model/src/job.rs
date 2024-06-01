@@ -1,4 +1,4 @@
-pub type Job = crate::job::v1_2_2::Job;
+pub type Job = crate::job::v1_2_3::Job;
 pub mod v1_2_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -113,17 +113,17 @@ pub mod v1_2_1 {
         pub target_uri: Option<String>,
     }
 }
-pub mod v1_2_2 {
+pub mod v1_2_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::job::v1_2_2::OemActions>,
+        pub oem: Option<crate::job::v1_2_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Job {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::job::v1_2_2::Actions>,
+        pub actions: Option<crate::job::v1_2_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CreatedBy")]
         pub created_by: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -137,11 +137,11 @@ pub mod v1_2_2 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "JobState")]
-        pub job_state: Option<crate::job::v1_2_2::JobState>,
+        pub job_state: Option<crate::job::v1_2_3::JobState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "JobStatus")]
         pub job_status: Option<crate::resource::Health>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::job::v1_2_2::Links>,
+        pub links: Option<crate::job::v1_2_3::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxExecutionTime")]
         pub max_execution_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Messages")]
@@ -159,7 +159,7 @@ pub mod v1_2_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Payload")]
-        pub payload: Option<crate::job::v1_2_2::Payload>,
+        pub payload: Option<crate::job::v1_2_3::Payload>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentComplete")]
         pub percent_complete: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Schedule")]

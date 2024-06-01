@@ -1,6 +1,6 @@
-pub type NVMeSMARTMetrics = crate::storage_controller_metrics::v1_0_1::NVMeSMARTMetrics;
+pub type NVMeSMARTMetrics = crate::storage_controller_metrics::v1_0_2::NVMeSMARTMetrics;
 pub type StorageControllerMetrics =
-    crate::storage_controller_metrics::v1_0_1::StorageControllerMetrics;
+    crate::storage_controller_metrics::v1_0_2::StorageControllerMetrics;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -166,12 +166,12 @@ pub mod v1_0_0 {
         pub uncorrectable_parity_error_count: Option<i64>,
     }
 }
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::storage_controller_metrics::v1_0_1::OemActions>,
+        pub oem: Option<crate::storage_controller_metrics::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EGCriticalWarningSummary {
@@ -229,7 +229,7 @@ pub mod v1_0_1 {
             rename = "EGCriticalWarningSummary"
         )]
         pub eg_critical_warning_summary:
-            Option<crate::storage_controller_metrics::v1_0_1::EGCriticalWarningSummary>,
+            Option<crate::storage_controller_metrics::v1_0_2::EGCriticalWarningSummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostReadCommands")]
         pub host_read_commands: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostWriteCommands")]
@@ -288,7 +288,7 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::storage_controller_metrics::v1_0_1::Actions>,
+        pub actions: Option<crate::storage_controller_metrics::v1_0_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CorrectableECCErrorCount"

@@ -1,8 +1,8 @@
-pub type IPv4Address = crate::ip_addresses::v1_1_3::IPv4Address;
-pub type IPv6Address = crate::ip_addresses::v1_1_3::IPv6Address;
-pub type IPv6GatewayStaticAddress = crate::ip_addresses::v1_1_3::IPv6GatewayStaticAddress;
-pub type IPv6StaticAddress = crate::ip_addresses::v1_1_3::IPv6StaticAddress;
-pub mod v1_1_3 {
+pub type IPv4Address = crate::ip_addresses::v1_1_4::IPv4Address;
+pub type IPv6Address = crate::ip_addresses::v1_1_4::IPv6Address;
+pub type IPv6GatewayStaticAddress = crate::ip_addresses::v1_1_4::IPv6GatewayStaticAddress;
+pub type IPv6StaticAddress = crate::ip_addresses::v1_1_4::IPv6StaticAddress;
+pub mod v1_1_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AddressState {
@@ -21,7 +21,7 @@ pub mod v1_1_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Address")]
         pub address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressOrigin")]
-        pub address_origin: Option<crate::ip_addresses::v1_1_3::IPv4AddressOrigin>,
+        pub address_origin: Option<crate::ip_addresses::v1_1_4::IPv4AddressOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Gateway")]
         pub gateway: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -46,9 +46,9 @@ pub mod v1_1_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Address")]
         pub address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressOrigin")]
-        pub address_origin: Option<crate::ip_addresses::v1_1_3::IPv6AddressOrigin>,
+        pub address_origin: Option<crate::ip_addresses::v1_1_4::IPv6AddressOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressState")]
-        pub address_state: Option<crate::ip_addresses::v1_1_3::AddressState>,
+        pub address_state: Option<crate::ip_addresses::v1_1_4::AddressState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PrefixLength")]

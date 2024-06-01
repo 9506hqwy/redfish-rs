@@ -1,4 +1,4 @@
-pub type Memory = crate::memory::v1_18_0::Memory;
+pub type Memory = crate::memory::v1_19_0::Memory;
 pub mod v1_17_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -755,7 +755,7 @@ pub mod v1_17_1 {
         pub region_id: String,
     }
 }
-pub mod v1_18_0 {
+pub mod v1_19_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -764,55 +764,55 @@ pub mod v1_18_0 {
             rename = "#Memory.DisableMasterPassphrase"
         )]
         pub memory_disable_master_passphrase:
-            Option<crate::memory::v1_18_0::DisableMasterPassphrase>,
+            Option<crate::memory::v1_19_0::DisableMasterPassphrase>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.DisablePassphrase"
         )]
-        pub memory_disable_passphrase: Option<crate::memory::v1_18_0::DisablePassphrase>,
+        pub memory_disable_passphrase: Option<crate::memory::v1_19_0::DisablePassphrase>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.FreezeSecurityState"
         )]
-        pub memory_freeze_security_state: Option<crate::memory::v1_18_0::FreezeSecurityState>,
+        pub memory_freeze_security_state: Option<crate::memory::v1_19_0::FreezeSecurityState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.InjectPersistentPoison"
         )]
-        pub memory_inject_persistent_poison: Option<crate::memory::v1_18_0::InjectPersistentPoison>,
+        pub memory_inject_persistent_poison: Option<crate::memory::v1_19_0::InjectPersistentPoison>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.OverwriteUnit"
         )]
-        pub memory_overwrite_unit: Option<crate::memory::v1_18_0::OverwriteUnit>,
+        pub memory_overwrite_unit: Option<crate::memory::v1_19_0::OverwriteUnit>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Memory.Reset")]
-        pub memory_reset: Option<crate::memory::v1_18_0::Reset>,
+        pub memory_reset: Option<crate::memory::v1_19_0::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.ResetToDefaults"
         )]
-        pub memory_reset_to_defaults: Option<crate::memory::v1_18_0::ResetToDefaults>,
+        pub memory_reset_to_defaults: Option<crate::memory::v1_19_0::ResetToDefaults>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Memory.ScanMedia")]
-        pub memory_scan_media: Option<crate::memory::v1_18_0::ScanMedia>,
+        pub memory_scan_media: Option<crate::memory::v1_19_0::ScanMedia>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.SecureEraseUnit"
         )]
-        pub memory_secure_erase_unit: Option<crate::memory::v1_18_0::SecureEraseUnit>,
+        pub memory_secure_erase_unit: Option<crate::memory::v1_19_0::SecureEraseUnit>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.SetMasterPassphrase"
         )]
-        pub memory_set_master_passphrase: Option<crate::memory::v1_18_0::SetMasterPassphrase>,
+        pub memory_set_master_passphrase: Option<crate::memory::v1_19_0::SetMasterPassphrase>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Memory.SetPassphrase"
         )]
-        pub memory_set_passphrase: Option<crate::memory::v1_18_0::SetPassphrase>,
+        pub memory_set_passphrase: Option<crate::memory::v1_19_0::SetPassphrase>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Memory.UnlockUnit")]
-        pub memory_unlock_unit: Option<crate::memory::v1_18_0::UnlockUnit>,
+        pub memory_unlock_unit: Option<crate::memory::v1_19_0::UnlockUnit>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::memory::v1_18_0::OemActions>,
+        pub oem: Option<crate::memory::v1_19_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum BaseModuleType {
@@ -975,7 +975,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Memory {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::memory::v1_18_0::Actions>,
+        pub actions: Option<crate::memory::v1_19_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AllocationAlignmentMiB"
@@ -991,7 +991,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BaseModuleType")]
-        pub base_module_type: Option<crate::memory::v1_18_0::BaseModuleType>,
+        pub base_module_type: Option<crate::memory::v1_19_0::BaseModuleType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BusWidthBits")]
         pub bus_width_bits: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheSizeMiB")]
@@ -1006,7 +1006,7 @@ pub mod v1_18_0 {
         )]
         pub configuration_locked: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::memory::v1_18_0::CXL>,
+        pub cxl: Option<crate::memory::v1_19_0::CXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataWidthBits")]
         pub data_width_bits: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -1020,7 +1020,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ErrorCorrection")]
-        pub error_correction: Option<crate::memory::v1_18_0::ErrorCorrection>,
+        pub error_correction: Option<crate::memory::v1_19_0::ErrorCorrection>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareApiVersion")]
         pub firmware_api_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareRevision")]
@@ -1028,7 +1028,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FunctionClasses")]
         pub function_classes: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HealthData")]
-        pub health_data: Option<crate::memory::v1_18_0::HealthData>,
+        pub health_data: Option<crate::memory::v1_19_0::HealthData>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsRankSpareEnabled")]
@@ -1039,7 +1039,7 @@ pub mod v1_18_0 {
         )]
         pub is_spare_device_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::memory::v1_18_0::Links>,
+        pub links: Option<crate::memory::v1_19_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -1058,11 +1058,11 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::software_inventory::MeasurementBlock>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryDeviceType")]
-        pub memory_device_type: Option<crate::memory::v1_18_0::MemoryDeviceType>,
+        pub memory_device_type: Option<crate::memory::v1_19_0::MemoryDeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryLocation")]
-        pub memory_location: Option<crate::memory::v1_18_0::MemoryLocation>,
+        pub memory_location: Option<crate::memory::v1_19_0::MemoryLocation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryMedia")]
-        pub memory_media: Option<Vec<crate::memory::v1_18_0::MemoryMedia>>,
+        pub memory_media: Option<Vec<crate::memory::v1_19_0::MemoryMedia>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MemorySubsystemControllerManufacturerID"
@@ -1074,7 +1074,7 @@ pub mod v1_18_0 {
         )]
         pub memory_subsystem_controller_product_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryType")]
-        pub memory_type: Option<crate::memory::v1_18_0::MemoryType>,
+        pub memory_type: Option<crate::memory::v1_19_0::MemoryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
         pub metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
@@ -1109,7 +1109,7 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "OperatingMemoryModes"
         )]
-        pub operating_memory_modes: Option<Vec<crate::memory::v1_18_0::OperatingMemoryModes>>,
+        pub operating_memory_modes: Option<Vec<crate::memory::v1_19_0::OperatingMemoryModes>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperatingSpeedMhz")]
         pub operating_speed_mhz: Option<i64>,
         #[serde(
@@ -1143,20 +1143,20 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "PowerManagementPolicy"
         )]
-        pub power_management_policy: Option<crate::memory::v1_18_0::PowerManagementPolicy>,
+        pub power_management_policy: Option<crate::memory::v1_19_0::PowerManagementPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RankCount")]
         pub rank_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Regions")]
-        pub regions: Option<Vec<crate::memory::v1_18_0::RegionSet>>,
+        pub regions: Option<Vec<crate::memory::v1_19_0::RegionSet>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SecurityCapabilities"
         )]
-        pub security_capabilities: Option<crate::memory::v1_18_0::SecurityCapabilities>,
+        pub security_capabilities: Option<crate::memory::v1_19_0::SecurityCapabilities>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityState")]
-        pub security_state: Option<crate::memory::v1_18_0::SecurityStates>,
+        pub security_state: Option<crate::memory::v1_19_0::SecurityStates>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityStates")]
-        pub security_states: Option<crate::memory::v1_18_0::SecurityStateInfo>,
+        pub security_states: Option<crate::memory::v1_19_0::SecurityStateInfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpareDeviceCount")]
@@ -1263,6 +1263,8 @@ pub mod v1_18_0 {
         LPDDR3SDRAM,
         #[serde(rename = "LPDDR4_SDRAM")]
         LPDDR4SDRAM,
+        #[serde(rename = "LPDDR5_SDRAM")]
+        LPDDR5SDRAM,
         #[serde(rename = "Logical")]
         Logical,
         #[serde(rename = "OEM")]
@@ -1365,7 +1367,7 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "MemoryClassification"
         )]
-        pub memory_classification: Option<crate::memory::v1_18_0::MemoryClassification>,
+        pub memory_classification: Option<crate::memory::v1_19_0::MemoryClassification>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OffsetMiB")]
         pub offset_mib: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PassphraseEnabled")]
@@ -1447,7 +1449,7 @@ pub mod v1_18_0 {
         )]
         pub passphrase_lock_limit: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityStates")]
-        pub security_states: Option<Vec<crate::memory::v1_18_0::SecurityStates>>,
+        pub security_states: Option<Vec<crate::memory::v1_19_0::SecurityStates>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SecurityStateInfo {

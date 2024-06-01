@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-pub type Event = crate::event::v1_9_0::Event;
+pub type Event = crate::event::v1_10_0::Event;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum EventType {
     #[default]
@@ -18,12 +18,12 @@ pub enum EventType {
     #[serde(rename = "StatusChange")]
     StatusChange,
 }
-pub mod v1_9_0 {
+pub mod v1_10_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event::v1_9_0::OemActions>,
+        pub oem: Option<crate::event::v1_10_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CPER {
@@ -53,13 +53,13 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Event {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event::v1_9_0::Actions>,
+        pub actions: Option<crate::event::v1_10_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]
         pub context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Events")]
-        pub events: Vec<crate::event::v1_9_0::EventRecord>,
+        pub events: Vec<crate::event::v1_10_0::EventRecord>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Events@odata.count")]
         pub events_odata_count: Option<i64>,
         #[serde(rename = "Id")]
@@ -76,7 +76,7 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventRecord {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event::v1_9_0::EventRecordActions>,
+        pub actions: Option<crate::event::v1_10_0::EventRecordActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalDataSizeBytes"
@@ -87,11 +87,11 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]
         pub context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CPER")]
-        pub cper: Option<crate::event::v1_9_0::CPER>,
+        pub cper: Option<crate::event::v1_10_0::CPER>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticData")]
         pub diagnostic_data: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: Option<crate::event::v1_9_0::DiagnosticDataTypes>,
+        pub diagnostic_data_type: Option<crate::event::v1_10_0::DiagnosticDataTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventGroupId")]
         pub event_group_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventId")]
@@ -123,6 +123,8 @@ pub mod v1_9_0 {
         pub origin_of_condition: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Resolution")]
         pub resolution: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ResolutionSteps")]
+        pub resolution_steps: Option<Vec<crate::resolution_step::ResolutionStep>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
         pub severity: Option<String>,
         #[serde(
@@ -134,7 +136,7 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventRecordActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event::v1_9_0::EventRecordOemActions>,
+        pub oem: Option<crate::event::v1_10_0::EventRecordOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventRecordOemActions {}

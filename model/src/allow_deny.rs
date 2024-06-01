@@ -1,4 +1,4 @@
-pub type AllowDeny = crate::allow_deny::v1_0_1::AllowDeny;
+pub type AllowDeny = crate::allow_deny::v1_0_2::AllowDeny;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -82,19 +82,19 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::allow_deny::v1_0_1::OemActions>,
+        pub oem: Option<crate::allow_deny::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AllowDeny {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::allow_deny::v1_0_1::Actions>,
+        pub actions: Option<crate::allow_deny::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowType")]
-        pub allow_type: Option<crate::allow_deny::v1_0_1::AllowType>,
+        pub allow_type: Option<crate::allow_deny::v1_0_2::AllowType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
@@ -108,7 +108,7 @@ pub mod v1_0_1 {
         )]
         pub destination_port_upper: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Direction")]
-        pub direction: Option<crate::allow_deny::v1_0_1::DataDirection>,
+        pub direction: Option<crate::allow_deny::v1_0_2::DataDirection>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IANAProtocolNumber")]
         pub iana_protocol_number: Option<i64>,
         #[serde(rename = "Id")]
@@ -116,7 +116,7 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressLower")]
         pub ip_address_lower: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressType")]
-        pub ip_address_type: Option<crate::allow_deny::v1_0_1::IPAddressType>,
+        pub ip_address_type: Option<crate::allow_deny::v1_0_2::IPAddressType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressUpper")]
         pub ip_address_upper: Option<String>,
         #[serde(rename = "Name")]

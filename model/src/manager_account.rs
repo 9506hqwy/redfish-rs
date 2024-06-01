@@ -21,7 +21,7 @@ pub enum AccountTypes {
     #[serde(rename = "WebUI")]
     WebUI,
 }
-pub type ManagerAccount = crate::manager_account::v1_11_0::ManagerAccount;
+pub type ManagerAccount = crate::manager_account::v1_12_0::ManagerAccount;
 pub mod v1_10_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -150,7 +150,7 @@ pub mod v1_10_0 {
         pub encryption_protocol: Option<crate::manager_account::v1_10_0::SNMPEncryptionProtocols>,
     }
 }
-pub mod v1_11_0 {
+pub mod v1_12_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -159,9 +159,9 @@ pub mod v1_11_0 {
             rename = "#ManagerAccount.ChangePassword"
         )]
         pub manager_account_change_password:
-            Option<crate::manager_account::v1_11_0::ChangePassword>,
+            Option<crate::manager_account::v1_12_0::ChangePassword>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager_account::v1_11_0::OemActions>,
+        pub oem: Option<crate::manager_account::v1_12_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ChangePassword {
@@ -191,7 +191,7 @@ pub mod v1_11_0 {
         #[serde(rename = "AccountTypes")]
         pub account_types: Vec<crate::manager_account::AccountTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager_account::v1_11_0::Actions>,
+        pub actions: Option<crate::manager_account::v1_12_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -210,7 +210,7 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Keys")]
         pub keys: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::manager_account::v1_11_0::Links>,
+        pub links: Option<crate::manager_account::v1_12_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Locked")]
         pub locked: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MFABypass")]
@@ -248,7 +248,7 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RoleId")]
         pub role_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::manager_account::v1_11_0::SNMPUserInfo>,
+        pub snmp: Option<crate::manager_account::v1_12_0::SNMPUserInfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StrictAccountTypes")]
         pub strict_account_types: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
@@ -281,6 +281,10 @@ pub mod v1_11_0 {
         CBCDES,
         #[serde(rename = "CFB128_AES128")]
         CFB128AES128,
+        #[serde(rename = "CFB128_AES192")]
+        CFB128AES192,
+        #[serde(rename = "CFB128_AES256")]
+        CFB128AES256,
         #[serde(rename = "None")]
         None,
     }
@@ -298,12 +302,12 @@ pub mod v1_11_0 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::manager_account::v1_11_0::SNMPAuthenticationProtocols>,
+            Option<crate::manager_account::v1_12_0::SNMPAuthenticationProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<crate::manager_account::v1_11_0::SNMPEncryptionProtocols>,
+        pub encryption_protocol: Option<crate::manager_account::v1_12_0::SNMPEncryptionProtocols>,
     }
 }

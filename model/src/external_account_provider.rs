@@ -1,5 +1,5 @@
 pub type ExternalAccountProvider =
-    crate::external_account_provider::v1_7_0::ExternalAccountProvider;
+    crate::external_account_provider::v1_7_1::ExternalAccountProvider;
 pub mod v1_6_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -211,7 +211,7 @@ pub mod v1_6_0 {
         pub privilege_level_argument: Option<String>,
     }
 }
-pub mod v1_7_0 {
+pub mod v1_7_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AccountProviderTypes {
@@ -232,13 +232,13 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::external_account_provider::v1_7_0::OemActions>,
+        pub oem: Option<crate::external_account_provider::v1_7_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Authentication {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthenticationType")]
         pub authentication_type:
-            Option<crate::external_account_provider::v1_7_0::AuthenticationTypes>,
+            Option<crate::external_account_provider::v1_7_1::AuthenticationTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
@@ -273,11 +273,11 @@ pub mod v1_7_0 {
             rename = "AccountProviderType"
         )]
         pub account_provider_type:
-            Option<crate::external_account_provider::v1_7_0::AccountProviderTypes>,
+            Option<crate::external_account_provider::v1_7_1::AccountProviderTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::external_account_provider::v1_7_0::Actions>,
+        pub actions: Option<crate::external_account_provider::v1_7_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
-        pub authentication: Option<crate::external_account_provider::v1_7_0::Authentication>,
+        pub authentication: Option<crate::external_account_provider::v1_7_1::Authentication>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -285,13 +285,13 @@ pub mod v1_7_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LDAPService")]
-        pub ldap_service: Option<crate::external_account_provider::v1_7_0::LDAPService>,
+        pub ldap_service: Option<crate::external_account_provider::v1_7_1::LDAPService>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::external_account_provider::v1_7_0::Links>,
+        pub links: Option<crate::external_account_provider::v1_7_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OAuth2Service")]
-        pub oauth2_service: Option<crate::external_account_provider::v1_7_0::OAuth2Service>,
+        pub oauth2_service: Option<crate::external_account_provider::v1_7_1::OAuth2Service>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -305,7 +305,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Priority")]
         pub priority: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RemoteRoleMapping")]
-        pub remote_role_mapping: Option<Vec<crate::external_account_provider::v1_7_0::RoleMapping>>,
+        pub remote_role_mapping: Option<Vec<crate::external_account_provider::v1_7_1::RoleMapping>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Retries")]
         pub retries: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceAddresses")]
@@ -314,7 +314,7 @@ pub mod v1_7_0 {
         pub service_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TACACSplusService")]
         pub tacac_splus_service:
-            Option<crate::external_account_provider::v1_7_0::TACACSplusService>,
+            Option<crate::external_account_provider::v1_7_1::TACACSplusService>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TimeoutSeconds")]
         pub timeout_seconds: Option<i64>,
     }
@@ -341,7 +341,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SearchSettings")]
-        pub search_settings: Option<crate::external_account_provider::v1_7_0::LDAPSearchSettings>,
+        pub search_settings: Option<crate::external_account_provider::v1_7_1::LDAPSearchSettings>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -363,7 +363,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Issuer")]
         pub issuer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Mode")]
-        pub mode: Option<crate::external_account_provider::v1_7_0::OAuth2Mode>,
+        pub mode: Option<crate::external_account_provider::v1_7_1::OAuth2Mode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OAuthServiceSigningKeys"
@@ -415,7 +415,7 @@ pub mod v1_7_0 {
             rename = "PasswordExchangeProtocols"
         )]
         pub password_exchange_protocols: Option<
-            Vec<crate::external_account_provider::v1_7_0::TACACSplusPasswordExchangeProtocol>,
+            Vec<crate::external_account_provider::v1_7_1::TACACSplusPasswordExchangeProtocol>,
         >,
         #[serde(
             skip_serializing_if = "Option::is_none",

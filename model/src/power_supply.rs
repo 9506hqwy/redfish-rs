@@ -1,4 +1,4 @@
-pub type PowerSupply = crate::power_supply::v1_5_2::PowerSupply;
+pub type PowerSupply = crate::power_supply::v1_5_3::PowerSupply;
 pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -179,14 +179,14 @@ pub mod v1_5_1 {
         pub reset_type: Option<crate::resource::ResetType>,
     }
 }
-pub mod v1_5_2 {
+pub mod v1_5_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power_supply::v1_5_2::OemActions>,
+        pub oem: Option<crate::power_supply::v1_5_3::OemActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#PowerSupply.Reset")]
-        pub power_supply_reset: Option<crate::power_supply::v1_5_2::Reset>,
+        pub power_supply_reset: Option<crate::power_supply::v1_5_3::Reset>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EfficiencyRating {
@@ -245,13 +245,13 @@ pub mod v1_5_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerSupply {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power_supply::v1_5_2::Actions>,
+        pub actions: Option<crate::power_supply::v1_5_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EfficiencyRatings")]
-        pub efficiency_ratings: Option<Vec<crate::power_supply::v1_5_2::EfficiencyRating>>,
+        pub efficiency_ratings: Option<Vec<crate::power_supply::v1_5_3::EfficiencyRating>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ElectricalSourceManagerURIs"
@@ -274,11 +274,11 @@ pub mod v1_5_2 {
         )]
         pub input_nominal_voltage_type: Option<crate::circuit::NominalVoltageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InputRanges")]
-        pub input_ranges: Option<Vec<crate::power_supply::v1_5_2::InputRange>>,
+        pub input_ranges: Option<Vec<crate::power_supply::v1_5_3::InputRange>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LineInputStatus")]
-        pub line_input_status: Option<crate::power_supply::v1_5_2::LineStatus>,
+        pub line_input_status: Option<crate::power_supply::v1_5_3::LineStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::power_supply::v1_5_2::Links>,
+        pub links: Option<crate::power_supply::v1_5_3::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -310,7 +310,7 @@ pub mod v1_5_2 {
         )]
         pub output_nominal_voltage_type: Option<crate::circuit::NominalVoltageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OutputRails")]
-        pub output_rails: Option<Vec<crate::power_supply::v1_5_2::OutputRail>>,
+        pub output_rails: Option<Vec<crate::power_supply::v1_5_3::OutputRail>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhaseWiringType")]
@@ -320,7 +320,7 @@ pub mod v1_5_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerCapacityWatts")]
         pub power_capacity_watts: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSupplyType")]
-        pub power_supply_type: Option<crate::power_supply::v1_5_2::PowerSupplyType>,
+        pub power_supply_type: Option<crate::power_supply::v1_5_3::PowerSupplyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProductionDate")]
         pub production_date: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replaceable")]

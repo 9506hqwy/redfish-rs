@@ -1,4 +1,4 @@
-pub type Message = crate::message::v1_1_3::Message;
+pub type Message = crate::message::v1_2_0::Message;
 pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -21,7 +21,7 @@ pub mod v1_1_2 {
         pub severity: Option<String>,
     }
 }
-pub mod v1_1_3 {
+pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Message {
@@ -39,6 +39,8 @@ pub mod v1_1_3 {
         pub related_properties: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Resolution")]
         pub resolution: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ResolutionSteps")]
+        pub resolution_steps: Option<Vec<crate::resolution_step::ResolutionStep>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
         pub severity: Option<String>,
     }

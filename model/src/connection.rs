@@ -1,4 +1,4 @@
-pub type Connection = crate::connection::v1_3_0::Connection;
+pub type Connection = crate::connection::v1_3_1::Connection;
 pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -186,7 +186,7 @@ pub mod v1_2_0 {
         pub volume: Option<crate::odata_v4::IdRef>,
     }
 }
-pub mod v1_3_0 {
+pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AccessCapability {
@@ -213,7 +213,7 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::connection::v1_3_0::OemActions>,
+        pub oem: Option<crate::connection::v1_3_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CHAPConnectionKey {
@@ -237,21 +237,21 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Connection {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::connection::v1_3_0::Actions>,
+        pub actions: Option<crate::connection::v1_3_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectionKeys")]
-        pub connection_keys: Option<crate::connection::v1_3_0::ConnectionKey>,
+        pub connection_keys: Option<crate::connection::v1_3_1::ConnectionKey>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectionType")]
-        pub connection_type: Option<crate::connection::v1_3_0::ConnectionType>,
+        pub connection_type: Option<crate::connection::v1_3_1::ConnectionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::connection::v1_3_0::Links>,
+        pub links: Option<crate::connection::v1_3_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunkInfo")]
-        pub memory_chunk_info: Option<Vec<crate::connection::v1_3_0::MemoryChunkInfo>>,
+        pub memory_chunk_info: Option<Vec<crate::connection::v1_3_1::MemoryChunkInfo>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryRegionInfo")]
-        pub memory_region_info: Option<Vec<crate::connection::v1_3_0::MemoryRegionInfo>>,
+        pub memory_region_info: Option<Vec<crate::connection::v1_3_1::MemoryRegionInfo>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -267,16 +267,16 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VolumeInfo")]
-        pub volume_info: Option<Vec<crate::connection::v1_3_0::VolumeInfo>>,
+        pub volume_info: Option<Vec<crate::connection::v1_3_1::VolumeInfo>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ConnectionKey {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CHAP")]
-        pub chap: Option<crate::connection::v1_3_0::CHAPConnectionKey>,
+        pub chap: Option<crate::connection::v1_3_1::CHAPConnectionKey>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCHAP")]
-        pub dhchap: Option<crate::connection::v1_3_0::DHCHAPKey>,
+        pub dhchap: Option<crate::connection::v1_3_1::DHCHAPKey>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::connection::v1_3_0::GenZConnectionKey>,
+        pub gen_z: Option<crate::connection::v1_3_1::GenZConnectionKey>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ConnectionType {
@@ -355,18 +355,18 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryChunkInfo {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<crate::connection::v1_3_0::AccessCapability>>,
+        pub access_capabilities: Option<Vec<crate::connection::v1_3_1::AccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<crate::connection::v1_3_0::AccessState>,
+        pub access_state: Option<crate::connection::v1_3_1::AccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunk")]
         pub memory_chunk: Option<crate::odata_v4::IdRef>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryRegionInfo {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<crate::connection::v1_3_0::AccessCapability>>,
+        pub access_capabilities: Option<Vec<crate::connection::v1_3_1::AccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<crate::connection::v1_3_0::AccessState>,
+        pub access_state: Option<crate::connection::v1_3_1::AccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryRegion")]
         pub memory_region: Option<crate::odata_v4::IdRef>,
     }
@@ -375,9 +375,9 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VolumeInfo {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
-        pub access_capabilities: Option<Vec<crate::connection::v1_3_0::AccessCapability>>,
+        pub access_capabilities: Option<Vec<crate::connection::v1_3_1::AccessCapability>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessState")]
-        pub access_state: Option<crate::connection::v1_3_0::AccessState>,
+        pub access_state: Option<crate::connection::v1_3_1::AccessState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LUN")]
         pub lun: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Volume")]

@@ -1,4 +1,4 @@
-pub type Session = crate::session::v1_7_0::Session;
+pub type Session = crate::session::v1_7_1::Session;
 pub mod v1_6_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -69,12 +69,12 @@ pub mod v1_6_0 {
         WebUI,
     }
 }
-pub mod v1_7_0 {
+pub mod v1_7_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::session::v1_7_0::OemActions>,
+        pub oem: Option<crate::session::v1_7_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -88,7 +88,7 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Session {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::session::v1_7_0::Actions>,
+        pub actions: Option<crate::session::v1_7_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ClientOriginIPAddress"
@@ -103,7 +103,7 @@ pub mod v1_7_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::session::v1_7_0::Links>,
+        pub links: Option<crate::session::v1_7_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -123,7 +123,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Roles")]
         pub roles: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionType")]
-        pub session_type: Option<crate::session::v1_7_0::SessionTypes>,
+        pub session_type: Option<crate::session::v1_7_1::SessionTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Token")]
         pub token: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]

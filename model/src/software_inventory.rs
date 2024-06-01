@@ -1,6 +1,6 @@
-pub type AdditionalVersions = crate::software_inventory::v1_10_0::AdditionalVersions;
-pub type MeasurementBlock = crate::software_inventory::v1_10_0::MeasurementBlock;
-pub type SoftwareInventory = crate::software_inventory::v1_10_0::SoftwareInventory;
+pub type AdditionalVersions = crate::software_inventory::v1_10_1::AdditionalVersions;
+pub type MeasurementBlock = crate::software_inventory::v1_10_1::MeasurementBlock;
+pub type SoftwareInventory = crate::software_inventory::v1_10_1::SoftwareInventory;
 pub mod v1_9_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -103,12 +103,12 @@ pub mod v1_9_0 {
         SemVer,
     }
 }
-pub mod v1_10_0 {
+pub mod v1_10_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::software_inventory::v1_10_0::OemActions>,
+        pub oem: Option<crate::software_inventory::v1_10_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AdditionalVersions {
@@ -152,9 +152,9 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SoftwareInventory {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::software_inventory::v1_10_0::Actions>,
+        pub actions: Option<crate::software_inventory::v1_10_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditionalVersions")]
-        pub additional_versions: Option<crate::software_inventory::v1_10_0::AdditionalVersions>,
+        pub additional_versions: Option<crate::software_inventory::v1_10_1::AdditionalVersions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AssociatedPhysicalContext"
@@ -195,7 +195,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReleaseDate")]
         pub release_date: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReleaseType")]
-        pub release_type: Option<crate::software_inventory::v1_10_0::ReleaseType>,
+        pub release_type: Option<crate::software_inventory::v1_10_1::ReleaseType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SoftwareId")]
         pub software_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -207,7 +207,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VersionScheme")]
-        pub version_scheme: Option<crate::software_inventory::v1_10_0::VersionScheme>,
+        pub version_scheme: Option<crate::software_inventory::v1_10_1::VersionScheme>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteProtected")]
         pub write_protected: Option<bool>,
     }

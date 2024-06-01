@@ -1,4 +1,4 @@
-pub type ThermalSubsystem = crate::thermal_subsystem::v1_3_0::ThermalSubsystem;
+pub type ThermalSubsystem = crate::thermal_subsystem::v1_3_1::ThermalSubsystem;
 pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -42,19 +42,19 @@ pub mod v1_2_0 {
         pub thermal_metrics: Option<crate::odata_v4::IdRef>,
     }
 }
-pub mod v1_3_0 {
+pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal_subsystem::v1_3_0::OemActions>,
+        pub oem: Option<crate::thermal_subsystem::v1_3_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ThermalSubsystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal_subsystem::v1_3_0::Actions>,
+        pub actions: Option<crate::thermal_subsystem::v1_3_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CoolantConnectorRedundancy"

@@ -1,5 +1,5 @@
-pub type Coolant = crate::cooling_loop::v1_0_1::Coolant;
-pub type CoolingLoop = crate::cooling_loop::v1_0_1::CoolingLoop;
+pub type Coolant = crate::cooling_loop::v1_0_2::Coolant;
+pub type CoolingLoop = crate::cooling_loop::v1_0_2::CoolingLoop;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -135,12 +135,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::cooling_loop::v1_0_1::OemActions>,
+        pub oem: Option<crate::cooling_loop::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Coolant {
@@ -149,7 +149,7 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditivePercent")]
         pub additive_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantType")]
-        pub coolant_type: Option<crate::cooling_loop::v1_0_1::CoolantType>,
+        pub coolant_type: Option<crate::cooling_loop::v1_0_2::CoolantType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DensityKgPerCubicMeter"
@@ -182,14 +182,14 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoolingLoop {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::cooling_loop::v1_0_1::Actions>,
+        pub actions: Option<crate::cooling_loop::v1_0_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConsumingEquipmentNames"
         )]
         pub consuming_equipment_names: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Coolant")]
-        pub coolant: Option<crate::cooling_loop::v1_0_1::Coolant>,
+        pub coolant: Option<crate::cooling_loop::v1_0_2::Coolant>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CoolantLevelPercent"
@@ -206,7 +206,7 @@ pub mod v1_0_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::cooling_loop::v1_0_1::Links>,
+        pub links: Option<crate::cooling_loop::v1_0_2::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"

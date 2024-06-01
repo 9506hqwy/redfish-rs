@@ -13,6 +13,8 @@ pub struct Condition {
     pub origin_of_condition: Option<crate::odata_v4::IdRef>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Resolution")]
     pub resolution: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none", rename = "ResolutionSteps")]
+    pub resolution_steps: Option<Vec<crate::resolution_step::ResolutionStep>>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
     pub severity: Option<crate::resource::Health>,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Timestamp")]
@@ -28,7 +30,7 @@ pub enum Health {
     #[serde(rename = "Warning")]
     Warning,
 }
-pub type Identifier = crate::resource::v1_17_0::Identifier;
+pub type Identifier = crate::resource::v1_18_0::Identifier;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum IndicatorLED {
     #[default]
@@ -46,7 +48,7 @@ pub struct Links {
     #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
     pub oem: Option<crate::resource::Oem>,
 }
-pub type Location = crate::resource::v1_17_0::Location;
+pub type Location = crate::resource::v1_18_0::Location;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct Oem {}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -65,7 +67,7 @@ pub enum PowerState {
     #[serde(rename = "PoweringOn")]
     PoweringOn,
 }
-pub type ReferenceableMember = crate::resource::v1_17_0::ReferenceableMember;
+pub type ReferenceableMember = crate::resource::v1_18_0::ReferenceableMember;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum ResetType {
     #[default]
@@ -94,8 +96,8 @@ pub enum ResetType {
     #[serde(rename = "Suspend")]
     Suspend,
 }
-pub type Resource = crate::resource::v1_17_0::Resource;
-pub type ResourceCollection = crate::resource::v1_17_0::ResourceCollection;
+pub type Resource = crate::resource::v1_18_0::Resource;
+pub type ResourceCollection = crate::resource::v1_18_0::ResourceCollection;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum State {
     #[default]
@@ -333,7 +335,7 @@ pub mod v1_3_0 {
         pub oem: Option<crate::resource::Oem>,
     }
 }
-pub mod v1_17_0 {
+pub mod v1_18_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ContactInfo {
@@ -373,14 +375,14 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableName")]
         pub durable_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DurableNameFormat")]
-        pub durable_name_format: Option<crate::resource::v1_17_0::DurableNameFormat>,
+        pub durable_name_format: Option<crate::resource::v1_18_0::DurableNameFormat>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Location {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AltitudeMeters")]
         pub altitude_meters: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Contacts")]
-        pub contacts: Option<Vec<crate::resource::v1_17_0::ContactInfo>>,
+        pub contacts: Option<Vec<crate::resource::v1_18_0::ContactInfo>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Info")]
         pub info: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InfoFormat")]
@@ -392,18 +394,18 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartLocation")]
-        pub part_location: Option<crate::resource::v1_17_0::PartLocation>,
+        pub part_location: Option<crate::resource::v1_18_0::PartLocation>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PartLocationContext"
         )]
         pub part_location_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalAddress")]
-        pub physical_address: Option<crate::resource::v1_17_0::PhysicalAddress>,
+        pub physical_address: Option<crate::resource::v1_18_0::PhysicalAddress>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Placement")]
-        pub placement: Option<crate::resource::v1_17_0::Placement>,
+        pub placement: Option<crate::resource::v1_18_0::Placement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PostalAddress")]
-        pub postal_address: Option<crate::resource::v1_17_0::PostalAddress>,
+        pub postal_address: Option<crate::resource::v1_18_0::PostalAddress>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LocationType {
@@ -445,11 +447,11 @@ pub mod v1_17_0 {
         )]
         pub location_ordinal_value: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocationType")]
-        pub location_type: Option<crate::resource::v1_17_0::LocationType>,
+        pub location_type: Option<crate::resource::v1_18_0::LocationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Orientation")]
-        pub orientation: Option<crate::resource::v1_17_0::Orientation>,
+        pub orientation: Option<crate::resource::v1_18_0::Orientation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reference")]
-        pub reference: Option<crate::resource::v1_17_0::Reference>,
+        pub reference: Option<crate::resource::v1_18_0::Reference>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceLabel")]
         pub service_label: Option<String>,
     }
@@ -479,7 +481,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffset")]
         pub rack_offset: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RackOffsetUnits")]
-        pub rack_offset_units: Option<crate::resource::v1_17_0::RackUnits>,
+        pub rack_offset_units: Option<crate::resource::v1_18_0::RackUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Row")]
         pub row: Option<String>,
     }

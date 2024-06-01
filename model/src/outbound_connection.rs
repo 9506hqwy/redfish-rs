@@ -1,10 +1,10 @@
-pub type OutboundConnection = crate::outbound_connection::v1_0_0::OutboundConnection;
-pub mod v1_0_0 {
+pub type OutboundConnection = crate::outbound_connection::v1_0_1::OutboundConnection;
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::outbound_connection::v1_0_0::OemActions>,
+        pub oem: Option<crate::outbound_connection::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AuthenticationType {
@@ -32,9 +32,9 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OutboundConnection {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::outbound_connection::v1_0_0::Actions>,
+        pub actions: Option<crate::outbound_connection::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
-        pub authentication: Option<crate::outbound_connection::v1_0_0::AuthenticationType>,
+        pub authentication: Option<crate::outbound_connection::v1_0_1::AuthenticationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientCertificates")]
@@ -48,7 +48,7 @@ pub mod v1_0_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::outbound_connection::v1_0_0::Links>,
+        pub links: Option<crate::outbound_connection::v1_0_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -66,9 +66,9 @@ pub mod v1_0_0 {
             rename = "PreUpgradeHTTPHeaders"
         )]
         pub pre_upgrade_http_headers:
-            Option<crate::outbound_connection::v1_0_0::HTTPHeaderProperty>,
+            Option<crate::outbound_connection::v1_0_1::HTTPHeaderProperty>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RetryPolicy")]
-        pub retry_policy: Option<crate::outbound_connection::v1_0_0::RetryPolicyType>,
+        pub retry_policy: Option<crate::outbound_connection::v1_0_1::RetryPolicyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Roles")]
         pub roles: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -96,7 +96,7 @@ pub mod v1_0_0 {
             rename = "ConnectionRetryPolicy"
         )]
         pub connection_retry_policy:
-            Option<crate::outbound_connection::v1_0_0::OutboundConnectionRetryPolicyType>,
+            Option<crate::outbound_connection::v1_0_1::OutboundConnectionRetryPolicyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RetryCount")]
         pub retry_count: Option<i64>,
         #[serde(

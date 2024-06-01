@@ -1,4 +1,4 @@
-pub type EthernetInterface = crate::ethernet_interface::v1_11_0::EthernetInterface;
+pub type EthernetInterface = crate::ethernet_interface::v1_12_0::EthernetInterface;
 pub mod v1_10_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -281,12 +281,12 @@ pub mod v1_10_0 {
         XOR,
     }
 }
-pub mod v1_11_0 {
+pub mod v1_12_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::ethernet_interface::v1_11_0::OemActions>,
+        pub oem: Option<crate::ethernet_interface::v1_12_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DHCPFallback {
@@ -303,7 +303,7 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCPEnabled")]
         pub dhcp_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FallbackAddress")]
-        pub fallback_address: Option<crate::ethernet_interface::v1_11_0::DHCPFallback>,
+        pub fallback_address: Option<crate::ethernet_interface::v1_12_0::DHCPFallback>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDNSServers")]
         pub use_dns_servers: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDomainName")]
@@ -318,7 +318,7 @@ pub mod v1_11_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct DHCPv6Configuration {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperatingMode")]
-        pub operating_mode: Option<crate::ethernet_interface::v1_11_0::DHCPv6OperatingMode>,
+        pub operating_mode: Option<crate::ethernet_interface::v1_12_0::DHCPv6OperatingMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDNSServers")]
         pub use_dns_servers: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDomainName")]
@@ -351,20 +351,20 @@ pub mod v1_11_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EthernetInterface {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::ethernet_interface::v1_11_0::Actions>,
+        pub actions: Option<crate::ethernet_interface::v1_12_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AutoNeg")]
         pub auto_neg: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCPv4")]
-        pub dhc_pv4: Option<crate::ethernet_interface::v1_11_0::DHCPv4Configuration>,
+        pub dhc_pv4: Option<crate::ethernet_interface::v1_12_0::DHCPv4Configuration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCPv6")]
-        pub dhc_pv6: Option<crate::ethernet_interface::v1_11_0::DHCPv6Configuration>,
+        pub dhc_pv6: Option<crate::ethernet_interface::v1_12_0::DHCPv6Configuration>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EthernetInterfaceType"
         )]
-        pub ethernet_interface_type: Option<crate::ethernet_interface::v1_11_0::EthernetDeviceType>,
+        pub ethernet_interface_type: Option<crate::ethernet_interface::v1_12_0::EthernetDeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FQDN")]
         pub fqdn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FullDuplex")]
@@ -387,11 +387,13 @@ pub mod v1_11_0 {
             rename = "IPv6AddressPolicyTable"
         )]
         pub ipv6_address_policy_table:
-            Option<Vec<crate::ethernet_interface::v1_11_0::IPv6AddressPolicyEntry>>,
+            Option<Vec<crate::ethernet_interface::v1_12_0::IPv6AddressPolicyEntry>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPv6Addresses")]
         pub ipv6_addresses: Option<Vec<crate::ip_addresses::IPv6Address>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPv6DefaultGateway")]
         pub ipv6_default_gateway: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "IPv6Enabled")]
+        pub ipv6_enabled: Option<bool>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "IPv6StaticAddresses"
@@ -404,9 +406,9 @@ pub mod v1_11_0 {
         pub ipv6_static_default_gateways:
             Option<Vec<crate::ip_addresses::IPv6GatewayStaticAddress>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkStatus")]
-        pub link_status: Option<crate::ethernet_interface::v1_11_0::LinkStatus>,
+        pub link_status: Option<crate::ethernet_interface::v1_12_0::LinkStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::ethernet_interface::v1_11_0::Links>,
+        pub links: Option<crate::ethernet_interface::v1_12_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MACAddress")]
         pub mac_address: Option<String>,
         #[serde(
@@ -436,7 +438,7 @@ pub mod v1_11_0 {
         )]
         pub permanent_mac_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RoutingScope")]
-        pub routing_scope: Option<crate::ethernet_interface::v1_11_0::RoutingScope>,
+        pub routing_scope: Option<crate::ethernet_interface::v1_12_0::RoutingScope>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedMbps")]
         pub speed_mbps: Option<i64>,
         #[serde(
@@ -444,13 +446,13 @@ pub mod v1_11_0 {
             rename = "StatelessAddressAutoConfig"
         )]
         pub stateless_address_auto_config:
-            Option<crate::ethernet_interface::v1_11_0::StatelessAddressAutoConfiguration>,
+            Option<crate::ethernet_interface::v1_12_0::StatelessAddressAutoConfiguration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StaticNameServers")]
         pub static_name_servers: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TeamMode")]
-        pub team_mode: Option<crate::ethernet_interface::v1_11_0::TeamMode>,
+        pub team_mode: Option<crate::ethernet_interface::v1_12_0::TeamMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UefiDevicePath")]
         pub uefi_device_path: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VLAN")]

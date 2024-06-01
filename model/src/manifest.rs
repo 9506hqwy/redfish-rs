@@ -1,5 +1,5 @@
-pub type Manifest = crate::manifest::v1_1_0::Manifest;
-pub mod v1_1_0 {
+pub type Manifest = crate::manifest::v1_1_1::Manifest;
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum Expand {
@@ -16,9 +16,9 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Expand")]
-        pub expand: Option<crate::manifest::v1_1_0::Expand>,
+        pub expand: Option<crate::manifest::v1_1_1::Expand>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Stanzas")]
-        pub stanzas: Option<Vec<crate::manifest::v1_1_0::Stanza>>,
+        pub stanzas: Option<Vec<crate::manifest::v1_1_1::Stanza>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Timestamp")]
         pub timestamp: Option<String>,
     }
@@ -31,13 +31,13 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OEMStanzaType")]
         pub oem_stanza_type: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Request")]
-        pub request: Option<crate::manifest::v1_1_0::Request>,
+        pub request: Option<crate::manifest::v1_1_1::Request>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Response")]
-        pub response: Option<crate::manifest::v1_1_0::Response>,
+        pub response: Option<crate::manifest::v1_1_1::Response>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StanzaId")]
         pub stanza_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StanzaType")]
-        pub stanza_type: Option<crate::manifest::v1_1_0::StanzaType>,
+        pub stanza_type: Option<crate::manifest::v1_1_1::StanzaType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum StanzaType {

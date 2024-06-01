@@ -1,5 +1,5 @@
 pub type NetworkDeviceFunctionMetrics =
-    crate::network_device_function_metrics::v1_1_1::NetworkDeviceFunctionMetrics;
+    crate::network_device_function_metrics::v1_1_2::NetworkDeviceFunctionMetrics;
 pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -127,12 +127,12 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_1_1 {
+pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::network_device_function_metrics::v1_1_1::OemActions>,
+        pub oem: Option<crate::network_device_function_metrics::v1_1_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Ethernet {
@@ -195,13 +195,13 @@ pub mod v1_1_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NetworkDeviceFunctionMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::network_device_function_metrics::v1_1_1::Actions>,
+        pub actions: Option<crate::network_device_function_metrics::v1_1_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
-        pub ethernet: Option<crate::network_device_function_metrics::v1_1_1::Ethernet>,
+        pub ethernet: Option<crate::network_device_function_metrics::v1_1_2::Ethernet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FibreChannel")]
-        pub fibre_channel: Option<crate::network_device_function_metrics::v1_1_1::FibreChannel>,
+        pub fibre_channel: Option<crate::network_device_function_metrics::v1_1_2::FibreChannel>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]

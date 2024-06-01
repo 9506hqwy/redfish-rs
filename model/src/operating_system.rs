@@ -1,10 +1,10 @@
-pub type OperatingSystem = crate::operating_system::v1_0_0::OperatingSystem;
-pub mod v1_0_0 {
+pub type OperatingSystem = crate::operating_system::v1_0_1::OperatingSystem;
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::operating_system::v1_0_0::OemActions>,
+        pub oem: Option<crate::operating_system::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ContainerEngine {
@@ -16,7 +16,7 @@ pub mod v1_0_0 {
         )]
         pub supported_image_types: Option<Vec<crate::container_image::ImageTypes>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<crate::operating_system::v1_0_0::ContainerEngineTypes>,
+        pub r#type: Option<crate::operating_system::v1_0_1::ContainerEngineTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
     }
@@ -53,11 +53,11 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OperatingSystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::operating_system::v1_0_0::Actions>,
+        pub actions: Option<crate::operating_system::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Applications")]
         pub applications: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ContainerEngines")]
-        pub container_engines: Option<Vec<crate::operating_system::v1_0_0::ContainerEngine>>,
+        pub container_engines: Option<Vec<crate::operating_system::v1_0_1::ContainerEngine>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ContainerImages")]
         pub container_images: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Containers")]
@@ -67,9 +67,9 @@ pub mod v1_0_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Kernel")]
-        pub kernel: Option<crate::operating_system::v1_0_0::Kernel>,
+        pub kernel: Option<crate::operating_system::v1_0_1::Kernel>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::operating_system::v1_0_0::Links>,
+        pub links: Option<crate::operating_system::v1_0_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -85,7 +85,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<crate::operating_system::v1_0_0::OperatingSystemTypes>,
+        pub r#type: Option<crate::operating_system::v1_0_1::OperatingSystemTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UptimeSeconds")]
         pub uptime_seconds: Option<i64>,
         #[serde(
@@ -93,7 +93,7 @@ pub mod v1_0_0 {
             rename = "VirtualMachineEngines"
         )]
         pub virtual_machine_engines:
-            Option<Vec<crate::operating_system::v1_0_0::VirtualMachineEngine>>,
+            Option<Vec<crate::operating_system::v1_0_1::VirtualMachineEngine>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum OperatingSystemTypes {
@@ -126,9 +126,9 @@ pub mod v1_0_0 {
             rename = "SupportedImageTypes"
         )]
         pub supported_image_types:
-            Option<Vec<crate::operating_system::v1_0_0::VirtualMachineImageTypes>>,
+            Option<Vec<crate::operating_system::v1_0_1::VirtualMachineImageTypes>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<crate::operating_system::v1_0_0::VirtualMachineEngineTypes>,
+        pub r#type: Option<crate::operating_system::v1_0_1::VirtualMachineEngineTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
     }

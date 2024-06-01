@@ -1,6 +1,7 @@
 pub mod acceleration_function;
 pub mod acceleration_function_collection;
 pub mod account_service;
+pub mod action_info;
 pub mod address_pool;
 pub mod address_pool_collection;
 pub mod aggregate;
@@ -188,6 +189,7 @@ pub mod registered_client;
 pub mod registered_client_collection;
 pub mod reservoir;
 pub mod reservoir_collection;
+pub mod resolution_step;
 pub mod resource;
 pub mod resource_block;
 pub mod resource_block_collection;
@@ -281,5 +283,5 @@ pub struct RedfishErrorError {
         skip_serializing_if = "Option::is_none",
         rename = "@Message.ExtendedInfo"
     )]
-    pub message_extended_info: Option<Vec<crate::message::v1_1_3::Message>>,
+    pub message_extended_info: Option<Vec<crate::message::v1_2_0::Message>>,
 }

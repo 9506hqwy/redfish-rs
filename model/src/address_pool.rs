@@ -1,4 +1,4 @@
-pub type AddressPool = crate::address_pool::v1_2_3::AddressPool;
+pub type AddressPool = crate::address_pool::v1_2_4::AddressPool;
 pub mod v1_2_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -515,7 +515,7 @@ pub mod v1_2_2 {
         pub upper: Option<i64>,
     }
 }
-pub mod v1_2_3 {
+pub mod v1_2_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ASNumberRange {
@@ -527,22 +527,22 @@ pub mod v1_2_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::address_pool::v1_2_3::OemActions>,
+        pub oem: Option<crate::address_pool::v1_2_4::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AddressPool {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::address_pool::v1_2_3::Actions>,
+        pub actions: Option<crate::address_pool::v1_2_4::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
-        pub ethernet: Option<crate::address_pool::v1_2_3::Ethernet>,
+        pub ethernet: Option<crate::address_pool::v1_2_4::Ethernet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::address_pool::v1_2_3::GenZ>,
+        pub gen_z: Option<crate::address_pool::v1_2_4::GenZ>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::address_pool::v1_2_3::Links>,
+        pub links: Option<crate::address_pool::v1_2_4::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -604,16 +604,16 @@ pub mod v1_2_3 {
         )]
         pub arp_supression_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ESINumberRange")]
-        pub esi_number_range: Option<crate::address_pool::v1_2_3::ESINumberRange>,
+        pub esi_number_range: Option<crate::address_pool::v1_2_4::ESINumberRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EVINumberRange")]
-        pub evi_number_range: Option<crate::address_pool::v1_2_3::EVINumberRange>,
+        pub evi_number_range: Option<crate::address_pool::v1_2_4::EVINumberRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GatewayIPAddress")]
         pub gateway_ip_address: Option<String>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "GatewayIPAddressRange"
         )]
-        pub gateway_ip_address_range: Option<crate::address_pool::v1_2_3::GatewayIPAddressRange>,
+        pub gateway_ip_address_range: Option<crate::address_pool::v1_2_4::GatewayIPAddressRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NDPProxyEnabled")]
         pub ndp_proxy_enabled: Option<bool>,
         #[serde(
@@ -630,14 +630,14 @@ pub mod v1_2_3 {
             skip_serializing_if = "Option::is_none",
             rename = "RouteDistinguisherRange"
         )]
-        pub route_distinguisher_range: Option<crate::address_pool::v1_2_3::RouteDistinguisherRange>,
+        pub route_distinguisher_range: Option<crate::address_pool::v1_2_4::RouteDistinguisherRange>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RouteTargetAdministratorSubfield"
         )]
         pub route_target_administrator_subfield: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RouteTargetRange")]
-        pub route_target_range: Option<crate::address_pool::v1_2_3::RouteTargetRange>,
+        pub route_target_range: Option<crate::address_pool::v1_2_4::RouteTargetRange>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UnderlayMulticastEnabled"
@@ -653,7 +653,7 @@ pub mod v1_2_3 {
             rename = "VLANIdentifierAddressRange"
         )]
         pub vlan_identifier_address_range:
-            Option<crate::address_pool::v1_2_3::VLANIdentifierAddressRange>,
+            Option<crate::address_pool::v1_2_4::VLANIdentifierAddressRange>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BGPNeighbor {
@@ -685,7 +685,7 @@ pub mod v1_2_3 {
         )]
         pub log_state_changes_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPrefix")]
-        pub max_prefix: Option<crate::address_pool::v1_2_3::MaxPrefix>,
+        pub max_prefix: Option<crate::address_pool::v1_2_4::MaxPrefix>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MinimumAdvertisementIntervalSeconds"
@@ -745,15 +745,15 @@ pub mod v1_2_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CommonBGPProperties {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ASNumberRange")]
-        pub as_number_range: Option<crate::address_pool::v1_2_3::ASNumberRange>,
+        pub as_number_range: Option<crate::address_pool::v1_2_4::ASNumberRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BGPNeighbor")]
-        pub bgp_neighbor: Option<crate::address_pool::v1_2_3::BGPNeighbor>,
+        pub bgp_neighbor: Option<crate::address_pool::v1_2_4::BGPNeighbor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BGPRoute")]
-        pub bgp_route: Option<crate::address_pool::v1_2_3::BGPRoute>,
+        pub bgp_route: Option<crate::address_pool::v1_2_4::BGPRoute>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GracefulRestart")]
-        pub graceful_restart: Option<crate::address_pool::v1_2_3::GracefulRestart>,
+        pub graceful_restart: Option<crate::address_pool::v1_2_4::GracefulRestart>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MultiplePaths")]
-        pub multiple_paths: Option<crate::address_pool::v1_2_3::MultiplePaths>,
+        pub multiple_paths: Option<crate::address_pool::v1_2_4::MultiplePaths>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SendCommunityEnabled"
@@ -790,17 +790,17 @@ pub mod v1_2_3 {
         )]
         pub always_compare_med_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ASNumberRange")]
-        pub as_number_range: Option<crate::address_pool::v1_2_3::ASNumberRange>,
+        pub as_number_range: Option<crate::address_pool::v1_2_4::ASNumberRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BGPLocalPreference")]
         pub bgp_local_preference: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BGPNeighbor")]
-        pub bgp_neighbor: Option<crate::address_pool::v1_2_3::BGPNeighbor>,
+        pub bgp_neighbor: Option<crate::address_pool::v1_2_4::BGPNeighbor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BGPRoute")]
-        pub bgp_route: Option<crate::address_pool::v1_2_3::BGPRoute>,
+        pub bgp_route: Option<crate::address_pool::v1_2_4::BGPRoute>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BGPWeight")]
         pub bgp_weight: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GracefulRestart")]
-        pub graceful_restart: Option<crate::address_pool::v1_2_3::GracefulRestart>,
+        pub graceful_restart: Option<crate::address_pool::v1_2_4::GracefulRestart>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MED")]
         pub med: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MultihopEnabled")]
@@ -808,7 +808,7 @@ pub mod v1_2_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MultihopTTL")]
         pub multihop_ttl: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MultiplePaths")]
-        pub multiple_paths: Option<crate::address_pool::v1_2_3::MultiplePaths>,
+        pub multiple_paths: Option<crate::address_pool::v1_2_4::MultiplePaths>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SendCommunityEnabled"
@@ -832,17 +832,17 @@ pub mod v1_2_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Ethernet {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BFDSingleHopOnly")]
-        pub bfd_single_hop_only: Option<crate::address_pool::v1_2_3::BFDSingleHopOnly>,
+        pub bfd_single_hop_only: Option<crate::address_pool::v1_2_4::BFDSingleHopOnly>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BGPEvpn")]
-        pub bgp_evpn: Option<crate::address_pool::v1_2_3::BGPEvpn>,
+        pub bgp_evpn: Option<crate::address_pool::v1_2_4::BGPEvpn>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EBGP")]
-        pub ebgp: Option<crate::address_pool::v1_2_3::EBGP>,
+        pub ebgp: Option<crate::address_pool::v1_2_4::EBGP>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPv4")]
-        pub ipv4: Option<crate::address_pool::v1_2_3::IPv4>,
+        pub ipv4: Option<crate::address_pool::v1_2_4::IPv4>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MultiProtocolEBGP")]
-        pub multi_protocol_ebgp: Option<crate::address_pool::v1_2_3::EBGP>,
+        pub multi_protocol_ebgp: Option<crate::address_pool::v1_2_4::EBGP>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MultiProtocolIBGP")]
-        pub multi_protocol_ibgp: Option<crate::address_pool::v1_2_3::CommonBGPProperties>,
+        pub multi_protocol_ibgp: Option<crate::address_pool::v1_2_4::CommonBGPProperties>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GatewayIPAddressRange {
@@ -894,7 +894,7 @@ pub mod v1_2_3 {
         )]
         pub anycast_gateway_mac_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCP")]
-        pub dhcp: Option<crate::address_pool::v1_2_3::DHCP>,
+        pub dhcp: Option<crate::address_pool::v1_2_4::DHCP>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DistributeIntoUnderlayEnabled"
@@ -905,28 +905,28 @@ pub mod v1_2_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DNSServer")]
         pub dns_server: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EBGPAddressRange")]
-        pub ebgp_address_range: Option<crate::address_pool::v1_2_3::IPv4AddressRange>,
+        pub ebgp_address_range: Option<crate::address_pool::v1_2_4::IPv4AddressRange>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FabricLinkAddressRange"
         )]
-        pub fabric_link_address_range: Option<crate::address_pool::v1_2_3::IPv4AddressRange>,
+        pub fabric_link_address_range: Option<crate::address_pool::v1_2_4::IPv4AddressRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GatewayIPAddress")]
         pub gateway_ip_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostAddressRange")]
-        pub host_address_range: Option<crate::address_pool::v1_2_3::IPv4AddressRange>,
+        pub host_address_range: Option<crate::address_pool::v1_2_4::IPv4AddressRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IBGPAddressRange")]
-        pub ibgp_address_range: Option<crate::address_pool::v1_2_3::IPv4AddressRange>,
+        pub ibgp_address_range: Option<crate::address_pool::v1_2_4::IPv4AddressRange>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LoopbackAddressRange"
         )]
-        pub loopback_address_range: Option<crate::address_pool::v1_2_3::IPv4AddressRange>,
+        pub loopback_address_range: Option<crate::address_pool::v1_2_4::IPv4AddressRange>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ManagementAddressRange"
         )]
-        pub management_address_range: Option<crate::address_pool::v1_2_3::IPv4AddressRange>,
+        pub management_address_range: Option<crate::address_pool::v1_2_4::IPv4AddressRange>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NativeVLAN")]
         pub native_vlan: Option<i64>,
         #[serde(
@@ -939,13 +939,13 @@ pub mod v1_2_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NTPTimezone")]
         pub ntp_timezone: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemMACRange")]
-        pub system_mac_range: Option<crate::address_pool::v1_2_3::SystemMACRange>,
+        pub system_mac_range: Option<crate::address_pool::v1_2_4::SystemMACRange>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "VLANIdentifierAddressRange"
         )]
         pub vlan_identifier_address_range:
-            Option<crate::address_pool::v1_2_3::VLANIdentifierAddressRange>,
+            Option<crate::address_pool::v1_2_4::VLANIdentifierAddressRange>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct IPv4AddressRange {

@@ -1,10 +1,10 @@
-pub type MemoryRegion = crate::memory_region::v1_0_0::MemoryRegion;
-pub mod v1_0_0 {
+pub type MemoryRegion = crate::memory_region::v1_0_1::MemoryRegion;
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::memory_region::v1_0_0::OemActions>,
+        pub oem: Option<crate::memory_region::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryChunk {
@@ -27,7 +27,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryRegion {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::memory_region::v1_0_0::Actions>,
+        pub actions: Option<crate::memory_region::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeMiB")]
         pub block_size_mib: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -42,9 +42,9 @@ pub mod v1_0_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunks")]
-        pub memory_chunks: Option<Vec<crate::memory_region::v1_0_0::MemoryChunk>>,
+        pub memory_chunks: Option<Vec<crate::memory_region::v1_0_1::MemoryChunk>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryExtents")]
-        pub memory_extents: Option<Vec<crate::memory_region::v1_0_0::MemoryExtent>>,
+        pub memory_extents: Option<Vec<crate::memory_region::v1_0_1::MemoryExtent>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NonVolatileRegion")]
@@ -59,14 +59,17 @@ pub mod v1_0_0 {
         pub odata_type: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "RegionBaseOffetMiB")]
-        pub region_base_offet_mib: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "RegionBaseOffsetMiB"
+        )]
+        pub region_base_offset_mib: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegionNumber")]
         pub region_number: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegionSizeMiB")]
         pub region_size_mib: Option<i64>,
         #[serde(rename = "RegionType")]
-        pub region_type: crate::memory_region::v1_0_0::RegionType,
+        pub region_type: crate::memory_region::v1_0_1::RegionType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SanitizeOnRelease")]
         pub sanitize_on_release: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ShareableRegion")]

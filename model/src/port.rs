@@ -1,4 +1,4 @@
-pub type Port = crate::port::v1_10_0::Port;
+pub type Port = crate::port::v1_11_0::Port;
 pub mod v1_9_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -750,37 +750,37 @@ pub mod v1_9_0 {
         WakeOnLAN,
     }
 }
-pub mod v1_10_0 {
+pub mod v1_11_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::port::v1_10_0::OemActions>,
+        pub oem: Option<crate::port::v1_11_0::OemActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Port.Reset")]
-        pub port_reset: Option<crate::port::v1_10_0::Reset>,
+        pub port_reset: Option<crate::port::v1_11_0::Reset>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Port.ResetPPB")]
-        pub port_reset_ppb: Option<crate::port::v1_10_0::ResetPPB>,
+        pub port_reset_ppb: Option<crate::port::v1_11_0::ResetPPB>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXL {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Congestion")]
-        pub congestion: Option<crate::port::v1_10_0::Congestion>,
+        pub congestion: Option<crate::port::v1_11_0::Congestion>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConnectedDeviceMode"
         )]
-        pub connected_device_mode: Option<crate::port::v1_10_0::ConnectedDeviceMode>,
+        pub connected_device_mode: Option<crate::port::v1_11_0::ConnectedDeviceMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConnectedDeviceType"
         )]
-        pub connected_device_type: Option<crate::port::v1_10_0::ConnectedDeviceType>,
+        pub connected_device_type: Option<crate::port::v1_11_0::ConnectedDeviceType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CurrentPortConfigurationState"
         )]
         pub current_port_configuration_state:
-            Option<crate::port::v1_10_0::CurrentPortConfigurationState>,
+            Option<crate::port::v1_11_0::CurrentPortConfigurationState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxLogicalDeviceCount"
@@ -790,7 +790,9 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "QoSTelemetryCapabilities"
         )]
-        pub qos_telemetry_capabilities: Option<crate::port::v1_10_0::QoSTelemetryCapabilities>,
+        pub qos_telemetry_capabilities: Option<crate::port::v1_11_0::QoSTelemetryCapabilities>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedCXLModes")]
+        pub supported_cxl_modes: Option<Vec<crate::port::v1_11_0::ConnectedDeviceMode>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TemporaryThroughputReductionEnabled"
@@ -881,6 +883,8 @@ pub mod v1_10_0 {
         DSP,
         #[serde(rename = "Disabled")]
         Disabled,
+        #[serde(rename = "FabricLink")]
+        FabricLink,
         #[serde(rename = "Reserved")]
         Reserved,
         #[serde(rename = "USP")]
@@ -901,21 +905,21 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "FlowControlConfiguration"
         )]
-        pub flow_control_configuration: Option<crate::port::v1_10_0::FlowControl>,
+        pub flow_control_configuration: Option<crate::port::v1_11_0::FlowControl>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FlowControlStatus")]
-        pub flow_control_status: Option<crate::port::v1_10_0::FlowControl>,
+        pub flow_control_status: Option<crate::port::v1_11_0::FlowControl>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LLDPEnabled")]
         pub lldp_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LLDPReceive")]
-        pub lldp_receive: Option<crate::port::v1_10_0::LLDPReceive>,
+        pub lldp_receive: Option<crate::port::v1_11_0::LLDPReceive>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LLDPTransmit")]
-        pub lldp_transmit: Option<crate::port::v1_10_0::LLDPTransmit>,
+        pub lldp_transmit: Option<crate::port::v1_11_0::LLDPTransmit>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedEthernetCapabilities"
         )]
         pub supported_ethernet_capabilities:
-            Option<Vec<crate::port::v1_10_0::SupportedEthernetCapabilities>>,
+            Option<Vec<crate::port::v1_11_0::SupportedEthernetCapabilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WakeOnLANEnabled")]
         pub wake_on_lan_enabled: Option<bool>,
     }
@@ -942,7 +946,7 @@ pub mod v1_10_0 {
         )]
         pub number_discovered_remote_ports: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortConnectionType")]
-        pub port_connection_type: Option<crate::port::v1_10_0::PortConnectionType>,
+        pub port_connection_type: Option<crate::port::v1_11_0::PortConnectionType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum FlowControl {
@@ -1030,7 +1034,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisId")]
         pub chassis_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisIdSubtype")]
-        pub chassis_id_subtype: Option<crate::port::v1_10_0::IEEE802IdSubtype>,
+        pub chassis_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ManagementAddressIPv4"
@@ -1051,9 +1055,9 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortId")]
         pub port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortIdSubtype")]
-        pub port_id_subtype: Option<crate::port::v1_10_0::IEEE802IdSubtype>,
+        pub port_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemCapabilities")]
-        pub system_capabilities: Option<Vec<crate::port::v1_10_0::LLDPSystemCapabilities>>,
+        pub system_capabilities: Option<Vec<crate::port::v1_11_0::LLDPSystemCapabilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemDescription")]
         pub system_description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemName")]
@@ -1086,7 +1090,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisId")]
         pub chassis_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisIdSubtype")]
-        pub chassis_id_subtype: Option<crate::port::v1_10_0::IEEE802IdSubtype>,
+        pub chassis_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ManagementAddressIPv4"
@@ -1107,9 +1111,9 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortId")]
         pub port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortIdSubtype")]
-        pub port_id_subtype: Option<crate::port::v1_10_0::IEEE802IdSubtype>,
+        pub port_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemCapabilities")]
-        pub system_capabilities: Option<Vec<crate::port::v1_10_0::LLDPSystemCapabilities>>,
+        pub system_capabilities: Option<Vec<crate::port::v1_11_0::LLDPSystemCapabilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemDescription")]
         pub system_description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemName")]
@@ -1136,7 +1140,7 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ConfiguredNetworkLinks"
         )]
-        pub configured_network_links: Option<Vec<crate::port::v1_10_0::ConfiguredNetworkLink>>,
+        pub configured_network_links: Option<Vec<crate::port::v1_11_0::ConfiguredNetworkLink>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LinkNetworkTechnology {
@@ -1237,7 +1241,7 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Port {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::port::v1_10_0::Actions>,
+        pub actions: Option<crate::port::v1_11_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ActiveWidth")]
         pub active_width: Option<i64>,
         #[serde(
@@ -1253,7 +1257,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CurrentSpeedGbps")]
         pub current_speed_gbps: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::port::v1_10_0::CXL>,
+        pub cxl: Option<crate::port::v1_11_0::CXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
@@ -1261,45 +1265,45 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
-        pub ethernet: Option<crate::port::v1_10_0::EthernetProperties>,
+        pub ethernet: Option<crate::port::v1_11_0::EthernetProperties>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FibreChannel")]
-        pub fibre_channel: Option<crate::port::v1_10_0::FibreChannelProperties>,
+        pub fibre_channel: Option<crate::port::v1_11_0::FibreChannelProperties>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FunctionMaxBandwidth"
         )]
-        pub function_max_bandwidth: Option<Vec<crate::port::v1_10_0::FunctionMaxBandwidth>>,
+        pub function_max_bandwidth: Option<Vec<crate::port::v1_11_0::FunctionMaxBandwidth>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FunctionMinBandwidth"
         )]
-        pub function_min_bandwidth: Option<Vec<crate::port::v1_10_0::FunctionMinBandwidth>>,
+        pub function_min_bandwidth: Option<Vec<crate::port::v1_11_0::FunctionMinBandwidth>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::port::v1_10_0::GenZ>,
+        pub gen_z: Option<crate::port::v1_11_0::GenZ>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InfiniBand")]
-        pub infini_band: Option<crate::port::v1_10_0::InfiniBandProperties>,
+        pub infini_band: Option<crate::port::v1_11_0::InfiniBandProperties>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceEnabled")]
         pub interface_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkConfiguration")]
-        pub link_configuration: Option<Vec<crate::port::v1_10_0::LinkConfiguration>>,
+        pub link_configuration: Option<Vec<crate::port::v1_11_0::LinkConfiguration>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LinkNetworkTechnology"
         )]
-        pub link_network_technology: Option<crate::port::v1_10_0::LinkNetworkTechnology>,
+        pub link_network_technology: Option<crate::port::v1_11_0::LinkNetworkTechnology>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkState")]
-        pub link_state: Option<crate::port::v1_10_0::LinkState>,
+        pub link_state: Option<crate::port::v1_11_0::LinkState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkStatus")]
-        pub link_status: Option<crate::port::v1_10_0::LinkStatus>,
+        pub link_status: Option<crate::port::v1_11_0::LinkStatus>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LinkTransitionIndicator"
         )]
         pub link_transition_indicator: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::port::v1_10_0::Links>,
+        pub links: Option<crate::port::v1_11_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -1328,15 +1332,15 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortId")]
         pub port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortMedium")]
-        pub port_medium: Option<crate::port::v1_10_0::PortMedium>,
+        pub port_medium: Option<crate::port::v1_11_0::PortMedium>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortProtocol")]
         pub port_protocol: Option<crate::protocol::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortType")]
-        pub port_type: Option<crate::port::v1_10_0::PortType>,
+        pub port_type: Option<crate::port::v1_11_0::PortType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RemotePortId")]
         pub remote_port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SFP")]
-        pub sfp: Option<crate::port::v1_10_0::SFP>,
+        pub sfp: Option<crate::port::v1_11_0::SFP>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SignalDetected")]
         pub signal_detected: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -1446,11 +1450,11 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "FiberConnectionType"
         )]
-        pub fiber_connection_type: Option<crate::port::v1_10_0::FiberConnectionType>,
+        pub fiber_connection_type: Option<crate::port::v1_11_0::FiberConnectionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediumType")]
-        pub medium_type: Option<crate::port::v1_10_0::MediumType>,
+        pub medium_type: Option<crate::port::v1_11_0::MediumType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -1458,9 +1462,9 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedSFPTypes")]
-        pub supported_sfp_types: Option<Vec<crate::port::v1_10_0::SFPType>>,
+        pub supported_sfp_types: Option<Vec<crate::port::v1_11_0::SFPType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<crate::port::v1_10_0::SFPType>,
+        pub r#type: Option<crate::port::v1_11_0::SFPType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SFPType {

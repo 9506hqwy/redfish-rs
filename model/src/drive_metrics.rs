@@ -1,4 +1,4 @@
-pub type DriveMetrics = crate::drive_metrics::v1_1_0::DriveMetrics;
+pub type DriveMetrics = crate::drive_metrics::v1_2_0::DriveMetrics;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -56,17 +56,17 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_1_0 {
+pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::drive_metrics::v1_1_0::OemActions>,
+        pub oem: Option<crate::drive_metrics::v1_2_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct DriveMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::drive_metrics::v1_1_0::Actions>,
+        pub actions: Option<crate::drive_metrics::v1_2_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BadBlockCount")]
         pub bad_block_count: Option<i64>,
         #[serde(
@@ -104,6 +104,8 @@ pub mod v1_1_0 {
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerOnHours")]
         pub power_on_hours: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ReadIOKiBytes")]
+        pub read_io_kibytes: Option<i64>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UncorrectableIOReadErrorCount"
@@ -114,6 +116,8 @@ pub mod v1_1_0 {
             rename = "UncorrectableIOWriteErrorCount"
         )]
         pub uncorrectable_io_write_error_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "WriteIOKiBytes")]
+        pub write_io_kibytes: Option<i64>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

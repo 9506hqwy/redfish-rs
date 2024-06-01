@@ -1,4 +1,4 @@
-pub type ThermalEquipment = crate::thermal_equipment::v1_1_0::ThermalEquipment;
+pub type ThermalEquipment = crate::thermal_equipment::v1_1_1::ThermalEquipment;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -40,19 +40,19 @@ pub mod v1_0_0 {
         pub status: Option<crate::resource::Status>,
     }
 }
-pub mod v1_1_0 {
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal_equipment::v1_1_0::OemActions>,
+        pub oem: Option<crate::thermal_equipment::v1_1_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ThermalEquipment {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal_equipment::v1_1_0::Actions>,
+        pub actions: Option<crate::thermal_equipment::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CDUs")]
         pub cd_us: Option<crate::odata_v4::IdRef>,
         #[serde(

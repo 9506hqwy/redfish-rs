@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
-pub type PCIeDevice = crate::pcie_device::v1_12_0::PCIeDevice;
-pub type PCIeErrors = crate::pcie_device::v1_12_0::PCIeErrors;
-pub type PCIeInterface = crate::pcie_device::v1_12_0::PCIeInterface;
+pub type PCIeDevice = crate::pcie_device::v1_13_0::PCIeDevice;
+pub type PCIeErrors = crate::pcie_device::v1_13_0::PCIeErrors;
+pub type PCIeInterface = crate::pcie_device::v1_13_0::PCIeInterface;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum PCIeTypes {
     #[default]
@@ -237,19 +237,19 @@ pub mod v1_11_1 {
         U2,
     }
 }
-pub mod v1_12_0 {
+pub mod v1_13_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::pcie_device::v1_12_0::OemActions>,
+        pub oem: Option<crate::pcie_device::v1_13_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXLDevice {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceType")]
-        pub device_type: Option<crate::pcie_device::v1_12_0::CXLDeviceType>,
+        pub device_type: Option<crate::pcie_device::v1_13_0::CXLDeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DynamicCapacity")]
-        pub dynamic_capacity: Option<crate::pcie_device::v1_12_0::CXLDynamicCapacity>,
+        pub dynamic_capacity: Option<crate::pcie_device::v1_13_0::CXLDynamicCapacity>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EgressPortCongestionSupport"
@@ -259,7 +259,7 @@ pub mod v1_12_0 {
             skip_serializing_if = "Option::is_none",
             rename = "MaxNumberLogicalDevices"
         )]
-        pub max_number_logical_devices: Option<f64>,
+        pub max_number_logical_devices: Option<i64>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ThroughputReductionSupport"
@@ -285,7 +285,7 @@ pub mod v1_12_0 {
             rename = "AddCapacityPoliciesSupported"
         )]
         pub add_capacity_policies_supported:
-            Option<Vec<crate::pcie_device::v1_12_0::CXLDynamicCapacityPolicies>>,
+            Option<Vec<crate::pcie_device::v1_13_0::CXLDynamicCapacityPolicies>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxDynamicCapacityRegions"
@@ -298,19 +298,19 @@ pub mod v1_12_0 {
             rename = "MemoryBlockSizesSupported"
         )]
         pub memory_block_sizes_supported:
-            Option<Vec<crate::pcie_device::v1_12_0::CXLRegionBlockSizes>>,
+            Option<Vec<crate::pcie_device::v1_13_0::CXLRegionBlockSizes>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReleaseCapacityPoliciesSupported"
         )]
         pub release_capacity_policies_supported:
-            Option<Vec<crate::pcie_device::v1_12_0::CXLDynamicCapacityPolicies>>,
+            Option<Vec<crate::pcie_device::v1_13_0::CXLDynamicCapacityPolicies>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SanitizationOnReleaseSupport"
         )]
         pub sanitization_on_release_support:
-            Option<Vec<crate::pcie_device::v1_12_0::CXLRegionSanitization>>,
+            Option<Vec<crate::pcie_device::v1_13_0::CXLRegionSanitization>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TotalDynamicCapacityMiB"
@@ -401,19 +401,19 @@ pub mod v1_12_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PCIeDevice {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::pcie_device::v1_12_0::Actions>,
+        pub actions: Option<crate::pcie_device::v1_13_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXLDevice")]
-        pub cxl_device: Option<crate::pcie_device::v1_12_0::CXLDevice>,
+        pub cxl_device: Option<crate::pcie_device::v1_13_0::CXLDevice>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXLLogicalDevices")]
         pub cxl_logical_devices: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceType")]
-        pub device_type: Option<crate::pcie_device::v1_12_0::DeviceType>,
+        pub device_type: Option<crate::pcie_device::v1_13_0::DeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -421,7 +421,7 @@ pub mod v1_12_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::pcie_device::v1_12_0::Links>,
+        pub links: Option<crate::pcie_device::v1_13_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -448,7 +448,7 @@ pub mod v1_12_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeFunctions")]
         pub pcie_functions: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeInterface")]
-        pub pcie_interface: Option<crate::pcie_device::v1_12_0::PCIeInterface>,
+        pub pcie_interface: Option<crate::pcie_device::v1_13_0::PCIeInterface>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadyToRemove")]
         pub ready_to_remove: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -456,7 +456,7 @@ pub mod v1_12_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SKU")]
         pub sku: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Slot")]
-        pub slot: Option<crate::pcie_device::v1_12_0::Slot>,
+        pub slot: Option<crate::pcie_device::v1_13_0::Slot>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SparePartNumber")]
         pub spare_part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StagedVersion")]
@@ -490,6 +490,11 @@ pub mod v1_12_0 {
             rename = "ReplayRolloverCount"
         )]
         pub replay_rollover_count: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "UnsupportedRequestCount"
+        )]
+        pub unsupported_request_count: Option<i64>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PCIeInterface {
@@ -509,7 +514,7 @@ pub mod v1_12_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotPluggable")]
         pub hot_pluggable: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LaneSplitting")]
-        pub lane_splitting: Option<crate::pcie_device::v1_12_0::LaneSplittingType>,
+        pub lane_splitting: Option<crate::pcie_device::v1_13_0::LaneSplittingType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lanes")]
         pub lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -517,7 +522,7 @@ pub mod v1_12_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
         pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotType")]
-        pub slot_type: Option<crate::pcie_device::v1_12_0::SlotType>,
+        pub slot_type: Option<crate::pcie_device::v1_13_0::SlotType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SlotType {
