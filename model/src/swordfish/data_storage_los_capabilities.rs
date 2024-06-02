@@ -7,6 +7,11 @@ pub enum DataStorageLoSCapabilities {
     V010002(crate::swordfish::data_storage_los_capabilities::v1_0_2::DataStorageLoSCapabilities),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for DataStorageLoSCapabilities {
+    fn default() -> Self {
+        Self::V010202(Default::default())
+    }
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum ProvisioningPolicy {
     #[default]

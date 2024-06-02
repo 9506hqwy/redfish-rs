@@ -43,6 +43,11 @@ pub enum DataSecurityLoSCapabilities {
     V010002(crate::swordfish::data_security_los_capabilities::v1_0_2::DataSecurityLoSCapabilities),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for DataSecurityLoSCapabilities {
+    fn default() -> Self {
+        Self::V010200(Default::default())
+    }
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum KeySize {
     #[default]

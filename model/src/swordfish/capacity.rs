@@ -6,12 +6,22 @@ pub enum Capacity {
     V010104(crate::swordfish::capacity::v1_1_4::Capacity),
     V010004(crate::swordfish::capacity::v1_0_4::Capacity),
 }
+impl Default for Capacity {
+    fn default() -> Self {
+        Self::V010201(Default::default())
+    }
+}
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum CapacityInfo {
     V010201(crate::swordfish::capacity::v1_2_1::CapacityInfo),
     V010104(crate::swordfish::capacity::v1_1_4::CapacityInfo),
     V010004(crate::swordfish::capacity::v1_0_4::CapacityInfo),
+}
+impl Default for CapacityInfo {
+    fn default() -> Self {
+        Self::V010201(Default::default())
+    }
 }
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
@@ -20,6 +30,11 @@ pub enum CapacitySource {
     V010104(crate::swordfish::capacity::v1_1_4::CapacitySource),
     V010004(crate::swordfish::capacity::v1_0_4::CapacitySource),
     OdataV4IdRef(crate::odata_v4::IdRef),
+}
+impl Default for CapacitySource {
+    fn default() -> Self {
+        Self::V010201(Default::default())
+    }
 }
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};

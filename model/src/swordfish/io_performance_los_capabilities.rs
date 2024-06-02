@@ -16,6 +16,11 @@ pub enum IOPerformanceLoSCapabilities {
     ),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for IOPerformanceLoSCapabilities {
+    fn default() -> Self {
+        Self::V010300(Default::default())
+    }
+}
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum IOWorkload {
@@ -24,6 +29,11 @@ pub enum IOWorkload {
     V010103(crate::swordfish::io_performance_los_capabilities::v1_1_3::IOWorkload),
     V010002(crate::swordfish::io_performance_los_capabilities::v1_0_2::IOWorkload),
 }
+impl Default for IOWorkload {
+    fn default() -> Self {
+        Self::V010300(Default::default())
+    }
+}
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum IOWorkloadComponent {
@@ -31,6 +41,11 @@ pub enum IOWorkloadComponent {
     V010200(crate::swordfish::io_performance_los_capabilities::v1_2_0::IOWorkloadComponent),
     V010103(crate::swordfish::io_performance_los_capabilities::v1_1_3::IOWorkloadComponent),
     V010002(crate::swordfish::io_performance_los_capabilities::v1_0_2::IOWorkloadComponent),
+}
+impl Default for IOWorkloadComponent {
+    fn default() -> Self {
+        Self::V010300(Default::default())
+    }
 }
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};

@@ -183,6 +183,11 @@ pub enum Volume {
     V010004(crate::swordfish::volume::v1_0_4::Volume),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for Volume {
+    fn default() -> Self {
+        Self::V011000(Default::default())
+    }
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum VolumeType {
     #[default]

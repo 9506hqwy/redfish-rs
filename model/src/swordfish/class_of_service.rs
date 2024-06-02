@@ -7,6 +7,11 @@ pub enum ClassOfService {
     V010002(crate::swordfish::class_of_service::v1_0_2::ClassOfService),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for ClassOfService {
+    fn default() -> Self {
+        Self::V010200(Default::default())
+    }
+}
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

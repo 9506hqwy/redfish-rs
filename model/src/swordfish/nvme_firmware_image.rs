@@ -16,6 +16,11 @@ pub enum NVMeFirmwareImage {
     V010000(crate::swordfish::nvme_firmware_image::v1_0_0::NVMeFirmwareImage),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for NVMeFirmwareImage {
+    fn default() -> Self {
+        Self::V010100(Default::default())
+    }
+}
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

@@ -4,6 +4,11 @@ use serde::{Deserialize, Serialize};
 pub enum IOStatistics {
     V010004(crate::swordfish::io_statistics::v1_0_4::IOStatistics),
 }
+impl Default for IOStatistics {
+    fn default() -> Self {
+        Self::V010004(Default::default())
+    }
+}
 pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

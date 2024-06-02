@@ -27,6 +27,11 @@ pub enum StorageGroup {
     V010003(crate::swordfish::storage_group::v1_0_3::StorageGroup),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for StorageGroup {
+    fn default() -> Self {
+        Self::V010500(Default::default())
+    }
+}
 pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

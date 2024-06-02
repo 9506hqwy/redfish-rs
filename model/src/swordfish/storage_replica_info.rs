@@ -16,6 +16,11 @@ pub enum ReplicaInfo {
     V010102(crate::swordfish::storage_replica_info::v1_1_2::ReplicaInfo),
     V010002(crate::swordfish::storage_replica_info::v1_0_2::ReplicaInfo),
 }
+impl Default for ReplicaInfo {
+    fn default() -> Self {
+        Self::V010400(Default::default())
+    }
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum ReplicaType {
     #[default]
@@ -49,6 +54,11 @@ pub enum StorageReplicaInfo {
     V010102(crate::swordfish::storage_replica_info::v1_1_2::StorageReplicaInfo),
     V010002(crate::swordfish::storage_replica_info::v1_0_2::StorageReplicaInfo),
     OdataV4IdRef(crate::odata_v4::IdRef),
+}
+impl Default for StorageReplicaInfo {
+    fn default() -> Self {
+        Self::V010400(Default::default())
+    }
 }
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};

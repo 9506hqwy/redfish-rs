@@ -28,6 +28,11 @@ pub enum FileSystem {
     V010003(crate::swordfish::file_system::v1_0_3::FileSystem),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for FileSystem {
+    fn default() -> Self {
+        Self::V010300(Default::default())
+    }
+}
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ImportedShare {}

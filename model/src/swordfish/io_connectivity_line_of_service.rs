@@ -7,6 +7,11 @@ pub enum IOConnectivityLineOfService {
     V010003(crate::swordfish::io_connectivity_line_of_service::v1_0_3::IOConnectivityLineOfService),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for IOConnectivityLineOfService {
+    fn default() -> Self {
+        Self::V010201(Default::default())
+    }
+}
 pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

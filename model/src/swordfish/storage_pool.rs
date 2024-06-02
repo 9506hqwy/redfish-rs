@@ -33,6 +33,11 @@ pub enum StoragePool {
     V010002(crate::swordfish::storage_pool::v1_0_2::StoragePool),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for StoragePool {
+    fn default() -> Self {
+        Self::V010800(Default::default())
+    }
+}
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

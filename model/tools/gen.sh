@@ -4,7 +4,7 @@ set -eu
 
 DSP8010_VERSION='2023.3'
 SWORDFISH_VERSION='1.2.5a'
-TOOLS_VERSION='0.2.0'
+TOOLS_VERSION='0.3.0'
 
 DSP8010_FILE="DSP8010_${DSP8010_VERSION}.zip"
 DSP8010_URL="https://www.dmtf.org/sites/default/files/standards/documents/${DSP8010_FILE}"

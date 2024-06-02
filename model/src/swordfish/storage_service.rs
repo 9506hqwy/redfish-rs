@@ -11,6 +11,11 @@ pub enum StorageService {
     V010005(crate::swordfish::storage_service::v1_0_5::StorageService),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for StorageService {
+    fn default() -> Self {
+        Self::V010600(Default::default())
+    }
+}
 pub mod v1_0_5 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

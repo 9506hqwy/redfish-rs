@@ -20,6 +20,11 @@ pub enum ConsistencyGroup {
     V010001(crate::swordfish::consistency_group::v1_0_1::ConsistencyGroup),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for ConsistencyGroup {
+    fn default() -> Self {
+        Self::V010101(Default::default())
+    }
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum ConsistencyType {
     #[default]

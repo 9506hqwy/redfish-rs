@@ -6,6 +6,11 @@ pub enum IOPerformanceLineOfService {
     V010003(crate::swordfish::io_performance_line_of_service::v1_0_3::IOPerformanceLineOfService),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for IOPerformanceLineOfService {
+    fn default() -> Self {
+        Self::V010101(Default::default())
+    }
+}
 pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

@@ -13,6 +13,11 @@ pub enum DataProtectionLoSCapabilities {
     ),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for DataProtectionLoSCapabilities {
+    fn default() -> Self {
+        Self::V010200(Default::default())
+    }
+}
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum FailureDomainScope {
     #[default]

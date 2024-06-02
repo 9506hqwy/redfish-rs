@@ -8,6 +8,11 @@ pub enum DataStorageLineOfService {
     V010002(crate::swordfish::data_storage_line_of_service::v1_0_2::DataStorageLineOfService),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for DataStorageLineOfService {
+    fn default() -> Self {
+        Self::V010301(Default::default())
+    }
+}
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

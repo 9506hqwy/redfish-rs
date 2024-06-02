@@ -6,6 +6,11 @@ pub enum DataSecurityLineOfService {
     V010002(crate::swordfish::data_security_line_of_service::v1_0_2::DataSecurityLineOfService),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for DataSecurityLineOfService {
+    fn default() -> Self {
+        Self::V010101(Default::default())
+    }
+}
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

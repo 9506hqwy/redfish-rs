@@ -13,6 +13,11 @@ pub enum IOConnectivityLoSCapabilities {
     ),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for IOConnectivityLoSCapabilities {
+    fn default() -> Self {
+        Self::V010200(Default::default())
+    }
+}
 pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

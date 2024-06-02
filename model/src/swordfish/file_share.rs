@@ -8,6 +8,11 @@ pub enum FileShare {
     V010002(crate::swordfish::file_share::v1_0_2::FileShare),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for FileShare {
+    fn default() -> Self {
+        Self::V010300(Default::default())
+    }
+}
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

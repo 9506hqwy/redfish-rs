@@ -5,6 +5,11 @@ pub enum VolumeMetrics {
     V010000(crate::swordfish::volume_metrics::v1_0_0::VolumeMetrics),
     OdataV4IdRef(crate::odata_v4::IdRef),
 }
+impl Default for VolumeMetrics {
+    fn default() -> Self {
+        Self::V010000(Default::default())
+    }
+}
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
