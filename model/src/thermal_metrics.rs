@@ -1,15 +1,15 @@
 pub type ThermalMetrics = crate::thermal_metrics::v1_3_2::ThermalMetrics;
-pub mod v1_2_0 {
+pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal_metrics::v1_2_0::OemActions>,
+        pub oem: Option<crate::thermal_metrics::v1_3_1::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ThermalMetrics.ResetMetrics"
         )]
-        pub thermal_metrics_reset_metrics: Option<crate::thermal_metrics::v1_2_0::ResetMetrics>,
+        pub thermal_metrics_reset_metrics: Option<crate::thermal_metrics::v1_3_1::ResetMetrics>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HeaterSummary {
@@ -49,7 +49,7 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ThermalMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal_metrics::v1_2_0::Actions>,
+        pub actions: Option<crate::thermal_metrics::v1_3_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AirFlowCubicMetersPerMinute"
@@ -59,8 +59,10 @@ pub mod v1_2_0 {
         pub delta_pressurek_pa: Option<crate::sensor::SensorExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "EnergykWh")]
+        pub energyk_wh: Option<crate::sensor::SensorEnergykWhExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HeaterSummary")]
-        pub heater_summary: Option<crate::thermal_metrics::v1_2_0::HeaterSummary>,
+        pub heater_summary: Option<crate::thermal_metrics::v1_3_1::HeaterSummary>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -75,6 +77,8 @@ pub mod v1_2_0 {
         pub odata_type: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "PowerWatts")]
+        pub power_watts: Option<crate::sensor::SensorPowerExcerpt>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TemperatureReadingsCelsius"
@@ -89,7 +93,7 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "TemperatureSummaryCelsius"
         )]
-        pub temperature_summary_celsius: Option<crate::thermal_metrics::v1_2_0::TemperatureSummary>,
+        pub temperature_summary_celsius: Option<crate::thermal_metrics::v1_3_1::TemperatureSummary>,
     }
 }
 pub mod v1_3_2 {

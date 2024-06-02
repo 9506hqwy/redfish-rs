@@ -1,10 +1,10 @@
 pub type CoolingUnit = crate::cooling_unit::v1_1_2::CoolingUnit;
-pub mod v1_0_0 {
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::cooling_unit::v1_0_0::OemActions>,
+        pub oem: Option<crate::cooling_unit::v1_1_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CoolingEquipmentType {
@@ -19,13 +19,18 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoolingUnit {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::cooling_unit::v1_0_0::Actions>,
+        pub actions: Option<crate::cooling_unit::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Coolant")]
         pub coolant: Option<crate::cooling_loop::Coolant>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "CoolantConnectorRedundancy"
+        )]
+        pub coolant_connector_redundancy: Option<Vec<crate::redundancy::RedundantGroup>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CoolingCapacityWatts"
@@ -36,7 +41,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "EquipmentType")]
-        pub equipment_type: crate::cooling_unit::v1_0_0::CoolingEquipmentType,
+        pub equipment_type: crate::cooling_unit::v1_1_1::CoolingEquipmentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FilterRedundancy")]
         pub filter_redundancy: Option<Vec<crate::redundancy::RedundantGroup>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Filters")]
@@ -48,7 +53,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LeakDetection")]
         pub leak_detection: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::cooling_unit::v1_0_0::Links>,
+        pub links: Option<crate::cooling_unit::v1_1_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]

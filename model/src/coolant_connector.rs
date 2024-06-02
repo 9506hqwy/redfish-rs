@@ -1,22 +1,22 @@
 pub type CoolantConnector = crate::coolant_connector::v1_0_2::CoolantConnector;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::coolant_connector::v1_0_0::OemActions>,
+        pub oem: Option<crate::coolant_connector::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoolantConnector {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::coolant_connector::v1_0_0::Actions>,
+        pub actions: Option<crate::coolant_connector::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Coolant")]
         pub coolant: Option<crate::cooling_loop::Coolant>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CoolantConnectorType"
         )]
-        pub coolant_connector_type: Option<crate::coolant_connector::v1_0_0::CoolantConnectorType>,
+        pub coolant_connector_type: Option<crate::coolant_connector::v1_0_1::CoolantConnectorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingLoopName")]
         pub cooling_loop_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingManagerURI")]
@@ -40,7 +40,7 @@ pub mod v1_0_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::coolant_connector::v1_0_0::Links>,
+        pub links: Option<crate::coolant_connector::v1_0_1::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"

@@ -1,10 +1,10 @@
 pub type SecurityPolicy = crate::security_policy::v1_0_2::SecurityPolicy;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::security_policy::v1_0_0::OemActions>,
+        pub oem: Option<crate::security_policy::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -20,7 +20,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SPDMParameterSet {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Algorithms")]
-        pub algorithms: Option<crate::security_policy::v1_0_0::SPDMAlgorithmSet>,
+        pub algorithms: Option<crate::security_policy::v1_0_1::SPDMAlgorithmSet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Versions")]
         pub versions: Option<Vec<String>>,
     }
@@ -32,9 +32,9 @@ pub mod v1_0_0 {
         )]
         pub allow_extended_algorithms: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Allowed")]
-        pub allowed: Option<crate::security_policy::v1_0_0::SPDMParameterSet>,
+        pub allowed: Option<crate::security_policy::v1_0_1::SPDMParameterSet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Denied")]
-        pub denied: Option<crate::security_policy::v1_0_0::SPDMParameterSet>,
+        pub denied: Option<crate::security_policy::v1_0_1::SPDMParameterSet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
         pub enabled: Option<bool>,
         #[serde(
@@ -58,7 +58,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SecurityPolicy {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::security_policy::v1_0_0::Actions>,
+        pub actions: Option<crate::security_policy::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -81,11 +81,11 @@ pub mod v1_0_0 {
         )]
         pub override_parent_manager: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SPDM")]
-        pub spdm: Option<crate::security_policy::v1_0_0::SPDMPolicy>,
+        pub spdm: Option<crate::security_policy::v1_0_1::SPDMPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TLS")]
-        pub tls: Option<crate::security_policy::v1_0_0::TLSCommunication>,
+        pub tls: Option<crate::security_policy::v1_0_1::TLSCommunication>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TLSAlgorithmSet {
@@ -100,23 +100,23 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TLSCommunication {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Client")]
-        pub client: Option<crate::security_policy::v1_0_0::TLSPolicy>,
+        pub client: Option<crate::security_policy::v1_0_1::TLSPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Server")]
-        pub server: Option<crate::security_policy::v1_0_0::TLSPolicy>,
+        pub server: Option<crate::security_policy::v1_0_1::TLSPolicy>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TLSParameterSet {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Algorithms")]
-        pub algorithms: Option<crate::security_policy::v1_0_0::TLSAlgorithmSet>,
+        pub algorithms: Option<crate::security_policy::v1_0_1::TLSAlgorithmSet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Versions")]
         pub versions: Option<Vec<String>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TLSPolicy {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Allowed")]
-        pub allowed: Option<crate::security_policy::v1_0_0::TLSParameterSet>,
+        pub allowed: Option<crate::security_policy::v1_0_1::TLSParameterSet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Denied")]
-        pub denied: Option<crate::security_policy::v1_0_0::TLSParameterSet>,
+        pub denied: Option<crate::security_policy::v1_0_1::TLSParameterSet>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RevokedCertificates"

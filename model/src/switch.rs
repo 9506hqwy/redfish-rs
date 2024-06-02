@@ -1,12 +1,12 @@
 pub type Switch = crate::switch::v1_9_3::Switch;
-pub mod v1_9_1 {
+pub mod v1_9_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::switch::v1_9_1::OemActions>,
+        pub oem: Option<crate::switch::v1_9_2::OemActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Switch.Reset")]
-        pub switch_reset: Option<crate::switch::v1_9_1::Reset>,
+        pub switch_reset: Option<crate::switch::v1_9_2::Reset>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXL {
@@ -15,7 +15,7 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalNumbervPPBs")]
         pub total_numberv_pp_bs: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VCS")]
-        pub vcs: Option<crate::switch::v1_9_1::VCSSwitch>,
+        pub vcs: Option<crate::switch::v1_9_2::VCSSwitch>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -57,7 +57,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Switch {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::switch::v1_9_1::Actions>,
+        pub actions: Option<crate::switch::v1_9_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
@@ -68,7 +68,7 @@ pub mod v1_9_1 {
         )]
         pub current_bandwidth_gbps: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::switch::v1_9_1::CXL>,
+        pub cxl: Option<crate::switch::v1_9_2::CXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DomainID")]
@@ -86,7 +86,7 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsManaged")]
         pub is_managed: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::switch::v1_9_1::Links>,
+        pub links: Option<crate::switch::v1_9_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(

@@ -1,5 +1,5 @@
 pub type ServiceRoot = crate::service_root::v1_17_0::ServiceRoot;
-pub mod v1_16_0 {
+pub mod v1_16_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct DeepOperations {
@@ -38,11 +38,11 @@ pub mod v1_16_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ProtocolFeaturesSupported {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeepOperations")]
-        pub deep_operations: Option<crate::service_root::v1_16_0::DeepOperations>,
+        pub deep_operations: Option<crate::service_root::v1_16_1::DeepOperations>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExcerptQuery")]
         pub excerpt_query: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExpandQuery")]
-        pub expand_query: Option<crate::service_root::v1_16_0::Expand>,
+        pub expand_query: Option<crate::service_root::v1_16_1::Expand>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FilterQuery")]
         pub filter_query: Option<bool>,
         #[serde(
@@ -90,7 +90,7 @@ pub mod v1_16_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseService")]
         pub license_service: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Links")]
-        pub links: crate::service_root::v1_16_0::Links,
+        pub links: crate::service_root::v1_16_1::Links,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Managers")]
         pub managers: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Name")]
@@ -116,7 +116,7 @@ pub mod v1_16_0 {
             rename = "ProtocolFeaturesSupported"
         )]
         pub protocol_features_supported:
-            Option<crate::service_root::v1_16_0::ProtocolFeaturesSupported>,
+            Option<crate::service_root::v1_16_1::ProtocolFeaturesSupported>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RedfishVersion")]
         pub redfish_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegisteredClients")]

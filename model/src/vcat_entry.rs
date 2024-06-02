@@ -1,17 +1,17 @@
 pub type VCATEntry = crate::vcat_entry::v1_0_3::VCATEntry;
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::vcat_entry::v1_0_1::OemActions>,
+        pub oem: Option<crate::vcat_entry::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VCATEntry {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::vcat_entry::v1_0_1::Actions>,
+        pub actions: Option<crate::vcat_entry::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -31,7 +31,7 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RawEntryHex")]
         pub raw_entry_hex: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VCEntries")]
-        pub vc_entries: Option<Vec<crate::vcat_entry::v1_0_1::VCATableEntry>>,
+        pub vc_entries: Option<Vec<crate::vcat_entry::v1_0_2::VCATableEntry>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VCATableEntry {

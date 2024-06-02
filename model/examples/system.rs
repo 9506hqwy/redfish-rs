@@ -1,6 +1,6 @@
 use redfish_model::computer_system::ComputerSystem;
 use redfish_model::computer_system_collection::ComputerSystemCollection;
-use redfish_model::service_root::v1_16_0::ServiceRoot;
+use redfish_model::service_root::v1_17_0::ServiceRoot;
 use reqwest::blocking::ClientBuilder;
 use std::env::args;
 use std::error::Error;

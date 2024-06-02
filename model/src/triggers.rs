@@ -1,10 +1,10 @@
 pub type Triggers = crate::triggers::v1_4_0::Triggers;
-pub mod v1_3_1 {
+pub mod v1_3_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::triggers::v1_3_1::OemActions>,
+        pub oem: Option<crate::triggers::v1_3_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DirectionOfCrossingEnum {
@@ -61,7 +61,7 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Threshold {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Activation")]
-        pub activation: Option<crate::triggers::v1_3_1::ThresholdActivation>,
+        pub activation: Option<crate::triggers::v1_3_2::ThresholdActivation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DwellTime")]
         pub dwell_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -82,13 +82,13 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Thresholds {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowerCritical")]
-        pub lower_critical: Option<crate::triggers::v1_3_1::Threshold>,
+        pub lower_critical: Option<crate::triggers::v1_3_2::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowerWarning")]
-        pub lower_warning: Option<crate::triggers::v1_3_1::Threshold>,
+        pub lower_warning: Option<crate::triggers::v1_3_2::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpperCritical")]
-        pub upper_critical: Option<crate::triggers::v1_3_1::Threshold>,
+        pub upper_critical: Option<crate::triggers::v1_3_2::Threshold>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpperWarning")]
-        pub upper_warning: Option<crate::triggers::v1_3_1::Threshold>,
+        pub upper_warning: Option<crate::triggers::v1_3_2::Threshold>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum TriggerActionEnum {
@@ -103,7 +103,7 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Triggers {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::triggers::v1_3_1::Actions>,
+        pub actions: Option<crate::triggers::v1_3_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
@@ -111,9 +111,9 @@ pub mod v1_3_1 {
             rename = "DiscreteTriggerCondition"
         )]
         pub discrete_trigger_condition:
-            Option<crate::triggers::v1_3_1::DiscreteTriggerConditionEnum>,
+            Option<crate::triggers::v1_3_2::DiscreteTriggerConditionEnum>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiscreteTriggers")]
-        pub discrete_triggers: Option<Vec<crate::triggers::v1_3_1::DiscreteTrigger>>,
+        pub discrete_triggers: Option<Vec<crate::triggers::v1_3_2::DiscreteTrigger>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventTriggers")]
         pub event_triggers: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HysteresisDuration")]
@@ -123,17 +123,17 @@ pub mod v1_3_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::triggers::v1_3_1::Links>,
+        pub links: Option<crate::triggers::v1_3_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricIds")]
         pub metric_ids: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricProperties")]
         pub metric_properties: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricType")]
-        pub metric_type: Option<crate::triggers::v1_3_1::MetricTypeEnum>,
+        pub metric_type: Option<crate::triggers::v1_3_2::MetricTypeEnum>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NumericThresholds")]
-        pub numeric_thresholds: Option<crate::triggers::v1_3_1::Thresholds>,
+        pub numeric_thresholds: Option<crate::triggers::v1_3_2::Thresholds>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -147,9 +147,9 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TriggerActions")]
-        pub trigger_actions: Option<Vec<crate::triggers::v1_3_1::TriggerActionEnum>>,
+        pub trigger_actions: Option<Vec<crate::triggers::v1_3_2::TriggerActionEnum>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Wildcards")]
-        pub wildcards: Option<Vec<crate::triggers::v1_3_1::Wildcard>>,
+        pub wildcards: Option<Vec<crate::triggers::v1_3_2::Wildcard>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Wildcard {

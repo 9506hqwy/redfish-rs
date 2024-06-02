@@ -1,15 +1,15 @@
 pub type GraphicsController = crate::graphics_controller::v1_0_2::GraphicsController;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::graphics_controller::v1_0_0::OemActions>,
+        pub oem: Option<crate::graphics_controller::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GraphicsController {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::graphics_controller::v1_0_0::Actions>,
+        pub actions: Option<crate::graphics_controller::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BiosVersion")]
@@ -21,7 +21,7 @@ pub mod v1_0_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::graphics_controller::v1_0_0::Links>,
+        pub links: Option<crate::graphics_controller::v1_0_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]

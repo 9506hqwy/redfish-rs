@@ -1,20 +1,20 @@
 pub type VirtualMedia = crate::virtual_media::v1_6_4::VirtualMedia;
-pub mod v1_6_1 {
+pub mod v1_6_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::virtual_media::v1_6_1::OemActions>,
+        pub oem: Option<crate::virtual_media::v1_6_3::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#VirtualMedia.EjectMedia"
         )]
-        pub virtual_media_eject_media: Option<crate::virtual_media::v1_6_1::EjectMedia>,
+        pub virtual_media_eject_media: Option<crate::virtual_media::v1_6_3::EjectMedia>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#VirtualMedia.InsertMedia"
         )]
-        pub virtual_media_insert_media: Option<crate::virtual_media::v1_6_1::InsertMedia>,
+        pub virtual_media_insert_media: Option<crate::virtual_media::v1_6_3::InsertMedia>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ConnectedVia {
@@ -67,12 +67,12 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferMethod")]
-        pub transfer_method: Option<crate::virtual_media::v1_6_1::TransferMethod>,
+        pub transfer_method: Option<crate::virtual_media::v1_6_3::TransferMethod>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TransferProtocolType"
         )]
-        pub transfer_protocol_type: Option<crate::virtual_media::v1_6_1::TransferProtocolType>,
+        pub transfer_protocol_type: Option<crate::virtual_media::v1_6_3::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
         pub user_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteProtected")]
@@ -125,17 +125,17 @@ pub mod v1_6_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VirtualMedia {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::virtual_media::v1_6_1::Actions>,
+        pub actions: Option<crate::virtual_media::v1_6_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientCertificates")]
         pub client_certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectedVia")]
-        pub connected_via: Option<crate::virtual_media::v1_6_1::ConnectedVia>,
+        pub connected_via: Option<crate::virtual_media::v1_6_3::ConnectedVia>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EjectPolicy")]
-        pub eject_policy: Option<crate::virtual_media::v1_6_1::EjectPolicy>,
+        pub eject_policy: Option<crate::virtual_media::v1_6_3::EjectPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EjectTimeout")]
         pub eject_timeout: Option<String>,
         #[serde(rename = "Id")]
@@ -147,7 +147,7 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Inserted")]
         pub inserted: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaTypes")]
-        pub media_types: Option<Vec<crate::virtual_media::v1_6_1::MediaType>>,
+        pub media_types: Option<Vec<crate::virtual_media::v1_6_3::MediaType>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -165,12 +165,12 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferMethod")]
-        pub transfer_method: Option<crate::virtual_media::v1_6_1::TransferMethod>,
+        pub transfer_method: Option<crate::virtual_media::v1_6_3::TransferMethod>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TransferProtocolType"
         )]
-        pub transfer_protocol_type: Option<crate::virtual_media::v1_6_1::TransferProtocolType>,
+        pub transfer_protocol_type: Option<crate::virtual_media::v1_6_3::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
         pub user_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerifyCertificate")]

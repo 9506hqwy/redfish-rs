@@ -1,15 +1,15 @@
 pub type CompositionReservation = crate::composition_reservation::v1_0_2::CompositionReservation;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::composition_reservation::v1_0_0::OemActions>,
+        pub oem: Option<crate::composition_reservation::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CompositionReservation {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::composition_reservation::v1_0_0::Actions>,
+        pub actions: Option<crate::composition_reservation::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Client")]
         pub client: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]

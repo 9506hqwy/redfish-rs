@@ -36,7 +36,7 @@ pub enum BootSource {
     Utilities,
 }
 pub type ComputerSystem = crate::computer_system::v1_22_1::ComputerSystem;
-pub mod v1_20_1 {
+pub mod v1_22_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -45,26 +45,31 @@ pub mod v1_20_1 {
             rename = "#ComputerSystem.AddResourceBlock"
         )]
         pub computer_system_add_resource_block:
-            Option<crate::computer_system::v1_20_1::AddResourceBlock>,
+            Option<crate::computer_system::v1_22_0::AddResourceBlock>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#ComputerSystem.Decommission"
+        )]
+        pub computer_system_decommission: Option<crate::computer_system::v1_22_0::Decommission>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComputerSystem.RemoveResourceBlock"
         )]
         pub computer_system_remove_resource_block:
-            Option<crate::computer_system::v1_20_1::RemoveResourceBlock>,
+            Option<crate::computer_system::v1_22_0::RemoveResourceBlock>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComputerSystem.Reset"
         )]
-        pub computer_system_reset: Option<crate::computer_system::v1_20_1::Reset>,
+        pub computer_system_reset: Option<crate::computer_system::v1_22_0::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComputerSystem.SetDefaultBootOrder"
         )]
         pub computer_system_set_default_boot_order:
-            Option<crate::computer_system::v1_20_1::SetDefaultBootOrder>,
+            Option<crate::computer_system::v1_22_0::SetDefaultBootOrder>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::computer_system::v1_20_1::OemActions>,
+        pub oem: Option<crate::computer_system::v1_22_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AddResourceBlock {
@@ -105,7 +110,7 @@ pub mod v1_20_1 {
             skip_serializing_if = "Option::is_none",
             rename = "AutomaticRetryConfig"
         )]
-        pub automatic_retry_config: Option<crate::computer_system::v1_20_1::AutomaticRetryConfig>,
+        pub automatic_retry_config: Option<crate::computer_system::v1_22_0::AutomaticRetryConfig>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootNext")]
         pub boot_next: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootOptions")]
@@ -116,19 +121,19 @@ pub mod v1_20_1 {
             skip_serializing_if = "Option::is_none",
             rename = "BootOrderPropertySelection"
         )]
-        pub boot_order_property_selection: Option<crate::computer_system::v1_20_1::BootOrderTypes>,
+        pub boot_order_property_selection: Option<crate::computer_system::v1_22_0::BootOrderTypes>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "BootSourceOverrideEnabled"
         )]
         pub boot_source_override_enabled:
-            Option<crate::computer_system::v1_20_1::BootSourceOverrideEnabled>,
+            Option<crate::computer_system::v1_22_0::BootSourceOverrideEnabled>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "BootSourceOverrideMode"
         )]
         pub boot_source_override_mode:
-            Option<crate::computer_system::v1_20_1::BootSourceOverrideMode>,
+            Option<crate::computer_system::v1_22_0::BootSourceOverrideMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "BootSourceOverrideTarget"
@@ -144,13 +149,13 @@ pub mod v1_20_1 {
         )]
         pub remaining_automatic_retry_attempts: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StopBootOnFault")]
-        pub stop_boot_on_fault: Option<crate::computer_system::v1_20_1::StopBootOnFault>,
+        pub stop_boot_on_fault: Option<crate::computer_system::v1_22_0::StopBootOnFault>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TrustedModuleRequiredToBoot"
         )]
         pub trusted_module_required_to_boot:
-            Option<crate::computer_system::v1_20_1::TrustedModuleRequiredToBoot>,
+            Option<crate::computer_system::v1_22_0::TrustedModuleRequiredToBoot>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UefiTargetBootSourceOverride"
@@ -173,7 +178,7 @@ pub mod v1_20_1 {
         )]
         pub last_boot_time_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastState")]
-        pub last_state: Option<crate::computer_system::v1_20_1::BootProgressTypes>,
+        pub last_state: Option<crate::computer_system::v1_22_0::BootProgressTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastStateTime")]
         pub last_state_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -228,7 +233,7 @@ pub mod v1_20_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Composition {
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseCases")]
-        pub use_cases: Option<Vec<crate::computer_system::v1_20_1::CompositionUseCase>>,
+        pub use_cases: Option<Vec<crate::computer_system::v1_22_0::CompositionUseCase>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CompositionUseCase {
@@ -241,7 +246,7 @@ pub mod v1_20_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ComputerSystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::computer_system::v1_20_1::Actions>,
+        pub actions: Option<crate::computer_system::v1_22_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Bios")]
@@ -249,13 +254,13 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BiosVersion")]
         pub bios_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Boot")]
-        pub boot: Option<crate::computer_system::v1_20_1::Boot>,
+        pub boot: Option<crate::computer_system::v1_22_0::Boot>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootProgress")]
-        pub boot_progress: Option<crate::computer_system::v1_20_1::BootProgress>,
+        pub boot_progress: Option<crate::computer_system::v1_22_0::BootProgress>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Composition")]
-        pub composition: Option<crate::computer_system::v1_20_1::Composition>,
+        pub composition: Option<crate::computer_system::v1_22_0::Composition>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EthernetInterfaces")]
@@ -263,7 +268,7 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FabricAdapters")]
         pub fabric_adapters: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GraphicalConsole")]
-        pub graphical_console: Option<crate::computer_system::v1_20_1::HostGraphicalConsole>,
+        pub graphical_console: Option<crate::computer_system::v1_22_0::HostGraphicalConsole>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "GraphicsControllers"
@@ -272,23 +277,23 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostName")]
         pub host_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostWatchdogTimer")]
-        pub host_watchdog_timer: Option<crate::computer_system::v1_20_1::WatchdogTimer>,
+        pub host_watchdog_timer: Option<crate::computer_system::v1_22_0::WatchdogTimer>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostedServices")]
-        pub hosted_services: Option<crate::computer_system::v1_20_1::HostedServices>,
+        pub hosted_services: Option<crate::computer_system::v1_22_0::HostedServices>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostingRoles")]
-        pub hosting_roles: Option<Vec<crate::computer_system::v1_20_1::HostingRole>>,
+        pub hosting_roles: Option<Vec<crate::computer_system::v1_22_0::HostingRole>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IdlePowerSaver")]
-        pub idle_power_saver: Option<crate::computer_system::v1_20_1::IdlePowerSaver>,
+        pub idle_power_saver: Option<crate::computer_system::v1_22_0::IdlePowerSaver>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<crate::computer_system::v1_20_1::IndicatorLED>,
+        pub indicator_led: Option<crate::computer_system::v1_22_0::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyManagement")]
-        pub key_management: Option<crate::computer_system::v1_20_1::KeyManagement>,
+        pub key_management: Option<crate::computer_system::v1_22_0::KeyManagement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastResetTime")]
         pub last_reset_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::computer_system::v1_20_1::Links>,
+        pub links: Option<crate::computer_system::v1_22_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -307,7 +312,7 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryDomains")]
         pub memory_domains: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemorySummary")]
-        pub memory_summary: Option<crate::computer_system::v1_20_1::MemorySummary>,
+        pub memory_summary: Option<crate::computer_system::v1_22_0::MemorySummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(rename = "Name")]
@@ -324,6 +329,8 @@ pub mod v1_20_1 {
         pub odata_type: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "OperatingSystem")]
+        pub operating_system: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeDevices")]
@@ -346,7 +353,7 @@ pub mod v1_20_1 {
         )]
         pub power_cycle_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerMode")]
-        pub power_mode: Option<crate::computer_system::v1_20_1::PowerMode>,
+        pub power_mode: Option<crate::computer_system::v1_22_0::PowerMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerOffDelaySeconds"
@@ -358,11 +365,11 @@ pub mod v1_20_1 {
         )]
         pub power_on_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerRestorePolicy")]
-        pub power_restore_policy: Option<crate::computer_system::v1_20_1::PowerRestorePolicyTypes>,
+        pub power_restore_policy: Option<crate::computer_system::v1_22_0::PowerRestorePolicyTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
         pub power_state: Option<crate::resource::PowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorSummary")]
-        pub processor_summary: Option<crate::computer_system::v1_20_1::ProcessorSummary>,
+        pub processor_summary: Option<crate::computer_system::v1_22_0::ProcessorSummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Processors")]
         pub processors: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
@@ -375,7 +382,7 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecureBoot")]
         pub secure_boot: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialConsole")]
-        pub serial_console: Option<crate::computer_system::v1_20_1::HostSerialConsole>,
+        pub serial_console: Option<crate::computer_system::v1_22_0::HostSerialConsole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SimpleStorage")]
@@ -389,9 +396,9 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SubModel")]
         pub sub_model: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemType")]
-        pub system_type: Option<crate::computer_system::v1_20_1::SystemType>,
+        pub system_type: Option<crate::computer_system::v1_22_0::SystemType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrustedModules")]
-        pub trusted_modules: Option<Vec<crate::computer_system::v1_20_1::TrustedModules>>,
+        pub trusted_modules: Option<Vec<crate::computer_system::v1_22_0::TrustedModules>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "USBControllers")]
         pub usb_controllers: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
@@ -399,7 +406,46 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMedia")]
         pub virtual_media: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMediaConfig")]
-        pub virtual_media_config: Option<crate::computer_system::v1_20_1::VirtualMediaConfig>,
+        pub virtual_media_config: Option<crate::computer_system::v1_22_0::VirtualMediaConfig>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Decommission {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DecommissionRequestBody {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ComputerSystemETag")]
+        pub computer_system_etag: Option<String>,
+        #[serde(rename = "DecommissionTypes")]
+        pub decommission_types: Vec<crate::computer_system::v1_22_0::DecommissionType>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "OEMDecommissionTypes"
+        )]
+        pub oem_decommission_types: Option<Vec<String>>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "RequireSecureErase")]
+        pub require_secure_erase: Option<bool>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum DecommissionType {
+        #[default]
+        #[serde(rename = "All")]
+        All,
+        #[serde(rename = "BIOSConfig")]
+        BIOSConfig,
+        #[serde(rename = "Logs")]
+        Logs,
+        #[serde(rename = "ManagerConfig")]
+        ManagerConfig,
+        #[serde(rename = "NetworkConfig")]
+        NetworkConfig,
+        #[serde(rename = "StorageConfig")]
+        StorageConfig,
+        #[serde(rename = "UserData")]
+        UserData,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum GraphicalConnectTypesSupported {
@@ -416,7 +462,7 @@ pub mod v1_20_1 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::computer_system::v1_20_1::GraphicalConnectTypesSupported>>,
+            Option<Vec<crate::computer_system::v1_22_0::GraphicalConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -430,16 +476,16 @@ pub mod v1_20_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HostSerialConsole {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPMI")]
-        pub ipmi: Option<crate::computer_system::v1_20_1::SerialConsoleProtocol>,
+        pub ipmi: Option<crate::computer_system::v1_22_0::SerialConsoleProtocol>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
         )]
         pub max_concurrent_sessions: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSH")]
-        pub ssh: Option<crate::computer_system::v1_20_1::SerialConsoleProtocol>,
+        pub ssh: Option<crate::computer_system::v1_22_0::SerialConsoleProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Telnet")]
-        pub telnet: Option<crate::computer_system::v1_20_1::SerialConsoleProtocol>,
+        pub telnet: Option<crate::computer_system::v1_22_0::SerialConsoleProtocol>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HostedServices {
@@ -540,7 +586,7 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheDuration")]
         pub cache_duration: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CachePolicy")]
-        pub cache_policy: Option<crate::computer_system::v1_20_1::KMIPCachePolicy>,
+        pub cache_policy: Option<crate::computer_system::v1_22_0::KMIPCachePolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Port")]
@@ -553,7 +599,7 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "KMIPCertificates")]
         pub kmip_certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KMIPServers")]
-        pub kmip_servers: Option<Vec<crate::computer_system::v1_20_1::KMIPServer>>,
+        pub kmip_servers: Option<Vec<crate::computer_system::v1_22_0::KMIPServer>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -588,6 +634,11 @@ pub mod v1_20_1 {
             rename = "Endpoints@odata.count"
         )]
         pub endpoints_odata_count: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "HostingComputerSystem"
+        )]
+        pub hosting_computer_system: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagedBy")]
         pub managed_by: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -638,6 +689,13 @@ pub mod v1_20_1 {
             rename = "TrustedComponents@odata.count"
         )]
         pub trusted_components_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMachines")]
+        pub virtual_machines: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "VirtualMachines@odata.count"
+        )]
+        pub virtual_machines_odata_count: Option<i64>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum MemoryMirroring {
@@ -654,7 +712,7 @@ pub mod v1_20_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemorySummary {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryMirroring")]
-        pub memory_mirroring: Option<crate::computer_system::v1_20_1::MemoryMirroring>,
+        pub memory_mirroring: Option<crate::computer_system::v1_22_0::MemoryMirroring>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
         pub metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -677,6 +735,10 @@ pub mod v1_20_1 {
         #[default]
         #[serde(rename = "BalancedPerformance")]
         BalancedPerformance,
+        #[serde(rename = "EfficiencyFavorPerformance")]
+        EfficiencyFavorPerformance,
+        #[serde(rename = "EfficiencyFavorPower")]
+        EfficiencyFavorPower,
         #[serde(rename = "MaximumPerformance")]
         MaximumPerformance,
         #[serde(rename = "OEM")]
@@ -818,13 +880,13 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion2")]
         pub firmware_version2: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceType")]
-        pub interface_type: Option<crate::computer_system::v1_20_1::InterfaceType>,
+        pub interface_type: Option<crate::computer_system::v1_22_0::InterfaceType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "InterfaceTypeSelection"
         )]
         pub interface_type_selection:
-            Option<crate::computer_system::v1_20_1::InterfaceTypeSelection>,
+            Option<crate::computer_system::v1_22_0::InterfaceTypeSelection>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -860,9 +922,9 @@ pub mod v1_20_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(rename = "TimeoutAction")]
-        pub timeout_action: Option<crate::computer_system::v1_20_1::WatchdogTimeoutActions>,
+        pub timeout_action: Option<crate::computer_system::v1_22_0::WatchdogTimeoutActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WarningAction")]
-        pub warning_action: Option<crate::computer_system::v1_20_1::WatchdogWarningActions>,
+        pub warning_action: Option<crate::computer_system::v1_22_0::WatchdogWarningActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum WatchdogWarningActions {

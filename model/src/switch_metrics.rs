@@ -1,16 +1,16 @@
 pub type SwitchMetrics = crate::switch_metrics::v1_0_2::SwitchMetrics;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::switch_metrics::v1_0_0::OemActions>,
+        pub oem: Option<crate::switch_metrics::v1_0_1::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#SwitchMetrics.ClearCurrentPeriod"
         )]
         pub switch_metrics_clear_current_period:
-            Option<crate::switch_metrics::v1_0_0::ClearCurrentPeriod>,
+            Option<crate::switch_metrics::v1_0_1::ClearCurrentPeriod>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ClearCurrentPeriod {
@@ -37,9 +37,9 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct InternalMemoryMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CurrentPeriod")]
-        pub current_period: Option<crate::switch_metrics::v1_0_0::CurrentPeriod>,
+        pub current_period: Option<crate::switch_metrics::v1_0_1::CurrentPeriod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LifeTime")]
-        pub life_time: Option<crate::switch_metrics::v1_0_0::LifeTime>,
+        pub life_time: Option<crate::switch_metrics::v1_0_1::LifeTime>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LifeTime {
@@ -59,7 +59,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SwitchMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::switch_metrics::v1_0_0::Actions>,
+        pub actions: Option<crate::switch_metrics::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -68,7 +68,7 @@ pub mod v1_0_0 {
             skip_serializing_if = "Option::is_none",
             rename = "InternalMemoryMetrics"
         )]
-        pub internal_memory_metrics: Option<crate::switch_metrics::v1_0_0::InternalMemoryMetrics>,
+        pub internal_memory_metrics: Option<crate::switch_metrics::v1_0_1::InternalMemoryMetrics>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]

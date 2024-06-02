@@ -1,10 +1,10 @@
 pub type RegisteredClient = crate::registered_client::v1_1_2::RegisteredClient;
-pub mod v1_1_0 {
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::registered_client::v1_1_0::OemActions>,
+        pub oem: Option<crate::registered_client::v1_1_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ClientType {
@@ -31,9 +31,9 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct RegisteredClient {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::registered_client::v1_1_0::Actions>,
+        pub actions: Option<crate::registered_client::v1_1_1::Actions>,
         #[serde(rename = "ClientType")]
-        pub client_type: crate::registered_client::v1_1_0::ClientType,
+        pub client_type: crate::registered_client::v1_1_1::ClientType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientURI")]
         pub client_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]
@@ -47,7 +47,7 @@ pub mod v1_1_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagedResources")]
-        pub managed_resources: Option<Vec<crate::registered_client::v1_1_0::ManagedResource>>,
+        pub managed_resources: Option<Vec<crate::registered_client::v1_1_1::ManagedResource>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]

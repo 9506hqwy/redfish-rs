@@ -1,10 +1,10 @@
 pub type Thermal = crate::thermal::v1_7_3::Thermal;
-pub mod v1_7_1 {
+pub mod v1_7_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Fan {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal::v1_7_1::FanActions>,
+        pub actions: Option<crate::thermal::v1_7_2::FanActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FanName")]
@@ -53,7 +53,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingUnits")]
-        pub reading_units: Option<crate::thermal::v1_7_1::ReadingUnits>,
+        pub reading_units: Option<crate::thermal::v1_7_2::ReadingUnits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -95,7 +95,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct FanActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal::v1_7_1::FanOemActions>,
+        pub oem: Option<crate::thermal::v1_7_2::FanOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct FanOemActions {}
@@ -110,7 +110,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Temperature {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal::v1_7_1::TemperatureActions>,
+        pub actions: Option<crate::thermal::v1_7_2::TemperatureActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdjustedMaxAllowableOperatingValue"
@@ -212,18 +212,18 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TemperatureActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal::v1_7_1::TemperatureOemActions>,
+        pub oem: Option<crate::thermal::v1_7_2::TemperatureOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TemperatureOemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Thermal {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal::v1_7_1::ThermalActions>,
+        pub actions: Option<crate::thermal::v1_7_2::ThermalActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Fans")]
-        pub fans: Option<Vec<crate::thermal::v1_7_1::Fan>>,
+        pub fans: Option<Vec<crate::thermal::v1_7_2::Fan>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Fans@odata.count")]
         pub fans_odata_count: Option<i64>,
         #[serde(rename = "Id")]
@@ -250,7 +250,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Temperatures")]
-        pub temperatures: Option<Vec<crate::thermal::v1_7_1::Temperature>>,
+        pub temperatures: Option<Vec<crate::thermal::v1_7_2::Temperature>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "Temperatures@odata.count"
@@ -260,7 +260,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ThermalActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal::v1_7_1::ThermalOemActions>,
+        pub oem: Option<crate::thermal::v1_7_2::ThermalOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ThermalOemActions {}

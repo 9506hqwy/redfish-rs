@@ -1,10 +1,10 @@
 pub type PCIeFunction = crate::pcie_function::v1_6_0::PCIeFunction;
-pub mod v1_5_0 {
+pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::pcie_function::v1_5_0::OemActions>,
+        pub oem: Option<crate::pcie_function::v1_5_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DeviceClass {
@@ -123,13 +123,13 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PCIeFunction {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::pcie_function::v1_5_0::Actions>,
+        pub actions: Option<crate::pcie_function::v1_5_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClassCode")]
         pub class_code: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceClass")]
-        pub device_class: Option<crate::pcie_function::v1_5_0::DeviceClass>,
+        pub device_class: Option<crate::pcie_function::v1_5_1::DeviceClass>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceId")]
         pub device_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
@@ -137,13 +137,13 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FunctionId")]
         pub function_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FunctionProtocol")]
-        pub function_protocol: Option<crate::pcie_function::v1_5_0::FunctionProtocol>,
+        pub function_protocol: Option<crate::pcie_function::v1_5_1::FunctionProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FunctionType")]
-        pub function_type: Option<crate::pcie_function::v1_5_0::FunctionType>,
+        pub function_type: Option<crate::pcie_function::v1_5_1::FunctionType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::pcie_function::v1_5_0::Links>,
+        pub links: Option<crate::pcie_function::v1_5_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]

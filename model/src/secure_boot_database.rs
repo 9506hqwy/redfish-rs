@@ -1,15 +1,15 @@
 pub type SecureBootDatabase = crate::secure_boot_database::v1_0_3::SecureBootDatabase;
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::secure_boot_database::v1_0_1::OemActions>,
+        pub oem: Option<crate::secure_boot_database::v1_0_2::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#SecureBootDatabase.ResetKeys"
         )]
-        pub secure_boot_database_reset_keys: Option<crate::secure_boot_database::v1_0_1::ResetKeys>,
+        pub secure_boot_database_reset_keys: Option<crate::secure_boot_database::v1_0_2::ResetKeys>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -23,7 +23,7 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetKeysRequestBody {
         #[serde(rename = "ResetKeysType")]
-        pub reset_keys_type: crate::secure_boot_database::v1_0_1::ResetKeysType,
+        pub reset_keys_type: crate::secure_boot_database::v1_0_2::ResetKeysType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetKeysType {
@@ -36,7 +36,7 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SecureBootDatabase {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::secure_boot_database::v1_0_1::Actions>,
+        pub actions: Option<crate::secure_boot_database::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DatabaseId")]

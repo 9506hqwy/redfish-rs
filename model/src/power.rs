@@ -1,20 +1,20 @@
 pub type Power = crate::power::v1_7_3::Power;
-pub mod v1_7_1 {
+pub mod v1_7_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power::v1_7_1::OemActions>,
+        pub oem: Option<crate::power::v1_7_2::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Power.PowerSupplyReset"
         )]
-        pub power_power_supply_reset: Option<crate::power::v1_7_1::PowerSupplyReset>,
+        pub power_power_supply_reset: Option<crate::power::v1_7_2::PowerSupplyReset>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct InputRange {
         #[serde(skip_serializing_if = "Option::is_none", rename = "InputType")]
-        pub input_type: Option<crate::power::v1_7_1::InputType>,
+        pub input_type: Option<crate::power::v1_7_2::InputType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaximumFrequencyHz")]
         pub maximum_frequency_hz: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaximumVoltage")]
@@ -69,7 +69,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Power {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power::v1_7_1::Actions>,
+        pub actions: Option<crate::power::v1_7_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -87,14 +87,14 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerControl")]
-        pub power_control: Option<Vec<crate::power::v1_7_1::PowerControl>>,
+        pub power_control: Option<Vec<crate::power::v1_7_2::PowerControl>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerControl@odata.count"
         )]
         pub power_control_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSupplies")]
-        pub power_supplies: Option<Vec<crate::power::v1_7_1::PowerSupply>>,
+        pub power_supplies: Option<Vec<crate::power::v1_7_2::PowerSupply>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerSupplies@odata.count"
@@ -108,7 +108,7 @@ pub mod v1_7_1 {
         )]
         pub redundancy_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Voltages")]
-        pub voltages: Option<Vec<crate::power::v1_7_1::Voltage>>,
+        pub voltages: Option<Vec<crate::power::v1_7_2::Voltage>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "Voltages@odata.count"
@@ -118,7 +118,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerControl {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power::v1_7_1::PowerControlActions>,
+        pub actions: Option<crate::power::v1_7_2::PowerControlActions>,
         #[serde(rename = "MemberId")]
         pub member_id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
@@ -144,9 +144,9 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerConsumedWatts")]
         pub power_consumed_watts: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerLimit")]
-        pub power_limit: Option<crate::power::v1_7_1::PowerLimit>,
+        pub power_limit: Option<crate::power::v1_7_2::PowerLimit>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerMetrics")]
-        pub power_metrics: Option<crate::power::v1_7_1::PowerMetric>,
+        pub power_metrics: Option<crate::power::v1_7_2::PowerMetric>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerRequestedWatts"
@@ -165,7 +165,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerControlActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power::v1_7_1::PowerControlOemActions>,
+        pub oem: Option<crate::power::v1_7_2::PowerControlOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerControlOemActions {}
@@ -174,7 +174,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CorrectionInMs")]
         pub correction_in_ms: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LimitException")]
-        pub limit_exception: Option<crate::power::v1_7_1::PowerLimitException>,
+        pub limit_exception: Option<crate::power::v1_7_2::PowerLimitException>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LimitInWatts")]
         pub limit_in_watts: Option<f64>,
     }
@@ -207,7 +207,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerSupply {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power::v1_7_1::PowerSupplyActions>,
+        pub actions: Option<crate::power::v1_7_2::PowerSupplyActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EfficiencyPercent")]
@@ -219,7 +219,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
         pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InputRanges")]
-        pub input_ranges: Option<Vec<crate::power::v1_7_1::InputRange>>,
+        pub input_ranges: Option<Vec<crate::power::v1_7_2::InputRange>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LastPowerOutputWatts"
@@ -231,7 +231,7 @@ pub mod v1_7_1 {
             skip_serializing_if = "Option::is_none",
             rename = "LineInputVoltageType"
         )]
-        pub line_input_voltage_type: Option<crate::power::v1_7_1::LineInputVoltageType>,
+        pub line_input_voltage_type: Option<crate::power::v1_7_2::LineInputVoltageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
@@ -255,7 +255,7 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerOutputWatts")]
         pub power_output_watts: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSupplyType")]
-        pub power_supply_type: Option<crate::power::v1_7_1::PowerSupplyType>,
+        pub power_supply_type: Option<crate::power::v1_7_2::PowerSupplyType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -280,7 +280,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerSupplyActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power::v1_7_1::PowerSupplyOemActions>,
+        pub oem: Option<crate::power::v1_7_2::PowerSupplyOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerSupplyOemActions {}
@@ -313,7 +313,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Voltage {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power::v1_7_1::VoltageActions>,
+        pub actions: Option<crate::power::v1_7_2::VoltageActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LowerThresholdCritical"
@@ -375,7 +375,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VoltageActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power::v1_7_1::VoltageOemActions>,
+        pub oem: Option<crate::power::v1_7_2::VoltageOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VoltageOemActions {}

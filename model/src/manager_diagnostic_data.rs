@@ -1,5 +1,5 @@
 pub type ManagerDiagnosticData = crate::manager_diagnostic_data::v1_2_3::ManagerDiagnosticData;
-pub mod v1_2_0 {
+pub mod v1_2_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -8,9 +8,9 @@ pub mod v1_2_0 {
             rename = "#ManagerDiagnosticData.ResetMetrics"
         )]
         pub manager_diagnostic_data_reset_metrics:
-            Option<crate::manager_diagnostic_data::v1_2_0::ResetMetrics>,
+            Option<crate::manager_diagnostic_data::v1_2_2::ResetMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager_diagnostic_data::v1_2_0::OemActions>,
+        pub oem: Option<crate::manager_diagnostic_data::v1_2_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BootTimeStatistics {
@@ -48,10 +48,10 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ManagerDiagnosticData {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager_diagnostic_data::v1_2_0::Actions>,
+        pub actions: Option<crate::manager_diagnostic_data::v1_2_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootTimeStatistics")]
         pub boot_time_statistics:
-            Option<crate::manager_diagnostic_data::v1_2_0::BootTimeStatistics>,
+            Option<crate::manager_diagnostic_data::v1_2_2::BootTimeStatistics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
@@ -60,7 +60,7 @@ pub mod v1_2_0 {
         )]
         pub free_storage_space_kib: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "I2CBuses")]
-        pub i2c_buses: Option<Vec<crate::manager_diagnostic_data::v1_2_0::I2CBusStatistics>>,
+        pub i2c_buses: Option<Vec<crate::manager_diagnostic_data::v1_2_2::I2CBusStatistics>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(
@@ -68,9 +68,9 @@ pub mod v1_2_0 {
             rename = "MemoryECCStatistics"
         )]
         pub memory_ecc_statistics:
-            Option<crate::manager_diagnostic_data::v1_2_0::MemoryECCStatistics>,
+            Option<crate::manager_diagnostic_data::v1_2_2::MemoryECCStatistics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryStatistics")]
-        pub memory_statistics: Option<crate::manager_diagnostic_data::v1_2_0::MemoryStatistics>,
+        pub memory_statistics: Option<crate::manager_diagnostic_data::v1_2_2::MemoryStatistics>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -88,14 +88,14 @@ pub mod v1_2_0 {
             rename = "ProcessorStatistics"
         )]
         pub processor_statistics:
-            Option<crate::manager_diagnostic_data::v1_2_0::ProcessorStatistics>,
+            Option<crate::manager_diagnostic_data::v1_2_2::ProcessorStatistics>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ServiceRootUptimeSeconds"
         )]
         pub service_root_uptime_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TopProcesses")]
-        pub top_processes: Option<Vec<crate::manager_diagnostic_data::v1_2_0::ProcessStatistics>>,
+        pub top_processes: Option<Vec<crate::manager_diagnostic_data::v1_2_2::ProcessStatistics>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryECCStatistics {

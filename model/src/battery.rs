@@ -1,21 +1,21 @@
 pub type Battery = crate::battery::v1_3_0::Battery;
-pub mod v1_2_1 {
+pub mod v1_2_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Battery.Calibrate")]
-        pub battery_calibrate: Option<crate::battery::v1_2_1::Calibrate>,
+        pub battery_calibrate: Option<crate::battery::v1_2_2::Calibrate>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Battery.Reset")]
-        pub battery_reset: Option<crate::battery::v1_2_1::Reset>,
+        pub battery_reset: Option<crate::battery::v1_2_2::Reset>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Battery.SelfTest")]
-        pub battery_self_test: Option<crate::battery::v1_2_1::SelfTest>,
+        pub battery_self_test: Option<crate::battery::v1_2_2::SelfTest>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::battery::v1_2_1::OemActions>,
+        pub oem: Option<crate::battery::v1_2_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Battery {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::battery::v1_2_1::Actions>,
+        pub actions: Option<crate::battery::v1_2_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(
@@ -39,7 +39,7 @@ pub mod v1_2_1 {
         )]
         pub capacity_rated_watt_hours: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChargeState")]
-        pub charge_state: Option<crate::battery::v1_2_1::ChargeState>,
+        pub charge_state: Option<crate::battery::v1_2_2::ChargeState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -49,7 +49,7 @@ pub mod v1_2_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::battery::v1_2_1::Links>,
+        pub links: Option<crate::battery::v1_2_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(

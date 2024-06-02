@@ -166,7 +166,7 @@ pub enum PowerState {
     #[serde(rename = "PowerCycle")]
     PowerCycle,
 }
-pub mod v1_7_0 {
+pub mod v1_7_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -174,19 +174,19 @@ pub mod v1_7_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#Circuit.BreakerControl"
         )]
-        pub circuit_breaker_control: Option<crate::circuit::v1_7_0::BreakerControl>,
+        pub circuit_breaker_control: Option<crate::circuit::v1_7_1::BreakerControl>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Circuit.PowerControl"
         )]
-        pub circuit_power_control: Option<crate::circuit::v1_7_0::PowerControl>,
+        pub circuit_power_control: Option<crate::circuit::v1_7_1::PowerControl>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Circuit.ResetMetrics"
         )]
-        pub circuit_reset_metrics: Option<crate::circuit::v1_7_0::ResetMetrics>,
+        pub circuit_reset_metrics: Option<crate::circuit::v1_7_1::ResetMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::circuit::v1_7_0::OemActions>,
+        pub oem: Option<crate::circuit::v1_7_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BreakerControl {
@@ -203,11 +203,11 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Circuit {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::circuit::v1_7_0::Actions>,
+        pub actions: Option<crate::circuit::v1_7_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BreakerState")]
         pub breaker_state: Option<crate::circuit::BreakerStates>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CircuitType")]
-        pub circuit_type: Option<crate::circuit::v1_7_0::CircuitType>,
+        pub circuit_type: Option<crate::circuit::v1_7_1::CircuitType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConfigurationLocked"
@@ -245,7 +245,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
         pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::circuit::v1_7_0::Links>,
+        pub links: Option<crate::circuit::v1_7_1::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -273,16 +273,16 @@ pub mod v1_7_0 {
             skip_serializing_if = "Option::is_none",
             rename = "PolyPhaseCurrentAmps"
         )]
-        pub poly_phase_current_amps: Option<crate::circuit::v1_7_0::CurrentSensors>,
+        pub poly_phase_current_amps: Option<crate::circuit::v1_7_1::CurrentSensors>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PolyPhaseEnergykWh")]
-        pub poly_phase_energyk_wh: Option<crate::circuit::v1_7_0::EnergySensors>,
+        pub poly_phase_energyk_wh: Option<crate::circuit::v1_7_1::EnergySensors>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PolyPhasePowerWatts"
         )]
-        pub poly_phase_power_watts: Option<crate::circuit::v1_7_0::PowerSensors>,
+        pub poly_phase_power_watts: Option<crate::circuit::v1_7_1::PowerSensors>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PolyPhaseVoltage")]
-        pub poly_phase_voltage: Option<crate::circuit::v1_7_0::VoltageSensors>,
+        pub poly_phase_voltage: Option<crate::circuit::v1_7_1::VoltageSensors>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerControlLocked")]
         pub power_control_locked: Option<bool>,
         #[serde(
@@ -339,7 +339,7 @@ pub mod v1_7_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Voltage")]
         pub voltage: Option<crate::sensor::SensorVoltageExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VoltageType")]
-        pub voltage_type: Option<crate::circuit::v1_7_0::VoltageType>,
+        pub voltage_type: Option<crate::circuit::v1_7_1::VoltageType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CircuitType {

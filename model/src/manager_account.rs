@@ -22,12 +22,32 @@ pub enum AccountTypes {
     WebUI,
 }
 pub type ManagerAccount = crate::manager_account::v1_12_1::ManagerAccount;
-pub mod v1_10_0 {
+pub mod v1_12_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#ManagerAccount.ChangePassword"
+        )]
+        pub manager_account_change_password:
+            Option<crate::manager_account::v1_12_0::ChangePassword>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager_account::v1_10_0::OemActions>,
+        pub oem: Option<crate::manager_account::v1_12_0::OemActions>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ChangePassword {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ChangePasswordRequestBody {
+        #[serde(rename = "NewPassword")]
+        pub new_password: String,
+        #[serde(rename = "SessionAccountPassword")]
+        pub session_account_password: String,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -43,11 +63,13 @@ pub mod v1_10_0 {
         #[serde(rename = "AccountTypes")]
         pub account_types: Vec<crate::manager_account::AccountTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager_account::v1_10_0::Actions>,
+        pub actions: Option<crate::manager_account::v1_12_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "EmailAddress")]
+        pub email_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
         pub enabled: Option<bool>,
         #[serde(
@@ -60,7 +82,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Keys")]
         pub keys: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::manager_account::v1_10_0::Links>,
+        pub links: Option<crate::manager_account::v1_12_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Locked")]
         pub locked: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MFABypass")]
@@ -79,6 +101,11 @@ pub mod v1_10_0 {
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OEMAccountTypes")]
         pub oem_account_types: Option<Vec<String>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "OneTimePasscodeDeliveryAddress"
+        )]
+        pub one_time_passcode_delivery_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
         #[serde(
@@ -88,10 +115,12 @@ pub mod v1_10_0 {
         pub password_change_required: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PasswordExpiration")]
         pub password_expiration: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "PhoneNumber")]
+        pub phone_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RoleId")]
         pub role_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::manager_account::v1_10_0::SNMPUserInfo>,
+        pub snmp: Option<crate::manager_account::v1_12_0::SNMPUserInfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StrictAccountTypes")]
         pub strict_account_types: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
@@ -124,6 +153,10 @@ pub mod v1_10_0 {
         CBCDES,
         #[serde(rename = "CFB128_AES128")]
         CFB128AES128,
+        #[serde(rename = "CFB128_AES192")]
+        CFB128AES192,
+        #[serde(rename = "CFB128_AES256")]
+        CFB128AES256,
         #[serde(rename = "None")]
         None,
     }
@@ -141,13 +174,13 @@ pub mod v1_10_0 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::manager_account::v1_10_0::SNMPAuthenticationProtocols>,
+            Option<crate::manager_account::v1_12_0::SNMPAuthenticationProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<crate::manager_account::v1_10_0::SNMPEncryptionProtocols>,
+        pub encryption_protocol: Option<crate::manager_account::v1_12_0::SNMPEncryptionProtocols>,
     }
 }
 pub mod v1_12_1 {

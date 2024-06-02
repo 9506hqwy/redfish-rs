@@ -1,11 +1,11 @@
 pub type ResourceBlock = crate::resource_block::v1_4_3::ResourceBlock;
 pub type ResourceBlockLimits = crate::resource_block::v1_4_3::ResourceBlockLimits;
-pub mod v1_4_1 {
+pub mod v1_4_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::resource_block::v1_4_1::OemActions>,
+        pub oem: Option<crate::resource_block::v1_4_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CompositionState {
@@ -26,7 +26,7 @@ pub mod v1_4_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CompositionStatus {
         #[serde(rename = "CompositionState")]
-        pub composition_state: Option<crate::resource_block::v1_4_1::CompositionState>,
+        pub composition_state: Option<crate::resource_block::v1_4_2::CompositionState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxCompositions")]
         pub max_compositions: Option<i64>,
         #[serde(
@@ -99,11 +99,11 @@ pub mod v1_4_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResourceBlock {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::resource_block::v1_4_1::Actions>,
+        pub actions: Option<crate::resource_block::v1_4_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Client")]
         pub client: Option<String>,
         #[serde(rename = "CompositionStatus")]
-        pub composition_status: crate::resource_block::v1_4_1::CompositionStatus,
+        pub composition_status: crate::resource_block::v1_4_2::CompositionStatus,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ComputerSystems")]
         pub computer_systems: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -127,7 +127,7 @@ pub mod v1_4_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::resource_block::v1_4_1::Links>,
+        pub links: Option<crate::resource_block::v1_4_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Memory")]
         pub memory: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Memory@odata.count")]
@@ -152,7 +152,7 @@ pub mod v1_4_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Pool")]
-        pub pool: Option<crate::resource_block::v1_4_1::PoolType>,
+        pub pool: Option<crate::resource_block::v1_4_2::PoolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Processors")]
         pub processors: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -161,7 +161,7 @@ pub mod v1_4_1 {
         )]
         pub processors_odata_count: Option<i64>,
         #[serde(rename = "ResourceBlockType")]
-        pub resource_block_type: Vec<crate::resource_block::v1_4_1::ResourceBlockType>,
+        pub resource_block_type: Vec<crate::resource_block::v1_4_2::ResourceBlockType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SimpleStorage")]
         pub simple_storage: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(

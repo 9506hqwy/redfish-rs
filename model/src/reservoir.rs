@@ -1,17 +1,17 @@
 pub type Reservoir = crate::reservoir::v1_0_2::Reservoir;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::reservoir::v1_0_0::OemActions>,
+        pub oem: Option<crate::reservoir::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Reservoir {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::reservoir::v1_0_0::Actions>,
+        pub actions: Option<crate::reservoir::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CapacityLiters")]
@@ -61,7 +61,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
         pub physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReservoirType")]
-        pub reservoir_type: Option<crate::reservoir::v1_0_0::ReservoirType>,
+        pub reservoir_type: Option<crate::reservoir::v1_0_1::ReservoirType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SparePartNumber")]

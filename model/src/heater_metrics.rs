@@ -1,5 +1,5 @@
 pub type HeaterMetrics = crate::heater_metrics::v1_0_2::HeaterMetrics;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -7,14 +7,14 @@ pub mod v1_0_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#HeaterMetrics.ResetMetrics"
         )]
-        pub heater_metrics_reset_metrics: Option<crate::heater_metrics::v1_0_0::ResetMetrics>,
+        pub heater_metrics_reset_metrics: Option<crate::heater_metrics::v1_0_1::ResetMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::heater_metrics::v1_0_0::OemActions>,
+        pub oem: Option<crate::heater_metrics::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HeaterMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::heater_metrics::v1_0_0::Actions>,
+        pub actions: Option<crate::heater_metrics::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]

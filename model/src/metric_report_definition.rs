@@ -1,10 +1,10 @@
 pub type MetricReportDefinition = crate::metric_report_definition::v1_4_6::MetricReportDefinition;
-pub mod v1_4_3 {
+pub mod v1_4_5 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::metric_report_definition::v1_4_3::OemActions>,
+        pub oem: Option<crate::metric_report_definition::v1_4_5::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CalculationAlgorithmEnum {
@@ -46,13 +46,13 @@ pub mod v1_4_3 {
         pub collection_duration: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CollectionFunction")]
         pub collection_function:
-            Option<crate::metric_report_definition::v1_4_3::CalculationAlgorithmEnum>,
+            Option<crate::metric_report_definition::v1_4_5::CalculationAlgorithmEnum>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CollectionTimeScope"
         )]
         pub collection_time_scope:
-            Option<crate::metric_report_definition::v1_4_3::CollectionTimeScope>,
+            Option<crate::metric_report_definition::v1_4_5::CollectionTimeScope>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricId")]
         pub metric_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricProperties")]
@@ -63,7 +63,7 @@ pub mod v1_4_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MetricReportDefinition {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::metric_report_definition::v1_4_3::Actions>,
+        pub actions: Option<crate::metric_report_definition::v1_4_5::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AppendLimit")]
         pub append_limit: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -71,7 +71,7 @@ pub mod v1_4_3 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::metric_report_definition::v1_4_3::Links>,
+        pub links: Option<crate::metric_report_definition::v1_4_5::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricProperties")]
         pub metric_properties: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricReport")]
@@ -86,14 +86,14 @@ pub mod v1_4_3 {
             rename = "MetricReportDefinitionType"
         )]
         pub metric_report_definition_type:
-            Option<crate::metric_report_definition::v1_4_3::MetricReportDefinitionType>,
+            Option<crate::metric_report_definition::v1_4_5::MetricReportDefinitionType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MetricReportHeartbeatInterval"
         )]
         pub metric_report_heartbeat_interval: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
-        pub metrics: Option<Vec<crate::metric_report_definition::v1_4_3::Metric>>,
+        pub metrics: Option<Vec<crate::metric_report_definition::v1_4_5::Metric>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -107,11 +107,11 @@ pub mod v1_4_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReportActions")]
-        pub report_actions: Option<Vec<crate::metric_report_definition::v1_4_3::ReportActionsEnum>>,
+        pub report_actions: Option<Vec<crate::metric_report_definition::v1_4_5::ReportActionsEnum>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReportTimespan")]
         pub report_timespan: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReportUpdates")]
-        pub report_updates: Option<crate::metric_report_definition::v1_4_3::ReportUpdatesEnum>,
+        pub report_updates: Option<crate::metric_report_definition::v1_4_5::ReportUpdatesEnum>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Schedule")]
         pub schedule: Option<crate::schedule::Schedule>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -122,7 +122,7 @@ pub mod v1_4_3 {
         )]
         pub suppress_repeated_metric_value: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Wildcards")]
-        pub wildcards: Option<Vec<crate::metric_report_definition::v1_4_3::Wildcard>>,
+        pub wildcards: Option<Vec<crate::metric_report_definition::v1_4_5::Wildcard>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum MetricReportDefinitionType {

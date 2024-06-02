@@ -1,17 +1,24 @@
 pub type Session = crate::session::v1_7_2::Session;
-pub mod v1_6_0 {
+pub mod v1_7_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::session::v1_6_0::OemActions>,
+        pub oem: Option<crate::session::v1_7_1::OemActions>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Links {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "OutboundConnection")]
+        pub outbound_connection: Option<crate::odata_v4::IdRef>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Session {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::session::v1_6_0::Actions>,
+        pub actions: Option<crate::session::v1_7_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ClientOriginIPAddress"
@@ -25,6 +32,8 @@ pub mod v1_6_0 {
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+        pub links: Option<crate::session::v1_7_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -41,8 +50,10 @@ pub mod v1_6_0 {
         pub oem_session_type: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Roles")]
+        pub roles: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionType")]
-        pub session_type: Option<crate::session::v1_6_0::SessionTypes>,
+        pub session_type: Option<crate::session::v1_7_1::SessionTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Token")]
         pub token: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
@@ -61,6 +72,8 @@ pub mod v1_6_0 {
         ManagerConsole,
         #[serde(rename = "OEM")]
         OEM,
+        #[serde(rename = "OutboundConnection")]
+        OutboundConnection,
         #[serde(rename = "Redfish")]
         Redfish,
         #[serde(rename = "VirtualMedia")]

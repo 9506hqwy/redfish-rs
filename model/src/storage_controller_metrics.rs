@@ -1,12 +1,12 @@
 pub type NVMeSMARTMetrics = crate::storage_controller_metrics::v1_0_3::NVMeSMARTMetrics;
 pub type StorageControllerMetrics =
     crate::storage_controller_metrics::v1_0_3::StorageControllerMetrics;
-pub mod v1_0_0 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::storage_controller_metrics::v1_0_0::OemActions>,
+        pub oem: Option<crate::storage_controller_metrics::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EGCriticalWarningSummary {
@@ -64,7 +64,7 @@ pub mod v1_0_0 {
             rename = "EGCriticalWarningSummary"
         )]
         pub eg_critical_warning_summary:
-            Option<crate::storage_controller_metrics::v1_0_0::EGCriticalWarningSummary>,
+            Option<crate::storage_controller_metrics::v1_0_2::EGCriticalWarningSummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostReadCommands")]
         pub host_read_commands: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostWriteCommands")]
@@ -123,7 +123,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::storage_controller_metrics::v1_0_0::Actions>,
+        pub actions: Option<crate::storage_controller_metrics::v1_0_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CorrectableECCErrorCount"

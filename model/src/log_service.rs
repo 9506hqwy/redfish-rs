@@ -1,5 +1,5 @@
 pub type LogService = crate::log_service::v1_7_0::LogService;
-pub mod v1_4_0 {
+pub mod v1_6_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -7,15 +7,21 @@ pub mod v1_4_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#LogService.ClearLog"
         )]
-        pub log_service_clear_log: Option<crate::log_service::v1_4_0::ClearLog>,
+        pub log_service_clear_log: Option<crate::log_service::v1_6_0::ClearLog>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#LogService.CollectDiagnosticData"
         )]
         pub log_service_collect_diagnostic_data:
-            Option<crate::log_service::v1_4_0::CollectDiagnosticData>,
+            Option<crate::log_service::v1_6_0::CollectDiagnosticData>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#LogService.PushDiagnosticData"
+        )]
+        pub log_service_push_diagnostic_data:
+            Option<crate::log_service::v1_6_0::PushDiagnosticData>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::log_service::v1_4_0::OemActions>,
+        pub oem: Option<crate::log_service::v1_6_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ClearLog {
@@ -39,12 +45,20 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CollectDiagnosticDataRequestBody {
         #[serde(rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: crate::log_service::v1_4_0::LogDiagnosticDataTypes,
+        pub diagnostic_data_type: crate::log_service::v1_6_0::LogDiagnosticDataTypes,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OEMDiagnosticDataType"
         )]
         pub oem_diagnostic_data_type: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
+        pub password: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "TargetURI")]
+        pub target_uri: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
+        pub transfer_protocol: Option<crate::log_service::v1_6_0::TransferProtocolType>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
+        pub user_name: Option<String>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LogDiagnosticDataTypes {
@@ -61,6 +75,8 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LogEntryTypes {
         #[default]
+        #[serde(rename = "CXL")]
+        CXL,
         #[serde(rename = "Event")]
         Event,
         #[serde(rename = "Multiple")]
@@ -89,7 +105,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LogService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::log_service::v1_4_0::Actions>,
+        pub actions: Option<crate::log_service::v1_6_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AutoDSTEnabled")]
         pub auto_dst_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DateTime")]
@@ -106,9 +122,9 @@ pub mod v1_4_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogEntryType")]
-        pub log_entry_type: Option<crate::log_service::v1_4_0::LogEntryTypes>,
+        pub log_entry_type: Option<crate::log_service::v1_6_0::LogEntryTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogPurposes")]
-        pub log_purposes: Option<Vec<crate::log_service::v1_4_0::LogPurpose>>,
+        pub log_purposes: Option<Vec<crate::log_service::v1_6_0::LogPurpose>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxNumberOfRecords")]
         pub max_number_of_records: Option<i64>,
         #[serde(rename = "Name")]
@@ -126,7 +142,7 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OEMLogPurpose")]
         pub oem_log_purpose: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverWritePolicy")]
-        pub over_write_policy: Option<crate::log_service::v1_4_0::OverWritePolicy>,
+        pub over_write_policy: Option<crate::log_service::v1_6_0::OverWritePolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Overflow")]
         pub overflow: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Persistency")]
@@ -136,7 +152,7 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyslogFilters")]
-        pub syslog_filters: Option<Vec<crate::log_service::v1_4_0::SyslogFilter>>,
+        pub syslog_filters: Option<Vec<crate::log_service::v1_6_0::SyslogFilter>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -149,6 +165,26 @@ pub mod v1_4_0 {
         Unknown,
         #[serde(rename = "WrapsWhenFull")]
         WrapsWhenFull,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct PushDiagnosticData {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct PushDiagnosticDataRequestBody {
+        #[serde(rename = "AdditionalDataURI")]
+        pub additional_data_uri: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
+        pub password: Option<String>,
+        #[serde(rename = "TargetURI")]
+        pub target_uri: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
+        pub transfer_protocol: Option<crate::log_service::v1_6_0::TransferProtocolType>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
+        pub user_name: Option<String>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SyslogFacility {
@@ -205,9 +241,9 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SyslogFilter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogFacilities")]
-        pub log_facilities: Option<Vec<crate::log_service::v1_4_0::SyslogFacility>>,
+        pub log_facilities: Option<Vec<crate::log_service::v1_6_0::SyslogFacility>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowestSeverity")]
-        pub lowest_severity: Option<crate::log_service::v1_4_0::SyslogSeverity>,
+        pub lowest_severity: Option<crate::log_service::v1_6_0::SyslogSeverity>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SyslogSeverity {
@@ -230,6 +266,28 @@ pub mod v1_4_0 {
         Notice,
         #[serde(rename = "Warning")]
         Warning,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum TransferProtocolType {
+        #[default]
+        #[serde(rename = "CIFS")]
+        CIFS,
+        #[serde(rename = "FTP")]
+        FTP,
+        #[serde(rename = "HTTP")]
+        HTTP,
+        #[serde(rename = "HTTPS")]
+        HTTPS,
+        #[serde(rename = "NFS")]
+        NFS,
+        #[serde(rename = "OEM")]
+        OEM,
+        #[serde(rename = "SCP")]
+        SCP,
+        #[serde(rename = "SFTP")]
+        SFTP,
+        #[serde(rename = "TFTP")]
+        TFTP,
     }
 }
 pub mod v1_7_0 {

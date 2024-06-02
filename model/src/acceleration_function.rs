@@ -1,5 +1,5 @@
 pub type AccelerationFunction = crate::acceleration_function::v1_0_5::AccelerationFunction;
-pub mod v1_0_3 {
+pub mod v1_0_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AccelerationFunction {
@@ -8,9 +8,9 @@ pub mod v1_0_3 {
             rename = "AccelerationFunctionType"
         )]
         pub acceleration_function_type:
-            Option<crate::acceleration_function::v1_0_3::AccelerationFunctionType>,
+            Option<crate::acceleration_function::v1_0_4::AccelerationFunctionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::acceleration_function::v1_0_3::Actions>,
+        pub actions: Option<crate::acceleration_function::v1_0_4::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
@@ -21,7 +21,7 @@ pub mod v1_0_3 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::acceleration_function::v1_0_3::Links>,
+        pub links: Option<crate::acceleration_function::v1_0_4::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(rename = "Name")]
@@ -68,7 +68,7 @@ pub mod v1_0_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::acceleration_function::v1_0_3::OemActions>,
+        pub oem: Option<crate::acceleration_function::v1_0_4::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {

@@ -1,17 +1,17 @@
 pub type Pump = crate::pump::v1_1_0::Pump;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::pump::v1_0_0::OemActions>,
+        pub oem: Option<crate::pump::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Pump {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::pump::v1_0_0::Actions>,
+        pub actions: Option<crate::pump::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
@@ -56,7 +56,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PumpSpeedPercent")]
         pub pump_speed_percent: Option<crate::sensor::SensorPumpExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PumpType")]
-        pub pump_type: Option<crate::pump::v1_0_0::PumpType>,
+        pub pump_type: Option<crate::pump::v1_0_1::PumpType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceHours")]

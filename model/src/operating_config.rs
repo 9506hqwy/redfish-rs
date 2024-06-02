@@ -1,10 +1,10 @@
 pub type OperatingConfig = crate::operating_config::v1_0_4::OperatingConfig;
-pub mod v1_0_2 {
+pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::operating_config::v1_0_2::OemActions>,
+        pub oem: Option<crate::operating_config::v1_0_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BaseSpeedPrioritySettings {
@@ -20,7 +20,7 @@ pub mod v1_0_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OperatingConfig {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::operating_config::v1_0_2::Actions>,
+        pub actions: Option<crate::operating_config::v1_0_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BaseSpeedMHz")]
         pub base_speed_mhz: Option<i64>,
         #[serde(
@@ -28,7 +28,7 @@ pub mod v1_0_2 {
             rename = "BaseSpeedPrioritySettings"
         )]
         pub base_speed_priority_settings:
-            Option<Vec<crate::operating_config::v1_0_2::BaseSpeedPrioritySettings>>,
+            Option<Vec<crate::operating_config::v1_0_3::BaseSpeedPrioritySettings>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -60,7 +60,7 @@ pub mod v1_0_2 {
         )]
         pub total_available_core_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TurboProfile")]
-        pub turbo_profile: Option<Vec<crate::operating_config::v1_0_2::TurboProfileDatapoint>>,
+        pub turbo_profile: Option<Vec<crate::operating_config::v1_0_3::TurboProfileDatapoint>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TurboProfileDatapoint {

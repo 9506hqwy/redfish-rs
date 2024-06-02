@@ -1,15 +1,15 @@
 pub type FabricAdapter = crate::fabric_adapter::v1_5_3::FabricAdapter;
-pub mod v1_5_1 {
+pub mod v1_5_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::fabric_adapter::v1_5_1::OemActions>,
+        pub oem: Option<crate::fabric_adapter::v1_5_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct FabricAdapter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::fabric_adapter::v1_5_1::Actions>,
+        pub actions: Option<crate::fabric_adapter::v1_5_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ASICManufacturer")]
         pub asic_manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ASICPartNumber")]
@@ -31,11 +31,11 @@ pub mod v1_5_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::fabric_adapter::v1_5_1::GenZ>,
+        pub gen_z: Option<crate::fabric_adapter::v1_5_2::GenZ>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::fabric_adapter::v1_5_1::Links>,
+        pub links: Option<crate::fabric_adapter::v1_5_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(

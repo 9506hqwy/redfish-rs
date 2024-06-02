@@ -1,17 +1,17 @@
 pub type LeakDetector = crate::leak_detector::v1_1_0::LeakDetector;
 pub type LeakDetectorArrayExcerpt = crate::leak_detector::v1_1_0::LeakDetectorArrayExcerpt;
 pub type LeakDetectorExcerpt = crate::leak_detector::v1_1_0::LeakDetectorExcerpt;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::leak_detector::v1_0_0::OemActions>,
+        pub oem: Option<crate::leak_detector::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LeakDetector {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::leak_detector::v1_0_0::Actions>,
+        pub actions: Option<crate::leak_detector::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DetectorState")]
@@ -19,7 +19,7 @@ pub mod v1_0_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LeakDetectorType")]
-        pub leak_detector_type: Option<crate::leak_detector::v1_0_0::LeakDetectorType>,
+        pub leak_detector_type: Option<crate::leak_detector::v1_0_1::LeakDetectorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]

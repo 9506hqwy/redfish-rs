@@ -1,15 +1,15 @@
 pub type Facility = crate::facility::v1_4_2::Facility;
-pub mod v1_4_0 {
+pub mod v1_4_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::facility::v1_4_0::OemActions>,
+        pub oem: Option<crate::facility::v1_4_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Facility {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::facility::v1_4_0::Actions>,
+        pub actions: Option<crate::facility::v1_4_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AmbientMetrics")]
         pub ambient_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -17,11 +17,11 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "FacilityType")]
-        pub facility_type: crate::facility::v1_4_0::FacilityType,
+        pub facility_type: crate::facility::v1_4_1::FacilityType,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::facility::v1_4_0::Links>,
+        pub links: Option<crate::facility::v1_4_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(rename = "Name")]

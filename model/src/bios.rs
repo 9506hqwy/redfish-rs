@@ -1,5 +1,5 @@
 pub type Bios = crate::bios::v1_2_3::Bios;
-pub mod v1_2_1 {
+pub mod v1_2_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -7,28 +7,28 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "#Bios.ChangePassword"
         )]
-        pub bios_change_password: Option<crate::bios::v1_2_1::ChangePassword>,
+        pub bios_change_password: Option<crate::bios::v1_2_2::ChangePassword>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Bios.ResetBios")]
-        pub bios_reset_bios: Option<crate::bios::v1_2_1::ResetBios>,
+        pub bios_reset_bios: Option<crate::bios::v1_2_2::ResetBios>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::bios::v1_2_1::OemActions>,
+        pub oem: Option<crate::bios::v1_2_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Attributes {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Bios {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::bios::v1_2_1::Actions>,
+        pub actions: Option<crate::bios::v1_2_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AttributeRegistry")]
         pub attribute_registry: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Attributes")]
-        pub attributes: Option<crate::bios::v1_2_1::Attributes>,
+        pub attributes: Option<crate::bios::v1_2_2::Attributes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::bios::v1_2_1::Links>,
+        pub links: Option<crate::bios::v1_2_2::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]

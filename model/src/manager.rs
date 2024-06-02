@@ -1,5 +1,5 @@
 pub type Manager = crate::manager::v1_19_1::Manager;
-pub mod v1_18_0 {
+pub mod v1_19_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -7,21 +7,21 @@ pub mod v1_18_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#Manager.ForceFailover"
         )]
-        pub manager_force_failover: Option<crate::manager::v1_18_0::ForceFailover>,
+        pub manager_force_failover: Option<crate::manager::v1_19_0::ForceFailover>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Manager.ModifyRedundancySet"
         )]
-        pub manager_modify_redundancy_set: Option<crate::manager::v1_18_0::ModifyRedundancySet>,
+        pub manager_modify_redundancy_set: Option<crate::manager::v1_19_0::ModifyRedundancySet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Manager.Reset")]
-        pub manager_reset: Option<crate::manager::v1_18_0::Reset>,
+        pub manager_reset: Option<crate::manager::v1_19_0::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Manager.ResetToDefaults"
         )]
-        pub manager_reset_to_defaults: Option<crate::manager::v1_18_0::ResetToDefaults>,
+        pub manager_reset_to_defaults: Option<crate::manager::v1_19_0::ResetToDefaults>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager::v1_18_0::OemActions>,
+        pub oem: Option<crate::manager::v1_19_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CommandConnectTypesSupported {
@@ -42,7 +42,7 @@ pub mod v1_18_0 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::manager::v1_18_0::CommandConnectTypesSupported>>,
+            Option<Vec<crate::manager::v1_19_0::CommandConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -50,6 +50,17 @@ pub mod v1_18_0 {
         pub max_concurrent_sessions: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceEnabled")]
         pub service_enabled: Option<bool>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DaylightSavingTime {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "EndDateTime")]
+        pub end_date_time: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "OffsetMinutes")]
+        pub offset_minutes: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "StartDateTime")]
+        pub start_date_time: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "TimeZoneName")]
+        pub time_zone_name: Option<String>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ForceFailover {
@@ -78,7 +89,7 @@ pub mod v1_18_0 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::manager::v1_18_0::GraphicalConnectTypesSupported>>,
+            Option<Vec<crate::manager::v1_19_0::GraphicalConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -149,7 +160,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Manager {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager::v1_18_0::Actions>,
+        pub actions: Option<crate::manager::v1_19_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalFirmwareVersions"
@@ -160,7 +171,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommandShell")]
-        pub command_shell: Option<crate::manager::v1_18_0::CommandShell>,
+        pub command_shell: Option<crate::manager::v1_19_0::CommandShell>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DateTime")]
         pub date_time: Option<String>,
         #[serde(
@@ -168,6 +179,8 @@ pub mod v1_18_0 {
             rename = "DateTimeLocalOffset"
         )]
         pub date_time_local_offset: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DaylightSavingTime")]
+        pub daylight_saving_time: Option<crate::manager::v1_19_0::DaylightSavingTime>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DedicatedNetworkPorts"
@@ -180,7 +193,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GraphicalConsole")]
-        pub graphical_console: Option<crate::manager::v1_18_0::GraphicalConsole>,
+        pub graphical_console: Option<crate::manager::v1_19_0::GraphicalConsole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostInterfaces")]
         pub host_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
@@ -188,7 +201,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastResetTime")]
         pub last_reset_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::manager::v1_18_0::Links>,
+        pub links: Option<crate::manager::v1_19_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -204,7 +217,7 @@ pub mod v1_18_0 {
         )]
         pub manager_diagnostic_data: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagerType")]
-        pub manager_type: Option<crate::manager::v1_18_0::ManagerType>,
+        pub manager_type: Option<crate::manager::v1_19_0::ManagerType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
@@ -249,7 +262,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityPolicy")]
         pub security_policy: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialConsole")]
-        pub serial_console: Option<crate::manager::v1_18_0::SerialConsole>,
+        pub serial_console: Option<crate::manager::v1_19_0::SerialConsole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialInterfaces")]
         pub serial_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -345,7 +358,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaultsRequestBody {
         #[serde(rename = "ResetType")]
-        pub reset_type: crate::manager::v1_18_0::ResetToDefaultsType,
+        pub reset_type: crate::manager::v1_19_0::ResetToDefaultsType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetToDefaultsType {
@@ -376,7 +389,7 @@ pub mod v1_18_0 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::manager::v1_18_0::SerialConnectTypesSupported>>,
+            Option<Vec<crate::manager::v1_19_0::SerialConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"

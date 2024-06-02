@@ -1,15 +1,15 @@
 pub type NetworkAdapterMetrics = crate::network_adapter_metrics::v1_1_0::NetworkAdapterMetrics;
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::network_adapter_metrics::v1_0_0::OemActions>,
+        pub oem: Option<crate::network_adapter_metrics::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NetworkAdapterMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::network_adapter_metrics::v1_0_0::Actions>,
+        pub actions: Option<crate::network_adapter_metrics::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CPUCorePercent")]
         pub cpu_core_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]

@@ -1,17 +1,17 @@
 pub type AllowDeny = crate::allow_deny::v1_0_3::AllowDeny;
-pub mod v1_0_0 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::allow_deny::v1_0_0::OemActions>,
+        pub oem: Option<crate::allow_deny::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AllowDeny {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::allow_deny::v1_0_0::Actions>,
+        pub actions: Option<crate::allow_deny::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowType")]
-        pub allow_type: Option<crate::allow_deny::v1_0_0::AllowType>,
+        pub allow_type: Option<crate::allow_deny::v1_0_2::AllowType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
@@ -25,7 +25,7 @@ pub mod v1_0_0 {
         )]
         pub destination_port_upper: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Direction")]
-        pub direction: Option<crate::allow_deny::v1_0_0::DataDirection>,
+        pub direction: Option<crate::allow_deny::v1_0_2::DataDirection>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IANAProtocolNumber")]
         pub iana_protocol_number: Option<i64>,
         #[serde(rename = "Id")]
@@ -33,7 +33,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressLower")]
         pub ip_address_lower: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressType")]
-        pub ip_address_type: Option<crate::allow_deny::v1_0_0::IPAddressType>,
+        pub ip_address_type: Option<crate::allow_deny::v1_0_2::IPAddressType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressUpper")]
         pub ip_address_upper: Option<String>,
         #[serde(rename = "Name")]

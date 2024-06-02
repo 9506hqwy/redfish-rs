@@ -1,5 +1,5 @@
 pub type MemoryMetrics = crate::memory_metrics::v1_7_3::MemoryMetrics;
-pub mod v1_7_0 {
+pub mod v1_7_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -8,9 +8,9 @@ pub mod v1_7_0 {
             rename = "#MemoryMetrics.ClearCurrentPeriod"
         )]
         pub memory_metrics_clear_current_period:
-            Option<crate::memory_metrics::v1_7_0::ClearCurrentPeriod>,
+            Option<crate::memory_metrics::v1_7_2::ClearCurrentPeriod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::memory_metrics::v1_7_0::OemActions>,
+        pub oem: Option<crate::memory_metrics::v1_7_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AlarmTrips {
@@ -51,7 +51,7 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXL {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AlertCapabilities")]
-        pub alert_capabilities: Option<crate::memory_metrics::v1_7_0::AlertCapabilities>,
+        pub alert_capabilities: Option<crate::memory_metrics::v1_7_2::AlertCapabilities>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ClearCurrentPeriod {
@@ -92,7 +92,7 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HealthData {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AlarmTrips")]
-        pub alarm_trips: Option<crate::memory_metrics::v1_7_0::AlarmTrips>,
+        pub alarm_trips: Option<crate::memory_metrics::v1_7_2::AlarmTrips>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataLossDetected")]
         pub data_loss_detected: Option<bool>,
         #[serde(
@@ -146,7 +146,7 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::memory_metrics::v1_7_0::Actions>,
+        pub actions: Option<crate::memory_metrics::v1_7_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BandwidthPercent")]
         pub bandwidth_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeBytes")]
@@ -167,19 +167,19 @@ pub mod v1_7_0 {
         )]
         pub corrected_volatile_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CurrentPeriod")]
-        pub current_period: Option<crate::memory_metrics::v1_7_0::CurrentPeriod>,
+        pub current_period: Option<crate::memory_metrics::v1_7_2::CurrentPeriod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::memory_metrics::v1_7_0::CXL>,
+        pub cxl: Option<crate::memory_metrics::v1_7_2::CXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DirtyShutdownCount")]
         pub dirty_shutdown_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HealthData")]
-        pub health_data: Option<crate::memory_metrics::v1_7_0::HealthData>,
+        pub health_data: Option<crate::memory_metrics::v1_7_2::HealthData>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LifeTime")]
-        pub life_time: Option<crate::memory_metrics::v1_7_0::LifeTime>,
+        pub life_time: Option<crate::memory_metrics::v1_7_2::LifeTime>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]

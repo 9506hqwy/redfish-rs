@@ -1,23 +1,23 @@
 pub type PowerSupplyMetrics = crate::power_supply_metrics::v1_1_2::PowerSupplyMetrics;
-pub mod v1_1_0 {
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power_supply_metrics::v1_1_0::OemActions>,
+        pub oem: Option<crate::power_supply_metrics::v1_1_1::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#PowerSupplyMetrics.ResetMetrics"
         )]
         pub power_supply_metrics_reset_metrics:
-            Option<crate::power_supply_metrics::v1_1_0::ResetMetrics>,
+            Option<crate::power_supply_metrics::v1_1_1::ResetMetrics>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerSupplyMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power_supply_metrics::v1_1_0::Actions>,
+        pub actions: Option<crate::power_supply_metrics::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnergykWh")]

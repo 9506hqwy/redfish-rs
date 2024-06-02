@@ -1,5 +1,5 @@
 pub type MediaController = crate::media_controller::v1_3_2::MediaController;
-pub mod v1_3_0 {
+pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -7,9 +7,9 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#MediaController.Reset"
         )]
-        pub media_controller_reset: Option<crate::media_controller::v1_3_0::Reset>,
+        pub media_controller_reset: Option<crate::media_controller::v1_3_1::Reset>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::media_controller::v1_3_0::OemActions>,
+        pub oem: Option<crate::media_controller::v1_3_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -33,7 +33,7 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MediaController {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::media_controller::v1_3_0::Actions>,
+        pub actions: Option<crate::media_controller::v1_3_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
@@ -41,14 +41,14 @@ pub mod v1_3_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::media_controller::v1_3_0::Links>,
+        pub links: Option<crate::media_controller::v1_3_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MediaControllerType"
         )]
-        pub media_controller_type: Option<crate::media_controller::v1_3_0::MediaControllerType>,
+        pub media_controller_type: Option<crate::media_controller::v1_3_1::MediaControllerType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(rename = "Name")]

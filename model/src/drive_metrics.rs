@@ -1,15 +1,15 @@
 pub type DriveMetrics = crate::drive_metrics::v1_2_1::DriveMetrics;
-pub mod v1_0_0 {
+pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::drive_metrics::v1_0_0::OemActions>,
+        pub oem: Option<crate::drive_metrics::v1_2_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct DriveMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::drive_metrics::v1_0_0::Actions>,
+        pub actions: Option<crate::drive_metrics::v1_2_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BadBlockCount")]
         pub bad_block_count: Option<i64>,
         #[serde(
@@ -28,6 +28,11 @@ pub mod v1_0_0 {
         pub id: String,
         #[serde(rename = "Name")]
         pub name: String,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "NativeCommandQueueDepth"
+        )]
+        pub native_command_queue_depth: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeSMART")]
         pub nvme_smart: Option<crate::storage_controller_metrics::NVMeSMARTMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -42,6 +47,8 @@ pub mod v1_0_0 {
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerOnHours")]
         pub power_on_hours: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ReadIOKiBytes")]
+        pub read_io_kibytes: Option<i64>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UncorrectableIOReadErrorCount"
@@ -52,6 +59,8 @@ pub mod v1_0_0 {
             rename = "UncorrectableIOWriteErrorCount"
         )]
         pub uncorrectable_io_write_error_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "WriteIOKiBytes")]
+        pub write_io_kibytes: Option<i64>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

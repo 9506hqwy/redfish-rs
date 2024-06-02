@@ -1,15 +1,15 @@
 pub type CXLLogicalDevice = crate::cxl_logical_device::v1_2_0::CXLLogicalDevice;
-pub mod v1_0_0 {
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::cxl_logical_device::v1_0_0::OemActions>,
+        pub oem: Option<crate::cxl_logical_device::v1_1_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXLLogicalDevice {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::cxl_logical_device::v1_0_0::Actions>,
+        pub actions: Option<crate::cxl_logical_device::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
@@ -17,9 +17,11 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::cxl_logical_device::v1_0_0::Links>,
+        pub links: Option<crate::cxl_logical_device::v1_1_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Log")]
         pub log: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryRegions")]
+        pub memory_regions: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemorySizeMiB")]
         pub memory_size_mib: Option<i64>,
         #[serde(rename = "Name")]
@@ -35,15 +37,15 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "QoS")]
-        pub qos: Option<crate::cxl_logical_device::v1_0_0::QoS>,
+        pub qos: Option<crate::cxl_logical_device::v1_1_1::QoS>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "QoSTelemetryCapabilities"
         )]
         pub qos_telemetry_capabilities:
-            Option<crate::cxl_logical_device::v1_0_0::QoSTelemetryCapabilities>,
+            Option<crate::cxl_logical_device::v1_1_1::QoSTelemetryCapabilities>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SemanticsSupported")]
-        pub semantics_supported: Option<Vec<crate::cxl_logical_device::v1_0_0::CXLSemantic>>,
+        pub semantics_supported: Option<Vec<crate::cxl_logical_device::v1_1_1::CXLSemantic>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
     }

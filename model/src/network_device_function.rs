@@ -1,10 +1,10 @@
 pub type NetworkDeviceFunction = crate::network_device_function::v1_9_2::NetworkDeviceFunction;
-pub mod v1_9_0 {
+pub mod v1_9_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::network_device_function::v1_9_0::OemActions>,
+        pub oem: Option<crate::network_device_function::v1_9_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AuthenticationMethod {
@@ -79,7 +79,7 @@ pub mod v1_9_0 {
         )]
         pub allow_fip_vlan_discovery: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootTargets")]
-        pub boot_targets: Option<Vec<crate::network_device_function::v1_9_0::BootTargets>>,
+        pub boot_targets: Option<Vec<crate::network_device_function::v1_9_1::BootTargets>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FCoEActiveVLANId")]
         pub fc_oe_active_vlan_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FCoELocalVLANId")]
@@ -91,7 +91,7 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PermanentWWPN")]
         pub permanent_wwpn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWNSource")]
-        pub wwn_source: Option<crate::network_device_function::v1_9_0::WWNSource>,
+        pub wwn_source: Option<crate::network_device_function::v1_9_1::WWNSource>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWNN")]
         pub wwnn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWPN")]
@@ -117,7 +117,7 @@ pub mod v1_9_0 {
             rename = "AuthenticationMethod"
         )]
         pub authentication_method:
-            Option<crate::network_device_function::v1_9_0::AuthenticationMethod>,
+            Option<crate::network_device_function::v1_9_1::AuthenticationMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPSecret")]
         pub chap_secret: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPUsername")]
@@ -134,7 +134,7 @@ pub mod v1_9_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitiatorNetmask")]
         pub initiator_netmask: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressType")]
-        pub ip_address_type: Option<crate::network_device_function::v1_9_0::IPAddressType>,
+        pub ip_address_type: Option<crate::network_device_function::v1_9_1::IPAddressType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPMaskDNSViaDHCP")]
         pub ip_mask_dns_via_dhcp: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MutualCHAPSecret")]
@@ -230,7 +230,7 @@ pub mod v1_9_0 {
         )]
         pub burst_packets_per_second: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Direction")]
-        pub direction: Option<crate::network_device_function::v1_9_0::DataDirection>,
+        pub direction: Option<crate::network_device_function::v1_9_1::DataDirection>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SustainedBytesPerSecond"
@@ -287,7 +287,7 @@ pub mod v1_9_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NetworkDeviceFunction {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::network_device_function::v1_9_0::Actions>,
+        pub actions: Option<crate::network_device_function::v1_9_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowDeny")]
         pub allow_deny: Option<crate::odata_v4::IdRef>,
         #[serde(
@@ -311,27 +311,27 @@ pub mod v1_9_0 {
         )]
         pub assignable_physical_ports_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootMode")]
-        pub boot_mode: Option<crate::network_device_function::v1_9_0::BootMode>,
+        pub boot_mode: Option<crate::network_device_function::v1_9_1::BootMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceEnabled")]
         pub device_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
-        pub ethernet: Option<crate::network_device_function::v1_9_0::Ethernet>,
+        pub ethernet: Option<crate::network_device_function::v1_9_1::Ethernet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FibreChannel")]
-        pub fibre_channel: Option<crate::network_device_function::v1_9_0::FibreChannel>,
+        pub fibre_channel: Option<crate::network_device_function::v1_9_1::FibreChannel>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HTTPBoot")]
-        pub http_boot: Option<crate::network_device_function::v1_9_0::HTTPBoot>,
+        pub http_boot: Option<crate::network_device_function::v1_9_1::HTTPBoot>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InfiniBand")]
-        pub infini_band: Option<crate::network_device_function::v1_9_0::InfiniBand>,
+        pub infini_band: Option<crate::network_device_function::v1_9_1::InfiniBand>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "iSCSIBoot")]
-        pub iscsi_boot: Option<crate::network_device_function::v1_9_0::ISCSIBoot>,
+        pub iscsi_boot: Option<crate::network_device_function::v1_9_1::ISCSIBoot>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Limits")]
-        pub limits: Option<Vec<crate::network_device_function::v1_9_0::Limit>>,
+        pub limits: Option<Vec<crate::network_device_function::v1_9_1::Limit>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::network_device_function::v1_9_0::Links>,
+        pub links: Option<crate::network_device_function::v1_9_1::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxVirtualFunctions"
@@ -346,10 +346,10 @@ pub mod v1_9_0 {
             rename = "NetDevFuncCapabilities"
         )]
         pub net_dev_func_capabilities:
-            Option<Vec<crate::network_device_function::v1_9_0::NetworkDeviceTechnology>>,
+            Option<Vec<crate::network_device_function::v1_9_1::NetworkDeviceTechnology>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NetDevFuncType")]
         pub net_dev_func_type:
-            Option<crate::network_device_function::v1_9_0::NetworkDeviceTechnology>,
+            Option<crate::network_device_function::v1_9_1::NetworkDeviceTechnology>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]

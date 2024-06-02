@@ -10,22 +10,22 @@ pub enum PowerState {
     #[serde(rename = "PowerCycle")]
     PowerCycle,
 }
-pub mod v1_1_1 {
+pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::outlet_group::v1_1_1::OemActions>,
+        pub oem: Option<crate::outlet_group::v1_1_2::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#OutletGroup.PowerControl"
         )]
-        pub outlet_group_power_control: Option<crate::outlet_group::v1_1_1::PowerControl>,
+        pub outlet_group_power_control: Option<crate::outlet_group::v1_1_2::PowerControl>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#OutletGroup.ResetMetrics"
         )]
-        pub outlet_group_reset_metrics: Option<crate::outlet_group::v1_1_1::ResetMetrics>,
+        pub outlet_group_reset_metrics: Option<crate::outlet_group::v1_1_2::ResetMetrics>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -44,7 +44,7 @@ pub mod v1_1_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OutletGroup {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::outlet_group::v1_1_1::Actions>,
+        pub actions: Option<crate::outlet_group::v1_1_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConfigurationLocked"
@@ -59,7 +59,7 @@ pub mod v1_1_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::outlet_group::v1_1_1::Links>,
+        pub links: Option<crate::outlet_group::v1_1_2::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]

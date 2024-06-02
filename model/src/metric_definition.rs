@@ -1,10 +1,10 @@
 pub type MetricDefinition = crate::metric_definition::v1_3_4::MetricDefinition;
-pub mod v1_3_2 {
+pub mod v1_3_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::metric_definition::v1_3_2::OemActions>,
+        pub oem: Option<crate::metric_definition::v1_3_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum Calculable {
@@ -68,21 +68,21 @@ pub mod v1_3_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Accuracy")]
         pub accuracy: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::metric_definition::v1_3_2::Actions>,
+        pub actions: Option<crate::metric_definition::v1_3_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Calculable")]
-        pub calculable: Option<crate::metric_definition::v1_3_2::Calculable>,
+        pub calculable: Option<crate::metric_definition::v1_3_3::Calculable>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CalculationAlgorithm"
         )]
         pub calculation_algorithm:
-            Option<crate::metric_definition::v1_3_2::CalculationAlgorithmEnum>,
+            Option<crate::metric_definition::v1_3_3::CalculationAlgorithmEnum>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CalculationParameters"
         )]
         pub calculation_parameters:
-            Option<Vec<crate::metric_definition::v1_3_2::CalculationParamsType>>,
+            Option<Vec<crate::metric_definition::v1_3_3::CalculationParamsType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CalculationTimeInterval"
@@ -97,7 +97,7 @@ pub mod v1_3_2 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Implementation")]
-        pub implementation: Option<crate::metric_definition::v1_3_2::ImplementationType>,
+        pub implementation: Option<crate::metric_definition::v1_3_3::ImplementationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsLinear")]
         pub is_linear: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogicalContexts")]
@@ -105,11 +105,11 @@ pub mod v1_3_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxReadingRange")]
         pub max_reading_range: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricDataType")]
-        pub metric_data_type: Option<crate::metric_definition::v1_3_2::MetricDataType>,
+        pub metric_data_type: Option<crate::metric_definition::v1_3_3::MetricDataType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricProperties")]
         pub metric_properties: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricType")]
-        pub metric_type: Option<crate::metric_definition::v1_3_2::MetricType>,
+        pub metric_type: Option<crate::metric_definition::v1_3_3::MetricType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MinReadingRange")]
         pub min_reading_range: Option<f64>,
         #[serde(rename = "Name")]
@@ -140,7 +140,7 @@ pub mod v1_3_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Units")]
         pub units: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Wildcards")]
-        pub wildcards: Option<Vec<crate::metric_definition::v1_3_2::Wildcard>>,
+        pub wildcards: Option<Vec<crate::metric_definition::v1_3_3::Wildcard>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum MetricType {

@@ -1,15 +1,15 @@
 pub type Fabric = crate::fabric::v1_3_2::Fabric;
-pub mod v1_3_0 {
+pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::fabric::v1_3_0::OemActions>,
+        pub oem: Option<crate::fabric::v1_3_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Fabric {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::fabric::v1_3_0::Actions>,
+        pub actions: Option<crate::fabric::v1_3_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AddressPools")]
         pub address_pools: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Connections")]
@@ -25,7 +25,7 @@ pub mod v1_3_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::fabric::v1_3_0::Links>,
+        pub links: Option<crate::fabric::v1_3_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxZones")]
         pub max_zones: Option<i64>,
         #[serde(rename = "Name")]

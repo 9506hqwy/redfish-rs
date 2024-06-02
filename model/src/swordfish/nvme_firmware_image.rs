@@ -9,24 +9,13 @@ pub enum NVMeDeviceType {
     #[serde(rename = "JBOF")]
     JBOF,
 }
-#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
-#[serde(untagged)]
-pub enum NVMeFirmwareImage {
-    V010100(crate::swordfish::nvme_firmware_image::v1_1_0::NVMeFirmwareImage),
-    V010000(crate::swordfish::nvme_firmware_image::v1_0_0::NVMeFirmwareImage),
-    OdataV4IdRef(crate::odata_v4::IdRef),
-}
-impl Default for NVMeFirmwareImage {
-    fn default() -> Self {
-        Self::V010100(Default::default())
-    }
-}
-pub mod v1_0_0 {
+pub type NVMeFirmwareImage = crate::swordfish::nvme_firmware_image::v1_2_0::NVMeFirmwareImage;
+pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::swordfish::nvme_firmware_image::v1_0_0::OemActions>,
+        pub oem: Option<crate::swordfish::nvme_firmware_image::v1_2_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -36,9 +25,10 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NVMeFirmwareImage {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::swordfish::nvme_firmware_image::v1_0_0::Actions>,
+        pub actions: Option<crate::swordfish::nvme_firmware_image::v1_2_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description:
+            Option<crate::swordfish::nvme_firmware_image::v1_2_0::NVMeFirmwareImageDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(rename = "Id")]
@@ -46,7 +36,8 @@ pub mod v1_0_0 {
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeDeviceType")]
-        pub nvme_device_type: Option<crate::swordfish::nvme_firmware_image::NVMeDeviceType>,
+        pub nvme_device_type:
+            Option<crate::swordfish::nvme_firmware_image::v1_2_0::NVMeFirmwareImageNVMeDeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -60,47 +51,39 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Vendor")]
         pub vendor: Option<String>,
     }
-    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub struct OemActions {}
-}
-pub mod v1_1_0 {
-    use serde::{Deserialize, Serialize};
-    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub struct Actions {
-        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::swordfish::nvme_firmware_image::v1_1_0::OemActions>,
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NVMeFirmwareImageDescription {
+        V000001(crate::swordfish::nvme_firmware_image::v1_2_0::NVMeFirmwareImageDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for NVMeFirmwareImageDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub struct Links {
-        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::resource::Oem>,
+    pub enum NVMeFirmwareImageDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NVMeFirmwareImageNVMeDeviceType {
+        V000001(crate::swordfish::nvme_firmware_image::v1_2_0::NVMeFirmwareImageNVMeDeviceTypeN1),
+        NVMeFirmwareImageNVMeDeviceType(crate::swordfish::nvme_firmware_image::NVMeDeviceType),
+    }
+    impl Default for NVMeFirmwareImageNVMeDeviceType {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub struct NVMeFirmwareImage {
-        #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::swordfish::nvme_firmware_image::v1_1_0::Actions>,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
-        pub firmware_version: Option<String>,
-        #[serde(rename = "Id")]
-        pub id: String,
-        #[serde(rename = "Name")]
-        pub name: String,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeDeviceType")]
-        pub nvme_device_type: Option<crate::swordfish::nvme_firmware_image::NVMeDeviceType>,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
-        pub odata_context: Option<String>,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
-        pub odata_etag: Option<String>,
-        #[serde(rename = "@odata.id")]
-        pub odata_id: String,
-        #[serde(rename = "@odata.type")]
-        pub odata_type: String,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::resource::Oem>,
-        #[serde(skip_serializing_if = "Option::is_none", rename = "Vendor")]
-        pub vendor: Option<String>,
+    pub enum NVMeFirmwareImageNVMeDeviceTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

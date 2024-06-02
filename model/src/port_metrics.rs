@@ -1,10 +1,10 @@
 pub type PortMetrics = crate::port_metrics::v1_6_1::PortMetrics;
-pub mod v1_4_0 {
+pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::port_metrics::v1_4_0::OemActions>,
+        pub oem: Option<crate::port_metrics::v1_5_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXL {
@@ -184,21 +184,21 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PortMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::port_metrics::v1_4_0::Actions>,
+        pub actions: Option<crate::port_metrics::v1_5_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::port_metrics::v1_4_0::CXL>,
+        pub cxl: Option<crate::port_metrics::v1_5_1::CXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FibreChannel")]
-        pub fibre_channel: Option<crate::port_metrics::v1_4_0::FibreChannel>,
+        pub fibre_channel: Option<crate::port_metrics::v1_5_1::FibreChannel>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::port_metrics::v1_4_0::GenZ>,
+        pub gen_z: Option<crate::port_metrics::v1_5_1::GenZ>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Networking")]
-        pub networking: Option<crate::port_metrics::v1_4_0::Networking>,
+        pub networking: Option<crate::port_metrics::v1_5_1::Networking>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -216,9 +216,9 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RXErrors")]
         pub rx_errors: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SAS")]
-        pub sas: Option<Vec<crate::port_metrics::v1_4_0::SAS>>,
+        pub sas: Option<Vec<crate::port_metrics::v1_5_1::SAS>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Transceivers")]
-        pub transceivers: Option<Vec<crate::port_metrics::v1_4_0::Transceiver>>,
+        pub transceivers: Option<Vec<crate::port_metrics::v1_5_1::Transceiver>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TXBytes")]
         pub tx_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TXErrors")]
@@ -233,6 +233,11 @@ pub mod v1_4_0 {
             rename = "LossOfDwordSynchronizationCount"
         )]
         pub loss_of_dword_synchronization_count: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "PhyResetProblemCount"
+        )]
+        pub phy_reset_problem_count: Option<i64>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RunningDisparityErrorCount"

@@ -1,10 +1,10 @@
 pub type HostInterface = crate::host_interface::v1_3_2::HostInterface;
-pub mod v1_3_0 {
+pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::host_interface::v1_3_0::OemActions>,
+        pub oem: Option<crate::host_interface::v1_3_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AuthenticationMode {
@@ -30,20 +30,20 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HostInterface {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::host_interface::v1_3_0::Actions>,
+        pub actions: Option<crate::host_interface::v1_3_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthNoneRoleId")]
         pub auth_none_role_id: Option<String>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AuthenticationModes"
         )]
-        pub authentication_modes: Option<Vec<crate::host_interface::v1_3_0::AuthenticationMode>>,
+        pub authentication_modes: Option<Vec<crate::host_interface::v1_3_1::AuthenticationMode>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CredentialBootstrapping"
         )]
         pub credential_bootstrapping:
-            Option<crate::host_interface::v1_3_0::CredentialBootstrapping>,
+            Option<crate::host_interface::v1_3_1::CredentialBootstrapping>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(
@@ -64,7 +64,7 @@ pub mod v1_3_0 {
         )]
         pub host_ethernet_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostInterfaceType")]
-        pub host_interface_type: Option<crate::host_interface::v1_3_0::HostInterfaceType>,
+        pub host_interface_type: Option<crate::host_interface::v1_3_1::HostInterfaceType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceEnabled")]
@@ -74,7 +74,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "KernelAuthRoleId")]
         pub kernel_auth_role_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::host_interface::v1_3_0::Links>,
+        pub links: Option<crate::host_interface::v1_3_1::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ManagerEthernetInterface"

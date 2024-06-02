@@ -1,16 +1,16 @@
 pub type ProcessorMetrics = crate::processor_metrics::v1_6_4::ProcessorMetrics;
-pub mod v1_6_1 {
+pub mod v1_6_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::processor_metrics::v1_6_1::OemActions>,
+        pub oem: Option<crate::processor_metrics::v1_6_3::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ProcessorMetrics.ClearCurrentPeriod"
         )]
         pub processor_metrics_clear_current_period:
-            Option<crate::processor_metrics::v1_6_1::ClearCurrentPeriod>,
+            Option<crate::processor_metrics::v1_6_3::ClearCurrentPeriod>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CStateResidency {
@@ -40,9 +40,9 @@ pub mod v1_6_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CacheMetricsTotal {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CurrentPeriod")]
-        pub current_period: Option<crate::processor_metrics::v1_6_1::CurrentPeriod>,
+        pub current_period: Option<crate::processor_metrics::v1_6_3::CurrentPeriod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LifeTime")]
-        pub life_time: Option<crate::processor_metrics::v1_6_1::LifeTime>,
+        pub life_time: Option<crate::processor_metrics::v1_6_3::LifeTime>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ClearCurrentPeriod {
@@ -56,9 +56,9 @@ pub mod v1_6_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoreMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CStateResidency")]
-        pub c_state_residency: Option<Vec<crate::processor_metrics::v1_6_1::CStateResidency>>,
+        pub c_state_residency: Option<Vec<crate::processor_metrics::v1_6_3::CStateResidency>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreCache")]
-        pub core_cache: Option<Vec<crate::processor_metrics::v1_6_1::CacheMetrics>>,
+        pub core_cache: Option<Vec<crate::processor_metrics::v1_6_3::CacheMetrics>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreId")]
         pub core_id: Option<String>,
         #[serde(
@@ -124,7 +124,7 @@ pub mod v1_6_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ProcessorMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::processor_metrics::v1_6_1::Actions>,
+        pub actions: Option<crate::processor_metrics::v1_6_3::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AverageFrequencyMHz"
@@ -133,13 +133,13 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BandwidthPercent")]
         pub bandwidth_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Cache")]
-        pub cache: Option<Vec<crate::processor_metrics::v1_6_1::CacheMetrics>>,
+        pub cache: Option<Vec<crate::processor_metrics::v1_6_3::CacheMetrics>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheMetricsTotal")]
-        pub cache_metrics_total: Option<crate::processor_metrics::v1_6_1::CacheMetricsTotal>,
+        pub cache_metrics_total: Option<crate::processor_metrics::v1_6_3::CacheMetricsTotal>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsumedPowerWatt")]
         pub consumed_power_watt: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreMetrics")]
-        pub core_metrics: Option<Vec<crate::processor_metrics::v1_6_1::CoreMetrics>>,
+        pub core_metrics: Option<Vec<crate::processor_metrics::v1_6_3::CoreMetrics>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreVoltage")]
         pub core_voltage: Option<crate::sensor::SensorVoltageExcerpt>,
         #[serde(

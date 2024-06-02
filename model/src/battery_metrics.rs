@@ -1,15 +1,15 @@
 pub type BatteryMetrics = crate::battery_metrics::v1_0_4::BatteryMetrics;
-pub mod v1_0_1 {
+pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::battery_metrics::v1_0_1::OemActions>,
+        pub oem: Option<crate::battery_metrics::v1_0_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BatteryMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::battery_metrics::v1_0_1::Actions>,
+        pub actions: Option<crate::battery_metrics::v1_0_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CellVoltages")]
         pub cell_voltages: Option<Vec<crate::sensor::SensorVoltageExcerpt>>,
         #[serde(

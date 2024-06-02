@@ -1,17 +1,17 @@
 pub type Assembly = crate::assembly::v1_5_1::Assembly;
-pub mod v1_4_0 {
+pub mod v1_5_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::assembly::v1_4_0::OemActions>,
+        pub oem: Option<crate::assembly::v1_5_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Assembly {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::assembly::v1_4_0::Actions>,
+        pub actions: Option<crate::assembly::v1_5_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assemblies")]
-        pub assemblies: Option<Vec<crate::assembly::v1_4_0::AssemblyData>>,
+        pub assemblies: Option<Vec<crate::assembly::v1_5_0::AssemblyData>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "Assemblies@odata.count"
@@ -37,7 +37,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssemblyData {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::assembly::v1_4_0::AssemblyDataActions>,
+        pub actions: Option<crate::assembly::v1_5_0::AssemblyDataActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BinaryDataURI")]
         pub binary_data_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -47,6 +47,11 @@ pub mod v1_4_0 {
             rename = "EngineeringChangeLevel"
         )]
         pub engineering_change_level: Option<String>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ISOCountryCodeOfOrigin"
+        )]
+        pub iso_country_code_of_origin: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -90,7 +95,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssemblyDataActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::assembly::v1_4_0::AssemblyDataOemActions>,
+        pub oem: Option<crate::assembly::v1_5_0::AssemblyDataOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssemblyDataOemActions {}

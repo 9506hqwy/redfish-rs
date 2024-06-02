@@ -3,7 +3,7 @@ pub type ControlExcerpt = crate::control::v1_5_1::ControlExcerpt;
 pub type ControlRangeExcerpt = crate::control::v1_5_1::ControlRangeExcerpt;
 pub type ControlSingleExcerpt = crate::control::v1_5_1::ControlSingleExcerpt;
 pub type ControlSingleLoopExcerpt = crate::control::v1_5_1::ControlSingleLoopExcerpt;
-pub mod v1_3_0 {
+pub mod v1_5_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -11,16 +11,16 @@ pub mod v1_3_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#Control.ResetToDefaults"
         )]
-        pub control_reset_to_defaults: Option<crate::control::v1_3_0::ResetToDefaults>,
+        pub control_reset_to_defaults: Option<crate::control::v1_5_0::ResetToDefaults>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::control::v1_3_0::OemActions>,
+        pub oem: Option<crate::control::v1_5_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Control {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Accuracy")]
         pub accuracy: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::control::v1_3_0::Actions>,
+        pub actions: Option<crate::control::v1_5_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMax")]
         pub allowable_max: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
@@ -43,11 +43,11 @@ pub mod v1_3_0 {
         )]
         pub control_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlLoop")]
-        pub control_loop: Option<crate::control::v1_3_0::ControlLoop>,
+        pub control_loop: Option<crate::control::v1_5_0::ControlLoop>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_3_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlType")]
-        pub control_type: Option<crate::control::v1_3_0::ControlType>,
+        pub control_type: Option<crate::control::v1_5_0::ControlType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeadBand")]
         pub dead_band: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DefaultSetPoint")]
@@ -57,7 +57,7 @@ pub mod v1_3_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Implementation")]
-        pub implementation: Option<crate::control::v1_3_0::ImplementationType>,
+        pub implementation: Option<crate::control::v1_5_0::ImplementationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Increment")]
         pub increment: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -89,8 +89,10 @@ pub mod v1_3_0 {
         pub sensor: Option<crate::sensor::SensorExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPoint")]
         pub set_point: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointAccuracy")]
+        pub set_point_accuracy: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointType")]
-        pub set_point_type: Option<crate::control::v1_3_0::SetPointType>,
+        pub set_point_type: Option<crate::control::v1_5_0::SetPointType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointUnits")]
         pub set_point_units: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointUpdateTime")]
@@ -109,7 +111,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_3_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -155,7 +157,7 @@ pub mod v1_3_0 {
         )]
         pub allowable_numeric_values: Option<Vec<f64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_3_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -174,7 +176,7 @@ pub mod v1_3_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_3_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DefaultSetPoint")]
@@ -189,10 +191,14 @@ pub mod v1_3_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ControlType {
         #[default]
+        #[serde(rename = "DutyCycle")]
+        DutyCycle,
         #[serde(rename = "Frequency")]
         Frequency,
         #[serde(rename = "FrequencyMHz")]
         FrequencyMHz,
+        #[serde(rename = "Percent")]
+        Percent,
         #[serde(rename = "Power")]
         Power,
         #[serde(rename = "Pressure")]

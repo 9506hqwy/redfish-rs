@@ -1,10 +1,10 @@
 pub type ManagerNetworkProtocol = crate::manager_network_protocol::v1_10_1::ManagerNetworkProtocol;
-pub mod v1_9_1 {
+pub mod v1_10_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager_network_protocol::v1_9_1::OemActions>,
+        pub oem: Option<crate::manager_network_protocol::v1_10_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EngineId {
@@ -33,31 +33,35 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ManagerNetworkProtocol {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager_network_protocol::v1_9_1::Actions>,
+        pub actions: Option<crate::manager_network_protocol::v1_10_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCPv6")]
-        pub dhc_pv6: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub dhc_pv6: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCP")]
-        pub dhcp: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub dhcp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FQDN")]
         pub fqdn: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "FTP")]
+        pub ftp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "FTPS")]
+        pub ftps: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostName")]
         pub host_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HTTP")]
-        pub http: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub http: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HTTPS")]
-        pub https: Option<crate::manager_network_protocol::v1_9_1::HTTPSProtocol>,
+        pub https: Option<crate::manager_network_protocol::v1_10_0::HTTPSProtocol>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPMI")]
-        pub ipmi: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub ipmi: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KVMIP")]
-        pub kvmip: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub kvmip: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NTP")]
-        pub ntp: Option<crate::manager_network_protocol::v1_9_1::NTPProtocol>,
+        pub ntp: Option<crate::manager_network_protocol::v1_10_0::NTPProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -69,23 +73,25 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Proxy")]
-        pub proxy: Option<crate::manager_network_protocol::v1_9_1::ProxyConfiguration>,
+        pub proxy: Option<crate::manager_network_protocol::v1_10_0::ProxyConfiguration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RDP")]
-        pub rdp: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub rdp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RFB")]
-        pub rfb: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub rfb: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "SFTP")]
+        pub sftp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::manager_network_protocol::v1_9_1::SNMPProtocol>,
+        pub snmp: Option<crate::manager_network_protocol::v1_10_0::SNMPProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSDP")]
-        pub ssdp: Option<crate::manager_network_protocol::v1_9_1::SSDProtocol>,
+        pub ssdp: Option<crate::manager_network_protocol::v1_10_0::SSDProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSH")]
-        pub ssh: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub ssh: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Telnet")]
-        pub telnet: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub telnet: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMedia")]
-        pub virtual_media: Option<crate::manager_network_protocol::v1_9_1::Protocol>,
+        pub virtual_media: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NTPProtocol {
@@ -160,11 +166,26 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SNMPCommunity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessMode")]
-        pub access_mode: Option<crate::manager_network_protocol::v1_9_1::SNMPCommunityAccessMode>,
+        pub access_mode: Option<crate::manager_network_protocol::v1_10_0::SNMPCommunityAccessMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommunityString")]
         pub community_string: Option<String>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "IPv4AddressRangeLower"
+        )]
+        pub ipv4_address_range_lower: Option<String>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "IPv4AddressRangeUpper"
+        )]
+        pub ipv4_address_range_upper: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Name")]
         pub name: Option<String>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "RestrictCommunityToIPv4AddressRange"
+        )]
+        pub restrict_community_to_ipv4_address_range: Option<bool>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SNMPCommunityAccessMode {
@@ -183,6 +204,10 @@ pub mod v1_9_1 {
         CBCDES,
         #[serde(rename = "CFB128_AES128")]
         CFB128AES128,
+        #[serde(rename = "CFB128_AES192")]
+        CFB128AES192,
+        #[serde(rename = "CFB128_AES256")]
+        CFB128AES256,
         #[serde(rename = "None")]
         None,
     }
@@ -193,15 +218,15 @@ pub mod v1_9_1 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::manager_network_protocol::v1_9_1::SNMPAuthenticationProtocols>,
+            Option<crate::manager_network_protocol::v1_10_0::SNMPAuthenticationProtocols>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CommunityAccessMode"
         )]
         pub community_access_mode:
-            Option<crate::manager_network_protocol::v1_9_1::SNMPCommunityAccessMode>,
+            Option<crate::manager_network_protocol::v1_10_0::SNMPCommunityAccessMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommunityStrings")]
-        pub community_strings: Option<Vec<crate::manager_network_protocol::v1_9_1::SNMPCommunity>>,
+        pub community_strings: Option<Vec<crate::manager_network_protocol::v1_10_0::SNMPCommunity>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnableSNMPv1")]
         pub enable_snm_pv1: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnableSNMPv2c")]
@@ -210,9 +235,9 @@ pub mod v1_9_1 {
         pub enable_snm_pv3: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
         pub encryption_protocol:
-            Option<crate::manager_network_protocol::v1_9_1::SNMPEncryptionProtocols>,
+            Option<crate::manager_network_protocol::v1_10_0::SNMPEncryptionProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EngineId")]
-        pub engine_id: Option<crate::manager_network_protocol::v1_9_1::EngineId>,
+        pub engine_id: Option<crate::manager_network_protocol::v1_10_0::EngineId>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "HideCommunityStrings"
@@ -222,11 +247,13 @@ pub mod v1_9_1 {
         pub port: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProtocolEnabled")]
         pub protocol_enabled: Option<bool>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "TrapPort")]
+        pub trap_port: Option<i64>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SSDProtocol {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NotifyIPv6Scope")]
-        pub notify_ipv6_scope: Option<crate::manager_network_protocol::v1_9_1::NotifyIPv6Scope>,
+        pub notify_ipv6_scope: Option<crate::manager_network_protocol::v1_10_0::NotifyIPv6Scope>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "NotifyMulticastIntervalSeconds"

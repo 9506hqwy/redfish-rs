@@ -1,5 +1,5 @@
 pub type AggregationSource = crate::aggregation_source::v1_4_1::AggregationSource;
-pub mod v1_3_1 {
+pub mod v1_4_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -8,22 +8,22 @@ pub mod v1_3_1 {
             rename = "#AggregationSource.GenerateSSHIdentityKeyPair"
         )]
         pub aggregation_source_generate_ssh_identity_key_pair:
-            Option<crate::aggregation_source::v1_3_1::GenerateSSHIdentityKeyPair>,
+            Option<crate::aggregation_source::v1_4_0::GenerateSSHIdentityKeyPair>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#AggregationSource.RemoveSSHIdentityKeyPair"
         )]
         pub aggregation_source_remove_ssh_identity_key_pair:
-            Option<crate::aggregation_source::v1_3_1::RemoveSSHIdentityKeyPair>,
+            Option<crate::aggregation_source::v1_4_0::RemoveSSHIdentityKeyPair>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::aggregation_source::v1_3_1::OemActions>,
+        pub oem: Option<crate::aggregation_source::v1_4_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AggregationSource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::aggregation_source::v1_3_1::Actions>,
+        pub actions: Option<crate::aggregation_source::v1_4_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AggregationType")]
-        pub aggregation_type: Option<crate::aggregation_source::v1_3_1::AggregationType>,
+        pub aggregation_type: Option<crate::aggregation_source::v1_4_0::AggregationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostName")]
@@ -31,7 +31,7 @@ pub mod v1_3_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::aggregation_source::v1_3_1::Links>,
+        pub links: Option<crate::aggregation_source::v1_4_0::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -47,9 +47,9 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::aggregation_source::v1_3_1::SNMPSettings>,
+        pub snmp: Option<crate::aggregation_source::v1_4_0::SNMPSettings>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSHSettings")]
-        pub ssh_settings: Option<crate::aggregation_source::v1_3_1::SSHSettingsType>,
+        pub ssh_settings: Option<crate::aggregation_source::v1_4_0::SSHSettingsType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
@@ -64,34 +64,6 @@ pub mod v1_3_1 {
         NotificationsOnly,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub enum ECDSACurveType {
-        #[default]
-        #[serde(rename = "NISTB233")]
-        NISTB233,
-        #[serde(rename = "NISTB409")]
-        NISTB409,
-        #[serde(rename = "NISTK163")]
-        NISTK163,
-        #[serde(rename = "NISTK233")]
-        NISTK233,
-        #[serde(rename = "NISTK283")]
-        NISTK283,
-        #[serde(rename = "NISTK409")]
-        NISTK409,
-        #[serde(rename = "NISTP192")]
-        NISTP192,
-        #[serde(rename = "NISTP224")]
-        NISTP224,
-        #[serde(rename = "NISTP256")]
-        NISTP256,
-        #[serde(rename = "NISTP384")]
-        NISTP384,
-        #[serde(rename = "NISTP521")]
-        NISTP521,
-        #[serde(rename = "NISTT571")]
-        NISTT571,
-    }
-    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GenerateSSHIdentityKeyPair {
         #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
         pub target: Option<String>,
@@ -101,11 +73,11 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GenerateSSHIdentityKeyPairRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Curve")]
-        pub curve: Option<crate::aggregation_source::v1_3_1::ECDSACurveType>,
+        pub curve: Option<crate::key::ECDSACurveType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyLength")]
         pub key_length: Option<i64>,
         #[serde(rename = "KeyType")]
-        pub key_type: crate::aggregation_source::v1_3_1::SSHKeyType,
+        pub key_type: crate::key::SSHKeyType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -159,6 +131,10 @@ pub mod v1_3_1 {
         CBCDES,
         #[serde(rename = "CFB128_AES128")]
         CFB128AES128,
+        #[serde(rename = "CFB128_AES192")]
+        CFB128AES192,
+        #[serde(rename = "CFB128_AES256")]
+        CFB128AES256,
         #[serde(rename = "None")]
         None,
     }
@@ -176,27 +152,15 @@ pub mod v1_3_1 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::aggregation_source::v1_3_1::SNMPAuthenticationProtocols>,
+            Option<crate::aggregation_source::v1_4_0::SNMPAuthenticationProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<crate::aggregation_source::v1_3_1::SNMPEncryptionProtocols>,
+        pub encryption_protocol: Option<crate::aggregation_source::v1_4_0::SNMPEncryptionProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrapCommunity")]
         pub trap_community: Option<String>,
-    }
-    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub enum SSHKeyType {
-        #[default]
-        #[serde(rename = "DSA")]
-        DSA,
-        #[serde(rename = "ECDSA")]
-        ECDSA,
-        #[serde(rename = "Ed25519")]
-        Ed25519,
-        #[serde(rename = "RSA")]
-        RSA,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SSHSettingsType {
@@ -222,7 +186,7 @@ pub mod v1_3_1 {
             rename = "UserAuthenticationMethod"
         )]
         pub user_authentication_method:
-            Option<crate::aggregation_source::v1_3_1::UserAuthenticationMethod>,
+            Option<crate::aggregation_source::v1_4_0::UserAuthenticationMethod>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum UserAuthenticationMethod {

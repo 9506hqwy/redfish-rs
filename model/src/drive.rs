@@ -1,14 +1,20 @@
 pub type Drive = crate::drive::v1_19_0::Drive;
-pub mod v1_17_0 {
+pub mod v1_18_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Drive.Reset")]
-        pub drive_reset: Option<crate::drive::v1_17_0::Reset>,
+        pub drive_reset: Option<crate::drive::v1_18_0::Reset>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#Drive.RevertToOriginalFactoryState"
+        )]
+        pub drive_revert_to_original_factory_state:
+            Option<crate::drive::v1_18_0::RevertToOriginalFactoryState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Drive.SecureErase")]
-        pub drive_secure_erase: Option<crate::drive::v1_17_0::SecureErase>,
+        pub drive_secure_erase: Option<crate::drive::v1_18_0::SecureErase>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::drive::v1_17_0::OemActions>,
+        pub oem: Option<crate::drive::v1_18_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DataSanitizationType {
@@ -23,7 +29,7 @@ pub mod v1_17_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Drive {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::drive::v1_17_0::Actions>,
+        pub actions: Option<crate::drive::v1_18_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
@@ -39,11 +45,11 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DriveFormFactor")]
-        pub drive_form_factor: Option<crate::drive::v1_17_0::FormFactor>,
+        pub drive_form_factor: Option<crate::drive::v1_18_0::FormFactor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionAbility")]
-        pub encryption_ability: Option<crate::drive::v1_17_0::EncryptionAbility>,
+        pub encryption_ability: Option<crate::drive::v1_18_0::EncryptionAbility>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionStatus")]
-        pub encryption_status: Option<crate::drive::v1_17_0::EncryptionStatus>,
+        pub encryption_status: Option<crate::drive::v1_18_0::EncryptionStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FailurePredicted")]
@@ -54,9 +60,9 @@ pub mod v1_17_0 {
             skip_serializing_if = "Option::is_none",
             rename = "HotspareReplacementMode"
         )]
-        pub hotspare_replacement_mode: Option<crate::drive::v1_17_0::HotspareReplacementModeType>,
+        pub hotspare_replacement_mode: Option<crate::drive::v1_18_0::HotspareReplacementModeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotspareType")]
-        pub hotspare_type: Option<crate::drive::v1_17_0::HotspareType>,
+        pub hotspare_type: Option<crate::drive::v1_18_0::HotspareType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
@@ -64,7 +70,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
         pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::drive::v1_17_0::Links>,
+        pub links: Option<crate::drive::v1_18_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<Vec<crate::resource::Location>>,
         #[serde(
@@ -77,7 +83,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::software_inventory::MeasurementBlock>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaType")]
-        pub media_type: Option<crate::drive::v1_17_0::MediaType>,
+        pub media_type: Option<crate::drive::v1_18_0::MediaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
         pub metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
@@ -99,7 +105,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Operations")]
-        pub operations: Option<Vec<crate::drive::v1_17_0::Operations>>,
+        pub operations: Option<Vec<crate::drive::v1_18_0::Operations>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalLocation")]
@@ -127,11 +133,11 @@ pub mod v1_17_0 {
         )]
         pub slot_capable_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotFormFactor")]
-        pub slot_form_factor: Option<crate::drive::v1_17_0::FormFactor>,
+        pub slot_form_factor: Option<crate::drive::v1_18_0::FormFactor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StatusIndicator")]
-        pub status_indicator: Option<crate::drive::v1_17_0::StatusIndicator>,
+        pub status_indicator: Option<crate::drive::v1_18_0::StatusIndicator>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCacheEnabled")]
         pub write_cache_enabled: Option<bool>,
     }
@@ -166,6 +172,8 @@ pub mod v1_17_0 {
         Drive2N5,
         #[serde(rename = "Drive3_5")]
         Drive3N5,
+        #[serde(rename = "EDSFF")]
+        EDSFF,
         #[serde(rename = "EDSFF_1U_Long")]
         EDSFF1ULong,
         #[serde(rename = "EDSFF_1U_Short")]
@@ -174,6 +182,8 @@ pub mod v1_17_0 {
         EDSFFE3Long,
         #[serde(rename = "EDSFF_E3_Short")]
         EDSFFE3Short,
+        #[serde(rename = "M2")]
+        M2,
         #[serde(rename = "M2_22110")]
         M2N22110,
         #[serde(rename = "M2_2230")]
@@ -310,6 +320,18 @@ pub mod v1_17_0 {
         pub reset_type: Option<crate::resource::ResetType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct RevertToOriginalFactoryState {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct RevertToOriginalFactoryStateRequestBody {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSecureID")]
+        pub physical_secure_id: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SecureErase {
         #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
         pub target: Option<String>,
@@ -321,7 +343,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverwritePasses")]
         pub overwrite_passes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SanitizationType")]
-        pub sanitization_type: Option<crate::drive::v1_17_0::DataSanitizationType>,
+        pub sanitization_type: Option<crate::drive::v1_18_0::DataSanitizationType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum StatusIndicator {

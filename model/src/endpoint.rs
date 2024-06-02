@@ -1,23 +1,23 @@
 pub type Endpoint = crate::endpoint::v1_8_2::Endpoint;
-pub mod v1_8_0 {
+pub mod v1_8_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::endpoint::v1_8_0::OemActions>,
+        pub oem: Option<crate::endpoint::v1_8_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ConnectedEntity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntityLink")]
         pub entity_link: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntityPciId")]
-        pub entity_pci_id: Option<crate::endpoint::v1_8_0::PciId>,
+        pub entity_pci_id: Option<crate::endpoint::v1_8_1::PciId>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntityRole")]
-        pub entity_role: Option<crate::endpoint::v1_8_0::EntityRole>,
+        pub entity_role: Option<crate::endpoint::v1_8_1::EntityRole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntityType")]
-        pub entity_type: Option<crate::endpoint::v1_8_0::EntityType>,
+        pub entity_type: Option<crate::endpoint::v1_8_1::EntityType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::endpoint::v1_8_0::GenZ>,
+        pub gen_z: Option<crate::endpoint::v1_8_1::GenZ>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -30,9 +30,9 @@ pub mod v1_8_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Endpoint {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::endpoint::v1_8_0::Actions>,
+        pub actions: Option<crate::endpoint::v1_8_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectedEntities")]
-        pub connected_entities: Option<Vec<crate::endpoint::v1_8_0::ConnectedEntity>>,
+        pub connected_entities: Option<Vec<crate::endpoint::v1_8_1::ConnectedEntity>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EndpointProtocol")]
@@ -47,9 +47,9 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPTransportDetails")]
-        pub ip_transport_details: Option<Vec<crate::endpoint::v1_8_0::IPTransportDetails>>,
+        pub ip_transport_details: Option<Vec<crate::endpoint::v1_8_1::IPTransportDetails>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::endpoint::v1_8_0::Links>,
+        pub links: Option<crate::endpoint::v1_8_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -63,7 +63,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PciId")]
-        pub pci_id: Option<crate::endpoint::v1_8_0::PciId>,
+        pub pci_id: Option<crate::endpoint::v1_8_1::PciId>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -136,7 +136,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessKey")]
         pub access_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GCID")]
-        pub gcid: Option<crate::endpoint::v1_8_0::GCID>,
+        pub gcid: Option<crate::endpoint::v1_8_1::GCID>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegionKey")]
         pub region_key: Option<String>,
     }
@@ -147,7 +147,7 @@ pub mod v1_8_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPv6Address")]
         pub ipv6_address: Option<crate::ip_addresses::IPv6Address>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Port")]
-        pub port: Option<f64>,
+        pub port: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransportProtocol")]
         pub transport_protocol: Option<crate::protocol::Protocol>,
     }

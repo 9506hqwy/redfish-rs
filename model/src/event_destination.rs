@@ -8,7 +8,7 @@ pub enum EventFormatType {
     #[serde(rename = "MetricReport")]
     MetricReport,
 }
-pub mod v1_13_1 {
+pub mod v1_14_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -17,15 +17,15 @@ pub mod v1_13_1 {
             rename = "#EventDestination.ResumeSubscription"
         )]
         pub event_destination_resume_subscription:
-            Option<crate::event_destination::v1_13_1::ResumeSubscription>,
+            Option<crate::event_destination::v1_14_0::ResumeSubscription>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#EventDestination.SuspendSubscription"
         )]
         pub event_destination_suspend_subscription:
-            Option<crate::event_destination::v1_13_1::SuspendSubscription>,
+            Option<crate::event_destination::v1_14_0::SuspendSubscription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event_destination::v1_13_1::OemActions>,
+        pub oem: Option<crate::event_destination::v1_14_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DeliveryRetryPolicy {
@@ -42,7 +42,7 @@ pub mod v1_13_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventDestination {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event_destination::v1_13_1::Actions>,
+        pub actions: Option<crate::event_destination::v1_14_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientCertificates")]
@@ -53,7 +53,7 @@ pub mod v1_13_1 {
             skip_serializing_if = "Option::is_none",
             rename = "DeliveryRetryPolicy"
         )]
-        pub delivery_retry_policy: Option<crate::event_destination::v1_13_1::DeliveryRetryPolicy>,
+        pub delivery_retry_policy: Option<crate::event_destination::v1_14_0::DeliveryRetryPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Destination")]
@@ -75,7 +75,7 @@ pub mod v1_13_1 {
         )]
         pub heartbeat_interval_minutes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HttpHeaders")]
-        pub http_headers: Option<Vec<crate::event_destination::v1_13_1::HttpHeaderProperty>>,
+        pub http_headers: Option<Vec<crate::event_destination::v1_14_0::HttpHeaderProperty>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(
@@ -122,7 +122,7 @@ pub mod v1_13_1 {
         )]
         pub origin_resources_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Protocol")]
-        pub protocol: Option<crate::event_destination::v1_13_1::EventDestinationProtocol>,
+        pub protocol: Option<crate::event_destination::v1_14_0::EventDestinationProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegistryPrefixes")]
         pub registry_prefixes: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResourceTypes")]
@@ -132,7 +132,7 @@ pub mod v1_13_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severities")]
         pub severities: Option<Vec<crate::resource::Health>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::event_destination::v1_13_1::SNMPSettings>,
+        pub snmp: Option<crate::event_destination::v1_14_0::SNMPSettings>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(
@@ -141,9 +141,9 @@ pub mod v1_13_1 {
         )]
         pub subordinate_resources: Option<bool>,
         #[serde(rename = "SubscriptionType")]
-        pub subscription_type: Option<crate::event_destination::v1_13_1::SubscriptionType>,
+        pub subscription_type: Option<crate::event_destination::v1_14_0::SubscriptionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyslogFilters")]
-        pub syslog_filters: Option<Vec<crate::event_destination::v1_13_1::SyslogFilter>>,
+        pub syslog_filters: Option<Vec<crate::event_destination::v1_14_0::SyslogFilter>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerifyCertificate")]
         pub verify_certificate: Option<bool>,
     }
@@ -219,6 +219,10 @@ pub mod v1_13_1 {
         CBCDES,
         #[serde(rename = "CFB128_AES128")]
         CFB128AES128,
+        #[serde(rename = "CFB128_AES192")]
+        CFB128AES192,
+        #[serde(rename = "CFB128_AES256")]
+        CFB128AES256,
         #[serde(rename = "None")]
         None,
     }
@@ -236,13 +240,13 @@ pub mod v1_13_1 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::event_destination::v1_13_1::SNMPAuthenticationProtocols>,
+            Option<crate::event_destination::v1_14_0::SNMPAuthenticationProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<crate::event_destination::v1_13_1::SNMPEncryptionProtocols>,
+        pub encryption_protocol: Option<crate::event_destination::v1_14_0::SNMPEncryptionProtocols>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrapCommunity")]
         pub trap_community: Option<String>,
     }
@@ -326,9 +330,9 @@ pub mod v1_13_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SyslogFilter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogFacilities")]
-        pub log_facilities: Option<Vec<crate::event_destination::v1_13_1::SyslogFacility>>,
+        pub log_facilities: Option<Vec<crate::event_destination::v1_14_0::SyslogFacility>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowestSeverity")]
-        pub lowest_severity: Option<crate::event_destination::v1_13_1::SyslogSeverity>,
+        pub lowest_severity: Option<crate::event_destination::v1_14_0::SyslogSeverity>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SyslogSeverity {

@@ -1,15 +1,15 @@
 pub type JobService = crate::job_service::v1_0_6::JobService;
-pub mod v1_0_4 {
+pub mod v1_0_5 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::job_service::v1_0_4::OemActions>,
+        pub oem: Option<crate::job_service::v1_0_5::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct JobService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::job_service::v1_0_4::Actions>,
+        pub actions: Option<crate::job_service::v1_0_5::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DateTime")]
         pub date_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -36,7 +36,7 @@ pub mod v1_0_4 {
             skip_serializing_if = "Option::is_none",
             rename = "ServiceCapabilities"
         )]
-        pub service_capabilities: Option<crate::job_service::v1_0_4::JobServiceCapabilities>,
+        pub service_capabilities: Option<crate::job_service::v1_0_5::JobServiceCapabilities>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceEnabled")]
         pub service_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]

@@ -42,22 +42,22 @@ pub enum ReceptacleType {
     #[serde(rename = "SEV_1011_TYPE_23")]
     SEVN1011TYPEN23,
 }
-pub mod v1_4_1 {
+pub mod v1_4_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::outlet::v1_4_1::OemActions>,
+        pub oem: Option<crate::outlet::v1_4_2::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Outlet.PowerControl"
         )]
-        pub outlet_power_control: Option<crate::outlet::v1_4_1::PowerControl>,
+        pub outlet_power_control: Option<crate::outlet::v1_4_2::PowerControl>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Outlet.ResetMetrics"
         )]
-        pub outlet_reset_metrics: Option<crate::outlet::v1_4_1::ResetMetrics>,
+        pub outlet_reset_metrics: Option<crate::outlet::v1_4_2::ResetMetrics>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CurrentSensors {
@@ -106,7 +106,7 @@ pub mod v1_4_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Outlet {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::outlet::v1_4_1::Actions>,
+        pub actions: Option<crate::outlet::v1_4_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConfigurationLocked"
@@ -132,7 +132,7 @@ pub mod v1_4_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
         pub indicator_led: Option<crate::resource::IndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::outlet::v1_4_1::Links>,
+        pub links: Option<crate::outlet::v1_4_2::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -160,9 +160,9 @@ pub mod v1_4_1 {
             skip_serializing_if = "Option::is_none",
             rename = "PolyPhaseCurrentAmps"
         )]
-        pub poly_phase_current_amps: Option<crate::outlet::v1_4_1::CurrentSensors>,
+        pub poly_phase_current_amps: Option<crate::outlet::v1_4_2::CurrentSensors>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PolyPhaseVoltage")]
-        pub poly_phase_voltage: Option<crate::outlet::v1_4_1::VoltageSensors>,
+        pub poly_phase_voltage: Option<crate::outlet::v1_4_2::VoltageSensors>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerControlLocked")]
         pub power_control_locked: Option<bool>,
         #[serde(
@@ -209,7 +209,7 @@ pub mod v1_4_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Voltage")]
         pub voltage: Option<crate::sensor::SensorVoltageExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VoltageType")]
-        pub voltage_type: Option<crate::outlet::v1_4_1::VoltageType>,
+        pub voltage_type: Option<crate::outlet::v1_4_2::VoltageType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerControl {

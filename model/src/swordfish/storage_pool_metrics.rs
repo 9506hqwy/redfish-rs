@@ -1,22 +1,17 @@
-pub type VolumeMetrics = crate::swordfish::volume_metrics::v1_1_0::VolumeMetrics;
-pub mod v1_1_0 {
+pub type StoragePoolMetrics = crate::swordfish::storage_pool_metrics::v1_0_0::StoragePoolMetrics;
+pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::swordfish::volume_metrics::v1_1_0::OemActions>,
+        pub oem: Option<crate::swordfish::storage_pool_metrics::v1_0_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub struct VolumeMetrics {
+    pub struct StoragePoolMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::swordfish::volume_metrics::v1_1_0::Actions>,
-        #[serde(
-            skip_serializing_if = "Option::is_none",
-            rename = "ConsistencyCheckCount"
-        )]
-        pub consistency_check_count: Option<f64>,
+        pub actions: Option<crate::swordfish::storage_pool_metrics::v1_0_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConsistencyCheckErrorCount"
@@ -33,7 +28,8 @@ pub mod v1_1_0 {
         )]
         pub correctable_io_write_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::swordfish::volume_metrics::v1_1_0::VolumeMetricsDescription>,
+        pub description:
+            Option<crate::swordfish::storage_pool_metrics::v1_0_0::StoragePoolMetricsDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
@@ -67,17 +63,17 @@ pub mod v1_1_0 {
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
-    pub enum VolumeMetricsDescription {
-        V000001(crate::swordfish::volume_metrics::v1_1_0::VolumeMetricsDescriptionN1),
+    pub enum StoragePoolMetricsDescription {
+        V000001(crate::swordfish::storage_pool_metrics::v1_0_0::StoragePoolMetricsDescriptionN1),
         ResourceDescription(String),
     }
-    impl Default for VolumeMetricsDescription {
+    impl Default for StoragePoolMetricsDescription {
         fn default() -> Self {
             Self::V000001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub enum VolumeMetricsDescriptionN1 {
+    pub enum StoragePoolMetricsDescriptionN1 {
         #[default]
         #[serde(rename = "null")]
         Null,

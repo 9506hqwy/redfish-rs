@@ -1,10 +1,10 @@
 pub type License = crate::license::v1_1_3::License;
-pub mod v1_1_1 {
+pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::license::v1_1_1::OemActions>,
+        pub oem: Option<crate::license::v1_1_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AuthorizationScope {
@@ -28,11 +28,11 @@ pub mod v1_1_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct License {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::license::v1_1_1::Actions>,
+        pub actions: Option<crate::license::v1_1_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthorizationScope")]
-        pub authorization_scope: Option<crate::license::v1_1_1::AuthorizationScope>,
+        pub authorization_scope: Option<crate::license::v1_1_2::AuthorizationScope>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Contact")]
-        pub contact: Option<crate::license::v1_1_1::ContactInfo>,
+        pub contact: Option<crate::license::v1_1_2::ContactInfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DownloadURI")]
@@ -50,13 +50,13 @@ pub mod v1_1_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseInfoURI")]
         pub license_info_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseOrigin")]
-        pub license_origin: Option<crate::license::v1_1_1::LicenseOrigin>,
+        pub license_origin: Option<crate::license::v1_1_2::LicenseOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseString")]
         pub license_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseType")]
-        pub license_type: Option<crate::license::v1_1_1::LicenseType>,
+        pub license_type: Option<crate::license::v1_1_2::LicenseType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::license::v1_1_1::Links>,
+        pub links: Option<crate::license::v1_1_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(

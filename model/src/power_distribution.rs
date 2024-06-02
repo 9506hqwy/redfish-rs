@@ -1,16 +1,16 @@
 pub type PowerDistribution = crate::power_distribution::v1_4_0::PowerDistribution;
-pub mod v1_3_1 {
+pub mod v1_3_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power_distribution::v1_3_1::OemActions>,
+        pub oem: Option<crate::power_distribution::v1_3_3::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#PowerDistribution.TransferControl"
         )]
         pub power_distribution_transfer_control:
-            Option<crate::power_distribution::v1_3_1::TransferControl>,
+            Option<crate::power_distribution::v1_3_3::TransferControl>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -38,7 +38,7 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerDistribution {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power_distribution::v1_3_1::Actions>,
+        pub actions: Option<crate::power_distribution::v1_3_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Branches")]
@@ -46,7 +46,7 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "EquipmentType")]
-        pub equipment_type: crate::power_distribution::v1_3_1::PowerEquipmentType,
+        pub equipment_type: crate::power_distribution::v1_3_3::PowerEquipmentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Feeders")]
         pub feeders: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -54,7 +54,7 @@ pub mod v1_3_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::power_distribution::v1_3_1::Links>,
+        pub links: Option<crate::power_distribution::v1_3_3::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Mains")]
@@ -107,9 +107,9 @@ pub mod v1_3_1 {
             rename = "TransferConfiguration"
         )]
         pub transfer_configuration:
-            Option<crate::power_distribution::v1_3_1::TransferConfiguration>,
+            Option<crate::power_distribution::v1_3_3::TransferConfiguration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferCriteria")]
-        pub transfer_criteria: Option<crate::power_distribution::v1_3_1::TransferCriteria>,
+        pub transfer_criteria: Option<crate::power_distribution::v1_3_3::TransferCriteria>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserLabel")]
         pub user_label: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
@@ -199,7 +199,7 @@ pub mod v1_3_1 {
             rename = "TransferSensitivity"
         )]
         pub transfer_sensitivity:
-            Option<crate::power_distribution::v1_3_1::TransferSensitivityType>,
+            Option<crate::power_distribution::v1_3_3::TransferSensitivityType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UnderNominalFrequencyHz"

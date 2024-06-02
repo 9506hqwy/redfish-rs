@@ -1,10 +1,10 @@
 pub type LogEntry = crate::log_entry::v1_16_1::LogEntry;
-pub mod v1_15_0 {
+pub mod v1_16_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::log_entry::v1_15_0::OemActions>,
+        pub oem: Option<crate::log_entry::v1_16_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CPER {
@@ -79,7 +79,7 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LogEntry {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::log_entry::v1_15_0::Actions>,
+        pub actions: Option<crate::log_entry::v1_16_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalDataSizeBytes"
@@ -88,21 +88,21 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditionalDataURI")]
         pub additional_data_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CPER")]
-        pub cper: Option<crate::log_entry::v1_15_0::CPER>,
+        pub cper: Option<crate::log_entry::v1_16_0::CPER>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Created")]
         pub created: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXLEntryType")]
-        pub cxl_entry_type: Option<crate::log_entry::v1_15_0::CXLEntryType>,
+        pub cxl_entry_type: Option<crate::log_entry::v1_16_0::CXLEntryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticData")]
         pub diagnostic_data: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: Option<crate::log_entry::v1_15_0::LogDiagnosticDataTypes>,
+        pub diagnostic_data_type: Option<crate::log_entry::v1_16_0::LogDiagnosticDataTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntryCode")]
-        pub entry_code: Option<crate::log_entry::v1_15_0::LogEntryCode>,
+        pub entry_code: Option<crate::log_entry::v1_16_0::LogEntryCode>,
         #[serde(rename = "EntryType")]
-        pub entry_type: crate::log_entry::v1_15_0::LogEntryType,
+        pub entry_type: crate::log_entry::v1_16_0::LogEntryType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventGroupId")]
         pub event_group_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventId")]
@@ -126,7 +126,7 @@ pub mod v1_15_0 {
         )]
         pub last_overflow_timestamp: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::log_entry::v1_15_0::Links>,
+        pub links: Option<crate::log_entry::v1_16_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Message")]
         pub message: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MessageArgs")]
@@ -161,26 +161,28 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Originator")]
         pub originator: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OriginatorType")]
-        pub originator_type: Option<crate::log_entry::v1_15_0::OriginatorTypes>,
+        pub originator_type: Option<crate::log_entry::v1_16_0::OriginatorTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverflowErrorCount")]
         pub overflow_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Persistency")]
         pub persistency: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Resolution")]
         pub resolution: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ResolutionSteps")]
+        pub resolution_steps: Option<Vec<crate::resolution_step::ResolutionStep>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Resolved")]
         pub resolved: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensorNumber")]
         pub sensor_number: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensorType")]
-        pub sensor_type: Option<crate::log_entry::v1_15_0::SensorType>,
+        pub sensor_type: Option<crate::log_entry::v1_16_0::SensorType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ServiceProviderNotified"
         )]
         pub service_provider_notified: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
-        pub severity: Option<crate::log_entry::v1_15_0::EventSeverity>,
+        pub severity: Option<crate::log_entry::v1_16_0::EventSeverity>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SpecificEventExistsInGroup"

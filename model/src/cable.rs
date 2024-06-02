@@ -1,23 +1,23 @@
 pub type Cable = crate::cable::v1_2_3::Cable;
-pub mod v1_2_1 {
+pub mod v1_2_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::cable::v1_2_1::OemActions>,
+        pub oem: Option<crate::cable::v1_2_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Cable {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::cable::v1_2_1::Actions>,
+        pub actions: Option<crate::cable::v1_2_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CableClass")]
-        pub cable_class: Option<crate::cable::v1_2_1::CableClass>,
+        pub cable_class: Option<crate::cable::v1_2_2::CableClass>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CableStatus")]
-        pub cable_status: Option<crate::cable::v1_2_1::CableStatus>,
+        pub cable_status: Option<crate::cable::v1_2_2::CableStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CableType")]
         pub cable_type: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -26,7 +26,7 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "DownstreamConnectorTypes"
         )]
-        pub downstream_connector_types: Option<Vec<crate::cable::v1_2_1::ConnectorType>>,
+        pub downstream_connector_types: Option<Vec<crate::cable::v1_2_2::ConnectorType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DownstreamName")]
         pub downstream_name: Option<String>,
         #[serde(rename = "Id")]
@@ -34,7 +34,7 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LengthMeters")]
         pub length_meters: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::cable::v1_2_1::Links>,
+        pub links: Option<crate::cable::v1_2_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
@@ -65,7 +65,7 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "UpstreamConnectorTypes"
         )]
-        pub upstream_connector_types: Option<Vec<crate::cable::v1_2_1::ConnectorType>>,
+        pub upstream_connector_types: Option<Vec<crate::cable::v1_2_2::ConnectorType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UpstreamName")]
         pub upstream_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserDescription")]

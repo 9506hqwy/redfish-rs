@@ -1,15 +1,15 @@
 pub type Fan = crate::fan::v1_5_2::Fan;
-pub mod v1_4_0 {
+pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::fan::v1_4_0::OemActions>,
+        pub oem: Option<crate::fan::v1_5_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Fan {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::fan::v1_4_0::Actions>,
+        pub actions: Option<crate::fan::v1_5_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -21,7 +21,7 @@ pub mod v1_4_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::fan::v1_4_0::Links>,
+        pub links: Option<crate::fan::v1_5_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -53,6 +53,11 @@ pub mod v1_4_0 {
         pub power_watts: Option<crate::sensor::SensorPowerExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replaceable")]
         pub replaceable: Option<bool>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "SecondarySpeedPercent"
+        )]
+        pub secondary_speed_percent: Option<crate::sensor::SensorFanExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SparePartNumber")]

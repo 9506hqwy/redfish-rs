@@ -1,10 +1,10 @@
 pub type PowerSubsystem = crate::power_subsystem::v1_1_2::PowerSubsystem;
-pub mod v1_1_0 {
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power_subsystem::v1_1_0::OemActions>,
+        pub oem: Option<crate::power_subsystem::v1_1_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -18,9 +18,9 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerSubsystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power_subsystem::v1_1_0::Actions>,
+        pub actions: Option<crate::power_subsystem::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Allocation")]
-        pub allocation: Option<crate::power_subsystem::v1_1_0::PowerAllocation>,
+        pub allocation: Option<crate::power_subsystem::v1_1_1::PowerAllocation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Batteries")]
         pub batteries: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CapacityWatts")]

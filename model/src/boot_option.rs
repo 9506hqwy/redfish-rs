@@ -1,15 +1,15 @@
 pub type BootOption = crate::boot_option::v1_0_6::BootOption;
-pub mod v1_0_4 {
+pub mod v1_0_5 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::boot_option::v1_0_4::OemActions>,
+        pub oem: Option<crate::boot_option::v1_0_5::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BootOption {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::boot_option::v1_0_4::Actions>,
+        pub actions: Option<crate::boot_option::v1_0_5::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Alias")]
         pub alias: Option<crate::computer_system::BootSource>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootOptionEnabled")]

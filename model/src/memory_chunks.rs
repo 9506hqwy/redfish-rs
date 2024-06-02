@@ -1,10 +1,10 @@
 pub type MemoryChunks = crate::memory_chunks::v1_6_2::MemoryChunks;
-pub mod v1_5_0 {
+pub mod v1_6_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::memory_chunks::v1_5_0::OemActions>,
+        pub oem: Option<crate::memory_chunks::v1_6_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AddressRangeType {
@@ -45,6 +45,13 @@ pub mod v1_5_0 {
             rename = "Endpoints@odata.count"
         )]
         pub endpoints_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryRegions")]
+        pub memory_regions: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "MemoryRegions@odata.count"
+        )]
+        pub memory_regions_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
     }
@@ -61,14 +68,14 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryChunks {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::memory_chunks::v1_5_0::Actions>,
+        pub actions: Option<crate::memory_chunks::v1_6_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AddressRangeOffsetMiB"
         )]
         pub address_range_offset_mib: Option<i64>,
         #[serde(rename = "AddressRangeType")]
-        pub address_range_type: Option<crate::memory_chunks::v1_5_0::AddressRangeType>,
+        pub address_range_type: Option<crate::memory_chunks::v1_6_1::AddressRangeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DisplayName")]
@@ -76,15 +83,15 @@ pub mod v1_5_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterleaveSets")]
-        pub interleave_sets: Option<Vec<crate::memory_chunks::v1_5_0::InterleaveSet>>,
+        pub interleave_sets: Option<Vec<crate::memory_chunks::v1_6_1::InterleaveSet>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsMirrorEnabled")]
         pub is_mirror_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsSpare")]
         pub is_spare: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::memory_chunks::v1_5_0::Links>,
+        pub links: Option<crate::memory_chunks::v1_6_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaLocation")]
-        pub media_location: Option<crate::memory_chunks::v1_5_0::MediaLocation>,
+        pub media_location: Option<crate::memory_chunks::v1_6_1::MediaLocation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunkSizeMiB")]
         pub memory_chunk_size_mib: Option<i64>,
         #[serde(rename = "Name")]
@@ -103,7 +110,7 @@ pub mod v1_5_0 {
             skip_serializing_if = "Option::is_none",
             rename = "RequestedOperationalState"
         )]
-        pub requested_operational_state: Option<crate::memory_chunks::v1_5_0::OperationalState>,
+        pub requested_operational_state: Option<crate::memory_chunks::v1_6_1::OperationalState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
     }

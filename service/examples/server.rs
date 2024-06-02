@@ -8,10 +8,10 @@ use axum::{
 use base64::Engine;
 use redfish_model::{
     odata_v4::IdRef,
-    service_root::v1_16_0::{Links, ServiceRoot},
-    session::v1_6_0::Session,
+    service_root::v1_17_0::{Links, ServiceRoot},
+    session::v1_7_2::Session,
     session_collection::SessionCollection,
-    session_service::v1_1_8::SessionService,
+    session_service::v1_1_9::SessionService,
     RedfishError,
 };
 use redfish_service::service::{

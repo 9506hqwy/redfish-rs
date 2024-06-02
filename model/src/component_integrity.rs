@@ -1,5 +1,5 @@
 pub type ComponentIntegrity = crate::component_integrity::v1_2_3::ComponentIntegrity;
-pub mod v1_2_1 {
+pub mod v1_2_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -8,15 +8,15 @@ pub mod v1_2_1 {
             rename = "#ComponentIntegrity.SPDMGetSignedMeasurements"
         )]
         pub component_integrity_spdm_get_signed_measurements:
-            Option<crate::component_integrity::v1_2_1::SPDMGetSignedMeasurements>,
+            Option<crate::component_integrity::v1_2_2::SPDMGetSignedMeasurements>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComponentIntegrity.TPMGetSignedMeasurements"
         )]
         pub component_integrity_tpm_get_signed_measurements:
-            Option<crate::component_integrity::v1_2_1::TPMGetSignedMeasurements>,
+            Option<crate::component_integrity::v1_2_2::TPMGetSignedMeasurements>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::component_integrity::v1_2_1::OemActions>,
+        pub oem: Option<crate::component_integrity::v1_2_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CommonAuthInfo {
@@ -26,24 +26,24 @@ pub mod v1_2_1 {
         )]
         pub component_certificate: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerificationStatus")]
-        pub verification_status: Option<crate::component_integrity::v1_2_1::VerificationStatus>,
+        pub verification_status: Option<crate::component_integrity::v1_2_2::VerificationStatus>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CommunicationInfo {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Sessions")]
-        pub sessions: Option<Vec<crate::component_integrity::v1_2_1::SingleSessionInfo>>,
+        pub sessions: Option<Vec<crate::component_integrity::v1_2_2::SingleSessionInfo>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ComponentIntegrity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::component_integrity::v1_2_1::Actions>,
+        pub actions: Option<crate::component_integrity::v1_2_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ComponentIntegrityEnabled"
         )]
         pub component_integrity_enabled: Option<bool>,
         #[serde(rename = "ComponentIntegrityType")]
-        pub component_integrity_type: crate::component_integrity::v1_2_1::ComponentIntegrityType,
+        pub component_integrity_type: crate::component_integrity::v1_2_2::ComponentIntegrityType,
         #[serde(rename = "ComponentIntegrityTypeVersion")]
         pub component_integrity_type_version: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -53,7 +53,7 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastUpdated")]
         pub last_updated: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::component_integrity::v1_2_1::Links>,
+        pub links: Option<crate::component_integrity::v1_2_2::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -67,13 +67,13 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SPDM")]
-        pub spdm: Option<crate::component_integrity::v1_2_1::SPDMinfo>,
+        pub spdm: Option<crate::component_integrity::v1_2_2::SPDMinfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(rename = "TargetComponentURI")]
         pub target_component_uri: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TPM")]
-        pub tpm: Option<crate::component_integrity::v1_2_1::TPMinfo>,
+        pub tpm: Option<crate::component_integrity::v1_2_2::TPMinfo>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ComponentIntegrityType {
@@ -162,7 +162,7 @@ pub mod v1_2_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SPDMcommunication {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Sessions")]
-        pub sessions: Option<Vec<crate::component_integrity::v1_2_1::SingleSessionInfo>>,
+        pub sessions: Option<Vec<crate::component_integrity::v1_2_2::SingleSessionInfo>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SPDMidentity {
@@ -170,12 +170,12 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "RequesterAuthentication"
         )]
-        pub requester_authentication: Option<crate::component_integrity::v1_2_1::SPDMrequesterAuth>,
+        pub requester_authentication: Option<crate::component_integrity::v1_2_2::SPDMrequesterAuth>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ResponderAuthentication"
         )]
-        pub responder_authentication: Option<crate::component_integrity::v1_2_1::SPDMresponderAuth>,
+        pub responder_authentication: Option<crate::component_integrity::v1_2_2::SPDMresponderAuth>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SPDMinfo {
@@ -183,14 +183,14 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "ComponentCommunication"
         )]
-        pub component_communication: Option<crate::component_integrity::v1_2_1::SPDMcommunication>,
+        pub component_communication: Option<crate::component_integrity::v1_2_2::SPDMcommunication>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "IdentityAuthentication"
         )]
-        pub identity_authentication: Option<crate::component_integrity::v1_2_1::SPDMidentity>,
+        pub identity_authentication: Option<crate::component_integrity::v1_2_2::SPDMidentity>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementSet")]
-        pub measurement_set: Option<crate::component_integrity::v1_2_1::SPDMmeasurementSet>,
+        pub measurement_set: Option<crate::component_integrity::v1_2_2::SPDMmeasurementSet>,
         #[serde(rename = "Requester")]
         pub requester: crate::odata_v4::IdRef,
     }
@@ -201,7 +201,7 @@ pub mod v1_2_1 {
             rename = "MeasurementSpecification"
         )]
         pub measurement_specification:
-            Option<crate::component_integrity::v1_2_1::MeasurementSpecification>,
+            Option<crate::component_integrity::v1_2_2::MeasurementSpecification>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementSummary")]
         pub measurement_summary: Option<String>,
         #[serde(
@@ -214,9 +214,9 @@ pub mod v1_2_1 {
             rename = "MeasurementSummaryType"
         )]
         pub measurement_summary_type:
-            Option<crate::component_integrity::v1_2_1::SPDMmeasurementSummaryType>,
+            Option<crate::component_integrity::v1_2_2::SPDMmeasurementSummaryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
-        pub measurements: Option<Vec<crate::component_integrity::v1_2_1::SPDMsingleMeasurement>>,
+        pub measurements: Option<Vec<crate::component_integrity::v1_2_2::SPDMsingleMeasurement>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
     }
@@ -244,7 +244,7 @@ pub mod v1_2_1 {
         )]
         pub component_certificate: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerificationStatus")]
-        pub verification_status: Option<crate::component_integrity::v1_2_1::VerificationStatus>,
+        pub verification_status: Option<crate::component_integrity::v1_2_2::VerificationStatus>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SPDMsingleMeasurement {
@@ -260,7 +260,7 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementIndex")]
         pub measurement_index: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementType")]
-        pub measurement_type: Option<crate::component_integrity::v1_2_1::DMTFmeasurementTypes>,
+        pub measurement_type: Option<crate::component_integrity::v1_2_2::DMTFmeasurementTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartofSummaryHash")]
@@ -286,7 +286,7 @@ pub mod v1_2_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionId")]
         pub session_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionType")]
-        pub session_type: Option<crate::component_integrity::v1_2_1::SecureSessionType>,
+        pub session_type: Option<crate::component_integrity::v1_2_2::SecureSessionType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TPMGetSignedMeasurements {
@@ -321,12 +321,12 @@ pub mod v1_2_1 {
         )]
         pub component_certificate: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerificationStatus")]
-        pub verification_status: Option<crate::component_integrity::v1_2_1::VerificationStatus>,
+        pub verification_status: Option<crate::component_integrity::v1_2_2::VerificationStatus>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TPMcommunication {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Sessions")]
-        pub sessions: Option<Vec<crate::component_integrity::v1_2_1::SingleSessionInfo>>,
+        pub sessions: Option<Vec<crate::component_integrity::v1_2_2::SingleSessionInfo>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TPMinfo {
@@ -334,14 +334,14 @@ pub mod v1_2_1 {
             skip_serializing_if = "Option::is_none",
             rename = "ComponentCommunication"
         )]
-        pub component_communication: Option<crate::component_integrity::v1_2_1::TPMcommunication>,
+        pub component_communication: Option<crate::component_integrity::v1_2_2::TPMcommunication>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "IdentityAuthentication"
         )]
-        pub identity_authentication: Option<crate::component_integrity::v1_2_1::TPMauth>,
+        pub identity_authentication: Option<crate::component_integrity::v1_2_2::TPMauth>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MeasurementSet")]
-        pub measurement_set: Option<crate::component_integrity::v1_2_1::TPMmeasurementSet>,
+        pub measurement_set: Option<crate::component_integrity::v1_2_2::TPMmeasurementSet>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "NonceSizeBytesMaximum"
@@ -351,7 +351,7 @@ pub mod v1_2_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TPMmeasurementSet {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
-        pub measurements: Option<Vec<crate::component_integrity::v1_2_1::TPMsingleMeasurement>>,
+        pub measurements: Option<Vec<crate::component_integrity::v1_2_2::TPMsingleMeasurement>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TPMsingleMeasurement {

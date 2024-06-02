@@ -1,5 +1,5 @@
 pub type EventService = crate::event_service::v1_10_2::EventService;
-pub mod v1_10_0 {
+pub mod v1_10_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -7,20 +7,20 @@ pub mod v1_10_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#EventService.SubmitTestEvent"
         )]
-        pub event_service_submit_test_event: Option<crate::event_service::v1_10_0::SubmitTestEvent>,
+        pub event_service_submit_test_event: Option<crate::event_service::v1_10_1::SubmitTestEvent>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#EventService.TestEventSubscription"
         )]
         pub event_service_test_event_subscription:
-            Option<crate::event_service::v1_10_0::TestEventSubscription>,
+            Option<crate::event_service::v1_10_1::TestEventSubscription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event_service::v1_10_0::OemActions>,
+        pub oem: Option<crate::event_service::v1_10_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event_service::v1_10_0::Actions>,
+        pub actions: Option<crate::event_service::v1_10_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DeliveryRetryAttempts"
@@ -77,13 +77,13 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severities")]
         pub severities: Option<Vec<crate::resource::Health>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SMTP")]
-        pub smtp: Option<crate::event_service::v1_10_0::SMTP>,
+        pub smtp: Option<crate::event_service::v1_10_1::SMTP>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SSEFilterPropertiesSupported"
         )]
         pub sse_filter_properties_supported:
-            Option<crate::event_service::v1_10_0::SSEFilterPropertiesSupported>,
+            Option<crate::event_service::v1_10_1::SSEFilterPropertiesSupported>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(
@@ -99,9 +99,9 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SMTP {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
-        pub authentication: Option<crate::event_service::v1_10_0::SMTPAuthenticationMethods>,
+        pub authentication: Option<crate::event_service::v1_10_1::SMTPAuthenticationMethods>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectionProtocol")]
-        pub connection_protocol: Option<crate::event_service::v1_10_0::SMTPConnectionProtocol>,
+        pub connection_protocol: Option<crate::event_service::v1_10_1::SMTPConnectionProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FromAddress")]
         pub from_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]

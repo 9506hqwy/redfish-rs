@@ -1,5 +1,5 @@
 pub type LicenseService = crate::license_service::v1_1_2::LicenseService;
-pub mod v1_1_0 {
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -7,9 +7,9 @@ pub mod v1_1_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#LicenseService.Install"
         )]
-        pub license_service_install: Option<crate::license_service::v1_1_0::Install>,
+        pub license_service_install: Option<crate::license_service::v1_1_1::Install>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::license_service::v1_1_0::OemActions>,
+        pub oem: Option<crate::license_service::v1_1_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Install {
@@ -29,14 +29,14 @@ pub mod v1_1_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TargetServices")]
         pub target_services: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
-        pub transfer_protocol: Option<crate::license_service::v1_1_0::TransferProtocolType>,
+        pub transfer_protocol: Option<crate::license_service::v1_1_1::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Username")]
         pub username: Option<String>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LicenseService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::license_service::v1_1_0::Actions>,
+        pub actions: Option<crate::license_service::v1_1_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description: Option<String>,
         #[serde(rename = "Id")]
