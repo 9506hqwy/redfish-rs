@@ -1,4 +1,4 @@
-pub type FabricAdapter = crate::fabric_adapter::v1_5_2::FabricAdapter;
+pub type FabricAdapter = crate::fabric_adapter::v1_5_3::FabricAdapter;
 pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -127,17 +127,17 @@ pub mod v1_5_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_5_2 {
+pub mod v1_5_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::fabric_adapter::v1_5_2::OemActions>,
+        pub oem: Option<crate::fabric_adapter::v1_5_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct FabricAdapter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::fabric_adapter::v1_5_2::Actions>,
+        pub actions: Option<crate::fabric_adapter::v1_5_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ASICManufacturer")]
         pub asic_manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ASICPartNumber")]
@@ -148,7 +148,7 @@ pub mod v1_5_2 {
         )]
         pub asic_revision_identifier: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::fabric_adapter::v1_5_3::FabricAdapterDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FabricType")]
         pub fabric_type: Option<crate::protocol::Protocol>,
         #[serde(
@@ -159,11 +159,11 @@ pub mod v1_5_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::fabric_adapter::v1_5_2::GenZ>,
+        pub gen_z: Option<crate::fabric_adapter::v1_5_3::GenZ>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::fabric_adapter::v1_5_2::Links>,
+        pub links: Option<crate::fabric_adapter::v1_5_3::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -202,7 +202,41 @@ pub mod v1_5_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<String>,
+        pub uuid: Option<crate::fabric_adapter::v1_5_3::FabricAdapterUUID>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum FabricAdapterDescription {
+        V000001(crate::fabric_adapter::v1_5_3::FabricAdapterDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for FabricAdapterDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum FabricAdapterDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum FabricAdapterUUID {
+        V000001(crate::fabric_adapter::v1_5_3::FabricAdapterUUIDN1),
+        ResourceUUID(String),
+    }
+    impl Default for FabricAdapterUUID {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum FabricAdapterUUIDN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GenZ {

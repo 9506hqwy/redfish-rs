@@ -1,4 +1,4 @@
-pub type EventService = crate::event_service::v1_10_1::EventService;
+pub type EventService = crate::event_service::v1_10_2::EventService;
 pub mod v1_10_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -208,7 +208,7 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TestEventSubscriptionRequestBody {}
 }
-pub mod v1_10_1 {
+pub mod v1_10_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -216,20 +216,20 @@ pub mod v1_10_1 {
             skip_serializing_if = "Option::is_none",
             rename = "#EventService.SubmitTestEvent"
         )]
-        pub event_service_submit_test_event: Option<crate::event_service::v1_10_1::SubmitTestEvent>,
+        pub event_service_submit_test_event: Option<crate::event_service::v1_10_2::SubmitTestEvent>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#EventService.TestEventSubscription"
         )]
         pub event_service_test_event_subscription:
-            Option<crate::event_service::v1_10_1::TestEventSubscription>,
+            Option<crate::event_service::v1_10_2::TestEventSubscription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event_service::v1_10_1::OemActions>,
+        pub oem: Option<crate::event_service::v1_10_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event_service::v1_10_1::Actions>,
+        pub actions: Option<crate::event_service::v1_10_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DeliveryRetryAttempts"
@@ -241,9 +241,10 @@ pub mod v1_10_1 {
         )]
         pub delivery_retry_interval_seconds: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::event_service::v1_10_2::EventServiceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventFormatTypes")]
-        pub event_format_types: Option<Vec<crate::event_destination::EventFormatType>>,
+        pub event_format_types:
+            Option<Vec<crate::event_service::v1_10_2::EventServiceEventFormatTypes>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EventTypesForSubscription"
@@ -284,15 +285,15 @@ pub mod v1_10_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceEnabled")]
         pub service_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severities")]
-        pub severities: Option<Vec<crate::resource::Health>>,
+        pub severities: Option<Vec<crate::event_service::v1_10_2::EventServiceSeverities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SMTP")]
-        pub smtp: Option<crate::event_service::v1_10_1::SMTP>,
+        pub smtp: Option<crate::event_service::v1_10_2::SMTP>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SSEFilterPropertiesSupported"
         )]
         pub sse_filter_properties_supported:
-            Option<crate::event_service::v1_10_1::SSEFilterPropertiesSupported>,
+            Option<crate::event_service::v1_10_2::SSEFilterPropertiesSupported>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(
@@ -303,14 +304,65 @@ pub mod v1_10_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Subscriptions")]
         pub subscriptions: Option<crate::odata_v4::IdRef>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EventServiceDescription {
+        V000001(crate::event_service::v1_10_2::EventServiceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for EventServiceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EventServiceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EventServiceEventFormatTypes {
+        V000001(crate::event_service::v1_10_2::EventServiceEventFormatTypesN1),
+        EventDestinationEventFormatType(crate::event_destination::EventFormatType),
+    }
+    impl Default for EventServiceEventFormatTypes {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EventServiceEventFormatTypesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EventServiceSeverities {
+        V000001(crate::event_service::v1_10_2::EventServiceSeveritiesN1),
+        ResourceHealth(crate::resource::Health),
+    }
+    impl Default for EventServiceSeverities {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EventServiceSeveritiesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SMTP {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
-        pub authentication: Option<crate::event_service::v1_10_1::SMTPAuthenticationMethods>,
+        pub authentication: Option<crate::event_service::v1_10_2::SMTPAuthentication>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectionProtocol")]
-        pub connection_protocol: Option<crate::event_service::v1_10_1::SMTPConnectionProtocol>,
+        pub connection_protocol: Option<crate::event_service::v1_10_2::SMTPConnectionProtocolAnony>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FromAddress")]
         pub from_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
@@ -325,6 +377,17 @@ pub mod v1_10_1 {
         pub service_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Username")]
         pub username: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SMTPAuthentication {
+        V011002(crate::event_service::v1_10_2::SMTPAuthenticationMethods),
+        V000001(crate::event_service::v1_10_2::SMTPAuthenticationN1),
+    }
+    impl Default for SMTPAuthentication {
+        fn default() -> Self {
+            Self::V011002(Default::default())
+        }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SMTPAuthenticationMethods {
@@ -341,6 +404,12 @@ pub mod v1_10_1 {
         Plain,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SMTPAuthenticationN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SMTPConnectionProtocol {
         #[default]
         #[serde(rename = "AutoDetect")]
@@ -351,6 +420,23 @@ pub mod v1_10_1 {
         StartTLS,
         #[serde(rename = "TLS_SSL")]
         TLSSSL,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SMTPConnectionProtocolAnony {
+        V011002(crate::event_service::v1_10_2::SMTPConnectionProtocol),
+        V000001(crate::event_service::v1_10_2::SMTPConnectionProtocolN1),
+    }
+    impl Default for SMTPConnectionProtocolAnony {
+        fn default() -> Self {
+            Self::V011002(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SMTPConnectionProtocolN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SSEFilterPropertiesSupported {

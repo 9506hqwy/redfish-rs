@@ -1,7 +1,8 @@
-pub type Control = crate::control::v1_5_0::Control;
-pub type ControlExcerpt = crate::control::v1_5_0::ControlExcerpt;
-pub type ControlRangeExcerpt = crate::control::v1_5_0::ControlRangeExcerpt;
-pub type ControlSingleExcerpt = crate::control::v1_5_0::ControlSingleExcerpt;
+pub type Control = crate::control::v1_5_1::Control;
+pub type ControlExcerpt = crate::control::v1_5_1::ControlExcerpt;
+pub type ControlRangeExcerpt = crate::control::v1_5_1::ControlRangeExcerpt;
+pub type ControlSingleExcerpt = crate::control::v1_5_1::ControlSingleExcerpt;
+pub type ControlSingleLoopExcerpt = crate::control::v1_5_1::ControlSingleLoopExcerpt;
 pub mod v1_3_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -233,7 +234,7 @@ pub mod v1_3_0 {
         Single,
     }
 }
-pub mod v1_5_0 {
+pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -241,16 +242,16 @@ pub mod v1_5_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#Control.ResetToDefaults"
         )]
-        pub control_reset_to_defaults: Option<crate::control::v1_5_0::ResetToDefaults>,
+        pub control_reset_to_defaults: Option<crate::control::v1_5_1::ResetToDefaults>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::control::v1_5_0::OemActions>,
+        pub oem: Option<crate::control::v1_5_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Control {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Accuracy")]
         pub accuracy: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::control::v1_5_0::Actions>,
+        pub actions: Option<crate::control::v1_5_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMax")]
         pub allowable_max: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
@@ -273,21 +274,21 @@ pub mod v1_5_0 {
         )]
         pub control_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlLoop")]
-        pub control_loop: Option<crate::control::v1_5_0::ControlLoop>,
+        pub control_loop: Option<crate::control::v1_5_1::ControlLoop>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_1::ControlControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlType")]
-        pub control_type: Option<crate::control::v1_5_0::ControlType>,
+        pub control_type: Option<crate::control::v1_5_1::ControlControlType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeadBand")]
         pub dead_band: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DefaultSetPoint")]
         pub default_set_point: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::control::v1_5_1::ControlDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Implementation")]
-        pub implementation: Option<crate::control::v1_5_0::ImplementationType>,
+        pub implementation: Option<crate::control::v1_5_1::ControlImplementation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Increment")]
         pub increment: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
@@ -305,9 +306,9 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalContext")]
-        pub physical_context: Option<crate::physical_context::PhysicalContext>,
+        pub physical_context: Option<crate::control::v1_5_1::ControlPhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSubContext")]
-        pub physical_sub_context: Option<crate::physical_context::PhysicalSubContext>,
+        pub physical_sub_context: Option<crate::control::v1_5_1::ControlPhysicalSubContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RelatedItem")]
         pub related_item: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -316,13 +317,13 @@ pub mod v1_5_0 {
         )]
         pub related_item_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Sensor")]
-        pub sensor: Option<crate::sensor::SensorExcerpt>,
+        pub sensor: Option<crate::control::v1_5_1::ControlSensor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPoint")]
         pub set_point: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointAccuracy")]
         pub set_point_accuracy: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointType")]
-        pub set_point_type: Option<crate::control::v1_5_0::SetPointType>,
+        pub set_point_type: Option<crate::control::v1_5_1::ControlSetPointType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointUnits")]
         pub set_point_units: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPointUpdateTime")]
@@ -334,6 +335,57 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlControlMode {
+        V010501(crate::control::v1_5_1::ControlMode),
+        V000001(crate::control::v1_5_1::ControlControlModeN1),
+    }
+    impl Default for ControlControlMode {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlControlModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlControlType {
+        V010501(crate::control::v1_5_1::ControlType),
+        V000001(crate::control::v1_5_1::ControlControlTypeN1),
+    }
+    impl Default for ControlControlType {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlControlTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlDescription {
+        V000001(crate::control::v1_5_1::ControlDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for ControlDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ControlExcerpt {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMax")]
@@ -341,13 +393,47 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_1::ControlExcerptControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
         pub reading: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingUnits")]
         pub reading_units: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlExcerptControlMode {
+        V010501(crate::control::v1_5_1::ControlMode),
+        V000001(crate::control::v1_5_1::ControlExcerptControlModeN1),
+    }
+    impl Default for ControlExcerptControlMode {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlExcerptControlModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlImplementation {
+        V010501(crate::control::v1_5_1::ImplementationType),
+        V000001(crate::control::v1_5_1::ControlImplementationN1),
+    }
+    impl Default for ControlImplementation {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlImplementationN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ControlLoop {
@@ -375,6 +461,40 @@ pub mod v1_5_0 {
         #[serde(rename = "Override")]
         Override,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlPhysicalContext {
+        V000001(crate::control::v1_5_1::ControlPhysicalContextN1),
+        PhysicalContextPhysicalContext(crate::physical_context::PhysicalContext),
+    }
+    impl Default for ControlPhysicalContext {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlPhysicalContextN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlPhysicalSubContext {
+        V000001(crate::control::v1_5_1::ControlPhysicalSubContextN1),
+        PhysicalContextPhysicalSubContext(crate::physical_context::PhysicalSubContext),
+    }
+    impl Default for ControlPhysicalSubContext {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlPhysicalSubContextN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ControlRangeExcerpt {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMax")]
@@ -387,7 +507,7 @@ pub mod v1_5_0 {
         )]
         pub allowable_numeric_values: Option<Vec<f64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_1::ControlRangeExcerptControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
@@ -399,6 +519,57 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SettingMin")]
         pub setting_min: Option<f64>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlRangeExcerptControlMode {
+        V010501(crate::control::v1_5_1::ControlMode),
+        V000001(crate::control::v1_5_1::ControlRangeExcerptControlModeN1),
+    }
+    impl Default for ControlRangeExcerptControlMode {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlRangeExcerptControlModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlSensor {
+        V000001(crate::control::v1_5_1::ControlSensorN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+    }
+    impl Default for ControlSensor {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlSensorN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlSetPointType {
+        V010501(crate::control::v1_5_1::SetPointType),
+        V000001(crate::control::v1_5_1::ControlSetPointTypeN1),
+    }
+    impl Default for ControlSetPointType {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlSetPointTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ControlSingleExcerpt {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMax")]
@@ -406,7 +577,7 @@ pub mod v1_5_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
         pub allowable_min: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
-        pub control_mode: Option<crate::control::v1_5_0::ControlMode>,
+        pub control_mode: Option<crate::control::v1_5_1::ControlSingleExcerptControlMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
         pub data_source_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DefaultSetPoint")]
@@ -417,6 +588,59 @@ pub mod v1_5_0 {
         pub reading_units: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SetPoint")]
         pub set_point: Option<f64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlSingleExcerptControlMode {
+        V010501(crate::control::v1_5_1::ControlMode),
+        V000001(crate::control::v1_5_1::ControlSingleExcerptControlModeN1),
+    }
+    impl Default for ControlSingleExcerptControlMode {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlSingleExcerptControlModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ControlSingleLoopExcerpt {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMax")]
+        pub allowable_max: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "AllowableMin")]
+        pub allowable_min: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ControlLoop")]
+        pub control_loop: Option<crate::control::v1_5_1::ControlLoop>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ControlMode")]
+        pub control_mode: Option<crate::control::v1_5_1::ControlSingleLoopExcerptControlMode>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DataSourceUri")]
+        pub data_source_uri: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Reading")]
+        pub reading: Option<f64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ReadingUnits")]
+        pub reading_units: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "SetPoint")]
+        pub set_point: Option<f64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ControlSingleLoopExcerptControlMode {
+        V010501(crate::control::v1_5_1::ControlMode),
+        V000001(crate::control::v1_5_1::ControlSingleLoopExcerptControlModeN1),
+    }
+    impl Default for ControlSingleLoopExcerptControlMode {
+        fn default() -> Self {
+            Self::V010501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ControlSingleLoopExcerptControlModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ControlType {

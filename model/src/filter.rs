@@ -1,4 +1,4 @@
-pub type Filter = crate::filter::v1_0_1::Filter;
+pub type Filter = crate::filter::v1_0_2::Filter;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -65,21 +65,21 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::filter::v1_0_1::OemActions>,
+        pub oem: Option<crate::filter::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Filter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::filter::v1_0_1::Actions>,
+        pub actions: Option<crate::filter::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::filter::v1_0_2::FilterDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotPluggable")]
         pub hot_pluggable: Option<bool>,
         #[serde(rename = "Id")]
@@ -127,6 +127,23 @@ pub mod v1_0_1 {
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserLabel")]
         pub user_label: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum FilterDescription {
+        V000001(crate::filter::v1_0_2::FilterDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for FilterDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum FilterDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

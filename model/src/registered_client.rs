@@ -1,4 +1,4 @@
-pub type RegisteredClient = crate::registered_client::v1_1_1::RegisteredClient;
+pub type RegisteredClient = crate::registered_client::v1_1_2::RegisteredClient;
 pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -64,12 +64,12 @@ pub mod v1_1_0 {
         pub sub_context: Option<String>,
     }
 }
-pub mod v1_1_1 {
+pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::registered_client::v1_1_1::OemActions>,
+        pub oem: Option<crate::registered_client::v1_1_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ClientType {
@@ -96,9 +96,9 @@ pub mod v1_1_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct RegisteredClient {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::registered_client::v1_1_1::Actions>,
+        pub actions: Option<crate::registered_client::v1_1_2::Actions>,
         #[serde(rename = "ClientType")]
-        pub client_type: crate::registered_client::v1_1_1::ClientType,
+        pub client_type: crate::registered_client::v1_1_2::ClientType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientURI")]
         pub client_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]
@@ -106,13 +106,14 @@ pub mod v1_1_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CreatedDate")]
         pub created_date: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::registered_client::v1_1_2::RegisteredClientDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExpirationDate")]
         pub expiration_date: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagedResources")]
-        pub managed_resources: Option<Vec<crate::registered_client::v1_1_1::ManagedResource>>,
+        pub managed_resources:
+            Option<Vec<crate::registered_client::v1_1_2::RegisteredClientManagedResources>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -127,5 +128,39 @@ pub mod v1_1_1 {
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SubContext")]
         pub sub_context: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum RegisteredClientDescription {
+        V000001(crate::registered_client::v1_1_2::RegisteredClientDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for RegisteredClientDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum RegisteredClientDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum RegisteredClientManagedResources {
+        V010102(crate::registered_client::v1_1_2::ManagedResource),
+        V000001(crate::registered_client::v1_1_2::RegisteredClientManagedResourcesN1),
+    }
+    impl Default for RegisteredClientManagedResources {
+        fn default() -> Self {
+            Self::V010102(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum RegisteredClientManagedResourcesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

@@ -1,10 +1,10 @@
-pub type MemoryRegion = crate::memory_region::v1_0_1::MemoryRegion;
-pub mod v1_0_1 {
+pub type MemoryRegion = crate::memory_region::v1_0_2::MemoryRegion;
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::memory_region::v1_0_1::OemActions>,
+        pub oem: Option<crate::memory_region::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryChunk {
@@ -27,11 +27,11 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryRegion {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::memory_region::v1_0_1::Actions>,
+        pub actions: Option<crate::memory_region::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeMiB")]
         pub block_size_mib: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::memory_region::v1_0_2::MemoryRegionDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExtentsCount")]
         pub extents_count: Option<i64>,
         #[serde(
@@ -42,9 +42,9 @@ pub mod v1_0_1 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunks")]
-        pub memory_chunks: Option<Vec<crate::memory_region::v1_0_1::MemoryChunk>>,
+        pub memory_chunks: Option<Vec<crate::memory_region::v1_0_2::MemoryRegionMemoryChunks>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryExtents")]
-        pub memory_extents: Option<Vec<crate::memory_region::v1_0_1::MemoryExtent>>,
+        pub memory_extents: Option<Vec<crate::memory_region::v1_0_2::MemoryRegionMemoryExtents>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NonVolatileRegion")]
@@ -69,13 +69,64 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegionSizeMiB")]
         pub region_size_mib: Option<i64>,
         #[serde(rename = "RegionType")]
-        pub region_type: crate::memory_region::v1_0_1::RegionType,
+        pub region_type: crate::memory_region::v1_0_2::RegionType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SanitizeOnRelease")]
         pub sanitize_on_release: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ShareableRegion")]
         pub shareable_region: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MemoryRegionDescription {
+        V000001(crate::memory_region::v1_0_2::MemoryRegionDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for MemoryRegionDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MemoryRegionDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MemoryRegionMemoryChunks {
+        V010002(crate::memory_region::v1_0_2::MemoryChunk),
+        V000001(crate::memory_region::v1_0_2::MemoryRegionMemoryChunksN1),
+    }
+    impl Default for MemoryRegionMemoryChunks {
+        fn default() -> Self {
+            Self::V010002(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MemoryRegionMemoryChunksN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MemoryRegionMemoryExtents {
+        V010002(crate::memory_region::v1_0_2::MemoryExtent),
+        V000001(crate::memory_region::v1_0_2::MemoryRegionMemoryExtentsN1),
+    }
+    impl Default for MemoryRegionMemoryExtents {
+        fn default() -> Self {
+            Self::V010002(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MemoryRegionMemoryExtentsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

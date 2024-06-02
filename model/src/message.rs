@@ -1,4 +1,4 @@
-pub type Message = crate::message::v1_2_0::Message;
+pub type Message = crate::message::v1_2_1::Message;
 pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -21,7 +21,7 @@ pub mod v1_1_2 {
         pub severity: Option<String>,
     }
 }
-pub mod v1_2_0 {
+pub mod v1_2_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Message {

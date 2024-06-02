@@ -1,4 +1,4 @@
-pub type NetworkAdapter = crate::network_adapter::v1_10_0::NetworkAdapter;
+pub type NetworkAdapter = crate::network_adapter::v1_11_0::NetworkAdapter;
 pub mod v1_9_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -207,23 +207,28 @@ pub mod v1_9_0 {
         pub virtual_function: Option<crate::network_adapter::v1_9_0::VirtualFunction>,
     }
 }
-pub mod v1_10_0 {
+pub mod v1_11_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(
             skip_serializing_if = "Option::is_none",
+            rename = "#NetworkAdapter.Reset"
+        )]
+        pub network_adapter_reset: Option<crate::network_adapter::v1_11_0::Reset>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
             rename = "#NetworkAdapter.ResetSettingsToDefault"
         )]
         pub network_adapter_reset_settings_to_default:
-            Option<crate::network_adapter::v1_10_0::ResetSettingsToDefault>,
+            Option<crate::network_adapter::v1_11_0::ResetSettingsToDefault>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::network_adapter::v1_10_0::OemActions>,
+        pub oem: Option<crate::network_adapter::v1_11_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ControllerCapabilities {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataCenterBridging")]
-        pub data_center_bridging: Option<crate::network_adapter::v1_10_0::DataCenterBridging>,
+        pub data_center_bridging: Option<crate::network_adapter::v1_11_0::DataCenterBridging>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "NetworkDeviceFunctionCount"
@@ -232,14 +237,14 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NetworkPortCount")]
         pub network_port_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NPAR")]
-        pub npar: Option<crate::network_adapter::v1_10_0::NicPartitioning>,
+        pub npar: Option<crate::network_adapter::v1_11_0::NicPartitioning>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NPIV")]
-        pub npiv: Option<crate::network_adapter::v1_10_0::NPIV>,
+        pub npiv: Option<crate::network_adapter::v1_11_0::NPIV>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "VirtualizationOffload"
         )]
-        pub virtualization_offload: Option<crate::network_adapter::v1_10_0::VirtualizationOffload>,
+        pub virtualization_offload: Option<crate::network_adapter::v1_11_0::VirtualizationOffload>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ControllerLinks {
@@ -293,7 +298,7 @@ pub mod v1_10_0 {
             rename = "ControllerCapabilities"
         )]
         pub controller_capabilities:
-            Option<crate::network_adapter::v1_10_0::ControllerCapabilities>,
+            Option<crate::network_adapter::v1_11_0::ControllerCapabilities>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FirmwarePackageVersion"
@@ -302,7 +307,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::network_adapter::v1_10_0::ControllerLinks>,
+        pub links: Option<crate::network_adapter::v1_11_0::ControllerLinks>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeInterface")]
@@ -323,15 +328,15 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NetworkAdapter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::network_adapter::v1_10_0::Actions>,
+        pub actions: Option<crate::network_adapter::v1_11_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Controllers")]
-        pub controllers: Option<Vec<crate::network_adapter::v1_10_0::Controllers>>,
+        pub controllers: Option<Vec<crate::network_adapter::v1_11_0::Controllers>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::network_adapter::v1_11_0::NetworkAdapterDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
@@ -347,7 +352,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::software_inventory::MeasurementBlock>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
-        pub metrics: Option<crate::odata_v4::IdRef>,
+        pub metrics: Option<crate::network_adapter::v1_11_0::NetworkAdapterMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(rename = "Name")]
@@ -382,6 +387,40 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NetworkAdapterDescription {
+        V000001(crate::network_adapter::v1_11_0::NetworkAdapterDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for NetworkAdapterDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NetworkAdapterDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NetworkAdapterMetrics {
+        V000001(crate::network_adapter::v1_11_0::NetworkAdapterMetricsN1),
+        OdataV4IdRef(crate::odata_v4::IdRef),
+    }
+    impl Default for NetworkAdapterMetrics {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NetworkAdapterMetricsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NicPartitioning {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NparCapable")]
@@ -391,6 +430,18 @@ pub mod v1_10_0 {
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Reset {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResetRequestBody {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ResetType")]
+        pub reset_type: Option<crate::resource::ResetType>,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetSettingsToDefault {
         #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
@@ -423,8 +474,8 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VirtualizationOffload {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SRIOV")]
-        pub sriov: Option<crate::network_adapter::v1_10_0::SRIOV>,
+        pub sriov: Option<crate::network_adapter::v1_11_0::SRIOV>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualFunction")]
-        pub virtual_function: Option<crate::network_adapter::v1_10_0::VirtualFunction>,
+        pub virtual_function: Option<crate::network_adapter::v1_11_0::VirtualFunction>,
     }
 }

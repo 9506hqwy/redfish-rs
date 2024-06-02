@@ -1,4 +1,4 @@
-pub type ThermalEquipment = crate::thermal_equipment::v1_1_1::ThermalEquipment;
+pub type ThermalEquipment = crate::thermal_equipment::v1_1_2::ThermalEquipment;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -40,19 +40,19 @@ pub mod v1_0_0 {
         pub status: Option<crate::resource::Status>,
     }
 }
-pub mod v1_1_1 {
+pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal_equipment::v1_1_1::OemActions>,
+        pub oem: Option<crate::thermal_equipment::v1_1_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ThermalEquipment {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal_equipment::v1_1_1::Actions>,
+        pub actions: Option<crate::thermal_equipment::v1_1_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CDUs")]
         pub cd_us: Option<crate::odata_v4::IdRef>,
         #[serde(
@@ -63,7 +63,7 @@ pub mod v1_1_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingLoops")]
         pub cooling_loops: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::thermal_equipment::v1_1_2::ThermalEquipmentDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HeatExchangers")]
         pub heat_exchangers: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
@@ -84,5 +84,22 @@ pub mod v1_1_1 {
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ThermalEquipmentDescription {
+        V000001(crate::thermal_equipment::v1_1_2::ThermalEquipmentDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for ThermalEquipmentDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ThermalEquipmentDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

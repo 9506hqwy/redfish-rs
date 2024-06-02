@@ -1,4 +1,4 @@
-pub type BatteryMetrics = crate::battery_metrics::v1_0_3::BatteryMetrics;
+pub type BatteryMetrics = crate::battery_metrics::v1_0_4::BatteryMetrics;
 pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -73,17 +73,17 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_3 {
+pub mod v1_0_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::battery_metrics::v1_0_3::OemActions>,
+        pub oem: Option<crate::battery_metrics::v1_0_4::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BatteryMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::battery_metrics::v1_0_3::Actions>,
+        pub actions: Option<crate::battery_metrics::v1_0_4::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CellVoltages")]
         pub cell_voltages: Option<Vec<crate::sensor::SensorVoltageExcerpt>>,
         #[serde(
@@ -94,7 +94,7 @@ pub mod v1_0_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChargePercent")]
         pub charge_percent: Option<crate::sensor::SensorExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::battery_metrics::v1_0_4::BatteryMetricsDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DischargeCycles")]
         pub discharge_cycles: Option<f64>,
         #[serde(rename = "Id")]
@@ -143,6 +143,23 @@ pub mod v1_0_3 {
         pub stored_energy_watt_hours: Option<crate::sensor::SensorExcerpt>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TemperatureCelsius")]
         pub temperature_celsius: Option<crate::sensor::SensorExcerpt>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum BatteryMetricsDescription {
+        V000001(crate::battery_metrics::v1_0_4::BatteryMetricsDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for BatteryMetricsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum BatteryMetricsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

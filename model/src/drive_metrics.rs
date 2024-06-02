@@ -1,4 +1,4 @@
-pub type DriveMetrics = crate::drive_metrics::v1_2_0::DriveMetrics;
+pub type DriveMetrics = crate::drive_metrics::v1_2_1::DriveMetrics;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -56,17 +56,17 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_2_0 {
+pub mod v1_2_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::drive_metrics::v1_2_0::OemActions>,
+        pub oem: Option<crate::drive_metrics::v1_2_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct DriveMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::drive_metrics::v1_2_0::Actions>,
+        pub actions: Option<crate::drive_metrics::v1_2_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BadBlockCount")]
         pub bad_block_count: Option<i64>,
         #[serde(
@@ -80,7 +80,7 @@ pub mod v1_2_0 {
         )]
         pub correctable_io_write_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::drive_metrics::v1_2_1::DriveMetricsDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -118,6 +118,23 @@ pub mod v1_2_0 {
         pub uncorrectable_io_write_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteIOKiBytes")]
         pub write_io_kibytes: Option<i64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum DriveMetricsDescription {
+        V000001(crate::drive_metrics::v1_2_1::DriveMetricsDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for DriveMetricsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum DriveMetricsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

@@ -1,4 +1,4 @@
-pub type HeaterMetrics = crate::heater_metrics::v1_0_1::HeaterMetrics;
+pub type HeaterMetrics = crate::heater_metrics::v1_0_2::HeaterMetrics;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -66,7 +66,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetMetricsRequestBody {}
 }
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -74,16 +74,16 @@ pub mod v1_0_1 {
             skip_serializing_if = "Option::is_none",
             rename = "#HeaterMetrics.ResetMetrics"
         )]
-        pub heater_metrics_reset_metrics: Option<crate::heater_metrics::v1_0_1::ResetMetrics>,
+        pub heater_metrics_reset_metrics: Option<crate::heater_metrics::v1_0_2::ResetMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::heater_metrics::v1_0_1::OemActions>,
+        pub oem: Option<crate::heater_metrics::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HeaterMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::heater_metrics::v1_0_1::Actions>,
+        pub actions: Option<crate::heater_metrics::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::heater_metrics::v1_0_2::HeaterMetricsDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -99,7 +99,7 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerWatts")]
-        pub power_watts: Option<crate::sensor::SensorPowerExcerpt>,
+        pub power_watts: Option<crate::heater_metrics::v1_0_2::HeaterMetricsPowerWatts>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PrePowerOnHeatingTimeSeconds"
@@ -120,6 +120,40 @@ pub mod v1_0_1 {
             rename = "TemperatureReadingsCelsius@odata.count"
         )]
         pub temperature_readings_celsius_odata_count: Option<i64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum HeaterMetricsDescription {
+        V000001(crate::heater_metrics::v1_0_2::HeaterMetricsDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for HeaterMetricsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum HeaterMetricsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum HeaterMetricsPowerWatts {
+        V000001(crate::heater_metrics::v1_0_2::HeaterMetricsPowerWattsN1),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_0::SensorPowerExcerpt),
+    }
+    impl Default for HeaterMetricsPowerWatts {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum HeaterMetricsPowerWattsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

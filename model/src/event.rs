@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-pub type Event = crate::event::v1_10_0::Event;
+pub type Event = crate::event::v1_10_1::Event;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum EventType {
     #[default]
@@ -18,12 +18,12 @@ pub enum EventType {
     #[serde(rename = "StatusChange")]
     StatusChange,
 }
-pub mod v1_10_0 {
+pub mod v1_10_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event::v1_10_0::OemActions>,
+        pub oem: Option<crate::event::v1_10_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CPER {
@@ -53,13 +53,13 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Event {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event::v1_10_0::Actions>,
+        pub actions: Option<crate::event::v1_10_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]
         pub context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::event::v1_10_1::EventDescription>,
         #[serde(rename = "Events")]
-        pub events: Vec<crate::event::v1_10_0::EventRecord>,
+        pub events: Vec<crate::event::v1_10_1::EventRecord>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Events@odata.count")]
         pub events_odata_count: Option<i64>,
         #[serde(rename = "Id")]
@@ -73,10 +73,27 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EventDescription {
+        V000001(crate::event::v1_10_1::EventDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for EventDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EventDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventRecord {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event::v1_10_0::EventRecordActions>,
+        pub actions: Option<crate::event::v1_10_1::EventRecordActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalDataSizeBytes"
@@ -87,11 +104,11 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]
         pub context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CPER")]
-        pub cper: Option<crate::event::v1_10_0::CPER>,
+        pub cper: Option<crate::event::v1_10_1::CPER>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticData")]
         pub diagnostic_data: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: Option<crate::event::v1_10_0::DiagnosticDataTypes>,
+        pub diagnostic_data_type: Option<crate::event::v1_10_1::EventRecordDiagnosticDataType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventGroupId")]
         pub event_group_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventId")]
@@ -136,7 +153,24 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventRecordActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event::v1_10_0::EventRecordOemActions>,
+        pub oem: Option<crate::event::v1_10_1::EventRecordOemActions>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EventRecordDiagnosticDataType {
+        V011001(crate::event::v1_10_1::DiagnosticDataTypes),
+        V000001(crate::event::v1_10_1::EventRecordDiagnosticDataTypeN1),
+    }
+    impl Default for EventRecordDiagnosticDataType {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EventRecordDiagnosticDataTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventRecordOemActions {}

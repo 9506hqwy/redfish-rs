@@ -1,4 +1,4 @@
-pub type SerialInterface = crate::serial_interface::v1_2_0::SerialInterface;
+pub type SerialInterface = crate::serial_interface::v1_2_1::SerialInterface;
 pub mod v1_1_8 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -154,12 +154,12 @@ pub mod v1_1_8 {
         N2,
     }
 }
-pub mod v1_2_0 {
+pub mod v1_2_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::serial_interface::v1_2_0::OemActions>,
+        pub oem: Option<crate::serial_interface::v1_2_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum BitRate {
@@ -261,23 +261,23 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SerialInterface {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::serial_interface::v1_2_0::Actions>,
+        pub actions: Option<crate::serial_interface::v1_2_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BitRate")]
-        pub bit_rate: Option<crate::serial_interface::v1_2_0::BitRate>,
+        pub bit_rate: Option<crate::serial_interface::v1_2_1::BitRate>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectorType")]
-        pub connector_type: Option<crate::serial_interface::v1_2_0::ConnectorType>,
+        pub connector_type: Option<crate::serial_interface::v1_2_1::ConnectorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataBits")]
-        pub data_bits: Option<crate::serial_interface::v1_2_0::DataBits>,
+        pub data_bits: Option<crate::serial_interface::v1_2_1::DataBits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::serial_interface::v1_2_1::SerialInterfaceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FlowControl")]
-        pub flow_control: Option<crate::serial_interface::v1_2_0::FlowControl>,
+        pub flow_control: Option<crate::serial_interface::v1_2_1::FlowControl>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceEnabled")]
         pub interface_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::serial_interface::v1_2_0::Links>,
+        pub links: Option<crate::serial_interface::v1_2_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -291,13 +291,47 @@ pub mod v1_2_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Parity")]
-        pub parity: Option<crate::serial_interface::v1_2_0::Parity>,
+        pub parity: Option<crate::serial_interface::v1_2_1::Parity>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PinOut")]
-        pub pin_out: Option<crate::serial_interface::v1_2_0::PinOut>,
+        pub pin_out: Option<crate::serial_interface::v1_2_1::SerialInterfacePinOut>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SignalType")]
-        pub signal_type: Option<crate::serial_interface::v1_2_0::SignalType>,
+        pub signal_type: Option<crate::serial_interface::v1_2_1::SignalType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StopBits")]
-        pub stop_bits: Option<crate::serial_interface::v1_2_0::StopBits>,
+        pub stop_bits: Option<crate::serial_interface::v1_2_1::StopBits>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SerialInterfaceDescription {
+        V000001(crate::serial_interface::v1_2_1::SerialInterfaceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for SerialInterfaceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SerialInterfaceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SerialInterfacePinOut {
+        V010201(crate::serial_interface::v1_2_1::PinOut),
+        V000001(crate::serial_interface::v1_2_1::SerialInterfacePinOutN1),
+    }
+    impl Default for SerialInterfacePinOut {
+        fn default() -> Self {
+            Self::V010201(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SerialInterfacePinOutN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SignalType {

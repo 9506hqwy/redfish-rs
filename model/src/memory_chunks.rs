@@ -1,4 +1,4 @@
-pub type MemoryChunks = crate::memory_chunks::v1_6_1::MemoryChunks;
+pub type MemoryChunks = crate::memory_chunks::v1_6_2::MemoryChunks;
 pub mod v1_5_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -118,12 +118,12 @@ pub mod v1_5_0 {
         Online,
     }
 }
-pub mod v1_6_1 {
+pub mod v1_6_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::memory_chunks::v1_6_1::OemActions>,
+        pub oem: Option<crate::memory_chunks::v1_6_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AddressRangeType {
@@ -187,30 +187,30 @@ pub mod v1_6_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemoryChunks {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::memory_chunks::v1_6_1::Actions>,
+        pub actions: Option<crate::memory_chunks::v1_6_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AddressRangeOffsetMiB"
         )]
         pub address_range_offset_mib: Option<i64>,
         #[serde(rename = "AddressRangeType")]
-        pub address_range_type: Option<crate::memory_chunks::v1_6_1::AddressRangeType>,
+        pub address_range_type: crate::memory_chunks::v1_6_2::MemoryChunksAddressRangeType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::memory_chunks::v1_6_2::MemoryChunksDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DisplayName")]
         pub display_name: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterleaveSets")]
-        pub interleave_sets: Option<Vec<crate::memory_chunks::v1_6_1::InterleaveSet>>,
+        pub interleave_sets: Option<Vec<crate::memory_chunks::v1_6_2::InterleaveSet>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsMirrorEnabled")]
         pub is_mirror_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsSpare")]
         pub is_spare: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::memory_chunks::v1_6_1::Links>,
+        pub links: Option<crate::memory_chunks::v1_6_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaLocation")]
-        pub media_location: Option<crate::memory_chunks::v1_6_1::MediaLocation>,
+        pub media_location: Option<crate::memory_chunks::v1_6_2::MemoryChunksMediaLocation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunkSizeMiB")]
         pub memory_chunk_size_mib: Option<i64>,
         #[serde(rename = "Name")]
@@ -229,9 +229,78 @@ pub mod v1_6_1 {
             skip_serializing_if = "Option::is_none",
             rename = "RequestedOperationalState"
         )]
-        pub requested_operational_state: Option<crate::memory_chunks::v1_6_1::OperationalState>,
+        pub requested_operational_state:
+            Option<crate::memory_chunks::v1_6_2::MemoryChunksRequestedOperationalState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MemoryChunksAddressRangeType {
+        V010602(crate::memory_chunks::v1_6_2::AddressRangeType),
+        V000001(crate::memory_chunks::v1_6_2::MemoryChunksAddressRangeTypeN1),
+    }
+    impl Default for MemoryChunksAddressRangeType {
+        fn default() -> Self {
+            Self::V010602(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MemoryChunksAddressRangeTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MemoryChunksDescription {
+        V000001(crate::memory_chunks::v1_6_2::MemoryChunksDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for MemoryChunksDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MemoryChunksDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MemoryChunksMediaLocation {
+        V010602(crate::memory_chunks::v1_6_2::MediaLocation),
+        V000001(crate::memory_chunks::v1_6_2::MemoryChunksMediaLocationN1),
+    }
+    impl Default for MemoryChunksMediaLocation {
+        fn default() -> Self {
+            Self::V010602(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MemoryChunksMediaLocationN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MemoryChunksRequestedOperationalState {
+        V010602(crate::memory_chunks::v1_6_2::OperationalState),
+        V000001(crate::memory_chunks::v1_6_2::MemoryChunksRequestedOperationalStateN1),
+    }
+    impl Default for MemoryChunksRequestedOperationalState {
+        fn default() -> Self {
+            Self::V010602(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MemoryChunksRequestedOperationalStateN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

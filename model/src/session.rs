@@ -1,4 +1,4 @@
-pub type Session = crate::session::v1_7_1::Session;
+pub type Session = crate::session::v1_7_2::Session;
 pub mod v1_6_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -69,12 +69,12 @@ pub mod v1_6_0 {
         WebUI,
     }
 }
-pub mod v1_7_1 {
+pub mod v1_7_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::session::v1_7_1::OemActions>,
+        pub oem: Option<crate::session::v1_7_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -88,7 +88,7 @@ pub mod v1_7_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Session {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::session::v1_7_1::Actions>,
+        pub actions: Option<crate::session::v1_7_2::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ClientOriginIPAddress"
@@ -99,11 +99,11 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CreatedTime")]
         pub created_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::session::v1_7_2::SessionDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::session::v1_7_1::Links>,
+        pub links: Option<crate::session::v1_7_2::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -123,11 +123,45 @@ pub mod v1_7_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Roles")]
         pub roles: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SessionType")]
-        pub session_type: Option<crate::session::v1_7_1::SessionTypes>,
+        pub session_type: Option<crate::session::v1_7_2::SessionSessionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Token")]
         pub token: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
         pub user_name: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SessionDescription {
+        V000001(crate::session::v1_7_2::SessionDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for SessionDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SessionDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SessionSessionType {
+        V010702(crate::session::v1_7_2::SessionTypes),
+        V000001(crate::session::v1_7_2::SessionSessionTypeN1),
+    }
+    impl Default for SessionSessionType {
+        fn default() -> Self {
+            Self::V010702(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SessionSessionTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SessionTypes {

@@ -1,4 +1,4 @@
-pub type LogService = crate::log_service::v1_6_0::LogService;
+pub type LogService = crate::log_service::v1_7_0::LogService;
 pub mod v1_4_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -232,7 +232,7 @@ pub mod v1_4_0 {
         Warning,
     }
 }
-pub mod v1_6_0 {
+pub mod v1_7_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -240,21 +240,33 @@ pub mod v1_6_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#LogService.ClearLog"
         )]
-        pub log_service_clear_log: Option<crate::log_service::v1_6_0::ClearLog>,
+        pub log_service_clear_log: Option<crate::log_service::v1_7_0::ClearLog>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#LogService.CollectDiagnosticData"
         )]
         pub log_service_collect_diagnostic_data:
-            Option<crate::log_service::v1_6_0::CollectDiagnosticData>,
+            Option<crate::log_service::v1_7_0::CollectDiagnosticData>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#LogService.PushDiagnosticData"
         )]
         pub log_service_push_diagnostic_data:
-            Option<crate::log_service::v1_6_0::PushDiagnosticData>,
+            Option<crate::log_service::v1_7_0::PushDiagnosticData>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::log_service::v1_6_0::OemActions>,
+        pub oem: Option<crate::log_service::v1_7_0::OemActions>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AutoClearResolvedEntries {
+        #[default]
+        #[serde(rename = "ClearEventGroup")]
+        ClearEventGroup,
+        #[serde(rename = "None")]
+        None,
+        #[serde(rename = "RetainCauseResolutionEntries")]
+        RetainCauseResolutionEntries,
+        #[serde(rename = "UpdateCauseEntry")]
+        UpdateCauseEntry,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ClearLog {
@@ -278,7 +290,7 @@ pub mod v1_6_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CollectDiagnosticDataRequestBody {
         #[serde(rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: crate::log_service::v1_6_0::LogDiagnosticDataTypes,
+        pub diagnostic_data_type: crate::log_service::v1_7_0::LogDiagnosticDataTypes,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OEMDiagnosticDataType"
@@ -289,9 +301,41 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TargetURI")]
         pub target_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
-        pub transfer_protocol: Option<crate::log_service::v1_6_0::TransferProtocolType>,
+        pub transfer_protocol: Option<crate::log_service::v1_7_0::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
         pub user_name: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DiagnosticDataDetails {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticDataType")]
+        pub diagnostic_data_type:
+            Option<crate::log_service::v1_7_0::DiagnosticDataDetailsDiagnosticDataType>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "EstimatedDuration")]
+        pub estimated_duration: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "EstimatedSizeBytes")]
+        pub estimated_size_bytes: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "OEMDiagnosticDataType"
+        )]
+        pub oem_diagnostic_data_type: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum DiagnosticDataDetailsDiagnosticDataType {
+        V010700(crate::log_service::v1_7_0::LogDiagnosticDataTypes),
+        V000001(crate::log_service::v1_7_0::DiagnosticDataDetailsDiagnosticDataTypeN1),
+    }
+    impl Default for DiagnosticDataDetailsDiagnosticDataType {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum DiagnosticDataDetailsDiagnosticDataTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LogDiagnosticDataTypes {
@@ -338,7 +382,13 @@ pub mod v1_6_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LogService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::log_service::v1_6_0::Actions>,
+        pub actions: Option<crate::log_service::v1_7_0::Actions>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "AutoClearResolvedEntries"
+        )]
+        pub auto_clear_resolved_entries:
+            Option<crate::log_service::v1_7_0::LogServiceAutoClearResolvedEntries>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AutoDSTEnabled")]
         pub auto_dst_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DateTime")]
@@ -349,15 +399,21 @@ pub mod v1_6_0 {
         )]
         pub date_time_local_offset: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::log_service::v1_7_0::LogServiceDescription>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "DiagnosticDataDetails"
+        )]
+        pub diagnostic_data_details:
+            Option<Vec<crate::log_service::v1_7_0::LogServiceDiagnosticDataDetails>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Entries")]
         pub entries: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogEntryType")]
-        pub log_entry_type: Option<crate::log_service::v1_6_0::LogEntryTypes>,
+        pub log_entry_type: Option<crate::log_service::v1_7_0::LogServiceLogEntryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogPurposes")]
-        pub log_purposes: Option<Vec<crate::log_service::v1_6_0::LogPurpose>>,
+        pub log_purposes: Option<Vec<crate::log_service::v1_7_0::LogServiceLogPurposes>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxNumberOfRecords")]
         pub max_number_of_records: Option<i64>,
         #[serde(rename = "Name")]
@@ -375,7 +431,7 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OEMLogPurpose")]
         pub oem_log_purpose: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverWritePolicy")]
-        pub over_write_policy: Option<crate::log_service::v1_6_0::OverWritePolicy>,
+        pub over_write_policy: Option<crate::log_service::v1_7_0::OverWritePolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Overflow")]
         pub overflow: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Persistency")]
@@ -385,7 +441,109 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyslogFilters")]
-        pub syslog_filters: Option<Vec<crate::log_service::v1_6_0::SyslogFilter>>,
+        pub syslog_filters: Option<Vec<crate::log_service::v1_7_0::LogServiceSyslogFilters>>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogServiceAutoClearResolvedEntries {
+        V010700(crate::log_service::v1_7_0::AutoClearResolvedEntries),
+        V000001(crate::log_service::v1_7_0::LogServiceAutoClearResolvedEntriesN1),
+    }
+    impl Default for LogServiceAutoClearResolvedEntries {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogServiceAutoClearResolvedEntriesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogServiceDescription {
+        V000001(crate::log_service::v1_7_0::LogServiceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for LogServiceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogServiceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogServiceDiagnosticDataDetails {
+        V010700(crate::log_service::v1_7_0::DiagnosticDataDetails),
+        V000001(crate::log_service::v1_7_0::LogServiceDiagnosticDataDetailsN1),
+    }
+    impl Default for LogServiceDiagnosticDataDetails {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogServiceDiagnosticDataDetailsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogServiceLogEntryType {
+        V010700(crate::log_service::v1_7_0::LogEntryTypes),
+        V000001(crate::log_service::v1_7_0::LogServiceLogEntryTypeN1),
+    }
+    impl Default for LogServiceLogEntryType {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogServiceLogEntryTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogServiceLogPurposes {
+        V010700(crate::log_service::v1_7_0::LogPurpose),
+        V000001(crate::log_service::v1_7_0::LogServiceLogPurposesN1),
+    }
+    impl Default for LogServiceLogPurposes {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogServiceLogPurposesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogServiceSyslogFilters {
+        V010700(crate::log_service::v1_7_0::SyslogFilter),
+        V000001(crate::log_service::v1_7_0::LogServiceSyslogFiltersN1),
+    }
+    impl Default for LogServiceSyslogFilters {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogServiceSyslogFiltersN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -415,7 +573,7 @@ pub mod v1_6_0 {
         #[serde(rename = "TargetURI")]
         pub target_uri: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
-        pub transfer_protocol: Option<crate::log_service::v1_6_0::TransferProtocolType>,
+        pub transfer_protocol: Option<crate::log_service::v1_7_0::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
         pub user_name: Option<String>,
     }
@@ -474,9 +632,43 @@ pub mod v1_6_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SyslogFilter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogFacilities")]
-        pub log_facilities: Option<Vec<crate::log_service::v1_6_0::SyslogFacility>>,
+        pub log_facilities: Option<Vec<crate::log_service::v1_7_0::SyslogFilterLogFacilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowestSeverity")]
-        pub lowest_severity: Option<crate::log_service::v1_6_0::SyslogSeverity>,
+        pub lowest_severity: Option<crate::log_service::v1_7_0::SyslogFilterLowestSeverity>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SyslogFilterLogFacilities {
+        V010700(crate::log_service::v1_7_0::SyslogFacility),
+        V000001(crate::log_service::v1_7_0::SyslogFilterLogFacilitiesN1),
+    }
+    impl Default for SyslogFilterLogFacilities {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SyslogFilterLogFacilitiesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SyslogFilterLowestSeverity {
+        V010700(crate::log_service::v1_7_0::SyslogSeverity),
+        V000001(crate::log_service::v1_7_0::SyslogFilterLowestSeverityN1),
+    }
+    impl Default for SyslogFilterLowestSeverity {
+        fn default() -> Self {
+            Self::V010700(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SyslogFilterLowestSeverityN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SyslogSeverity {

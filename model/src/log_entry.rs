@@ -1,4 +1,4 @@
-pub type LogEntry = crate::log_entry::v1_16_0::LogEntry;
+pub type LogEntry = crate::log_entry::v1_16_1::LogEntry;
 pub mod v1_15_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -428,12 +428,12 @@ pub mod v1_15_0 {
         Watchdog,
     }
 }
-pub mod v1_16_0 {
+pub mod v1_16_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::log_entry::v1_16_0::OemActions>,
+        pub oem: Option<crate::log_entry::v1_16_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CPER {
@@ -508,7 +508,7 @@ pub mod v1_16_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LogEntry {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::log_entry::v1_16_0::Actions>,
+        pub actions: Option<crate::log_entry::v1_16_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalDataSizeBytes"
@@ -517,21 +517,21 @@ pub mod v1_16_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditionalDataURI")]
         pub additional_data_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CPER")]
-        pub cper: Option<crate::log_entry::v1_16_0::CPER>,
+        pub cper: Option<crate::log_entry::v1_16_1::CPER>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Created")]
         pub created: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXLEntryType")]
-        pub cxl_entry_type: Option<crate::log_entry::v1_16_0::CXLEntryType>,
+        pub cxl_entry_type: Option<crate::log_entry::v1_16_1::CXLEntryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::log_entry::v1_16_1::LogEntryDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticData")]
         pub diagnostic_data: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DiagnosticDataType")]
-        pub diagnostic_data_type: Option<crate::log_entry::v1_16_0::LogDiagnosticDataTypes>,
+        pub diagnostic_data_type: Option<crate::log_entry::v1_16_1::LogEntryDiagnosticDataType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntryCode")]
-        pub entry_code: Option<crate::log_entry::v1_16_0::LogEntryCode>,
+        pub entry_code: Option<crate::log_entry::v1_16_1::LogEntryEntryCode>,
         #[serde(rename = "EntryType")]
-        pub entry_type: crate::log_entry::v1_16_0::LogEntryType,
+        pub entry_type: crate::log_entry::v1_16_1::LogEntryType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventGroupId")]
         pub event_group_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventId")]
@@ -555,7 +555,7 @@ pub mod v1_16_0 {
         )]
         pub last_overflow_timestamp: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::log_entry::v1_16_0::Links>,
+        pub links: Option<crate::log_entry::v1_16_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Message")]
         pub message: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MessageArgs")]
@@ -590,7 +590,7 @@ pub mod v1_16_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Originator")]
         pub originator: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OriginatorType")]
-        pub originator_type: Option<crate::log_entry::v1_16_0::OriginatorTypes>,
+        pub originator_type: Option<crate::log_entry::v1_16_1::OriginatorTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverflowErrorCount")]
         pub overflow_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Persistency")]
@@ -604,14 +604,14 @@ pub mod v1_16_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensorNumber")]
         pub sensor_number: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SensorType")]
-        pub sensor_type: Option<crate::log_entry::v1_16_0::SensorType>,
+        pub sensor_type: Option<crate::log_entry::v1_16_1::LogEntrySensorType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ServiceProviderNotified"
         )]
         pub service_provider_notified: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severity")]
-        pub severity: Option<crate::log_entry::v1_16_0::EventSeverity>,
+        pub severity: Option<crate::log_entry::v1_16_1::LogEntrySeverity>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SpecificEventExistsInGroup"
@@ -741,6 +741,91 @@ pub mod v1_16_0 {
         UpperNonRecoverableGoingHigh,
         #[serde(rename = "Upper Non-recoverable - going low")]
         UpperNonRecoverableGoingLow,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogEntryDescription {
+        V000001(crate::log_entry::v1_16_1::LogEntryDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for LogEntryDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogEntryDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogEntryDiagnosticDataType {
+        V011601(crate::log_entry::v1_16_1::LogDiagnosticDataTypes),
+        V000001(crate::log_entry::v1_16_1::LogEntryDiagnosticDataTypeN1),
+    }
+    impl Default for LogEntryDiagnosticDataType {
+        fn default() -> Self {
+            Self::V011601(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogEntryDiagnosticDataTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogEntryEntryCode {
+        V011601(crate::log_entry::v1_16_1::LogEntryCode),
+        V000001(crate::log_entry::v1_16_1::LogEntryEntryCodeN1),
+    }
+    impl Default for LogEntryEntryCode {
+        fn default() -> Self {
+            Self::V011601(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogEntryEntryCodeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogEntrySensorType {
+        V011601(crate::log_entry::v1_16_1::SensorType),
+        V000001(crate::log_entry::v1_16_1::LogEntrySensorTypeN1),
+    }
+    impl Default for LogEntrySensorType {
+        fn default() -> Self {
+            Self::V011601(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogEntrySensorTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LogEntrySeverity {
+        V011601(crate::log_entry::v1_16_1::EventSeverity),
+        V000001(crate::log_entry::v1_16_1::LogEntrySeverityN1),
+    }
+    impl Default for LogEntrySeverity {
+        fn default() -> Self {
+            Self::V011601(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LogEntrySeverityN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LogEntryType {

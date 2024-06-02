@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
-pub type AccountService = crate::account_service::v1_15_0::AccountService;
-pub type MFABypass = crate::account_service::v1_15_0::MFABypass;
+pub type AccountService = crate::account_service::v1_15_1::AccountService;
+pub type MFABypass = crate::account_service::v1_15_1::MFABypass;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum MFABypassType {
     #[default]
@@ -401,7 +401,7 @@ pub mod v1_13_0 {
         pub privilege_level_argument: Option<String>,
     }
 }
-pub mod v1_15_0 {
+pub mod v1_15_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AccountProviderTypes {
@@ -444,9 +444,9 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Accounts")]
         pub accounts: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::account_service::v1_15_0::Actions>,
+        pub actions: Option<crate::account_service::v1_15_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ActiveDirectory")]
-        pub active_directory: Option<crate::account_service::v1_15_0::ExternalAccountProvider>,
+        pub active_directory: Option<crate::account_service::v1_15_1::ExternalAccountProvider>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalExternalAccountProviders"
@@ -458,25 +458,26 @@ pub mod v1_15_0 {
         )]
         pub auth_failure_logging_threshold: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::account_service::v1_15_1::AccountServiceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HTTPBasicAuth")]
-        pub http_basic_auth: Option<crate::account_service::v1_15_0::BasicAuthState>,
+        pub http_basic_auth: Option<crate::account_service::v1_15_1::AccountServiceHTTPBasicAuth>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LDAP")]
-        pub ldap: Option<crate::account_service::v1_15_0::ExternalAccountProvider>,
+        pub ldap: Option<crate::account_service::v1_15_1::ExternalAccountProvider>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocalAccountAuth")]
-        pub local_account_auth: Option<crate::account_service::v1_15_0::LocalAccountAuth>,
+        pub local_account_auth: Option<crate::account_service::v1_15_1::LocalAccountAuth>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPasswordLength")]
         pub max_password_length: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MinPasswordLength")]
         pub min_password_length: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MultiFactorAuth")]
-        pub multi_factor_auth: Option<crate::account_service::v1_15_0::MultiFactorAuth>,
+        pub multi_factor_auth:
+            Option<crate::account_service::v1_15_1::AccountServiceMultiFactorAuth>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OAuth2")]
-        pub oauth2: Option<crate::account_service::v1_15_0::ExternalAccountProvider>,
+        pub oauth2: Option<crate::account_service::v1_15_1::AccountServiceOAuth2>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -491,7 +492,8 @@ pub mod v1_15_0 {
             skip_serializing_if = "Option::is_none",
             rename = "OutboundConnections"
         )]
-        pub outbound_connections: Option<crate::odata_v4::IdRef>,
+        pub outbound_connections:
+            Option<crate::account_service::v1_15_1::AccountServiceOutboundConnections>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PasswordExpirationDays"
@@ -531,17 +533,120 @@ pub mod v1_15_0 {
         )]
         pub supported_oem_account_types: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TACACSplus")]
-        pub tacac_splus: Option<crate::account_service::v1_15_0::ExternalAccountProvider>,
+        pub tacac_splus: Option<crate::account_service::v1_15_1::AccountServiceTACACSplus>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AccountServiceDescription {
+        V000001(crate::account_service::v1_15_1::AccountServiceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for AccountServiceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AccountServiceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AccountServiceHTTPBasicAuth {
+        V011501(crate::account_service::v1_15_1::BasicAuthState),
+        V000001(crate::account_service::v1_15_1::AccountServiceHTTPBasicAuthN1),
+    }
+    impl Default for AccountServiceHTTPBasicAuth {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AccountServiceHTTPBasicAuthN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AccountServiceMultiFactorAuth {
+        V011501(crate::account_service::v1_15_1::MultiFactorAuth),
+        V000001(crate::account_service::v1_15_1::AccountServiceMultiFactorAuthN1),
+    }
+    impl Default for AccountServiceMultiFactorAuth {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AccountServiceMultiFactorAuthN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AccountServiceOAuth2 {
+        V011501(crate::account_service::v1_15_1::ExternalAccountProvider),
+        V000001(crate::account_service::v1_15_1::AccountServiceOAuth2N1),
+    }
+    impl Default for AccountServiceOAuth2 {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AccountServiceOAuth2N1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AccountServiceOutboundConnections {
+        V000001(crate::account_service::v1_15_1::AccountServiceOutboundConnectionsN1),
+        OdataV4IdRef(crate::odata_v4::IdRef),
+    }
+    impl Default for AccountServiceOutboundConnections {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AccountServiceOutboundConnectionsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AccountServiceTACACSplus {
+        V011501(crate::account_service::v1_15_1::ExternalAccountProvider),
+        V000001(crate::account_service::v1_15_1::AccountServiceTACACSplusN1),
+    }
+    impl Default for AccountServiceTACACSplus {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AccountServiceTACACSplusN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::account_service::v1_15_0::OemActions>,
+        pub oem: Option<crate::account_service::v1_15_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Authentication {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthenticationType")]
-        pub authentication_type: Option<crate::account_service::v1_15_0::AuthenticationTypes>,
+        pub authentication_type:
+            Option<crate::account_service::v1_15_1::AuthenticationAuthenticationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
@@ -556,6 +661,23 @@ pub mod v1_15_0 {
         pub token: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Username")]
         pub username: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AuthenticationAuthenticationType {
+        V011501(crate::account_service::v1_15_1::AuthenticationTypes),
+        V000001(crate::account_service::v1_15_1::AuthenticationAuthenticationTypeN1),
+    }
+    impl Default for AuthenticationAuthenticationType {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AuthenticationAuthenticationTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AuthenticationTypes {
@@ -596,7 +718,7 @@ pub mod v1_15_0 {
             rename = "CertificateMappingAttribute"
         )]
         pub certificate_mapping_attribute:
-            Option<crate::account_service::v1_15_0::CertificateMappingAttribute>,
+            Option<crate::account_service::v1_15_1::ClientCertificateCertificateMappingAttribute>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
@@ -607,27 +729,47 @@ pub mod v1_15_0 {
         )]
         pub respond_to_unauthenticated_clients: Option<bool>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ClientCertificateCertificateMappingAttribute {
+        V011501(crate::account_service::v1_15_1::CertificateMappingAttribute),
+        V000001(crate::account_service::v1_15_1::ClientCertificateCertificateMappingAttributeN1),
+    }
+    impl Default for ClientCertificateCertificateMappingAttribute {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ClientCertificateCertificateMappingAttributeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ExternalAccountProvider {
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AccountProviderType"
         )]
-        pub account_provider_type: Option<crate::account_service::v1_15_0::AccountProviderTypes>,
+        pub account_provider_type:
+            Option<crate::account_service::v1_15_1::ExternalAccountProviderAccountProviderType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Authentication")]
-        pub authentication: Option<crate::account_service::v1_15_0::Authentication>,
+        pub authentication: Option<crate::account_service::v1_15_1::Authentication>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LDAPService")]
-        pub ldap_service: Option<crate::account_service::v1_15_0::LDAPService>,
+        pub ldap_service: Option<crate::account_service::v1_15_1::LDAPService>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OAuth2Service")]
-        pub oauth2_service: Option<crate::account_service::v1_15_0::OAuth2Service>,
+        pub oauth2_service:
+            Option<crate::account_service::v1_15_1::ExternalAccountProviderOAuth2Service>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PasswordSet")]
         pub password_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Priority")]
         pub priority: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RemoteRoleMapping")]
-        pub remote_role_mapping: Option<Vec<crate::account_service::v1_15_0::RoleMapping>>,
+        pub remote_role_mapping:
+            Option<Vec<crate::account_service::v1_15_1::ExternalAccountProviderRemoteRoleMapping>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Retries")]
         pub retries: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceAddresses")]
@@ -635,9 +777,78 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServiceEnabled")]
         pub service_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TACACSplusService")]
-        pub tacac_splus_service: Option<crate::account_service::v1_15_0::TACACSplusService>,
+        pub tacac_splus_service:
+            Option<crate::account_service::v1_15_1::ExternalAccountProviderTACACSplusService>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TimeoutSeconds")]
         pub timeout_seconds: Option<i64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ExternalAccountProviderAccountProviderType {
+        V011501(crate::account_service::v1_15_1::AccountProviderTypes),
+        V000001(crate::account_service::v1_15_1::ExternalAccountProviderAccountProviderTypeN1),
+    }
+    impl Default for ExternalAccountProviderAccountProviderType {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ExternalAccountProviderAccountProviderTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ExternalAccountProviderOAuth2Service {
+        V011501(crate::account_service::v1_15_1::OAuth2Service),
+        V000001(crate::account_service::v1_15_1::ExternalAccountProviderOAuth2ServiceN1),
+    }
+    impl Default for ExternalAccountProviderOAuth2Service {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ExternalAccountProviderOAuth2ServiceN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ExternalAccountProviderRemoteRoleMapping {
+        V011501(crate::account_service::v1_15_1::RoleMapping),
+        V000001(crate::account_service::v1_15_1::ExternalAccountProviderRemoteRoleMappingN1),
+    }
+    impl Default for ExternalAccountProviderRemoteRoleMapping {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ExternalAccountProviderRemoteRoleMappingN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ExternalAccountProviderTACACSplusService {
+        V011501(crate::account_service::v1_15_1::TACACSplusService),
+        V000001(crate::account_service::v1_15_1::ExternalAccountProviderTACACSplusServiceN1),
+    }
+    impl Default for ExternalAccountProviderTACACSplusService {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ExternalAccountProviderTACACSplusServiceN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GoogleAuthenticator {
@@ -671,7 +882,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SearchSettings")]
-        pub search_settings: Option<crate::account_service::v1_15_0::LDAPSearchSettings>,
+        pub search_settings: Option<crate::account_service::v1_15_1::LDAPSearchSettings>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LocalAccountAuth {
@@ -688,7 +899,24 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MFABypass {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BypassTypes")]
-        pub bypass_types: Option<Vec<crate::account_service::MFABypassType>>,
+        pub bypass_types: Option<Vec<crate::account_service::v1_15_1::MFABypassBypassTypes>>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MFABypassBypassTypes {
+        V000001(crate::account_service::v1_15_1::MFABypassBypassTypesN1),
+        AccountServiceMFABypassType(crate::account_service::MFABypassType),
+    }
+    impl Default for MFABypassBypassTypes {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MFABypassBypassTypesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MicrosoftAuthenticator {
@@ -702,22 +930,110 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MultiFactorAuth {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientCertificate")]
-        pub client_certificate: Option<crate::account_service::v1_15_0::ClientCertificate>,
+        pub client_certificate:
+            Option<crate::account_service::v1_15_1::MultiFactorAuthClientCertificate>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "GoogleAuthenticator"
         )]
-        pub google_authenticator: Option<crate::account_service::v1_15_0::GoogleAuthenticator>,
+        pub google_authenticator:
+            Option<crate::account_service::v1_15_1::MultiFactorAuthGoogleAuthenticator>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MicrosoftAuthenticator"
         )]
         pub microsoft_authenticator:
-            Option<crate::account_service::v1_15_0::MicrosoftAuthenticator>,
+            Option<crate::account_service::v1_15_1::MultiFactorAuthMicrosoftAuthenticator>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OneTimePasscode")]
-        pub one_time_passcode: Option<crate::account_service::v1_15_0::OneTimePasscode>,
+        pub one_time_passcode:
+            Option<crate::account_service::v1_15_1::MultiFactorAuthOneTimePasscode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurID")]
-        pub secur_id: Option<crate::account_service::v1_15_0::SecurID>,
+        pub secur_id: Option<crate::account_service::v1_15_1::MultiFactorAuthSecurID>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MultiFactorAuthClientCertificate {
+        V011501(crate::account_service::v1_15_1::ClientCertificate),
+        V000001(crate::account_service::v1_15_1::MultiFactorAuthClientCertificateN1),
+    }
+    impl Default for MultiFactorAuthClientCertificate {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MultiFactorAuthClientCertificateN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MultiFactorAuthGoogleAuthenticator {
+        V011501(crate::account_service::v1_15_1::GoogleAuthenticator),
+        V000001(crate::account_service::v1_15_1::MultiFactorAuthGoogleAuthenticatorN1),
+    }
+    impl Default for MultiFactorAuthGoogleAuthenticator {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MultiFactorAuthGoogleAuthenticatorN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MultiFactorAuthMicrosoftAuthenticator {
+        V011501(crate::account_service::v1_15_1::MicrosoftAuthenticator),
+        V000001(crate::account_service::v1_15_1::MultiFactorAuthMicrosoftAuthenticatorN1),
+    }
+    impl Default for MultiFactorAuthMicrosoftAuthenticator {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MultiFactorAuthMicrosoftAuthenticatorN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MultiFactorAuthOneTimePasscode {
+        V011501(crate::account_service::v1_15_1::OneTimePasscode),
+        V000001(crate::account_service::v1_15_1::MultiFactorAuthOneTimePasscodeN1),
+    }
+    impl Default for MultiFactorAuthOneTimePasscode {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MultiFactorAuthOneTimePasscodeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MultiFactorAuthSecurID {
+        V011501(crate::account_service::v1_15_1::SecurID),
+        V000001(crate::account_service::v1_15_1::MultiFactorAuthSecurIDN1),
+    }
+    impl Default for MultiFactorAuthSecurID {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MultiFactorAuthSecurIDN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum OAuth2Mode {
@@ -734,7 +1050,7 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Issuer")]
         pub issuer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Mode")]
-        pub mode: Option<crate::account_service::v1_15_0::OAuth2Mode>,
+        pub mode: Option<crate::account_service::v1_15_1::OAuth2Mode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OAuthServiceSigningKeys"
@@ -755,13 +1071,30 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LocalRole")]
         pub local_role: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MFABypass")]
-        pub mfa_bypass: Option<crate::account_service::MFABypass>,
+        pub mfa_bypass: Option<crate::account_service::v1_15_1::RoleMappingMFABypass>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RemoteGroup")]
         pub remote_group: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RemoteUser")]
         pub remote_user: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum RoleMappingMFABypass {
+        V000001(crate::account_service::v1_15_1::RoleMappingMFABypassN1),
+        AccountServiceMFABypass(crate::account_service::v1_15_1::MFABypass),
+    }
+    impl Default for RoleMappingMFABypass {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum RoleMappingMFABypassN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SecurID {
@@ -805,12 +1138,30 @@ pub mod v1_15_0 {
             skip_serializing_if = "Option::is_none",
             rename = "PasswordExchangeProtocols"
         )]
-        pub password_exchange_protocols:
-            Option<Vec<crate::account_service::v1_15_0::TACACSplusPasswordExchangeProtocol>>,
+        pub password_exchange_protocols: Option<
+            Vec<crate::account_service::v1_15_1::TACACSplusServicePasswordExchangeProtocols>,
+        >,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PrivilegeLevelArgument"
         )]
         pub privilege_level_argument: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum TACACSplusServicePasswordExchangeProtocols {
+        V011501(crate::account_service::v1_15_1::TACACSplusPasswordExchangeProtocol),
+        V000001(crate::account_service::v1_15_1::TACACSplusServicePasswordExchangeProtocolsN1),
+    }
+    impl Default for TACACSplusServicePasswordExchangeProtocols {
+        fn default() -> Self {
+            Self::V011501(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum TACACSplusServicePasswordExchangeProtocolsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

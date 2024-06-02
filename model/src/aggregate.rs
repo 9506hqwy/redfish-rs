@@ -1,4 +1,4 @@
-pub type Aggregate = crate::aggregate::v1_0_2::Aggregate;
+pub type Aggregate = crate::aggregate::v1_0_3::Aggregate;
 pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -108,7 +108,7 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SetDefaultBootOrderRequestBody {}
 }
-pub mod v1_0_2 {
+pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -116,21 +116,21 @@ pub mod v1_0_2 {
             skip_serializing_if = "Option::is_none",
             rename = "#Aggregate.AddElements"
         )]
-        pub aggregate_add_elements: Option<crate::aggregate::v1_0_2::AddElements>,
+        pub aggregate_add_elements: Option<crate::aggregate::v1_0_3::AddElements>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Aggregate.RemoveElements"
         )]
-        pub aggregate_remove_elements: Option<crate::aggregate::v1_0_2::RemoveElements>,
+        pub aggregate_remove_elements: Option<crate::aggregate::v1_0_3::RemoveElements>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Aggregate.Reset")]
-        pub aggregate_reset: Option<crate::aggregate::v1_0_2::Reset>,
+        pub aggregate_reset: Option<crate::aggregate::v1_0_3::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Aggregate.SetDefaultBootOrder"
         )]
-        pub aggregate_set_default_boot_order: Option<crate::aggregate::v1_0_2::SetDefaultBootOrder>,
+        pub aggregate_set_default_boot_order: Option<crate::aggregate::v1_0_3::SetDefaultBootOrder>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::aggregate::v1_0_2::OemActions>,
+        pub oem: Option<crate::aggregate::v1_0_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AddElements {
@@ -147,9 +147,9 @@ pub mod v1_0_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Aggregate {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::aggregate::v1_0_2::Actions>,
+        pub actions: Option<crate::aggregate::v1_0_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::aggregate::v1_0_3::AggregateDescription>,
         #[serde(rename = "Elements")]
         pub elements: Vec<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ElementsCount")]
@@ -173,6 +173,23 @@ pub mod v1_0_2 {
         pub odata_type: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AggregateDescription {
+        V000001(crate::aggregate::v1_0_3::AggregateDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for AggregateDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AggregateDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

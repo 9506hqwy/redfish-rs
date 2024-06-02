@@ -1,4 +1,4 @@
-pub type License = crate::license::v1_1_2::License;
+pub type License = crate::license::v1_1_3::License;
 pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -131,12 +131,12 @@ pub mod v1_1_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_1_2 {
+pub mod v1_1_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::license::v1_1_2::OemActions>,
+        pub oem: Option<crate::license::v1_1_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AuthorizationScope {
@@ -160,13 +160,13 @@ pub mod v1_1_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct License {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::license::v1_1_2::Actions>,
+        pub actions: Option<crate::license::v1_1_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AuthorizationScope")]
-        pub authorization_scope: Option<crate::license::v1_1_2::AuthorizationScope>,
+        pub authorization_scope: Option<crate::license::v1_1_3::LicenseAuthorizationScope>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Contact")]
-        pub contact: Option<crate::license::v1_1_2::ContactInfo>,
+        pub contact: Option<crate::license::v1_1_3::ContactInfo>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::license::v1_1_3::LicenseDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DownloadURI")]
         pub download_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EntitlementId")]
@@ -182,13 +182,13 @@ pub mod v1_1_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseInfoURI")]
         pub license_info_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseOrigin")]
-        pub license_origin: Option<crate::license::v1_1_2::LicenseOrigin>,
+        pub license_origin: Option<crate::license::v1_1_3::LicenseLicenseOrigin>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseString")]
         pub license_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseType")]
-        pub license_type: Option<crate::license::v1_1_2::LicenseType>,
+        pub license_type: Option<crate::license::v1_1_3::LicenseLicenseType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::license::v1_1_2::Links>,
+        pub links: Option<crate::license::v1_1_3::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(
@@ -222,6 +222,74 @@ pub mod v1_1_2 {
         pub sku: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LicenseAuthorizationScope {
+        V010103(crate::license::v1_1_3::AuthorizationScope),
+        V000001(crate::license::v1_1_3::LicenseAuthorizationScopeN1),
+    }
+    impl Default for LicenseAuthorizationScope {
+        fn default() -> Self {
+            Self::V010103(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LicenseAuthorizationScopeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LicenseDescription {
+        V000001(crate::license::v1_1_3::LicenseDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for LicenseDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LicenseDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LicenseLicenseOrigin {
+        V010103(crate::license::v1_1_3::LicenseOrigin),
+        V000001(crate::license::v1_1_3::LicenseLicenseOriginN1),
+    }
+    impl Default for LicenseLicenseOrigin {
+        fn default() -> Self {
+            Self::V010103(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LicenseLicenseOriginN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LicenseLicenseType {
+        V010103(crate::license::v1_1_3::LicenseType),
+        V000001(crate::license::v1_1_3::LicenseLicenseTypeN1),
+    }
+    impl Default for LicenseLicenseType {
+        fn default() -> Self {
+            Self::V010103(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LicenseLicenseTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LicenseOrigin {

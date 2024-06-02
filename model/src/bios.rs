@@ -1,4 +1,4 @@
-pub type Bios = crate::bios::v1_2_2::Bios;
+pub type Bios = crate::bios::v1_2_3::Bios;
 pub mod v1_2_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -92,7 +92,7 @@ pub mod v1_2_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetBiosRequestBody {}
 }
-pub mod v1_2_2 {
+pub mod v1_2_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -100,28 +100,28 @@ pub mod v1_2_2 {
             skip_serializing_if = "Option::is_none",
             rename = "#Bios.ChangePassword"
         )]
-        pub bios_change_password: Option<crate::bios::v1_2_2::ChangePassword>,
+        pub bios_change_password: Option<crate::bios::v1_2_3::ChangePassword>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Bios.ResetBios")]
-        pub bios_reset_bios: Option<crate::bios::v1_2_2::ResetBios>,
+        pub bios_reset_bios: Option<crate::bios::v1_2_3::ResetBios>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::bios::v1_2_2::OemActions>,
+        pub oem: Option<crate::bios::v1_2_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Attributes {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Bios {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::bios::v1_2_2::Actions>,
+        pub actions: Option<crate::bios::v1_2_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AttributeRegistry")]
         pub attribute_registry: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Attributes")]
-        pub attributes: Option<crate::bios::v1_2_2::Attributes>,
+        pub attributes: Option<crate::bios::v1_2_3::Attributes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::bios::v1_2_3::BiosDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::bios::v1_2_2::Links>,
+        pub links: Option<crate::bios::v1_2_3::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -139,6 +139,23 @@ pub mod v1_2_2 {
             rename = "ResetBiosToDefaultsPending"
         )]
         pub reset_bios_to_defaults_pending: Option<bool>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum BiosDescription {
+        V000001(crate::bios::v1_2_3::BiosDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for BiosDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum BiosDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ChangePassword {

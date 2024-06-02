@@ -1,4 +1,4 @@
-pub type VCATEntry = crate::vcat_entry::v1_0_2::VCATEntry;
+pub type VCATEntry = crate::vcat_entry::v1_0_3::VCATEntry;
 pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -41,21 +41,21 @@ pub mod v1_0_1 {
         pub vc_mask: Option<String>,
     }
 }
-pub mod v1_0_2 {
+pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::vcat_entry::v1_0_2::OemActions>,
+        pub oem: Option<crate::vcat_entry::v1_0_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VCATEntry {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::vcat_entry::v1_0_2::Actions>,
+        pub actions: Option<crate::vcat_entry::v1_0_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::vcat_entry::v1_0_3::VCATEntryDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -73,7 +73,24 @@ pub mod v1_0_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RawEntryHex")]
         pub raw_entry_hex: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VCEntries")]
-        pub vc_entries: Option<Vec<crate::vcat_entry::v1_0_2::VCATableEntry>>,
+        pub vc_entries: Option<Vec<crate::vcat_entry::v1_0_3::VCATableEntry>>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum VCATEntryDescription {
+        V000001(crate::vcat_entry::v1_0_3::VCATEntryDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for VCATEntryDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum VCATEntryDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VCATableEntry {

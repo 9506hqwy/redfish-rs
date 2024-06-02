@@ -27,7 +27,7 @@ pub enum ECDSACurveType {
     #[serde(rename = "NISTT571")]
     NISTT571,
 }
-pub type Key = crate::key::v1_4_0::Key;
+pub type Key = crate::key::v1_4_1::Key;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum SSHKeyType {
     #[default]
@@ -136,29 +136,29 @@ pub mod v1_2_0 {
         pub fingerprint: Option<String>,
     }
 }
-pub mod v1_4_0 {
+pub mod v1_4_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::key::v1_4_0::OemActions>,
+        pub oem: Option<crate::key::v1_4_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Key {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::key::v1_4_0::Actions>,
+        pub actions: Option<crate::key::v1_4_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::key::v1_4_1::KeyDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyString")]
         pub key_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyType")]
-        pub key_type: Option<crate::key::v1_4_0::KeyType>,
+        pub key_type: Option<crate::key::v1_4_1::KeyKeyType>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeoF")]
-        pub nvme_of: Option<crate::key::v1_4_0::NVMeoF>,
+        pub nvme_of: Option<crate::key::v1_4_1::NVMeoF>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -170,9 +170,43 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSH")]
-        pub ssh: Option<crate::key::v1_4_0::SSHType>,
+        pub ssh: Option<crate::key::v1_4_1::SSHType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserDescription")]
         pub user_description: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum KeyDescription {
+        V000001(crate::key::v1_4_1::KeyDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for KeyDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum KeyDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum KeyKeyType {
+        V010401(crate::key::v1_4_1::KeyType),
+        V000001(crate::key::v1_4_1::KeyKeyTypeN1),
+    }
+    impl Default for KeyKeyType {
+        fn default() -> Self {
+            Self::V010401(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum KeyKeyTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum KeyType {
@@ -197,12 +231,29 @@ pub mod v1_4_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SecureHashAllowList"
         )]
-        pub secure_hash_allow_list: Option<Vec<crate::key::v1_4_0::NVMeoFSecureHashType>>,
+        pub secure_hash_allow_list: Option<Vec<crate::key::v1_4_1::NVMeoFSecureHashAllowList>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SecurityProtocolType"
         )]
-        pub security_protocol_type: Option<crate::key::v1_4_0::NVMeoFSecurityProtocolType>,
+        pub security_protocol_type: Option<crate::key::v1_4_1::NVMeoFSecurityProtocolTypeAnony>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NVMeoFSecureHashAllowList {
+        V010401(crate::key::v1_4_1::NVMeoFSecureHashType),
+        V000001(crate::key::v1_4_1::NVMeoFSecureHashAllowListN1),
+    }
+    impl Default for NVMeoFSecureHashAllowList {
+        fn default() -> Self {
+            Self::V010401(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NVMeoFSecureHashAllowListN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum NVMeoFSecureHashType {
@@ -223,6 +274,23 @@ pub mod v1_4_0 {
         OEM,
         #[serde(rename = "TLS_PSK")]
         TLSPSK,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NVMeoFSecurityProtocolTypeAnony {
+        V010401(crate::key::v1_4_1::NVMeoFSecurityProtocolType),
+        V000001(crate::key::v1_4_1::NVMeoFSecurityProtocolTypeN1),
+    }
+    impl Default for NVMeoFSecurityProtocolTypeAnony {
+        fn default() -> Self {
+            Self::V010401(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NVMeoFSecurityProtocolTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

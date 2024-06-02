@@ -1,4 +1,4 @@
-pub type Port = crate::port::v1_11_0::Port;
+pub type Port = crate::port::v1_12_0::Port;
 pub mod v1_9_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -750,37 +750,37 @@ pub mod v1_9_0 {
         WakeOnLAN,
     }
 }
-pub mod v1_11_0 {
+pub mod v1_12_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::port::v1_11_0::OemActions>,
+        pub oem: Option<crate::port::v1_12_0::OemActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Port.Reset")]
-        pub port_reset: Option<crate::port::v1_11_0::Reset>,
+        pub port_reset: Option<crate::port::v1_12_0::Reset>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Port.ResetPPB")]
-        pub port_reset_ppb: Option<crate::port::v1_11_0::ResetPPB>,
+        pub port_reset_ppb: Option<crate::port::v1_12_0::ResetPPB>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXL {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Congestion")]
-        pub congestion: Option<crate::port::v1_11_0::Congestion>,
+        pub congestion: Option<crate::port::v1_12_0::CXLCongestion>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConnectedDeviceMode"
         )]
-        pub connected_device_mode: Option<crate::port::v1_11_0::ConnectedDeviceMode>,
+        pub connected_device_mode: Option<crate::port::v1_12_0::CXLConnectedDeviceMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConnectedDeviceType"
         )]
-        pub connected_device_type: Option<crate::port::v1_11_0::ConnectedDeviceType>,
+        pub connected_device_type: Option<crate::port::v1_12_0::CXLConnectedDeviceType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CurrentPortConfigurationState"
         )]
         pub current_port_configuration_state:
-            Option<crate::port::v1_11_0::CurrentPortConfigurationState>,
+            Option<crate::port::v1_12_0::CXLCurrentPortConfigurationState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxLogicalDeviceCount"
@@ -790,14 +790,116 @@ pub mod v1_11_0 {
             skip_serializing_if = "Option::is_none",
             rename = "QoSTelemetryCapabilities"
         )]
-        pub qos_telemetry_capabilities: Option<crate::port::v1_11_0::QoSTelemetryCapabilities>,
+        pub qos_telemetry_capabilities: Option<crate::port::v1_12_0::CXLQoSTelemetryCapabilities>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedCXLModes")]
-        pub supported_cxl_modes: Option<Vec<crate::port::v1_11_0::ConnectedDeviceMode>>,
+        pub supported_cxl_modes: Option<Vec<crate::port::v1_12_0::CXLSupportedCXLModes>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TemporaryThroughputReductionEnabled"
         )]
         pub temporary_throughput_reduction_enabled: Option<bool>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CXLCongestion {
+        V011200(crate::port::v1_12_0::Congestion),
+        V000001(crate::port::v1_12_0::CXLCongestionN1),
+    }
+    impl Default for CXLCongestion {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLCongestionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CXLConnectedDeviceMode {
+        V011200(crate::port::v1_12_0::ConnectedDeviceMode),
+        V000001(crate::port::v1_12_0::CXLConnectedDeviceModeN1),
+    }
+    impl Default for CXLConnectedDeviceMode {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLConnectedDeviceModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CXLConnectedDeviceType {
+        V011200(crate::port::v1_12_0::ConnectedDeviceType),
+        V000001(crate::port::v1_12_0::CXLConnectedDeviceTypeN1),
+    }
+    impl Default for CXLConnectedDeviceType {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLConnectedDeviceTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CXLCurrentPortConfigurationState {
+        V011200(crate::port::v1_12_0::CurrentPortConfigurationState),
+        V000001(crate::port::v1_12_0::CXLCurrentPortConfigurationStateN1),
+    }
+    impl Default for CXLCurrentPortConfigurationState {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLCurrentPortConfigurationStateN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CXLQoSTelemetryCapabilities {
+        V011200(crate::port::v1_12_0::QoSTelemetryCapabilities),
+        V000001(crate::port::v1_12_0::CXLQoSTelemetryCapabilitiesN1),
+    }
+    impl Default for CXLQoSTelemetryCapabilities {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLQoSTelemetryCapabilitiesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CXLSupportedCXLModes {
+        V011200(crate::port::v1_12_0::ConnectedDeviceMode),
+        V000001(crate::port::v1_12_0::CXLSupportedCXLModesN1),
+    }
+    impl Default for CXLSupportedCXLModes {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLSupportedCXLModesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ConfiguredNetworkLink {
@@ -905,23 +1007,109 @@ pub mod v1_11_0 {
             skip_serializing_if = "Option::is_none",
             rename = "FlowControlConfiguration"
         )]
-        pub flow_control_configuration: Option<crate::port::v1_11_0::FlowControl>,
+        pub flow_control_configuration:
+            Option<crate::port::v1_12_0::EthernetPropertiesFlowControlConfiguration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FlowControlStatus")]
-        pub flow_control_status: Option<crate::port::v1_11_0::FlowControl>,
+        pub flow_control_status: Option<crate::port::v1_12_0::EthernetPropertiesFlowControlStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LLDPEnabled")]
         pub lldp_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LLDPReceive")]
-        pub lldp_receive: Option<crate::port::v1_11_0::LLDPReceive>,
+        pub lldp_receive: Option<crate::port::v1_12_0::EthernetPropertiesLLDPReceive>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LLDPTransmit")]
-        pub lldp_transmit: Option<crate::port::v1_11_0::LLDPTransmit>,
+        pub lldp_transmit: Option<crate::port::v1_12_0::EthernetPropertiesLLDPTransmit>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedEthernetCapabilities"
         )]
         pub supported_ethernet_capabilities:
-            Option<Vec<crate::port::v1_11_0::SupportedEthernetCapabilities>>,
+            Option<Vec<crate::port::v1_12_0::EthernetPropertiesSupportedEthernetCapabilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WakeOnLANEnabled")]
         pub wake_on_lan_enabled: Option<bool>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EthernetPropertiesFlowControlConfiguration {
+        V011200(crate::port::v1_12_0::FlowControl),
+        V000001(crate::port::v1_12_0::EthernetPropertiesFlowControlConfigurationN1),
+    }
+    impl Default for EthernetPropertiesFlowControlConfiguration {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EthernetPropertiesFlowControlConfigurationN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EthernetPropertiesFlowControlStatus {
+        V011200(crate::port::v1_12_0::FlowControl),
+        V000001(crate::port::v1_12_0::EthernetPropertiesFlowControlStatusN1),
+    }
+    impl Default for EthernetPropertiesFlowControlStatus {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EthernetPropertiesFlowControlStatusN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EthernetPropertiesLLDPReceive {
+        V011200(crate::port::v1_12_0::LLDPReceive),
+        V000001(crate::port::v1_12_0::EthernetPropertiesLLDPReceiveN1),
+    }
+    impl Default for EthernetPropertiesLLDPReceive {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EthernetPropertiesLLDPReceiveN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EthernetPropertiesLLDPTransmit {
+        V011200(crate::port::v1_12_0::LLDPTransmit),
+        V000001(crate::port::v1_12_0::EthernetPropertiesLLDPTransmitN1),
+    }
+    impl Default for EthernetPropertiesLLDPTransmit {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EthernetPropertiesLLDPTransmitN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum EthernetPropertiesSupportedEthernetCapabilities {
+        V011200(crate::port::v1_12_0::SupportedEthernetCapabilities),
+        V000001(crate::port::v1_12_0::EthernetPropertiesSupportedEthernetCapabilitiesN1),
+    }
+    impl Default for EthernetPropertiesSupportedEthernetCapabilities {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum EthernetPropertiesSupportedEthernetCapabilitiesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum FiberConnectionType {
@@ -946,7 +1134,25 @@ pub mod v1_11_0 {
         )]
         pub number_discovered_remote_ports: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortConnectionType")]
-        pub port_connection_type: Option<crate::port::v1_11_0::PortConnectionType>,
+        pub port_connection_type:
+            Option<crate::port::v1_12_0::FibreChannelPropertiesPortConnectionType>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum FibreChannelPropertiesPortConnectionType {
+        V011200(crate::port::v1_12_0::PortConnectionType),
+        V000001(crate::port::v1_12_0::FibreChannelPropertiesPortConnectionTypeN1),
+    }
+    impl Default for FibreChannelPropertiesPortConnectionType {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum FibreChannelPropertiesPortConnectionTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum FlowControl {
@@ -1034,7 +1240,7 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisId")]
         pub chassis_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisIdSubtype")]
-        pub chassis_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
+        pub chassis_id_subtype: Option<crate::port::v1_12_0::LLDPReceiveChassisIdSubtype>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ManagementAddressIPv4"
@@ -1055,13 +1261,64 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortId")]
         pub port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortIdSubtype")]
-        pub port_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
+        pub port_id_subtype: Option<crate::port::v1_12_0::LLDPReceivePortIdSubtype>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemCapabilities")]
-        pub system_capabilities: Option<Vec<crate::port::v1_11_0::LLDPSystemCapabilities>>,
+        pub system_capabilities: Option<Vec<crate::port::v1_12_0::LLDPReceiveSystemCapabilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemDescription")]
         pub system_description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemName")]
         pub system_name: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LLDPReceiveChassisIdSubtype {
+        V011200(crate::port::v1_12_0::IEEE802IdSubtype),
+        V000001(crate::port::v1_12_0::LLDPReceiveChassisIdSubtypeN1),
+    }
+    impl Default for LLDPReceiveChassisIdSubtype {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LLDPReceiveChassisIdSubtypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LLDPReceivePortIdSubtype {
+        V011200(crate::port::v1_12_0::IEEE802IdSubtype),
+        V000001(crate::port::v1_12_0::LLDPReceivePortIdSubtypeN1),
+    }
+    impl Default for LLDPReceivePortIdSubtype {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LLDPReceivePortIdSubtypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LLDPReceiveSystemCapabilities {
+        V011200(crate::port::v1_12_0::LLDPSystemCapabilities),
+        V000001(crate::port::v1_12_0::LLDPReceiveSystemCapabilitiesN1),
+    }
+    impl Default for LLDPReceiveSystemCapabilities {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LLDPReceiveSystemCapabilitiesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LLDPSystemCapabilities {
@@ -1090,7 +1347,7 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisId")]
         pub chassis_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChassisIdSubtype")]
-        pub chassis_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
+        pub chassis_id_subtype: Option<crate::port::v1_12_0::LLDPTransmitChassisIdSubtype>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ManagementAddressIPv4"
@@ -1111,13 +1368,64 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortId")]
         pub port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortIdSubtype")]
-        pub port_id_subtype: Option<crate::port::v1_11_0::IEEE802IdSubtype>,
+        pub port_id_subtype: Option<crate::port::v1_12_0::LLDPTransmitPortIdSubtype>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemCapabilities")]
-        pub system_capabilities: Option<Vec<crate::port::v1_11_0::LLDPSystemCapabilities>>,
+        pub system_capabilities: Option<Vec<crate::port::v1_12_0::LLDPTransmitSystemCapabilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemDescription")]
         pub system_description: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemName")]
         pub system_name: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LLDPTransmitChassisIdSubtype {
+        V011200(crate::port::v1_12_0::IEEE802IdSubtype),
+        V000001(crate::port::v1_12_0::LLDPTransmitChassisIdSubtypeN1),
+    }
+    impl Default for LLDPTransmitChassisIdSubtype {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LLDPTransmitChassisIdSubtypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LLDPTransmitPortIdSubtype {
+        V011200(crate::port::v1_12_0::IEEE802IdSubtype),
+        V000001(crate::port::v1_12_0::LLDPTransmitPortIdSubtypeN1),
+    }
+    impl Default for LLDPTransmitPortIdSubtype {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LLDPTransmitPortIdSubtypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LLDPTransmitSystemCapabilities {
+        V011200(crate::port::v1_12_0::LLDPSystemCapabilities),
+        V000001(crate::port::v1_12_0::LLDPTransmitSystemCapabilitiesN1),
+    }
+    impl Default for LLDPTransmitSystemCapabilities {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LLDPTransmitSystemCapabilitiesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LinkConfiguration {
@@ -1140,7 +1448,25 @@ pub mod v1_11_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ConfiguredNetworkLinks"
         )]
-        pub configured_network_links: Option<Vec<crate::port::v1_11_0::ConfiguredNetworkLink>>,
+        pub configured_network_links:
+            Option<Vec<crate::port::v1_12_0::LinkConfigurationConfiguredNetworkLinks>>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LinkConfigurationConfiguredNetworkLinks {
+        V011200(crate::port::v1_12_0::ConfiguredNetworkLink),
+        V000001(crate::port::v1_12_0::LinkConfigurationConfiguredNetworkLinksN1),
+    }
+    impl Default for LinkConfigurationConfiguredNetworkLinks {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LinkConfigurationConfiguredNetworkLinksN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum LinkNetworkTechnology {
@@ -1241,7 +1567,7 @@ pub mod v1_11_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Port {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::port::v1_11_0::Actions>,
+        pub actions: Option<crate::port::v1_12_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ActiveWidth")]
         pub active_width: Option<i64>,
         #[serde(
@@ -1257,53 +1583,53 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CurrentSpeedGbps")]
         pub current_speed_gbps: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::port::v1_11_0::CXL>,
+        pub cxl: Option<crate::port::v1_12_0::PortCXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::port::v1_12_0::PortDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
         pub enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
-        pub ethernet: Option<crate::port::v1_11_0::EthernetProperties>,
+        pub ethernet: Option<crate::port::v1_12_0::PortEthernet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FibreChannel")]
-        pub fibre_channel: Option<crate::port::v1_11_0::FibreChannelProperties>,
+        pub fibre_channel: Option<crate::port::v1_12_0::PortFibreChannel>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FunctionMaxBandwidth"
         )]
-        pub function_max_bandwidth: Option<Vec<crate::port::v1_11_0::FunctionMaxBandwidth>>,
+        pub function_max_bandwidth: Option<Vec<crate::port::v1_12_0::FunctionMaxBandwidth>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FunctionMinBandwidth"
         )]
-        pub function_min_bandwidth: Option<Vec<crate::port::v1_11_0::FunctionMinBandwidth>>,
+        pub function_min_bandwidth: Option<Vec<crate::port::v1_12_0::FunctionMinBandwidth>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::port::v1_11_0::GenZ>,
+        pub gen_z: Option<crate::port::v1_12_0::GenZ>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InfiniBand")]
-        pub infini_band: Option<crate::port::v1_11_0::InfiniBandProperties>,
+        pub infini_band: Option<crate::port::v1_12_0::PortInfiniBand>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceEnabled")]
         pub interface_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkConfiguration")]
-        pub link_configuration: Option<Vec<crate::port::v1_11_0::LinkConfiguration>>,
+        pub link_configuration: Option<Vec<crate::port::v1_12_0::LinkConfiguration>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LinkNetworkTechnology"
         )]
-        pub link_network_technology: Option<crate::port::v1_11_0::LinkNetworkTechnology>,
+        pub link_network_technology: Option<crate::port::v1_12_0::PortLinkNetworkTechnology>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkState")]
-        pub link_state: Option<crate::port::v1_11_0::LinkState>,
+        pub link_state: Option<crate::port::v1_12_0::LinkState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkStatus")]
-        pub link_status: Option<crate::port::v1_11_0::LinkStatus>,
+        pub link_status: Option<crate::port::v1_12_0::LinkStatus>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LinkTransitionIndicator"
         )]
         pub link_transition_indicator: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::port::v1_11_0::Links>,
+        pub links: Option<crate::port::v1_12_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -1316,7 +1642,7 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxSpeedGbps")]
         pub max_speed_gbps: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
-        pub metrics: Option<crate::odata_v4::IdRef>,
+        pub metrics: Option<crate::port::v1_12_0::PortMetrics>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -1332,21 +1658,38 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortId")]
         pub port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortMedium")]
-        pub port_medium: Option<crate::port::v1_11_0::PortMedium>,
+        pub port_medium: Option<crate::port::v1_12_0::PortPortMedium>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortProtocol")]
-        pub port_protocol: Option<crate::protocol::Protocol>,
+        pub port_protocol: Option<crate::port::v1_12_0::PortPortProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PortType")]
-        pub port_type: Option<crate::port::v1_11_0::PortType>,
+        pub port_type: Option<crate::port::v1_12_0::PortPortType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RemotePortId")]
         pub remote_port_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SFP")]
-        pub sfp: Option<crate::port::v1_11_0::SFP>,
+        pub sfp: Option<crate::port::v1_12_0::PortSFP>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SignalDetected")]
         pub signal_detected: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Width")]
         pub width: Option<i64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortCXL {
+        V011200(crate::port::v1_12_0::CXL),
+        V000001(crate::port::v1_12_0::PortCXLN1),
+    }
+    impl Default for PortCXL {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortCXLN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum PortConnectionType {
@@ -1386,6 +1729,91 @@ pub mod v1_11_0 {
         #[serde(rename = "UPort")]
         UPort,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortDescription {
+        V000001(crate::port::v1_12_0::PortDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for PortDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortEthernet {
+        V011200(crate::port::v1_12_0::EthernetProperties),
+        V000001(crate::port::v1_12_0::PortEthernetN1),
+    }
+    impl Default for PortEthernet {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortEthernetN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortFibreChannel {
+        V011200(crate::port::v1_12_0::FibreChannelProperties),
+        V000001(crate::port::v1_12_0::PortFibreChannelN1),
+    }
+    impl Default for PortFibreChannel {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortFibreChannelN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortInfiniBand {
+        V011200(crate::port::v1_12_0::InfiniBandProperties),
+        V000001(crate::port::v1_12_0::PortInfiniBandN1),
+    }
+    impl Default for PortInfiniBand {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortInfiniBandN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortLinkNetworkTechnology {
+        V011200(crate::port::v1_12_0::LinkNetworkTechnology),
+        V000001(crate::port::v1_12_0::PortLinkNetworkTechnologyN1),
+    }
+    impl Default for PortLinkNetworkTechnology {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortLinkNetworkTechnologyN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum PortMedium {
         #[default]
@@ -1393,6 +1821,91 @@ pub mod v1_11_0 {
         Electrical,
         #[serde(rename = "Optical")]
         Optical,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortMetrics {
+        V000001(crate::port::v1_12_0::PortMetricsN1),
+        OdataV4IdRef(crate::odata_v4::IdRef),
+    }
+    impl Default for PortMetrics {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortMetricsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortPortMedium {
+        V011200(crate::port::v1_12_0::PortMedium),
+        V000001(crate::port::v1_12_0::PortPortMediumN1),
+    }
+    impl Default for PortPortMedium {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortPortMediumN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortPortProtocol {
+        V000001(crate::port::v1_12_0::PortPortProtocolN1),
+        ProtocolProtocol(crate::protocol::Protocol),
+    }
+    impl Default for PortPortProtocol {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortPortProtocolN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortPortType {
+        V011200(crate::port::v1_12_0::PortType),
+        V000001(crate::port::v1_12_0::PortPortTypeN1),
+    }
+    impl Default for PortPortType {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortPortTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PortSFP {
+        V011200(crate::port::v1_12_0::SFP),
+        V000001(crate::port::v1_12_0::PortSFPN1),
+    }
+    impl Default for PortSFP {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PortSFPN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum PortType {
@@ -1450,11 +1963,11 @@ pub mod v1_11_0 {
             skip_serializing_if = "Option::is_none",
             rename = "FiberConnectionType"
         )]
-        pub fiber_connection_type: Option<crate::port::v1_11_0::FiberConnectionType>,
+        pub fiber_connection_type: Option<crate::port::v1_12_0::SFPFiberConnectionType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediumType")]
-        pub medium_type: Option<crate::port::v1_11_0::MediumType>,
+        pub medium_type: Option<crate::port::v1_12_0::SFPMediumType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -1462,9 +1975,60 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedSFPTypes")]
-        pub supported_sfp_types: Option<Vec<crate::port::v1_11_0::SFPType>>,
+        pub supported_sfp_types: Option<Vec<crate::port::v1_12_0::SFPSupportedSFPTypes>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<crate::port::v1_11_0::SFPType>,
+        pub r#type: Option<crate::port::v1_12_0::SFPTypeAnony>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SFPFiberConnectionType {
+        V011200(crate::port::v1_12_0::FiberConnectionType),
+        V000001(crate::port::v1_12_0::SFPFiberConnectionTypeN1),
+    }
+    impl Default for SFPFiberConnectionType {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SFPFiberConnectionTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SFPMediumType {
+        V011200(crate::port::v1_12_0::MediumType),
+        V000001(crate::port::v1_12_0::SFPMediumTypeN1),
+    }
+    impl Default for SFPMediumType {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SFPMediumTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SFPSupportedSFPTypes {
+        V011200(crate::port::v1_12_0::SFPType),
+        V000001(crate::port::v1_12_0::SFPSupportedSFPTypesN1),
+    }
+    impl Default for SFPSupportedSFPTypes {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SFPSupportedSFPTypesN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SFPType {
@@ -1495,6 +2059,23 @@ pub mod v1_11_0 {
         SFPPlus,
         #[serde(rename = "cSFP")]
         CSFP,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SFPTypeAnony {
+        V011200(crate::port::v1_12_0::SFPType),
+        V000001(crate::port::v1_12_0::SFPTypeN1),
+    }
+    impl Default for SFPTypeAnony {
+        fn default() -> Self {
+            Self::V011200(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SFPTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SupportedEthernetCapabilities {

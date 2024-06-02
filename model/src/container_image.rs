@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-pub type ContainerImage = crate::container_image::v1_0_0::ContainerImage;
+pub type ContainerImage = crate::container_image::v1_0_1::ContainerImage;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum ImageTypes {
     #[default]
@@ -10,25 +10,25 @@ pub enum ImageTypes {
     #[serde(rename = "OCI")]
     OCI,
 }
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::container_image::v1_0_0::OemActions>,
+        pub oem: Option<crate::container_image::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ContainerImage {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::container_image::v1_0_0::Actions>,
+        pub actions: Option<crate::container_image::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CreateTime")]
         pub create_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::container_image::v1_0_1::ContainerImageDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::container_image::v1_0_0::Links>,
+        pub links: Option<crate::container_image::v1_0_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -48,9 +48,43 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Type")]
-        pub r#type: Option<crate::container_image::ImageTypes>,
+        pub r#type: Option<crate::container_image::v1_0_1::ContainerImageType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ContainerImageDescription {
+        V000001(crate::container_image::v1_0_1::ContainerImageDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for ContainerImageDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ContainerImageDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ContainerImageType {
+        V000001(crate::container_image::v1_0_1::ContainerImageTypeN1),
+        ContainerImageImageTypes(crate::container_image::ImageTypes),
+    }
+    impl Default for ContainerImageType {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ContainerImageTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {

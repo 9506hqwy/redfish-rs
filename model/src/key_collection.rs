@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct KeyCollection {
     #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-    pub description: Option<String>,
+    pub description: Option<crate::key_collection::KeyCollectionDescription>,
     #[serde(rename = "Members")]
     pub members: Vec<crate::odata_v4::IdRef>,
     #[serde(rename = "Members@odata.count")]
@@ -24,4 +24,21 @@ pub struct KeyCollection {
     pub odata_type: String,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
     pub oem: Option<crate::resource::Oem>,
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum KeyCollectionDescription {
+    V000001(crate::key_collection::KeyCollectionDescriptionN1),
+    ResourceDescription(String),
+}
+impl Default for KeyCollectionDescription {
+    fn default() -> Self {
+        Self::V000001(Default::default())
+    }
+}
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub enum KeyCollectionDescriptionN1 {
+    #[default]
+    #[serde(rename = "null")]
+    Null,
 }

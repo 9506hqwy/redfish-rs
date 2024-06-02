@@ -283,5 +283,5 @@ pub struct RedfishErrorError {
         skip_serializing_if = "Option::is_none",
         rename = "@Message.ExtendedInfo"
     )]
-    pub message_extended_info: Option<Vec<crate::message::v1_2_0::Message>>,
+    pub message_extended_info: Option<Vec<crate::message::v1_2_1::Message>>,
 }

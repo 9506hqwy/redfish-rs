@@ -78,6 +78,8 @@ pub enum Protocol {
     USB,
     #[serde(rename = "VGA")]
     VGA,
+    #[serde(rename = "eMMC")]
+    EMMC,
     #[serde(rename = "iSCSI")]
     ISCSI,
     #[serde(rename = "iWARP")]

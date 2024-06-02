@@ -1,4 +1,4 @@
-pub type ManagerNetworkProtocol = crate::manager_network_protocol::v1_10_0::ManagerNetworkProtocol;
+pub type ManagerNetworkProtocol = crate::manager_network_protocol::v1_10_1::ManagerNetworkProtocol;
 pub mod v1_9_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -240,12 +240,12 @@ pub mod v1_9_1 {
         pub protocol_enabled: Option<bool>,
     }
 }
-pub mod v1_10_0 {
+pub mod v1_10_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager_network_protocol::v1_10_0::OemActions>,
+        pub oem: Option<crate::manager_network_protocol::v1_10_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EngineId {
@@ -274,35 +274,36 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ManagerNetworkProtocol {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager_network_protocol::v1_10_0::Actions>,
+        pub actions: Option<crate::manager_network_protocol::v1_10_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description:
+            Option<crate::manager_network_protocol::v1_10_1::ManagerNetworkProtocolDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCPv6")]
-        pub dhc_pv6: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub dhc_pv6: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCP")]
-        pub dhcp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub dhcp: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FQDN")]
         pub fqdn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FTP")]
-        pub ftp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub ftp: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FTPS")]
-        pub ftps: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub ftps: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostName")]
         pub host_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HTTP")]
-        pub http: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub http: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HTTPS")]
-        pub https: Option<crate::manager_network_protocol::v1_10_0::HTTPSProtocol>,
+        pub https: Option<crate::manager_network_protocol::v1_10_1::HTTPSProtocol>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPMI")]
-        pub ipmi: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub ipmi: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KVMIP")]
-        pub kvmip: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub kvmip: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NTP")]
-        pub ntp: Option<crate::manager_network_protocol::v1_10_0::NTPProtocol>,
+        pub ntp: Option<crate::manager_network_protocol::v1_10_1::NTPProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -314,25 +315,42 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Proxy")]
-        pub proxy: Option<crate::manager_network_protocol::v1_10_0::ProxyConfiguration>,
+        pub proxy: Option<crate::manager_network_protocol::v1_10_1::ProxyConfiguration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RDP")]
-        pub rdp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub rdp: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RFB")]
-        pub rfb: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub rfb: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SFTP")]
-        pub sftp: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub sftp: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::manager_network_protocol::v1_10_0::SNMPProtocol>,
+        pub snmp: Option<crate::manager_network_protocol::v1_10_1::SNMPProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSDP")]
-        pub ssdp: Option<crate::manager_network_protocol::v1_10_0::SSDProtocol>,
+        pub ssdp: Option<crate::manager_network_protocol::v1_10_1::SSDProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSH")]
-        pub ssh: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub ssh: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Telnet")]
-        pub telnet: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub telnet: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMedia")]
-        pub virtual_media: Option<crate::manager_network_protocol::v1_10_0::Protocol>,
+        pub virtual_media: Option<crate::manager_network_protocol::v1_10_1::Protocol>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ManagerNetworkProtocolDescription {
+        V000001(crate::manager_network_protocol::v1_10_1::ManagerNetworkProtocolDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for ManagerNetworkProtocolDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ManagerNetworkProtocolDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NTPProtocol {
@@ -407,7 +425,8 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SNMPCommunity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessMode")]
-        pub access_mode: Option<crate::manager_network_protocol::v1_10_0::SNMPCommunityAccessMode>,
+        pub access_mode:
+            Option<crate::manager_network_protocol::v1_10_1::SNMPCommunityAccessModeAnony>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommunityString")]
         pub community_string: Option<String>,
         #[serde(
@@ -436,6 +455,23 @@ pub mod v1_10_0 {
         #[serde(rename = "Limited")]
         Limited,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPCommunityAccessModeAnony {
+        V011001(crate::manager_network_protocol::v1_10_1::SNMPCommunityAccessMode),
+        V000001(crate::manager_network_protocol::v1_10_1::SNMPCommunityAccessModeN1),
+    }
+    impl Default for SNMPCommunityAccessModeAnony {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPCommunityAccessModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SNMPEncryptionProtocols {
         #[default]
@@ -459,15 +495,16 @@ pub mod v1_10_0 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::manager_network_protocol::v1_10_0::SNMPAuthenticationProtocols>,
+            Option<crate::manager_network_protocol::v1_10_1::SNMPProtocolAuthenticationProtocol>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CommunityAccessMode"
         )]
         pub community_access_mode:
-            Option<crate::manager_network_protocol::v1_10_0::SNMPCommunityAccessMode>,
+            Option<crate::manager_network_protocol::v1_10_1::SNMPProtocolCommunityAccessMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommunityStrings")]
-        pub community_strings: Option<Vec<crate::manager_network_protocol::v1_10_0::SNMPCommunity>>,
+        pub community_strings:
+            Option<Vec<crate::manager_network_protocol::v1_10_1::SNMPProtocolCommunityStrings>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnableSNMPv1")]
         pub enable_snm_pv1: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnableSNMPv2c")]
@@ -476,9 +513,9 @@ pub mod v1_10_0 {
         pub enable_snm_pv3: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
         pub encryption_protocol:
-            Option<crate::manager_network_protocol::v1_10_0::SNMPEncryptionProtocols>,
+            Option<crate::manager_network_protocol::v1_10_1::SNMPProtocolEncryptionProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EngineId")]
-        pub engine_id: Option<crate::manager_network_protocol::v1_10_0::EngineId>,
+        pub engine_id: Option<crate::manager_network_protocol::v1_10_1::SNMPProtocolEngineId>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "HideCommunityStrings"
@@ -491,10 +528,96 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrapPort")]
         pub trap_port: Option<i64>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPProtocolAuthenticationProtocol {
+        V011001(crate::manager_network_protocol::v1_10_1::SNMPAuthenticationProtocols),
+        V000001(crate::manager_network_protocol::v1_10_1::SNMPProtocolAuthenticationProtocolN1),
+    }
+    impl Default for SNMPProtocolAuthenticationProtocol {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPProtocolAuthenticationProtocolN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPProtocolCommunityAccessMode {
+        V011001(crate::manager_network_protocol::v1_10_1::SNMPCommunityAccessMode),
+        V000001(crate::manager_network_protocol::v1_10_1::SNMPProtocolCommunityAccessModeN1),
+    }
+    impl Default for SNMPProtocolCommunityAccessMode {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPProtocolCommunityAccessModeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPProtocolCommunityStrings {
+        V011001(crate::manager_network_protocol::v1_10_1::SNMPCommunity),
+        V000001(crate::manager_network_protocol::v1_10_1::SNMPProtocolCommunityStringsN1),
+    }
+    impl Default for SNMPProtocolCommunityStrings {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPProtocolCommunityStringsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPProtocolEncryptionProtocol {
+        V011001(crate::manager_network_protocol::v1_10_1::SNMPEncryptionProtocols),
+        V000001(crate::manager_network_protocol::v1_10_1::SNMPProtocolEncryptionProtocolN1),
+    }
+    impl Default for SNMPProtocolEncryptionProtocol {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPProtocolEncryptionProtocolN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPProtocolEngineId {
+        V011001(crate::manager_network_protocol::v1_10_1::EngineId),
+        V000001(crate::manager_network_protocol::v1_10_1::SNMPProtocolEngineIdN1),
+    }
+    impl Default for SNMPProtocolEngineId {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPProtocolEngineIdN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SSDProtocol {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NotifyIPv6Scope")]
-        pub notify_ipv6_scope: Option<crate::manager_network_protocol::v1_10_0::NotifyIPv6Scope>,
+        pub notify_ipv6_scope:
+            Option<crate::manager_network_protocol::v1_10_1::SSDProtocolNotifyIPv6Scope>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "NotifyMulticastIntervalSeconds"
@@ -506,5 +629,22 @@ pub mod v1_10_0 {
         pub port: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProtocolEnabled")]
         pub protocol_enabled: Option<bool>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SSDProtocolNotifyIPv6Scope {
+        V011001(crate::manager_network_protocol::v1_10_1::NotifyIPv6Scope),
+        V000001(crate::manager_network_protocol::v1_10_1::SSDProtocolNotifyIPv6ScopeN1),
+    }
+    impl Default for SSDProtocolNotifyIPv6Scope {
+        fn default() -> Self {
+            Self::V011001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SSDProtocolNotifyIPv6ScopeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

@@ -1,4 +1,4 @@
-pub type ProcessorMetrics = crate::processor_metrics::v1_6_3::ProcessorMetrics;
+pub type ProcessorMetrics = crate::processor_metrics::v1_6_4::ProcessorMetrics;
 pub mod v1_6_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -214,18 +214,18 @@ pub mod v1_6_1 {
         pub user_percent: Option<f64>,
     }
 }
-pub mod v1_6_3 {
+pub mod v1_6_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::processor_metrics::v1_6_3::OemActions>,
+        pub oem: Option<crate::processor_metrics::v1_6_4::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ProcessorMetrics.ClearCurrentPeriod"
         )]
         pub processor_metrics_clear_current_period:
-            Option<crate::processor_metrics::v1_6_3::ClearCurrentPeriod>,
+            Option<crate::processor_metrics::v1_6_4::ClearCurrentPeriod>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CStateResidency {
@@ -255,9 +255,9 @@ pub mod v1_6_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CacheMetricsTotal {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CurrentPeriod")]
-        pub current_period: Option<crate::processor_metrics::v1_6_3::CurrentPeriod>,
+        pub current_period: Option<crate::processor_metrics::v1_6_4::CurrentPeriod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LifeTime")]
-        pub life_time: Option<crate::processor_metrics::v1_6_3::LifeTime>,
+        pub life_time: Option<crate::processor_metrics::v1_6_4::LifeTime>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ClearCurrentPeriod {
@@ -271,9 +271,9 @@ pub mod v1_6_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoreMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CStateResidency")]
-        pub c_state_residency: Option<Vec<crate::processor_metrics::v1_6_3::CStateResidency>>,
+        pub c_state_residency: Option<Vec<crate::processor_metrics::v1_6_4::CStateResidency>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreCache")]
-        pub core_cache: Option<Vec<crate::processor_metrics::v1_6_3::CacheMetrics>>,
+        pub core_cache: Option<Vec<crate::processor_metrics::v1_6_4::CacheMetrics>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreId")]
         pub core_id: Option<String>,
         #[serde(
@@ -339,7 +339,7 @@ pub mod v1_6_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ProcessorMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::processor_metrics::v1_6_3::Actions>,
+        pub actions: Option<crate::processor_metrics::v1_6_4::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AverageFrequencyMHz"
@@ -348,15 +348,15 @@ pub mod v1_6_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BandwidthPercent")]
         pub bandwidth_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Cache")]
-        pub cache: Option<Vec<crate::processor_metrics::v1_6_3::CacheMetrics>>,
+        pub cache: Option<Vec<crate::processor_metrics::v1_6_4::CacheMetrics>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheMetricsTotal")]
-        pub cache_metrics_total: Option<crate::processor_metrics::v1_6_3::CacheMetricsTotal>,
+        pub cache_metrics_total: Option<crate::processor_metrics::v1_6_4::CacheMetricsTotal>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsumedPowerWatt")]
         pub consumed_power_watt: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreMetrics")]
-        pub core_metrics: Option<Vec<crate::processor_metrics::v1_6_3::CoreMetrics>>,
+        pub core_metrics: Option<Vec<crate::processor_metrics::v1_6_4::CoreMetrics>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoreVoltage")]
-        pub core_voltage: Option<crate::sensor::SensorVoltageExcerpt>,
+        pub core_voltage: Option<crate::processor_metrics::v1_6_4::ProcessorMetricsCoreVoltage>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CorrectableCoreErrorCount"
@@ -368,7 +368,7 @@ pub mod v1_6_3 {
         )]
         pub correctable_other_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::processor_metrics::v1_6_4::ProcessorMetricsDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FrequencyRatio")]
         pub frequency_ratio: Option<f64>,
         #[serde(rename = "Id")]
@@ -427,5 +427,39 @@ pub mod v1_6_3 {
         pub uncorrectable_other_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserPercent")]
         pub user_percent: Option<f64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ProcessorMetricsCoreVoltage {
+        V000001(crate::processor_metrics::v1_6_4::ProcessorMetricsCoreVoltageN1),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+    }
+    impl Default for ProcessorMetricsCoreVoltage {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ProcessorMetricsCoreVoltageN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ProcessorMetricsDescription {
+        V000001(crate::processor_metrics::v1_6_4::ProcessorMetricsDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for ProcessorMetricsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ProcessorMetricsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

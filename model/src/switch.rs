@@ -1,4 +1,4 @@
-pub type Switch = crate::switch::v1_9_2::Switch;
+pub type Switch = crate::switch::v1_9_3::Switch;
 pub mod v1_9_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -152,14 +152,14 @@ pub mod v1_9_1 {
         pub hdm_decoders: Option<i64>,
     }
 }
-pub mod v1_9_2 {
+pub mod v1_9_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::switch::v1_9_2::OemActions>,
+        pub oem: Option<crate::switch::v1_9_3::OemActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Switch.Reset")]
-        pub switch_reset: Option<crate::switch::v1_9_2::Reset>,
+        pub switch_reset: Option<crate::switch::v1_9_3::Reset>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXL {
@@ -168,7 +168,7 @@ pub mod v1_9_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalNumbervPPBs")]
         pub total_numberv_pp_bs: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VCS")]
-        pub vcs: Option<crate::switch::v1_9_2::VCSSwitch>,
+        pub vcs: Option<crate::switch::v1_9_3::VCSSwitch>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -210,7 +210,7 @@ pub mod v1_9_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Switch {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::switch::v1_9_2::Actions>,
+        pub actions: Option<crate::switch::v1_9_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
@@ -221,9 +221,9 @@ pub mod v1_9_2 {
         )]
         pub current_bandwidth_gbps: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::switch::v1_9_2::CXL>,
+        pub cxl: Option<crate::switch::v1_9_3::CXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::switch::v1_9_3::SwitchDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DomainID")]
         pub domain_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
@@ -235,11 +235,11 @@ pub mod v1_9_2 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<crate::resource::IndicatorLED>,
+        pub indicator_led: Option<crate::switch::v1_9_3::SwitchIndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IsManaged")]
         pub is_managed: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::switch::v1_9_2::Links>,
+        pub links: Option<crate::switch::v1_9_3::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -276,7 +276,7 @@ pub mod v1_9_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ports")]
         pub ports: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<crate::resource::PowerState>,
+        pub power_state: Option<crate::switch::v1_9_3::SwitchPowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -293,11 +293,96 @@ pub mod v1_9_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedProtocols")]
         pub supported_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SwitchType")]
-        pub switch_type: Option<crate::protocol::Protocol>,
+        pub switch_type: Option<crate::switch::v1_9_3::SwitchSwitchType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalSwitchWidth")]
         pub total_switch_width: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<String>,
+        pub uuid: Option<crate::switch::v1_9_3::SwitchUUID>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SwitchDescription {
+        V000001(crate::switch::v1_9_3::SwitchDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for SwitchDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SwitchDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SwitchIndicatorLED {
+        V000001(crate::switch::v1_9_3::SwitchIndicatorLEDN1),
+        ResourceIndicatorLED(crate::resource::IndicatorLED),
+    }
+    impl Default for SwitchIndicatorLED {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SwitchIndicatorLEDN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SwitchPowerState {
+        V000001(crate::switch::v1_9_3::SwitchPowerStateN1),
+        ResourcePowerState(crate::resource::PowerState),
+    }
+    impl Default for SwitchPowerState {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SwitchPowerStateN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SwitchSwitchType {
+        V000001(crate::switch::v1_9_3::SwitchSwitchTypeN1),
+        ProtocolProtocol(crate::protocol::Protocol),
+    }
+    impl Default for SwitchSwitchType {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SwitchSwitchTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SwitchUUID {
+        V000001(crate::switch::v1_9_3::SwitchUUIDN1),
+        ResourceUUID(String),
+    }
+    impl Default for SwitchUUID {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SwitchUUIDN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VCSSwitch {

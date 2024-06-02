@@ -1,4 +1,4 @@
-pub type OperatingConfig = crate::operating_config::v1_0_3::OperatingConfig;
+pub type OperatingConfig = crate::operating_config::v1_0_4::OperatingConfig;
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -70,12 +70,12 @@ pub mod v1_0_2 {
         pub max_speed_mhz: Option<i64>,
     }
 }
-pub mod v1_0_3 {
+pub mod v1_0_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::operating_config::v1_0_3::OemActions>,
+        pub oem: Option<crate::operating_config::v1_0_4::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BaseSpeedPrioritySettings {
@@ -91,7 +91,7 @@ pub mod v1_0_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OperatingConfig {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::operating_config::v1_0_3::Actions>,
+        pub actions: Option<crate::operating_config::v1_0_4::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BaseSpeedMHz")]
         pub base_speed_mhz: Option<i64>,
         #[serde(
@@ -99,9 +99,9 @@ pub mod v1_0_3 {
             rename = "BaseSpeedPrioritySettings"
         )]
         pub base_speed_priority_settings:
-            Option<Vec<crate::operating_config::v1_0_3::BaseSpeedPrioritySettings>>,
+            Option<Vec<crate::operating_config::v1_0_4::OperatingConfigBaseSpeedPrioritySettings>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::operating_config::v1_0_4::OperatingConfigDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(
@@ -131,7 +131,59 @@ pub mod v1_0_3 {
         )]
         pub total_available_core_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TurboProfile")]
-        pub turbo_profile: Option<Vec<crate::operating_config::v1_0_3::TurboProfileDatapoint>>,
+        pub turbo_profile:
+            Option<Vec<crate::operating_config::v1_0_4::OperatingConfigTurboProfile>>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum OperatingConfigBaseSpeedPrioritySettings {
+        V010004(crate::operating_config::v1_0_4::BaseSpeedPrioritySettings),
+        V000001(crate::operating_config::v1_0_4::OperatingConfigBaseSpeedPrioritySettingsN1),
+    }
+    impl Default for OperatingConfigBaseSpeedPrioritySettings {
+        fn default() -> Self {
+            Self::V010004(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum OperatingConfigBaseSpeedPrioritySettingsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum OperatingConfigDescription {
+        V000001(crate::operating_config::v1_0_4::OperatingConfigDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for OperatingConfigDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum OperatingConfigDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum OperatingConfigTurboProfile {
+        V010004(crate::operating_config::v1_0_4::TurboProfileDatapoint),
+        V000001(crate::operating_config::v1_0_4::OperatingConfigTurboProfileN1),
+    }
+    impl Default for OperatingConfigTurboProfile {
+        fn default() -> Self {
+            Self::V010004(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum OperatingConfigTurboProfileN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TurboProfileDatapoint {

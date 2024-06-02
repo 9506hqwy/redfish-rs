@@ -1,4 +1,4 @@
-pub type CompositionService = crate::composition_service::v1_2_2::CompositionService;
+pub type CompositionService = crate::composition_service::v1_2_3::CompositionService;
 pub mod v1_2_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -109,7 +109,7 @@ pub mod v1_2_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_2_2 {
+pub mod v1_2_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -117,9 +117,9 @@ pub mod v1_2_2 {
             skip_serializing_if = "Option::is_none",
             rename = "#CompositionService.Compose"
         )]
-        pub composition_service_compose: Option<crate::composition_service::v1_2_2::Compose>,
+        pub composition_service_compose: Option<crate::composition_service::v1_2_3::Compose>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::composition_service::v1_2_2::OemActions>,
+        pub oem: Option<crate::composition_service::v1_2_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Compose {
@@ -133,9 +133,9 @@ pub mod v1_2_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manifest")]
         pub manifest: Option<crate::manifest::Manifest>,
         #[serde(rename = "RequestFormat")]
-        pub request_format: crate::composition_service::v1_2_2::ComposeRequestFormat,
+        pub request_format: crate::composition_service::v1_2_3::ComposeRequestFormat,
         #[serde(rename = "RequestType")]
-        pub request_type: crate::composition_service::v1_2_2::ComposeRequestType,
+        pub request_type: crate::composition_service::v1_2_3::ComposeRequestType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReservationId")]
         pub reservation_id: Option<String>,
     }
@@ -160,16 +160,16 @@ pub mod v1_2_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manifest")]
         pub manifest: Option<crate::manifest::Manifest>,
         #[serde(rename = "RequestFormat")]
-        pub request_format: crate::composition_service::v1_2_2::ComposeRequestFormat,
+        pub request_format: crate::composition_service::v1_2_3::ComposeRequestFormat,
         #[serde(rename = "RequestType")]
-        pub request_type: crate::composition_service::v1_2_2::ComposeRequestType,
+        pub request_type: crate::composition_service::v1_2_3::ComposeRequestType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReservationId")]
         pub reservation_id: Option<String>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CompositionService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::composition_service::v1_2_2::Actions>,
+        pub actions: Option<crate::composition_service::v1_2_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ActivePool")]
         pub active_pool: Option<crate::odata_v4::IdRef>,
         #[serde(
@@ -185,7 +185,7 @@ pub mod v1_2_2 {
         )]
         pub composition_reservations: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::composition_service::v1_2_3::CompositionServiceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FreePool")]
         pub free_pool: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
@@ -215,6 +215,23 @@ pub mod v1_2_2 {
         pub service_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CompositionServiceDescription {
+        V000001(crate::composition_service::v1_2_3::CompositionServiceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for CompositionServiceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CompositionServiceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

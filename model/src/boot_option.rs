@@ -1,4 +1,4 @@
-pub type BootOption = crate::boot_option::v1_0_5::BootOption;
+pub type BootOption = crate::boot_option::v1_0_6::BootOption;
 pub mod v1_0_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -47,25 +47,25 @@ pub mod v1_0_4 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_5 {
+pub mod v1_0_6 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::boot_option::v1_0_5::OemActions>,
+        pub oem: Option<crate::boot_option::v1_0_6::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct BootOption {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::boot_option::v1_0_5::Actions>,
+        pub actions: Option<crate::boot_option::v1_0_6::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Alias")]
-        pub alias: Option<crate::computer_system::BootSource>,
+        pub alias: Option<crate::boot_option::v1_0_6::BootOptionAlias>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootOptionEnabled")]
         pub boot_option_enabled: Option<bool>,
         #[serde(rename = "BootOptionReference")]
         pub boot_option_reference: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::boot_option::v1_0_6::BootOptionDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DisplayName")]
         pub display_name: Option<String>,
         #[serde(rename = "Id")]
@@ -91,6 +91,40 @@ pub mod v1_0_5 {
         pub related_item_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UefiDevicePath")]
         pub uefi_device_path: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum BootOptionAlias {
+        V000001(crate::boot_option::v1_0_6::BootOptionAliasN1),
+        ComputerSystemBootSource(crate::computer_system::BootSource),
+    }
+    impl Default for BootOptionAlias {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum BootOptionAliasN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum BootOptionDescription {
+        V000001(crate::boot_option::v1_0_6::BootOptionDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for BootOptionDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum BootOptionDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

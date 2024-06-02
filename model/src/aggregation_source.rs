@@ -1,4 +1,4 @@
-pub type AggregationSource = crate::aggregation_source::v1_4_0::AggregationSource;
+pub type AggregationSource = crate::aggregation_source::v1_4_1::AggregationSource;
 pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -233,7 +233,7 @@ pub mod v1_3_1 {
         PublicKey,
     }
 }
-pub mod v1_4_0 {
+pub mod v1_4_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -242,30 +242,30 @@ pub mod v1_4_0 {
             rename = "#AggregationSource.GenerateSSHIdentityKeyPair"
         )]
         pub aggregation_source_generate_ssh_identity_key_pair:
-            Option<crate::aggregation_source::v1_4_0::GenerateSSHIdentityKeyPair>,
+            Option<crate::aggregation_source::v1_4_1::GenerateSSHIdentityKeyPair>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#AggregationSource.RemoveSSHIdentityKeyPair"
         )]
         pub aggregation_source_remove_ssh_identity_key_pair:
-            Option<crate::aggregation_source::v1_4_0::RemoveSSHIdentityKeyPair>,
+            Option<crate::aggregation_source::v1_4_1::RemoveSSHIdentityKeyPair>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::aggregation_source::v1_4_0::OemActions>,
+        pub oem: Option<crate::aggregation_source::v1_4_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AggregationSource {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::aggregation_source::v1_4_0::Actions>,
+        pub actions: Option<crate::aggregation_source::v1_4_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AggregationType")]
-        pub aggregation_type: Option<crate::aggregation_source::v1_4_0::AggregationType>,
+        pub aggregation_type: Option<crate::aggregation_source::v1_4_1::AggregationType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::aggregation_source::v1_4_1::AggregationSourceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostName")]
         pub host_name: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::aggregation_source::v1_4_0::Links>,
+        pub links: Option<crate::aggregation_source::v1_4_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -281,13 +281,30 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::aggregation_source::v1_4_0::SNMPSettings>,
+        pub snmp: Option<crate::aggregation_source::v1_4_1::SNMPSettings>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSHSettings")]
-        pub ssh_settings: Option<crate::aggregation_source::v1_4_0::SSHSettingsType>,
+        pub ssh_settings: Option<crate::aggregation_source::v1_4_1::SSHSettingsType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
         pub user_name: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum AggregationSourceDescription {
+        V000001(crate::aggregation_source::v1_4_1::AggregationSourceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for AggregationSourceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum AggregationSourceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AggregationType {
@@ -386,15 +403,50 @@ pub mod v1_4_0 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::aggregation_source::v1_4_0::SNMPAuthenticationProtocols>,
+            Option<crate::aggregation_source::v1_4_1::SNMPSettingsAuthenticationProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
-        pub encryption_protocol: Option<crate::aggregation_source::v1_4_0::SNMPEncryptionProtocols>,
+        pub encryption_protocol:
+            Option<crate::aggregation_source::v1_4_1::SNMPSettingsEncryptionProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrapCommunity")]
         pub trap_community: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPSettingsAuthenticationProtocol {
+        V010401(crate::aggregation_source::v1_4_1::SNMPAuthenticationProtocols),
+        V000001(crate::aggregation_source::v1_4_1::SNMPSettingsAuthenticationProtocolN1),
+    }
+    impl Default for SNMPSettingsAuthenticationProtocol {
+        fn default() -> Self {
+            Self::V010401(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPSettingsAuthenticationProtocolN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SNMPSettingsEncryptionProtocol {
+        V010401(crate::aggregation_source::v1_4_1::SNMPEncryptionProtocols),
+        V000001(crate::aggregation_source::v1_4_1::SNMPSettingsEncryptionProtocolN1),
+    }
+    impl Default for SNMPSettingsEncryptionProtocol {
+        fn default() -> Self {
+            Self::V010401(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SNMPSettingsEncryptionProtocolN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SSHSettingsType {
@@ -420,7 +472,24 @@ pub mod v1_4_0 {
             rename = "UserAuthenticationMethod"
         )]
         pub user_authentication_method:
-            Option<crate::aggregation_source::v1_4_0::UserAuthenticationMethod>,
+            Option<crate::aggregation_source::v1_4_1::SSHSettingsTypeUserAuthenticationMethod>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum SSHSettingsTypeUserAuthenticationMethod {
+        V010401(crate::aggregation_source::v1_4_1::UserAuthenticationMethod),
+        V000001(crate::aggregation_source::v1_4_1::SSHSettingsTypeUserAuthenticationMethodN1),
+    }
+    impl Default for SSHSettingsTypeUserAuthenticationMethod {
+        fn default() -> Self {
+            Self::V010401(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum SSHSettingsTypeUserAuthenticationMethodN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum UserAuthenticationMethod {

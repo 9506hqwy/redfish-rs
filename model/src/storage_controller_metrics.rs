@@ -1,6 +1,6 @@
-pub type NVMeSMARTMetrics = crate::storage_controller_metrics::v1_0_2::NVMeSMARTMetrics;
+pub type NVMeSMARTMetrics = crate::storage_controller_metrics::v1_0_3::NVMeSMARTMetrics;
 pub type StorageControllerMetrics =
-    crate::storage_controller_metrics::v1_0_2::StorageControllerMetrics;
+    crate::storage_controller_metrics::v1_0_3::StorageControllerMetrics;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -166,12 +166,12 @@ pub mod v1_0_0 {
         pub uncorrectable_parity_error_count: Option<i64>,
     }
 }
-pub mod v1_0_2 {
+pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::storage_controller_metrics::v1_0_2::OemActions>,
+        pub oem: Option<crate::storage_controller_metrics::v1_0_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EGCriticalWarningSummary {
@@ -229,7 +229,7 @@ pub mod v1_0_2 {
             rename = "EGCriticalWarningSummary"
         )]
         pub eg_critical_warning_summary:
-            Option<crate::storage_controller_metrics::v1_0_2::EGCriticalWarningSummary>,
+            Option<crate::storage_controller_metrics::v1_0_3::EGCriticalWarningSummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostReadCommands")]
         pub host_read_commands: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostWriteCommands")]
@@ -288,7 +288,7 @@ pub mod v1_0_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::storage_controller_metrics::v1_0_2::Actions>,
+        pub actions: Option<crate::storage_controller_metrics::v1_0_3::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CorrectableECCErrorCount"
@@ -300,7 +300,8 @@ pub mod v1_0_2 {
         )]
         pub correctable_parity_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description:
+            Option<crate::storage_controller_metrics::v1_0_3::StorageControllerMetricsDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -329,5 +330,22 @@ pub mod v1_0_2 {
             rename = "UncorrectableParityErrorCount"
         )]
         pub uncorrectable_parity_error_count: Option<i64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum StorageControllerMetricsDescription {
+        V000001(crate::storage_controller_metrics::v1_0_3::StorageControllerMetricsDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for StorageControllerMetricsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum StorageControllerMetricsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

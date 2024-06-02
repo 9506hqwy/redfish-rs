@@ -1,4 +1,4 @@
-pub type Heater = crate::heater::v1_0_1::Heater;
+pub type Heater = crate::heater::v1_0_2::Heater;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -96,27 +96,27 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_1 {
+pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::heater::v1_0_1::OemActions>,
+        pub oem: Option<crate::heater::v1_0_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Heater {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::heater::v1_0_1::Actions>,
+        pub actions: Option<crate::heater::v1_0_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::heater::v1_0_2::HeaterDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotPluggable")]
         pub hot_pluggable: Option<bool>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::heater::v1_0_1::Links>,
+        pub links: Option<crate::heater::v1_0_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -152,6 +152,23 @@ pub mod v1_0_1 {
         pub spare_part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum HeaterDescription {
+        V000001(crate::heater::v1_0_2::HeaterDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for HeaterDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum HeaterDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {

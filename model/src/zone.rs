@@ -1,4 +1,4 @@
-pub type Zone = crate::zone::v1_6_2::Zone;
+pub type Zone = crate::zone::v1_6_3::Zone;
 pub mod v1_6_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -158,19 +158,19 @@ pub mod v1_6_1 {
         ZoneOfZones,
     }
 }
-pub mod v1_6_2 {
+pub mod v1_6_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::zone::v1_6_2::OemActions>,
+        pub oem: Option<crate::zone::v1_6_3::OemActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Zone.AddEndpoint")]
-        pub zone_add_endpoint: Option<crate::zone::v1_6_2::AddEndpoint>,
+        pub zone_add_endpoint: Option<crate::zone::v1_6_3::AddEndpoint>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Zone.RemoveEndpoint"
         )]
-        pub zone_remove_endpoint: Option<crate::zone::v1_6_2::RemoveEndpoint>,
+        pub zone_remove_endpoint: Option<crate::zone::v1_6_3::RemoveEndpoint>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AddEndpoint {
@@ -268,25 +268,25 @@ pub mod v1_6_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Zone {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::zone::v1_6_2::Actions>,
+        pub actions: Option<crate::zone::v1_6_3::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DefaultRoutingEnabled"
         )]
         pub default_routing_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::zone::v1_6_3::ZoneDescription>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ExternalAccessibility"
         )]
-        pub external_accessibility: Option<crate::zone::v1_6_2::ExternalAccessibility>,
+        pub external_accessibility: Option<crate::zone::v1_6_3::ZoneExternalAccessibility>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::zone::v1_6_2::Links>,
+        pub links: Option<crate::zone::v1_6_3::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -302,7 +302,41 @@ pub mod v1_6_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ZoneType")]
-        pub zone_type: Option<crate::zone::v1_6_2::ZoneType>,
+        pub zone_type: Option<crate::zone::v1_6_3::ZoneZoneType>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ZoneDescription {
+        V000001(crate::zone::v1_6_3::ZoneDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for ZoneDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ZoneDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ZoneExternalAccessibility {
+        V010603(crate::zone::v1_6_3::ExternalAccessibility),
+        V000001(crate::zone::v1_6_3::ZoneExternalAccessibilityN1),
+    }
+    impl Default for ZoneExternalAccessibility {
+        fn default() -> Self {
+            Self::V010603(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ZoneExternalAccessibilityN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ZoneType {
@@ -315,5 +349,22 @@ pub mod v1_6_2 {
         ZoneOfResourceBlocks,
         #[serde(rename = "ZoneOfZones")]
         ZoneOfZones,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ZoneZoneType {
+        V010603(crate::zone::v1_6_3::ZoneType),
+        V000001(crate::zone::v1_6_3::ZoneZoneTypeN1),
+    }
+    impl Default for ZoneZoneType {
+        fn default() -> Self {
+            Self::V010603(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ZoneZoneTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

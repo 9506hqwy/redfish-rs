@@ -1,5 +1,5 @@
-pub type Schedule = crate::schedule::v1_2_4::Schedule;
-pub mod v1_2_4 {
+pub type Schedule = crate::schedule::v1_2_5::Schedule;
+pub mod v1_2_5 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DayOfWeek {
@@ -56,14 +56,15 @@ pub mod v1_2_4 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfMonth")]
         pub enabled_days_of_month: Option<Vec<i64>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledDaysOfWeek")]
-        pub enabled_days_of_week: Option<Vec<crate::schedule::v1_2_4::DayOfWeek>>,
+        pub enabled_days_of_week: Option<Vec<crate::schedule::v1_2_5::ScheduleEnabledDaysOfWeek>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnabledIntervals")]
         pub enabled_intervals: Option<Vec<String>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EnabledMonthsOfYear"
         )]
-        pub enabled_months_of_year: Option<Vec<crate::schedule::v1_2_4::MonthOfYear>>,
+        pub enabled_months_of_year:
+            Option<Vec<crate::schedule::v1_2_5::ScheduleEnabledMonthsOfYear>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InitialStartTime")]
         pub initial_start_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lifetime")]
@@ -74,5 +75,39 @@ pub mod v1_2_4 {
         pub name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RecurrenceInterval")]
         pub recurrence_interval: Option<String>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ScheduleEnabledDaysOfWeek {
+        V010205(crate::schedule::v1_2_5::DayOfWeek),
+        V000001(crate::schedule::v1_2_5::ScheduleEnabledDaysOfWeekN1),
+    }
+    impl Default for ScheduleEnabledDaysOfWeek {
+        fn default() -> Self {
+            Self::V010205(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ScheduleEnabledDaysOfWeekN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ScheduleEnabledMonthsOfYear {
+        V010205(crate::schedule::v1_2_5::MonthOfYear),
+        V000001(crate::schedule::v1_2_5::ScheduleEnabledMonthsOfYearN1),
+    }
+    impl Default for ScheduleEnabledMonthsOfYear {
+        fn default() -> Self {
+            Self::V010205(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ScheduleEnabledMonthsOfYearN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

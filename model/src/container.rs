@@ -1,29 +1,29 @@
-pub type Container = crate::container::v1_0_0::Container;
-pub mod v1_0_0 {
+pub type Container = crate::container::v1_0_1::Container;
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Container.Reset")]
-        pub container_reset: Option<crate::container::v1_0_0::Reset>,
+        pub container_reset: Option<crate::container::v1_0_1::Reset>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::container::v1_0_0::OemActions>,
+        pub oem: Option<crate::container::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Container {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::container::v1_0_0::Actions>,
+        pub actions: Option<crate::container::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::container::v1_0_1::ContainerDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EthernetInterfaces")]
         pub ethernet_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Limits")]
-        pub limits: Option<crate::container::v1_0_0::Limits>,
+        pub limits: Option<crate::container::v1_0_1::Limits>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::container::v1_0_0::Links>,
+        pub links: Option<crate::container::v1_0_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MountPoints")]
-        pub mount_points: Option<Vec<crate::container::v1_0_0::MountPoint>>,
+        pub mount_points: Option<Vec<crate::container::v1_0_1::ContainerMountPoints>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -42,6 +42,40 @@ pub mod v1_0_0 {
         pub start_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ContainerDescription {
+        V000001(crate::container::v1_0_1::ContainerDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for ContainerDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ContainerDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum ContainerMountPoints {
+        V010001(crate::container::v1_0_1::MountPoint),
+        V000001(crate::container::v1_0_1::ContainerMountPointsN1),
+    }
+    impl Default for ContainerMountPoints {
+        fn default() -> Self {
+            Self::V010001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum ContainerMountPointsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Limits {

@@ -1,5 +1,5 @@
-pub type UpdateParameters = crate::update_service::v1_13_0::UpdateParameters;
-pub type UpdateService = crate::update_service::v1_13_0::UpdateService;
+pub type UpdateParameters = crate::update_service::v1_14_0::UpdateParameters;
+pub type UpdateService = crate::update_service::v1_14_0::UpdateService;
 pub mod v1_11_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -187,34 +187,34 @@ pub mod v1_11_3 {
         pub verify_remote_server_certificate: Option<bool>,
     }
 }
-pub mod v1_13_0 {
+pub mod v1_14_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::update_service::v1_13_0::OemActions>,
+        pub oem: Option<crate::update_service::v1_14_0::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.GenerateSSHIdentityKeyPair"
         )]
         pub update_service_generate_ssh_identity_key_pair:
-            Option<crate::update_service::v1_13_0::GenerateSSHIdentityKeyPair>,
+            Option<crate::update_service::v1_14_0::GenerateSSHIdentityKeyPair>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.RemoveSSHIdentityKeyPair"
         )]
         pub update_service_remove_ssh_identity_key_pair:
-            Option<crate::update_service::v1_13_0::RemoveSSHIdentityKeyPair>,
+            Option<crate::update_service::v1_14_0::RemoveSSHIdentityKeyPair>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.SimpleUpdate"
         )]
-        pub update_service_simple_update: Option<crate::update_service::v1_13_0::SimpleUpdate>,
+        pub update_service_simple_update: Option<crate::update_service::v1_14_0::SimpleUpdate>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.StartUpdate"
         )]
-        pub update_service_start_update: Option<crate::update_service::v1_13_0::StartUpdate>,
+        pub update_service_start_update: Option<crate::update_service::v1_14_0::StartUpdate>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ApplyTime {
@@ -229,6 +229,8 @@ pub mod v1_13_0 {
         OnReset,
         #[serde(rename = "OnStartUpdateRequest")]
         OnStartUpdateRequest,
+        #[serde(rename = "OnTargetReset")]
+        OnTargetReset,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct GenerateSSHIdentityKeyPair {
@@ -249,7 +251,7 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HttpPushUriApplyTime {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ApplyTime")]
-        pub apply_time: Option<crate::update_service::v1_13_0::ApplyTime>,
+        pub apply_time: Option<crate::update_service::v1_14_0::ApplyTime>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaintenanceWindowDurationInSeconds"
@@ -269,7 +271,7 @@ pub mod v1_13_0 {
             skip_serializing_if = "Option::is_none",
             rename = "HttpPushUriApplyTime"
         )]
-        pub http_push_uri_apply_time: Option<crate::update_service::v1_13_0::HttpPushUriApplyTime>,
+        pub http_push_uri_apply_time: Option<crate::update_service::v1_14_0::HttpPushUriApplyTime>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -300,7 +302,7 @@ pub mod v1_13_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Targets")]
         pub targets: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
-        pub transfer_protocol: Option<crate::update_service::v1_13_0::TransferProtocolType>,
+        pub transfer_protocol: Option<crate::update_service::v1_14_0::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Username")]
         pub username: Option<String>,
     }
@@ -365,17 +367,17 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct UpdateService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::update_service::v1_13_0::Actions>,
+        pub actions: Option<crate::update_service::v1_14_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientCertificates")]
         pub client_certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::update_service::v1_14_0::UpdateServiceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareInventory")]
         pub firmware_inventory: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HttpPushUri")]
         pub http_push_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HttpPushUriOptions")]
-        pub http_push_uri_options: Option<crate::update_service::v1_13_0::HttpPushUriOptions>,
+        pub http_push_uri_options: Option<crate::update_service::v1_14_0::HttpPushUriOptions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "HttpPushUriOptionsBusy"
@@ -435,7 +437,7 @@ pub mod v1_13_0 {
             rename = "SupportedUpdateImageFormats"
         )]
         pub supported_update_image_formats:
-            Option<Vec<crate::update_service::v1_13_0::SupportedUpdateImageFormatType>>,
+            Option<Vec<crate::update_service::v1_14_0::UpdateServiceSupportedUpdateImageFormats>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "VerifyRemoteServerCertificate"
@@ -446,5 +448,39 @@ pub mod v1_13_0 {
             rename = "VerifyRemoteServerSSHKey"
         )]
         pub verify_remote_server_ssh_key: Option<bool>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum UpdateServiceDescription {
+        V000001(crate::update_service::v1_14_0::UpdateServiceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for UpdateServiceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum UpdateServiceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum UpdateServiceSupportedUpdateImageFormats {
+        V011400(crate::update_service::v1_14_0::SupportedUpdateImageFormatType),
+        V000001(crate::update_service::v1_14_0::UpdateServiceSupportedUpdateImageFormatsN1),
+    }
+    impl Default for UpdateServiceSupportedUpdateImageFormats {
+        fn default() -> Self {
+            Self::V011400(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum UpdateServiceSupportedUpdateImageFormatsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

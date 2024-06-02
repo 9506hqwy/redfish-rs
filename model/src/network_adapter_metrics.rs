@@ -1,4 +1,4 @@
-pub type NetworkAdapterMetrics = crate::network_adapter_metrics::v1_0_1::NetworkAdapterMetrics;
+pub type NetworkAdapterMetrics = crate::network_adapter_metrics::v1_1_0::NetworkAdapterMetrics;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -56,21 +56,28 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_1 {
+pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#NetworkAdapterMetrics.ResetMetrics"
+        )]
+        pub network_adapter_metrics_reset_metrics:
+            Option<crate::network_adapter_metrics::v1_1_0::ResetMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::network_adapter_metrics::v1_0_1::OemActions>,
+        pub oem: Option<crate::network_adapter_metrics::v1_1_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NetworkAdapterMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::network_adapter_metrics::v1_0_1::Actions>,
+        pub actions: Option<crate::network_adapter_metrics::v1_1_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CPUCorePercent")]
         pub cpu_core_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description:
+            Option<crate::network_adapter_metrics::v1_1_0::NetworkAdapterMetricsDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostBusRXPercent")]
         pub host_bus_rx_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostBusTXPercent")]
@@ -110,6 +117,32 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TXUnicastFrames")]
         pub tx_unicast_frames: Option<i64>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NetworkAdapterMetricsDescription {
+        V000001(crate::network_adapter_metrics::v1_1_0::NetworkAdapterMetricsDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for NetworkAdapterMetricsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NetworkAdapterMetricsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResetMetrics {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResetMetricsRequestBody {}
 }

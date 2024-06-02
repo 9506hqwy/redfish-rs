@@ -1,4 +1,4 @@
-pub type MediaController = crate::media_controller::v1_3_1::MediaController;
+pub type MediaController = crate::media_controller::v1_3_2::MediaController;
 pub mod v1_3_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -95,7 +95,7 @@ pub mod v1_3_0 {
         pub reset_type: Option<crate::resource::ResetType>,
     }
 }
-pub mod v1_3_1 {
+pub mod v1_3_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -103,9 +103,9 @@ pub mod v1_3_1 {
             skip_serializing_if = "Option::is_none",
             rename = "#MediaController.Reset"
         )]
-        pub media_controller_reset: Option<crate::media_controller::v1_3_1::Reset>,
+        pub media_controller_reset: Option<crate::media_controller::v1_3_2::Reset>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::media_controller::v1_3_1::OemActions>,
+        pub oem: Option<crate::media_controller::v1_3_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -129,22 +129,23 @@ pub mod v1_3_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MediaController {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::media_controller::v1_3_1::Actions>,
+        pub actions: Option<crate::media_controller::v1_3_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::media_controller::v1_3_2::MediaControllerDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::media_controller::v1_3_1::Links>,
+        pub links: Option<crate::media_controller::v1_3_2::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MediaControllerType"
         )]
-        pub media_controller_type: Option<crate::media_controller::v1_3_1::MediaControllerType>,
+        pub media_controller_type:
+            Option<crate::media_controller::v1_3_2::MediaControllerMediaControllerType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(rename = "Name")]
@@ -168,13 +169,64 @@ pub mod v1_3_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<String>,
+        pub uuid: Option<crate::media_controller::v1_3_2::MediaControllerUUID>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MediaControllerDescription {
+        V000001(crate::media_controller::v1_3_2::MediaControllerDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for MediaControllerDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MediaControllerDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MediaControllerMediaControllerType {
+        V010302(crate::media_controller::v1_3_2::MediaControllerType),
+        V000001(crate::media_controller::v1_3_2::MediaControllerMediaControllerTypeN1),
+    }
+    impl Default for MediaControllerMediaControllerType {
+        fn default() -> Self {
+            Self::V010302(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MediaControllerMediaControllerTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum MediaControllerType {
         #[default]
         #[serde(rename = "Memory")]
         Memory,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum MediaControllerUUID {
+        V000001(crate::media_controller::v1_3_2::MediaControllerUUIDN1),
+        ResourceUUID(String),
+    }
+    impl Default for MediaControllerUUID {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum MediaControllerUUIDN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

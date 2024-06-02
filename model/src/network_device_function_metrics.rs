@@ -1,5 +1,5 @@
 pub type NetworkDeviceFunctionMetrics =
-    crate::network_device_function_metrics::v1_1_2::NetworkDeviceFunctionMetrics;
+    crate::network_device_function_metrics::v1_2_0::NetworkDeviceFunctionMetrics;
 pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -127,12 +127,18 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_1_2 {
+pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#NetworkDeviceFunctionMetrics.ResetMetrics"
+        )]
+        pub network_device_function_metrics_reset_metrics:
+            Option<crate::network_device_function_metrics::v1_2_0::ResetMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::network_device_function_metrics::v1_1_2::OemActions>,
+        pub oem: Option<crate::network_device_function_metrics::v1_2_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Ethernet {
@@ -195,13 +201,15 @@ pub mod v1_1_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NetworkDeviceFunctionMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::network_device_function_metrics::v1_1_2::Actions>,
+        pub actions: Option<crate::network_device_function_metrics::v1_2_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<
+            crate::network_device_function_metrics::v1_2_0::NetworkDeviceFunctionMetricsDescription,
+        >,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
-        pub ethernet: Option<crate::network_device_function_metrics::v1_1_2::Ethernet>,
+        pub ethernet: Option<crate::network_device_function_metrics::v1_2_0::Ethernet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FibreChannel")]
-        pub fibre_channel: Option<crate::network_device_function_metrics::v1_1_2::FibreChannel>,
+        pub fibre_channel: Option<crate::network_device_function_metrics::v1_2_0::FibreChannel>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -251,6 +259,30 @@ pub mod v1_1_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TXUnicastFrames")]
         pub tx_unicast_frames: Option<i64>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum NetworkDeviceFunctionMetricsDescription {
+        V000001 (crate :: network_device_function_metrics :: v1_2_0 :: NetworkDeviceFunctionMetricsDescriptionN1) , ResourceDescription (String) }
+    impl Default for NetworkDeviceFunctionMetricsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum NetworkDeviceFunctionMetricsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResetMetrics {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ResetMetricsRequestBody {}
 }

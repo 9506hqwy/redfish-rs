@@ -1,5 +1,5 @@
-pub type Coolant = crate::cooling_loop::v1_0_2::Coolant;
-pub type CoolingLoop = crate::cooling_loop::v1_0_2::CoolingLoop;
+pub type Coolant = crate::cooling_loop::v1_0_3::Coolant;
+pub type CoolingLoop = crate::cooling_loop::v1_0_3::CoolingLoop;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -135,12 +135,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_2 {
+pub mod v1_0_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::cooling_loop::v1_0_2::OemActions>,
+        pub oem: Option<crate::cooling_loop::v1_0_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Coolant {
@@ -149,7 +149,7 @@ pub mod v1_0_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditivePercent")]
         pub additive_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantType")]
-        pub coolant_type: Option<crate::cooling_loop::v1_0_2::CoolantType>,
+        pub coolant_type: Option<crate::cooling_loop::v1_0_3::CoolantCoolantType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DensityKgPerCubicMeter"
@@ -167,6 +167,23 @@ pub mod v1_0_2 {
         )]
         pub specific_heatk_joules_per_kg_k: Option<f64>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CoolantCoolantType {
+        V010003(crate::cooling_loop::v1_0_3::CoolantType),
+        V000001(crate::cooling_loop::v1_0_3::CoolantCoolantTypeN1),
+    }
+    impl Default for CoolantCoolantType {
+        fn default() -> Self {
+            Self::V010003(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CoolantCoolantTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CoolantType {
         #[default]
@@ -182,31 +199,33 @@ pub mod v1_0_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoolingLoop {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::cooling_loop::v1_0_2::Actions>,
+        pub actions: Option<crate::cooling_loop::v1_0_3::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConsumingEquipmentNames"
         )]
         pub consuming_equipment_names: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Coolant")]
-        pub coolant: Option<crate::cooling_loop::v1_0_2::Coolant>,
+        pub coolant: Option<crate::cooling_loop::v1_0_3::Coolant>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CoolantLevelPercent"
         )]
-        pub coolant_level_percent: Option<crate::sensor::SensorExcerpt>,
+        pub coolant_level_percent:
+            Option<crate::cooling_loop::v1_0_3::CoolingLoopCoolantLevelPercent>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantLevelStatus")]
-        pub coolant_level_status: Option<crate::resource::Health>,
+        pub coolant_level_status:
+            Option<crate::cooling_loop::v1_0_3::CoolingLoopCoolantLevelStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantQuality")]
-        pub coolant_quality: Option<crate::resource::Health>,
+        pub coolant_quality: Option<crate::cooling_loop::v1_0_3::CoolingLoopCoolantQuality>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingManagerURI")]
         pub cooling_manager_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::cooling_loop::v1_0_3::CoolingLoopDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::cooling_loop::v1_0_2::Links>,
+        pub links: Option<crate::cooling_loop::v1_0_3::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -251,10 +270,78 @@ pub mod v1_0_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserLabel")]
         pub user_label: Option<String>,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CoolingLoopCoolantLevelPercent {
+        V000001(crate::cooling_loop::v1_0_3::CoolingLoopCoolantLevelPercentN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+    }
+    impl Default for CoolingLoopCoolantLevelPercent {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CoolingLoopCoolantLevelPercentN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CoolingLoopCoolantLevelStatus {
+        V000001(crate::cooling_loop::v1_0_3::CoolingLoopCoolantLevelStatusN1),
+        ResourceHealth(crate::resource::Health),
+    }
+    impl Default for CoolingLoopCoolantLevelStatus {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CoolingLoopCoolantLevelStatusN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CoolingLoopCoolantQuality {
+        V000001(crate::cooling_loop::v1_0_3::CoolingLoopCoolantQualityN1),
+        ResourceHealth(crate::resource::Health),
+    }
+    impl Default for CoolingLoopCoolantQuality {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CoolingLoopCoolantQualityN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CoolingLoopDescription {
+        V000001(crate::cooling_loop::v1_0_3::CoolingLoopDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for CoolingLoopDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CoolingLoopDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Chassis")]
-        pub chassis: Option<crate::odata_v4::IdRef>,
+        pub chassis: Option<crate::cooling_loop::v1_0_3::LinksChassis>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Facility")]
         pub facility: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagedBy")]
@@ -266,6 +353,23 @@ pub mod v1_0_2 {
         pub managed_by_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LinksChassis {
+        V000001(crate::cooling_loop::v1_0_3::LinksChassisN1),
+        OdataV4IdRef(crate::odata_v4::IdRef),
+    }
+    impl Default for LinksChassis {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LinksChassisN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}

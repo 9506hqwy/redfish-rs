@@ -1,4 +1,4 @@
-pub type TelemetryService = crate::telemetry_service::v1_3_3::TelemetryService;
+pub type TelemetryService = crate::telemetry_service::v1_3_4::TelemetryService;
 pub mod v1_3_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -152,36 +152,36 @@ pub mod v1_3_2 {
         pub triggers: Option<crate::odata_v4::IdRef>,
     }
 }
-pub mod v1_3_3 {
+pub mod v1_3_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::telemetry_service::v1_3_3::OemActions>,
+        pub oem: Option<crate::telemetry_service::v1_3_4::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#TelemetryService.ClearMetricReports"
         )]
         pub telemetry_service_clear_metric_reports:
-            Option<crate::telemetry_service::v1_3_3::ClearMetricReports>,
+            Option<crate::telemetry_service::v1_3_4::ClearMetricReports>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#TelemetryService.ResetMetricReportDefinitionsToDefaults"
         )]
         pub telemetry_service_reset_metric_report_definitions_to_defaults:
-            Option<crate::telemetry_service::v1_3_3::ResetMetricReportDefinitionsToDefaults>,
+            Option<crate::telemetry_service::v1_3_4::ResetMetricReportDefinitionsToDefaults>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#TelemetryService.ResetTriggersToDefaults"
         )]
         pub telemetry_service_reset_triggers_to_defaults:
-            Option<crate::telemetry_service::v1_3_3::ResetTriggersToDefaults>,
+            Option<crate::telemetry_service::v1_3_4::ResetTriggersToDefaults>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#TelemetryService.SubmitTestMetricReport"
         )]
         pub telemetry_service_submit_test_metric_report:
-            Option<crate::telemetry_service::v1_3_3::SubmitTestMetricReport>,
+            Option<crate::telemetry_service::v1_3_4::SubmitTestMetricReport>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ClearMetricReports {
@@ -247,7 +247,7 @@ pub mod v1_3_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SubmitTestMetricReportRequestBody {
         #[serde(rename = "GeneratedMetricReportValues")]
-        pub generated_metric_report_values: Vec<crate::telemetry_service::v1_3_3::MetricValue>,
+        pub generated_metric_report_values: Vec<crate::telemetry_service::v1_3_4::MetricValue>,
         #[serde(rename = "MetricReportName")]
         pub metric_report_name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricReportValues")]
@@ -256,9 +256,9 @@ pub mod v1_3_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TelemetryService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::telemetry_service::v1_3_3::Actions>,
+        pub actions: Option<crate::telemetry_service::v1_3_4::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::telemetry_service::v1_3_4::TelemetryServiceDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogService")]
@@ -299,9 +299,44 @@ pub mod v1_3_3 {
             skip_serializing_if = "Option::is_none",
             rename = "SupportedCollectionFunctions"
         )]
-        pub supported_collection_functions:
-            Option<Vec<crate::telemetry_service::v1_3_3::CollectionFunction>>,
+        pub supported_collection_functions: Option<
+            Vec<crate::telemetry_service::v1_3_4::TelemetryServiceSupportedCollectionFunctions>,
+        >,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Triggers")]
         pub triggers: Option<crate::odata_v4::IdRef>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum TelemetryServiceDescription {
+        V000001(crate::telemetry_service::v1_3_4::TelemetryServiceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for TelemetryServiceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum TelemetryServiceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum TelemetryServiceSupportedCollectionFunctions {
+        V010304(crate::telemetry_service::v1_3_4::CollectionFunction),
+        V000001(crate::telemetry_service::v1_3_4::TelemetryServiceSupportedCollectionFunctionsN1),
+    }
+    impl Default for TelemetryServiceSupportedCollectionFunctions {
+        fn default() -> Self {
+            Self::V010304(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum TelemetryServiceSupportedCollectionFunctionsN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
 }

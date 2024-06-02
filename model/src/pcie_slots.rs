@@ -1,4 +1,4 @@
-pub type PCIeSlots = crate::pcie_slots::v1_6_0::PCIeSlots;
+pub type PCIeSlots = crate::pcie_slots::v1_6_1::PCIeSlots;
 pub mod v1_5_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -97,12 +97,12 @@ pub mod v1_5_0 {
         U2,
     }
 }
-pub mod v1_6_0 {
+pub mod v1_6_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::pcie_slots::v1_6_0::OemActions>,
+        pub oem: Option<crate::pcie_slots::v1_6_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -132,7 +132,7 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lanes")]
         pub lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::pcie_slots::v1_6_0::PCIeLinks>,
+        pub links: Option<crate::pcie_slots::v1_6_1::PCIeLinks>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -143,18 +143,52 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<crate::pcie_device::PCIeTypes>,
+        pub pcie_type: Option<crate::pcie_slots::v1_6_1::PCIeSlotPCIeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotType")]
-        pub slot_type: Option<crate::pcie_slots::v1_6_0::SlotTypes>,
+        pub slot_type: Option<crate::pcie_slots::v1_6_1::PCIeSlotSlotType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PCIeSlotPCIeType {
+        V000001(crate::pcie_slots::v1_6_1::PCIeSlotPCIeTypeN1),
+        PCIeDevicePCIeTypes(crate::pcie_device::PCIeTypes),
+    }
+    impl Default for PCIeSlotPCIeType {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PCIeSlotPCIeTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PCIeSlotSlotType {
+        V010601(crate::pcie_slots::v1_6_1::SlotTypes),
+        V000001(crate::pcie_slots::v1_6_1::PCIeSlotSlotTypeN1),
+    }
+    impl Default for PCIeSlotSlotType {
+        fn default() -> Self {
+            Self::V010601(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PCIeSlotSlotTypeN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PCIeSlots {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::pcie_slots::v1_6_0::Actions>,
+        pub actions: Option<crate::pcie_slots::v1_6_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<String>,
+        pub description: Option<crate::pcie_slots::v1_6_1::PCIeSlotsDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -170,7 +204,24 @@ pub mod v1_6_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Slots")]
-        pub slots: Option<Vec<crate::pcie_slots::v1_6_0::PCIeSlot>>,
+        pub slots: Option<Vec<crate::pcie_slots::v1_6_1::PCIeSlot>>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum PCIeSlotsDescription {
+        V000001(crate::pcie_slots::v1_6_1::PCIeSlotsDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for PCIeSlotsDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PCIeSlotsDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum SlotTypes {

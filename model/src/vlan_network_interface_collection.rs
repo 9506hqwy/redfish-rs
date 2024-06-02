@@ -2,7 +2,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct VLanNetworkInterfaceCollection {
     #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-    pub description: Option<String>,
+    pub description:
+        Option<crate::vlan_network_interface_collection::VLanNetworkInterfaceCollectionDescription>,
     #[serde(rename = "Members")]
     pub members: Vec<crate::odata_v4::IdRef>,
     #[serde(rename = "Members@odata.count")]
@@ -24,4 +25,21 @@ pub struct VLanNetworkInterfaceCollection {
     pub odata_type: String,
     #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
     pub oem: Option<crate::resource::Oem>,
+}
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(untagged)]
+pub enum VLanNetworkInterfaceCollectionDescription {
+    V000001(crate::vlan_network_interface_collection::VLanNetworkInterfaceCollectionDescriptionN1),
+    ResourceDescription(String),
+}
+impl Default for VLanNetworkInterfaceCollectionDescription {
+    fn default() -> Self {
+        Self::V000001(Default::default())
+    }
+}
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+pub enum VLanNetworkInterfaceCollectionDescriptionN1 {
+    #[default]
+    #[serde(rename = "null")]
+    Null,
 }
