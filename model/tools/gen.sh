@@ -2,7 +2,7 @@
 
 set -eu
 
-DSP8010_VERSION='2024.1'
+DSP8010_VERSION='2024.2'
 SWORDFISH_VERSION='1.2.6'
 TOOLS_VERSION='0.3.0'
 
@@ -28,7 +28,7 @@ mkdir ./redfish
 mkdir -p ./spec/schemas/v1
 curl -sSLO "${DSP8010_URL}"
 unzip "${DSP8010_FILE}" -d ./redfish
-mv ./redfish/openapi/* ./spec/schemas/v1
+mv ./redfish/*/openapi/* ./spec/schemas/v1
 
 # sowrdfish
 mkdir -p ./swordfish/schemas

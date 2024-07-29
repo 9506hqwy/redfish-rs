@@ -1,4 +1,4 @@
-pub type MetricReport = crate::metric_report::v1_5_1::MetricReport;
+pub type MetricReport = crate::metric_report::v1_5_2::MetricReport;
 pub mod v1_5_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -58,21 +58,21 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_5_1 {
+pub mod v1_5_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::metric_report::v1_5_1::OemActions>,
+        pub oem: Option<crate::metric_report::v1_5_2::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MetricReport {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::metric_report::v1_5_1::Actions>,
+        pub actions: Option<crate::metric_report::v1_5_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Context")]
         pub context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::metric_report::v1_5_1::MetricReportDescription>,
+        pub description: Option<crate::metric_report::v1_5_2::MetricReportDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(
@@ -81,7 +81,7 @@ pub mod v1_5_1 {
         )]
         pub metric_report_definition: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MetricValues")]
-        pub metric_values: Option<Vec<crate::metric_report::v1_5_1::MetricValue>>,
+        pub metric_values: Option<Vec<crate::metric_report::v1_5_2::MetricValue>>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -102,7 +102,7 @@ pub mod v1_5_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum MetricReportDescription {
-        V000001(crate::metric_report::v1_5_1::MetricReportDescriptionN1),
+        V000001(crate::metric_report::v1_5_2::MetricReportDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for MetricReportDescription {

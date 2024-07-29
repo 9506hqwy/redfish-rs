@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-pub type Certificate = crate::certificate::v1_8_2::Certificate;
+pub type Certificate = crate::certificate::v1_8_3::Certificate;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum CertificateType {
     #[default]
@@ -235,33 +235,33 @@ pub mod v1_8_1 {
         pub slot_id: Option<i64>,
     }
 }
-pub mod v1_8_2 {
+pub mod v1_8_3 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Certificate.Rekey")]
-        pub certificate_rekey: Option<crate::certificate::v1_8_2::Rekey>,
+        pub certificate_rekey: Option<crate::certificate::v1_8_3::Rekey>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Certificate.Renew")]
-        pub certificate_renew: Option<crate::certificate::v1_8_2::Renew>,
+        pub certificate_renew: Option<crate::certificate::v1_8_3::Renew>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::certificate::v1_8_2::OemActions>,
+        pub oem: Option<crate::certificate::v1_8_3::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Certificate {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::certificate::v1_8_2::Actions>,
+        pub actions: Option<crate::certificate::v1_8_3::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CertificateString")]
         pub certificate_string: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CertificateType")]
-        pub certificate_type: Option<crate::certificate::v1_8_2::CertificateCertificateType>,
+        pub certificate_type: Option<crate::certificate::v1_8_3::CertificateCertificateType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CertificateUsageTypes"
         )]
         pub certificate_usage_types:
-            Option<Vec<crate::certificate::v1_8_2::CertificateCertificateUsageTypes>>,
+            Option<Vec<crate::certificate::v1_8_3::CertificateCertificateUsageTypes>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::certificate::v1_8_2::CertificateDescription>,
+        pub description: Option<crate::certificate::v1_8_3::CertificateDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Fingerprint")]
         pub fingerprint: Option<String>,
         #[serde(
@@ -272,11 +272,11 @@ pub mod v1_8_2 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Issuer")]
-        pub issuer: Option<crate::certificate::v1_8_2::Identifier>,
+        pub issuer: Option<crate::certificate::v1_8_3::Identifier>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyUsage")]
-        pub key_usage: Option<Vec<crate::certificate::v1_8_2::CertificateKeyUsage>>,
+        pub key_usage: Option<Vec<crate::certificate::v1_8_3::CertificateKeyUsage>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::certificate::v1_8_2::Links>,
+        pub links: Option<crate::certificate::v1_8_3::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -294,9 +294,9 @@ pub mod v1_8_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SignatureAlgorithm")]
         pub signature_algorithm: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SPDM")]
-        pub spdm: Option<crate::certificate::v1_8_2::SPDM>,
+        pub spdm: Option<crate::certificate::v1_8_3::SPDM>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Subject")]
-        pub subject: Option<crate::certificate::v1_8_2::Identifier>,
+        pub subject: Option<crate::certificate::v1_8_3::Identifier>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UefiSignatureOwner")]
         pub uefi_signature_owner: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ValidNotAfter")]
@@ -307,7 +307,7 @@ pub mod v1_8_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateCertificateType {
-        V000001(crate::certificate::v1_8_2::CertificateCertificateTypeN1),
+        V000001(crate::certificate::v1_8_3::CertificateCertificateTypeN1),
         CertificateCertificateType(crate::certificate::CertificateType),
     }
     impl Default for CertificateCertificateType {
@@ -324,12 +324,12 @@ pub mod v1_8_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateCertificateUsageTypes {
-        V010802(crate::certificate::v1_8_2::CertificateUsageType),
-        V000001(crate::certificate::v1_8_2::CertificateCertificateUsageTypesN1),
+        V010803(crate::certificate::v1_8_3::CertificateUsageType),
+        V000001(crate::certificate::v1_8_3::CertificateCertificateUsageTypesN1),
     }
     impl Default for CertificateCertificateUsageTypes {
         fn default() -> Self {
-            Self::V010802(Default::default())
+            Self::V010803(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -341,7 +341,7 @@ pub mod v1_8_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateDescription {
-        V000001(crate::certificate::v1_8_2::CertificateDescriptionN1),
+        V000001(crate::certificate::v1_8_3::CertificateDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for CertificateDescription {
@@ -358,7 +358,7 @@ pub mod v1_8_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateKeyUsage {
-        V000001(crate::certificate::v1_8_2::CertificateKeyUsageN1),
+        V000001(crate::certificate::v1_8_3::CertificateKeyUsageN1),
         CertificateKeyUsage(crate::certificate::KeyUsage),
     }
     impl Default for CertificateKeyUsage {
@@ -432,7 +432,7 @@ pub mod v1_8_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Issuer")]
-        pub issuer: Option<crate::certificate::v1_8_2::LinksIssuer>,
+        pub issuer: Option<crate::certificate::v1_8_3::LinksIssuer>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Subjects")]
@@ -446,7 +446,7 @@ pub mod v1_8_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksIssuer {
-        V000001(crate::certificate::v1_8_2::LinksIssuerN1),
+        V000001(crate::certificate::v1_8_3::LinksIssuerN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksIssuer {

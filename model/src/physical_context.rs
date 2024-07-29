@@ -60,6 +60,8 @@ pub enum PhysicalContext {
     FPGA,
     #[serde(rename = "Fan")]
     Fan,
+    #[serde(rename = "Filter")]
+    Filter,
     #[serde(rename = "Front")]
     Front,
     #[serde(rename = "GPU")]
@@ -74,6 +76,8 @@ pub enum PhysicalContext {
     LiquidOutlet,
     #[serde(rename = "Lower")]
     Lower,
+    #[serde(rename = "Manager")]
+    Manager,
     #[serde(rename = "Memory")]
     Memory,
     #[serde(rename = "MemorySubsystem")]
@@ -94,12 +98,16 @@ pub enum PhysicalContext {
     Pump,
     #[serde(rename = "Rectifier")]
     Rectifier,
+    #[serde(rename = "Reservoir")]
+    Reservoir,
     #[serde(rename = "Room")]
     Room,
     #[serde(rename = "StorageBay")]
     StorageBay,
     #[serde(rename = "StorageDevice")]
     StorageDevice,
+    #[serde(rename = "Switch")]
+    Switch,
     #[serde(rename = "SystemBoard")]
     SystemBoard,
     #[serde(rename = "Transceiver")]
