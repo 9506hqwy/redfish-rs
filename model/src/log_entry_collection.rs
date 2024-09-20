@@ -4,7 +4,7 @@ pub struct LogEntryCollection {
     #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
     pub description: Option<crate::log_entry_collection::LogEntryCollectionDescription>,
     #[serde(rename = "Members")]
-    pub members: Vec<crate::odata_v4::IdRef>,
+    pub members: Vec<crate::log_entry::LogEntry>,
     #[serde(rename = "Members@odata.count")]
     pub members_odata_count: i64,
     #[serde(

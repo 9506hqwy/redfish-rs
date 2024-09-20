@@ -161,7 +161,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsAbsoluteHumidity {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsAbsoluteHumidityN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for EnvironmentMetricsAbsoluteHumidity {
         fn default() -> Self {
@@ -195,7 +195,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsDewPointCelsius {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsDewPointCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for EnvironmentMetricsDewPointCelsius {
         fn default() -> Self {
@@ -212,7 +212,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsEnergyJoules {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsEnergyJoulesN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for EnvironmentMetricsEnergyJoules {
         fn default() -> Self {
@@ -229,7 +229,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsEnergykWh {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsEnergykWhN1),
-        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_0::SensorEnergykWhExcerpt),
+        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_1::SensorEnergykWhExcerpt),
     }
     impl Default for EnvironmentMetricsEnergykWh {
         fn default() -> Self {
@@ -246,7 +246,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsHumidityPercent {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsHumidityPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for EnvironmentMetricsHumidityPercent {
         fn default() -> Self {
@@ -263,7 +263,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsPowerLimitWatts {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsPowerLimitWattsN1),
-        ControlControlSingleExcerpt(crate::control::v1_5_1::ControlSingleExcerpt),
+        ControlControlSingleExcerpt(crate::control::v1_5_2::ControlSingleExcerpt),
     }
     impl Default for EnvironmentMetricsPowerLimitWatts {
         fn default() -> Self {
@@ -280,7 +280,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsPowerLoadPercent {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsPowerLoadPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for EnvironmentMetricsPowerLoadPercent {
         fn default() -> Self {
@@ -297,7 +297,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsPowerWatts {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_0::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_1::SensorPowerExcerpt),
     }
     impl Default for EnvironmentMetricsPowerWatts {
         fn default() -> Self {
@@ -314,7 +314,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsTemperatureCelsius {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for EnvironmentMetricsTemperatureCelsius {
         fn default() -> Self {

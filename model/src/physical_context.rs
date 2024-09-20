@@ -56,6 +56,8 @@ pub enum PhysicalContext {
     Exhaust,
     #[serde(rename = "ExpansionBay")]
     ExpansionBay,
+    #[serde(rename = "ExpansionSubsystem")]
+    ExpansionSubsystem,
     #[serde(rename = "FPGA")]
     FPGA,
     #[serde(rename = "Fan")]
@@ -88,6 +90,8 @@ pub enum PhysicalContext {
     NetworkBay,
     #[serde(rename = "NetworkingDevice")]
     NetworkingDevice,
+    #[serde(rename = "PowerOutlet")]
+    PowerOutlet,
     #[serde(rename = "PowerSubsystem")]
     PowerSubsystem,
     #[serde(rename = "PowerSupply")]
@@ -106,6 +110,8 @@ pub enum PhysicalContext {
     StorageBay,
     #[serde(rename = "StorageDevice")]
     StorageDevice,
+    #[serde(rename = "StorageSubsystem")]
+    StorageSubsystem,
     #[serde(rename = "Switch")]
     Switch,
     #[serde(rename = "SystemBoard")]

@@ -1137,7 +1137,7 @@ pub mod v1_20_1 {
     #[serde(untagged)]
     pub enum ProcessorOperatingSpeedRangeMHz {
         V000001(crate::processor::v1_20_1::ProcessorOperatingSpeedRangeMHzN1),
-        ControlControlRangeExcerpt(crate::control::v1_5_1::ControlRangeExcerpt),
+        ControlControlRangeExcerpt(crate::control::v1_5_2::ControlRangeExcerpt),
     }
     impl Default for ProcessorOperatingSpeedRangeMHz {
         fn default() -> Self {

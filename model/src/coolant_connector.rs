@@ -244,7 +244,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaPressurekPa {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorDeltaPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorDeltaPressurekPa {
         fn default() -> Self {
@@ -261,7 +261,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaTemperatureCelsius {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorDeltaTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorDeltaTemperatureCelsius {
         fn default() -> Self {
@@ -295,7 +295,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorFlowLitersPerMinute {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorFlowLitersPerMinuteN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorFlowLitersPerMinute {
         fn default() -> Self {
@@ -312,7 +312,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorHeatRemovedkW {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorHeatRemovedkWN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorHeatRemovedkW {
         fn default() -> Self {
@@ -329,7 +329,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorReturnPressurekPa {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorReturnPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorReturnPressurekPa {
         fn default() -> Self {
@@ -346,7 +346,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorReturnTemperatureCelsius {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorReturnTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorReturnTemperatureCelsius {
         fn default() -> Self {
@@ -363,7 +363,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorSupplyPressurekPa {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorSupplyPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorSupplyPressurekPa {
         fn default() -> Self {
@@ -380,7 +380,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorSupplyTemperatureCelsius {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorSupplyTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for CoolantConnectorSupplyTemperatureCelsius {
         fn default() -> Self {

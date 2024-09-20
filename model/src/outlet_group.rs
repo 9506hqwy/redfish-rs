@@ -262,7 +262,7 @@ pub mod v1_2_0 {
     #[serde(untagged)]
     pub enum OutletGroupEnergykWh {
         V000001(crate::outlet_group::v1_2_0::OutletGroupEnergykWhN1),
-        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_0::SensorEnergykWhExcerpt),
+        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_1::SensorEnergykWhExcerpt),
     }
     impl Default for OutletGroupEnergykWh {
         fn default() -> Self {
@@ -296,7 +296,7 @@ pub mod v1_2_0 {
     #[serde(untagged)]
     pub enum OutletGroupPowerWatts {
         V000001(crate::outlet_group::v1_2_0::OutletGroupPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_0::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_1::SensorPowerExcerpt),
     }
     impl Default for OutletGroupPowerWatts {
         fn default() -> Self {

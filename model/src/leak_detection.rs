@@ -1,4 +1,4 @@
-pub type LeakDetection = crate::leak_detection::v1_0_1::LeakDetection;
+pub type LeakDetection = crate::leak_detection::v1_1_0::LeakDetection;
 pub mod v1_0_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -50,23 +50,23 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_0_1 {
+pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::leak_detection::v1_0_1::OemActions>,
+        pub oem: Option<crate::leak_detection::v1_1_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct LeakDetection {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::leak_detection::v1_0_1::Actions>,
+        pub actions: Option<crate::leak_detection::v1_1_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::leak_detection::v1_0_1::LeakDetectionDescription>,
+        pub description: Option<crate::leak_detection::v1_1_0::LeakDetectionDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LeakDetectorGroups")]
-        pub leak_detector_groups: Option<Vec<crate::leak_detection::v1_0_1::LeakDetectorGroup>>,
+        pub leak_detector_groups: Option<Vec<crate::leak_detection::v1_1_0::LeakDetectorGroup>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LeakDetectors")]
         pub leak_detectors: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Name")]
@@ -87,7 +87,7 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LeakDetectionDescription {
-        V000001(crate::leak_detection::v1_0_1::LeakDetectionDescriptionN1),
+        V000001(crate::leak_detection::v1_1_0::LeakDetectionDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for LeakDetectionDescription {
@@ -114,13 +114,15 @@ pub mod v1_0_1 {
         pub group_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HumidityPercent")]
         pub humidity_percent:
-            Option<crate::leak_detection::v1_0_1::LeakDetectorGroupHumidityPercent>,
+            Option<crate::leak_detection::v1_1_0::LeakDetectorGroupHumidityPercent>,
+        #[serde(rename = "Status")]
+        pub status: crate::resource::Status,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LeakDetectorGroupHumidityPercent {
-        V000001(crate::leak_detection::v1_0_1::LeakDetectorGroupHumidityPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        V000001(crate::leak_detection::v1_1_0::LeakDetectorGroupHumidityPercentN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for LeakDetectorGroupHumidityPercent {
         fn default() -> Self {

@@ -147,7 +147,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum TemperatureSummaryAmbient {
         V000001(crate::thermal_metrics::v1_3_2::TemperatureSummaryAmbientN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for TemperatureSummaryAmbient {
         fn default() -> Self {
@@ -164,7 +164,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum TemperatureSummaryExhaust {
         V000001(crate::thermal_metrics::v1_3_2::TemperatureSummaryExhaustN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for TemperatureSummaryExhaust {
         fn default() -> Self {
@@ -181,7 +181,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum TemperatureSummaryIntake {
         V000001(crate::thermal_metrics::v1_3_2::TemperatureSummaryIntakeN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for TemperatureSummaryIntake {
         fn default() -> Self {
@@ -198,7 +198,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum TemperatureSummaryInternal {
         V000001(crate::thermal_metrics::v1_3_2::TemperatureSummaryInternalN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for TemperatureSummaryInternal {
         fn default() -> Self {
@@ -266,7 +266,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum ThermalMetricsAirFlowCubicMetersPerMinute {
         V000001(crate::thermal_metrics::v1_3_2::ThermalMetricsAirFlowCubicMetersPerMinuteN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for ThermalMetricsAirFlowCubicMetersPerMinute {
         fn default() -> Self {
@@ -283,7 +283,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum ThermalMetricsDeltaPressurekPa {
         V000001(crate::thermal_metrics::v1_3_2::ThermalMetricsDeltaPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for ThermalMetricsDeltaPressurekPa {
         fn default() -> Self {
@@ -317,7 +317,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum ThermalMetricsEnergykWh {
         V000001(crate::thermal_metrics::v1_3_2::ThermalMetricsEnergykWhN1),
-        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_0::SensorEnergykWhExcerpt),
+        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_1::SensorEnergykWhExcerpt),
     }
     impl Default for ThermalMetricsEnergykWh {
         fn default() -> Self {
@@ -334,7 +334,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum ThermalMetricsPowerWatts {
         V000001(crate::thermal_metrics::v1_3_2::ThermalMetricsPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_0::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_1::SensorPowerExcerpt),
     }
     impl Default for ThermalMetricsPowerWatts {
         fn default() -> Self {

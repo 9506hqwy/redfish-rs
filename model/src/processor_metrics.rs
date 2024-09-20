@@ -432,7 +432,7 @@ pub mod v1_6_4 {
     #[serde(untagged)]
     pub enum ProcessorMetricsCoreVoltage {
         V000001(crate::processor_metrics::v1_6_4::ProcessorMetricsCoreVoltageN1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for ProcessorMetricsCoreVoltage {
         fn default() -> Self {

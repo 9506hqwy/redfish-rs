@@ -1,4 +1,4 @@
-pub type PortMetrics = crate::port_metrics::v1_6_1::PortMetrics;
+pub type PortMetrics = crate::port_metrics::v1_7_0::PortMetrics;
 pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -265,17 +265,17 @@ pub mod v1_5_1 {
         pub tx_output_power_milli_watts: Option<f64>,
     }
 }
-pub mod v1_6_1 {
+pub mod v1_7_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::port_metrics::v1_6_1::OemActions>,
+        pub oem: Option<crate::port_metrics::v1_7_0::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#PortMetrics.ResetMetrics"
         )]
-        pub port_metrics_reset_metrics: Option<crate::port_metrics::v1_6_1::ResetMetrics>,
+        pub port_metrics_reset_metrics: Option<crate::port_metrics::v1_7_0::ResetMetrics>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXL {
@@ -455,21 +455,21 @@ pub mod v1_6_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PortMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::port_metrics::v1_6_1::Actions>,
+        pub actions: Option<crate::port_metrics::v1_7_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXL")]
-        pub cxl: Option<crate::port_metrics::v1_6_1::CXL>,
+        pub cxl: Option<crate::port_metrics::v1_7_0::CXL>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::port_metrics::v1_6_1::PortMetricsDescription>,
+        pub description: Option<crate::port_metrics::v1_7_0::PortMetricsDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FibreChannel")]
-        pub fibre_channel: Option<crate::port_metrics::v1_6_1::FibreChannel>,
+        pub fibre_channel: Option<crate::port_metrics::v1_7_0::FibreChannel>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GenZ")]
-        pub gen_z: Option<crate::port_metrics::v1_6_1::GenZ>,
+        pub gen_z: Option<crate::port_metrics::v1_7_0::GenZ>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Networking")]
-        pub networking: Option<crate::port_metrics::v1_6_1::Networking>,
+        pub networking: Option<crate::port_metrics::v1_7_0::Networking>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -487,9 +487,9 @@ pub mod v1_6_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "RXErrors")]
         pub rx_errors: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SAS")]
-        pub sas: Option<Vec<crate::port_metrics::v1_6_1::SAS>>,
+        pub sas: Option<Vec<crate::port_metrics::v1_7_0::SAS>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Transceivers")]
-        pub transceivers: Option<Vec<crate::port_metrics::v1_6_1::Transceiver>>,
+        pub transceivers: Option<Vec<crate::port_metrics::v1_7_0::Transceiver>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TXBytes")]
         pub tx_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TXErrors")]
@@ -498,7 +498,7 @@ pub mod v1_6_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PortMetricsDescription {
-        V000001(crate::port_metrics::v1_6_1::PortMetricsDescriptionN1),
+        V000001(crate::port_metrics::v1_7_0::PortMetricsDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for PortMetricsDescription {
@@ -560,5 +560,10 @@ pub mod v1_6_1 {
             rename = "TXOutputPowerMilliWatts"
         )]
         pub tx_output_power_milli_watts: Option<f64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "WavelengthNanometers"
+        )]
+        pub wavelength_nanometers: Option<String>,
     }
 }

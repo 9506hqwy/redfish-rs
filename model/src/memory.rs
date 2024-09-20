@@ -1412,7 +1412,7 @@ pub mod v1_20_0 {
     #[serde(untagged)]
     pub enum MemoryOperatingSpeedRangeMHz {
         V000001(crate::memory::v1_20_0::MemoryOperatingSpeedRangeMHzN1),
-        ControlControlRangeExcerpt(crate::control::v1_5_1::ControlRangeExcerpt),
+        ControlControlRangeExcerpt(crate::control::v1_5_2::ControlRangeExcerpt),
     }
     impl Default for MemoryOperatingSpeedRangeMHz {
         fn default() -> Self {

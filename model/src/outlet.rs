@@ -288,7 +288,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum CurrentSensorsLine1 {
         V000001(crate::outlet::v1_4_4::CurrentSensorsLine1N1),
-        SensorSensorCurrentExcerpt(crate::sensor::v1_9_0::SensorCurrentExcerpt),
+        SensorSensorCurrentExcerpt(crate::sensor::v1_9_1::SensorCurrentExcerpt),
     }
     impl Default for CurrentSensorsLine1 {
         fn default() -> Self {
@@ -305,7 +305,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum CurrentSensorsLine2 {
         V000001(crate::outlet::v1_4_4::CurrentSensorsLine2N1),
-        SensorSensorCurrentExcerpt(crate::sensor::v1_9_0::SensorCurrentExcerpt),
+        SensorSensorCurrentExcerpt(crate::sensor::v1_9_1::SensorCurrentExcerpt),
     }
     impl Default for CurrentSensorsLine2 {
         fn default() -> Self {
@@ -322,7 +322,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum CurrentSensorsLine3 {
         V000001(crate::outlet::v1_4_4::CurrentSensorsLine3N1),
-        SensorSensorCurrentExcerpt(crate::sensor::v1_9_0::SensorCurrentExcerpt),
+        SensorSensorCurrentExcerpt(crate::sensor::v1_9_1::SensorCurrentExcerpt),
     }
     impl Default for CurrentSensorsLine3 {
         fn default() -> Self {
@@ -339,7 +339,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum CurrentSensorsNeutral {
         V000001(crate::outlet::v1_4_4::CurrentSensorsNeutralN1),
-        SensorSensorCurrentExcerpt(crate::sensor::v1_9_0::SensorCurrentExcerpt),
+        SensorSensorCurrentExcerpt(crate::sensor::v1_9_1::SensorCurrentExcerpt),
     }
     impl Default for CurrentSensorsNeutral {
         fn default() -> Self {
@@ -514,7 +514,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum OutletCurrentAmps {
         V000001(crate::outlet::v1_4_4::OutletCurrentAmpsN1),
-        SensorSensorCurrentExcerpt(crate::sensor::v1_9_0::SensorCurrentExcerpt),
+        SensorSensorCurrentExcerpt(crate::sensor::v1_9_1::SensorCurrentExcerpt),
     }
     impl Default for OutletCurrentAmps {
         fn default() -> Self {
@@ -565,7 +565,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum OutletEnergykWh {
         V000001(crate::outlet::v1_4_4::OutletEnergykWhN1),
-        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_0::SensorEnergykWhExcerpt),
+        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_1::SensorEnergykWhExcerpt),
     }
     impl Default for OutletEnergykWh {
         fn default() -> Self {
@@ -582,7 +582,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum OutletFrequencyHz {
         V000001(crate::outlet::v1_4_4::OutletFrequencyHzN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for OutletFrequencyHz {
         fn default() -> Self {
@@ -701,7 +701,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum OutletPowerLoadPercent {
         V000001(crate::outlet::v1_4_4::OutletPowerLoadPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_0::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
     }
     impl Default for OutletPowerLoadPercent {
         fn default() -> Self {
@@ -735,7 +735,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum OutletPowerWatts {
         V000001(crate::outlet::v1_4_4::OutletPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_0::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_1::SensorPowerExcerpt),
     }
     impl Default for OutletPowerWatts {
         fn default() -> Self {
@@ -752,7 +752,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum OutletVoltage {
         V000001(crate::outlet::v1_4_4::OutletVoltageN1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for OutletVoltage {
         fn default() -> Self {
@@ -822,7 +822,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum VoltageSensorsLine1ToLine2 {
         V000001(crate::outlet::v1_4_4::VoltageSensorsLine1ToLine2N1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for VoltageSensorsLine1ToLine2 {
         fn default() -> Self {
@@ -839,7 +839,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum VoltageSensorsLine1ToNeutral {
         V000001(crate::outlet::v1_4_4::VoltageSensorsLine1ToNeutralN1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for VoltageSensorsLine1ToNeutral {
         fn default() -> Self {
@@ -856,7 +856,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum VoltageSensorsLine2ToLine3 {
         V000001(crate::outlet::v1_4_4::VoltageSensorsLine2ToLine3N1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for VoltageSensorsLine2ToLine3 {
         fn default() -> Self {
@@ -873,7 +873,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum VoltageSensorsLine2ToNeutral {
         V000001(crate::outlet::v1_4_4::VoltageSensorsLine2ToNeutralN1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for VoltageSensorsLine2ToNeutral {
         fn default() -> Self {
@@ -890,7 +890,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum VoltageSensorsLine3ToLine1 {
         V000001(crate::outlet::v1_4_4::VoltageSensorsLine3ToLine1N1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for VoltageSensorsLine3ToLine1 {
         fn default() -> Self {
@@ -907,7 +907,7 @@ pub mod v1_4_4 {
     #[serde(untagged)]
     pub enum VoltageSensorsLine3ToNeutral {
         V000001(crate::outlet::v1_4_4::VoltageSensorsLine3ToNeutralN1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_0::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_1::SensorVoltageExcerpt),
     }
     impl Default for VoltageSensorsLine3ToNeutral {
         fn default() -> Self {

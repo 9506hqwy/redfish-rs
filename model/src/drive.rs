@@ -1,4 +1,4 @@
-pub type Drive = crate::drive::v1_20_0::Drive;
+pub type Drive = crate::drive::v1_20_1::Drive;
 pub mod v1_18_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -364,22 +364,22 @@ pub mod v1_18_0 {
         Rebuild,
     }
 }
-pub mod v1_20_0 {
+pub mod v1_20_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Drive.Reset")]
-        pub drive_reset: Option<crate::drive::v1_20_0::Reset>,
+        pub drive_reset: Option<crate::drive::v1_20_1::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Drive.RevertToOriginalFactoryState"
         )]
         pub drive_revert_to_original_factory_state:
-            Option<crate::drive::v1_20_0::RevertToOriginalFactoryState>,
+            Option<crate::drive::v1_20_1::RevertToOriginalFactoryState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Drive.SecureErase")]
-        pub drive_secure_erase: Option<crate::drive::v1_20_0::SecureErase>,
+        pub drive_secure_erase: Option<crate::drive::v1_20_1::SecureErase>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::drive::v1_20_0::OemActions>,
+        pub oem: Option<crate::drive::v1_20_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ConfigLockOptions {
@@ -416,7 +416,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Drive {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::drive::v1_20_0::Actions>,
+        pub actions: Option<crate::drive::v1_20_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
@@ -435,15 +435,15 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConfigurationLock")]
-        pub configuration_lock: Option<crate::drive::v1_20_0::DriveConfigurationLock>,
+        pub configuration_lock: Option<crate::drive::v1_20_1::DriveConfigurationLock>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::drive::v1_20_0::DriveDescription>,
+        pub description: Option<crate::drive::v1_20_1::DriveDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DriveFormFactor")]
-        pub drive_form_factor: Option<crate::drive::v1_20_0::DriveDriveFormFactor>,
+        pub drive_form_factor: Option<crate::drive::v1_20_1::DriveDriveFormFactor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionAbility")]
-        pub encryption_ability: Option<crate::drive::v1_20_0::DriveEncryptionAbility>,
+        pub encryption_ability: Option<crate::drive::v1_20_1::DriveEncryptionAbility>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionStatus")]
-        pub encryption_status: Option<crate::drive::v1_20_0::DriveEncryptionStatus>,
+        pub encryption_status: Option<crate::drive::v1_20_1::DriveEncryptionStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FailurePredicted")]
@@ -454,17 +454,17 @@ pub mod v1_20_0 {
             skip_serializing_if = "Option::is_none",
             rename = "HotspareReplacementMode"
         )]
-        pub hotspare_replacement_mode: Option<crate::drive::v1_20_0::DriveHotspareReplacementMode>,
+        pub hotspare_replacement_mode: Option<crate::drive::v1_20_1::DriveHotspareReplacementMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotspareType")]
-        pub hotspare_type: Option<crate::drive::v1_20_0::DriveHotspareType>,
+        pub hotspare_type: Option<crate::drive::v1_20_1::DriveHotspareType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<crate::drive::v1_20_0::DriveIndicatorLED>,
+        pub indicator_led: Option<crate::drive::v1_20_1::DriveIndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::drive::v1_20_0::Links>,
+        pub links: Option<crate::drive::v1_20_1::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<Vec<crate::resource::Location>>,
         #[serde(
@@ -477,9 +477,9 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::software_inventory::MeasurementBlock>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MediaType")]
-        pub media_type: Option<crate::drive::v1_20_0::DriveMediaType>,
+        pub media_type: Option<crate::drive::v1_20_1::DriveMediaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
-        pub metrics: Option<crate::drive::v1_20_0::DriveMetrics>,
+        pub metrics: Option<crate::drive::v1_20_1::DriveMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Multipath")]
@@ -489,7 +489,7 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NegotiatedSpeedGbs")]
         pub negotiated_speed_gbs: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMe")]
-        pub nvme: Option<crate::drive::v1_20_0::DriveNVMe>,
+        pub nvme: Option<crate::drive::v1_20_1::DriveNVMe>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -501,7 +501,7 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Operations")]
-        pub operations: Option<Vec<crate::drive::v1_20_0::Operations>>,
+        pub operations: Option<Vec<crate::drive::v1_20_1::Operations>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalLocation")]
@@ -512,7 +512,7 @@ pub mod v1_20_0 {
         )]
         pub predicted_media_life_left_percent: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Protocol")]
-        pub protocol: Option<crate::drive::v1_20_0::DriveProtocol>,
+        pub protocol: Option<crate::drive::v1_20_1::DriveProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadyToRemove")]
         pub ready_to_remove: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Revision")]
@@ -527,33 +527,33 @@ pub mod v1_20_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SlotCapableProtocols"
         )]
-        pub slot_capable_protocols: Option<Vec<crate::drive::v1_20_0::DriveSlotCapableProtocols>>,
+        pub slot_capable_protocols: Option<Vec<crate::drive::v1_20_1::DriveSlotCapableProtocols>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotFormFactor")]
-        pub slot_form_factor: Option<crate::drive::v1_20_0::DriveSlotFormFactor>,
+        pub slot_form_factor: Option<crate::drive::v1_20_1::DriveSlotFormFactor>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SparePartNumber")]
         pub spare_part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StatusIndicator")]
-        pub status_indicator: Option<crate::drive::v1_20_0::DriveStatusIndicator>,
+        pub status_indicator: Option<crate::drive::v1_20_1::DriveStatusIndicator>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TargetConfigurationLockLevel"
         )]
         pub target_configuration_lock_level:
-            Option<crate::drive::v1_20_0::DriveTargetConfigurationLockLevel>,
+            Option<crate::drive::v1_20_1::DriveTargetConfigurationLockLevel>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteCacheEnabled")]
         pub write_cache_enabled: Option<bool>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveConfigurationLock {
-        V012000(crate::drive::v1_20_0::ConfigurationLock),
-        V000001(crate::drive::v1_20_0::DriveConfigurationLockN1),
+        V012001(crate::drive::v1_20_1::ConfigurationLock),
+        V000001(crate::drive::v1_20_1::DriveConfigurationLockN1),
     }
     impl Default for DriveConfigurationLock {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -565,7 +565,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveDescription {
-        V000001(crate::drive::v1_20_0::DriveDescriptionN1),
+        V000001(crate::drive::v1_20_1::DriveDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for DriveDescription {
@@ -582,12 +582,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveDriveFormFactor {
-        V012000(crate::drive::v1_20_0::FormFactor),
-        V000001(crate::drive::v1_20_0::DriveDriveFormFactorN1),
+        V012001(crate::drive::v1_20_1::FormFactor),
+        V000001(crate::drive::v1_20_1::DriveDriveFormFactorN1),
     }
     impl Default for DriveDriveFormFactor {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -599,12 +599,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveEncryptionAbility {
-        V012000(crate::drive::v1_20_0::EncryptionAbility),
-        V000001(crate::drive::v1_20_0::DriveEncryptionAbilityN1),
+        V012001(crate::drive::v1_20_1::EncryptionAbility),
+        V000001(crate::drive::v1_20_1::DriveEncryptionAbilityN1),
     }
     impl Default for DriveEncryptionAbility {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -616,12 +616,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveEncryptionStatus {
-        V012000(crate::drive::v1_20_0::EncryptionStatus),
-        V000001(crate::drive::v1_20_0::DriveEncryptionStatusN1),
+        V012001(crate::drive::v1_20_1::EncryptionStatus),
+        V000001(crate::drive::v1_20_1::DriveEncryptionStatusN1),
     }
     impl Default for DriveEncryptionStatus {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -633,12 +633,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveHotspareReplacementMode {
-        V012000(crate::drive::v1_20_0::HotspareReplacementModeType),
-        V000001(crate::drive::v1_20_0::DriveHotspareReplacementModeN1),
+        V012001(crate::drive::v1_20_1::HotspareReplacementModeType),
+        V000001(crate::drive::v1_20_1::DriveHotspareReplacementModeN1),
     }
     impl Default for DriveHotspareReplacementMode {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -650,12 +650,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveHotspareType {
-        V012000(crate::drive::v1_20_0::HotspareType),
-        V000001(crate::drive::v1_20_0::DriveHotspareTypeN1),
+        V012001(crate::drive::v1_20_1::HotspareType),
+        V000001(crate::drive::v1_20_1::DriveHotspareTypeN1),
     }
     impl Default for DriveHotspareType {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -667,7 +667,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveIndicatorLED {
-        V000001(crate::drive::v1_20_0::DriveIndicatorLEDN1),
+        V000001(crate::drive::v1_20_1::DriveIndicatorLEDN1),
         ResourceIndicatorLED(crate::resource::IndicatorLED),
     }
     impl Default for DriveIndicatorLED {
@@ -684,12 +684,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveMediaType {
-        V012000(crate::drive::v1_20_0::MediaType),
-        V000001(crate::drive::v1_20_0::DriveMediaTypeN1),
+        V012001(crate::drive::v1_20_1::MediaType),
+        V000001(crate::drive::v1_20_1::DriveMediaTypeN1),
     }
     impl Default for DriveMediaType {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -701,7 +701,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveMetrics {
-        V000001(crate::drive::v1_20_0::DriveMetricsN1),
+        V000001(crate::drive::v1_20_1::DriveMetricsN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for DriveMetrics {
@@ -718,12 +718,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveNVMe {
-        V012000(crate::drive::v1_20_0::NVMe),
-        V000001(crate::drive::v1_20_0::DriveNVMeN1),
+        V012001(crate::drive::v1_20_1::NVMe),
+        V000001(crate::drive::v1_20_1::DriveNVMeN1),
     }
     impl Default for DriveNVMe {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -735,7 +735,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveProtocol {
-        V000001(crate::drive::v1_20_0::DriveProtocolN1),
+        V000001(crate::drive::v1_20_1::DriveProtocolN1),
         ProtocolProtocol(crate::protocol::Protocol),
     }
     impl Default for DriveProtocol {
@@ -752,7 +752,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveSlotCapableProtocols {
-        V000001(crate::drive::v1_20_0::DriveSlotCapableProtocolsN1),
+        V000001(crate::drive::v1_20_1::DriveSlotCapableProtocolsN1),
         ProtocolProtocol(crate::protocol::Protocol),
     }
     impl Default for DriveSlotCapableProtocols {
@@ -769,12 +769,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveSlotFormFactor {
-        V012000(crate::drive::v1_20_0::FormFactor),
-        V000001(crate::drive::v1_20_0::DriveSlotFormFactorN1),
+        V012001(crate::drive::v1_20_1::FormFactor),
+        V000001(crate::drive::v1_20_1::DriveSlotFormFactorN1),
     }
     impl Default for DriveSlotFormFactor {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -786,12 +786,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveStatusIndicator {
-        V012000(crate::drive::v1_20_0::StatusIndicator),
-        V000001(crate::drive::v1_20_0::DriveStatusIndicatorN1),
+        V012001(crate::drive::v1_20_1::StatusIndicator),
+        V000001(crate::drive::v1_20_1::DriveStatusIndicatorN1),
     }
     impl Default for DriveStatusIndicator {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -803,12 +803,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DriveTargetConfigurationLockLevel {
-        V012000(crate::drive::v1_20_0::TargetConfigurationLockLevel),
-        V000001(crate::drive::v1_20_0::DriveTargetConfigurationLockLevelN1),
+        V012001(crate::drive::v1_20_1::TargetConfigurationLockLevel),
+        V000001(crate::drive::v1_20_1::DriveTargetConfigurationLockLevelN1),
     }
     impl Default for DriveTargetConfigurationLockLevel {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -977,46 +977,46 @@ pub mod v1_20_0 {
             rename = "ConfigurationLockState"
         )]
         pub configuration_lock_state:
-            Option<crate::drive::v1_20_0::NVMeConfigurationLockStateAnony>,
+            Option<crate::drive::v1_20_1::NVMeConfigurationLockStateAnony>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct NVMeConfigurationLockState {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareCommit")]
         pub firmware_commit:
-            Option<crate::drive::v1_20_0::NVMeConfigurationLockStateFirmwareCommit>,
+            Option<crate::drive::v1_20_1::NVMeConfigurationLockStateFirmwareCommit>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FirmwareImageDownload"
         )]
         pub firmware_image_download:
-            Option<crate::drive::v1_20_0::NVMeConfigurationLockStateFirmwareImageDownload>,
+            Option<crate::drive::v1_20_1::NVMeConfigurationLockStateFirmwareImageDownload>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lockdown")]
-        pub lockdown: Option<crate::drive::v1_20_0::NVMeConfigurationLockStateLockdown>,
+        pub lockdown: Option<crate::drive::v1_20_1::NVMeConfigurationLockStateLockdown>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecuritySend")]
-        pub security_send: Option<crate::drive::v1_20_0::NVMeConfigurationLockStateSecuritySend>,
+        pub security_send: Option<crate::drive::v1_20_1::NVMeConfigurationLockStateSecuritySend>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VPDWrite")]
-        pub vpd_write: Option<crate::drive::v1_20_0::NVMeConfigurationLockStateVPDWrite>,
+        pub vpd_write: Option<crate::drive::v1_20_1::NVMeConfigurationLockStateVPDWrite>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateAnony {
-        V012000(crate::drive::v1_20_0::NVMeConfigurationLockState),
-        V000001(crate::drive::v1_20_0::NVMeConfigurationLockStateN1),
+        V012001(crate::drive::v1_20_1::NVMeConfigurationLockState),
+        V000001(crate::drive::v1_20_1::NVMeConfigurationLockStateN1),
     }
     impl Default for NVMeConfigurationLockStateAnony {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateFirmwareCommit {
-        V012000(crate::drive::v1_20_0::ConfigLockOptions),
-        V000001(crate::drive::v1_20_0::NVMeConfigurationLockStateFirmwareCommitN1),
+        V012001(crate::drive::v1_20_1::ConfigLockOptions),
+        V000001(crate::drive::v1_20_1::NVMeConfigurationLockStateFirmwareCommitN1),
     }
     impl Default for NVMeConfigurationLockStateFirmwareCommit {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1028,12 +1028,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateFirmwareImageDownload {
-        V012000(crate::drive::v1_20_0::ConfigLockOptions),
-        V000001(crate::drive::v1_20_0::NVMeConfigurationLockStateFirmwareImageDownloadN1),
+        V012001(crate::drive::v1_20_1::ConfigLockOptions),
+        V000001(crate::drive::v1_20_1::NVMeConfigurationLockStateFirmwareImageDownloadN1),
     }
     impl Default for NVMeConfigurationLockStateFirmwareImageDownload {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1045,12 +1045,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateLockdown {
-        V012000(crate::drive::v1_20_0::ConfigLockOptions),
-        V000001(crate::drive::v1_20_0::NVMeConfigurationLockStateLockdownN1),
+        V012001(crate::drive::v1_20_1::ConfigLockOptions),
+        V000001(crate::drive::v1_20_1::NVMeConfigurationLockStateLockdownN1),
     }
     impl Default for NVMeConfigurationLockStateLockdown {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1068,12 +1068,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateSecuritySend {
-        V012000(crate::drive::v1_20_0::ConfigLockOptions),
-        V000001(crate::drive::v1_20_0::NVMeConfigurationLockStateSecuritySendN1),
+        V012001(crate::drive::v1_20_1::ConfigLockOptions),
+        V000001(crate::drive::v1_20_1::NVMeConfigurationLockStateSecuritySendN1),
     }
     impl Default for NVMeConfigurationLockStateSecuritySend {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1085,12 +1085,12 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateVPDWrite {
-        V012000(crate::drive::v1_20_0::ConfigLockOptions),
-        V000001(crate::drive::v1_20_0::NVMeConfigurationLockStateVPDWriteN1),
+        V012001(crate::drive::v1_20_1::ConfigLockOptions),
+        V000001(crate::drive::v1_20_1::NVMeConfigurationLockStateVPDWriteN1),
     }
     impl Default for NVMeConfigurationLockStateVPDWrite {
         fn default() -> Self {
-            Self::V012000(Default::default())
+            Self::V012001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1106,7 +1106,7 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssociatedTask")]
         pub associated_task: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Operation")]
-        pub operation: Option<crate::drive::v1_20_0::OperationsOperation>,
+        pub operation: Option<crate::drive::v1_20_1::OperationsOperation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperationName")]
         pub operation_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PercentageComplete")]
@@ -1115,7 +1115,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum OperationsOperation {
-        V000001(crate::drive::v1_20_0::OperationsOperationN1),
+        V000001(crate::drive::v1_20_1::OperationsOperationN1),
         VolumeOperationType(crate::swordfish::volume::OperationType),
     }
     impl Default for OperationsOperation {
@@ -1165,7 +1165,7 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OverwritePasses")]
         pub overwrite_passes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SanitizationType")]
-        pub sanitization_type: Option<crate::drive::v1_20_0::DataSanitizationType>,
+        pub sanitization_type: Option<crate::drive::v1_20_1::DataSanitizationType>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum StatusIndicator {
