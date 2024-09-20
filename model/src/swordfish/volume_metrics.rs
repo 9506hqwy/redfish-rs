@@ -1,17 +1,17 @@
-pub type VolumeMetrics = crate::swordfish::volume_metrics::v1_1_0::VolumeMetrics;
-pub mod v1_1_0 {
+pub type VolumeMetrics = crate::swordfish::volume_metrics::v1_1_1::VolumeMetrics;
+pub mod v1_1_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::swordfish::volume_metrics::v1_1_0::OemActions>,
+        pub oem: Option<crate::swordfish::volume_metrics::v1_1_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct VolumeMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::swordfish::volume_metrics::v1_1_0::Actions>,
+        pub actions: Option<crate::swordfish::volume_metrics::v1_1_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConsistencyCheckCount"
@@ -33,11 +33,11 @@ pub mod v1_1_0 {
         )]
         pub correctable_io_write_error_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::swordfish::volume_metrics::v1_1_0::VolumeMetricsDescription>,
+        pub description: Option<crate::swordfish::volume_metrics::v1_1_1::VolumeMetricsDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
-        pub io_statistics: Option<crate::swordfish::io_statistics::v1_0_1::IOStatistics>,
+        pub io_statistics: Option<crate::swordfish::io_statistics::IOStatistics>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -68,7 +68,7 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum VolumeMetricsDescription {
-        V000001(crate::swordfish::volume_metrics::v1_1_0::VolumeMetricsDescriptionN1),
+        V000001(crate::swordfish::volume_metrics::v1_1_1::VolumeMetricsDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for VolumeMetricsDescription {

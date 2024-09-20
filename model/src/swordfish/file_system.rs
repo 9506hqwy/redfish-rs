@@ -19,16 +19,16 @@ pub enum FileProtocol {
     #[serde(rename = "SMBv3_1_1")]
     SMBv3N1N1,
 }
-pub type FileSystem = crate::swordfish::file_system::v1_4_0::FileSystem;
+pub type FileSystem = crate::swordfish::file_system::v1_4_1::FileSystem;
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum ImportedShare {}
-pub mod v1_4_0 {
+pub mod v1_4_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::swordfish::file_system::v1_4_0::OemActions>,
+        pub oem: Option<crate::swordfish::file_system::v1_4_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CharacterCodeSet {
@@ -54,9 +54,9 @@ pub mod v1_4_0 {
     pub struct FileSystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccessCapabilities")]
         pub access_capabilities:
-            Option<Vec<crate::swordfish::file_system::v1_4_0::FileSystemAccessCapabilities>>,
+            Option<Vec<crate::swordfish::file_system::v1_4_1::FileSystemAccessCapabilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::swordfish::file_system::v1_4_0::Actions>,
+        pub actions: Option<crate::swordfish::file_system::v1_4_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeBytes")]
         pub block_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Capacity")]
@@ -74,11 +74,11 @@ pub mod v1_4_0 {
         pub case_sensitive: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CharacterCodeSet")]
         pub character_code_set:
-            Option<Vec<crate::swordfish::file_system::v1_4_0::FileSystemCharacterCodeSet>>,
+            Option<Vec<crate::swordfish::file_system::v1_4_1::FileSystemCharacterCodeSet>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClusterSizeBytes")]
         pub cluster_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::swordfish::file_system::v1_4_0::FileSystemDescription>,
+        pub description: Option<crate::swordfish::file_system::v1_4_1::FileSystemDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExportedShares")]
         pub exported_shares: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
@@ -88,9 +88,9 @@ pub mod v1_4_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ImportedShares")]
         pub imported_shares: Option<Vec<crate::swordfish::file_system::ImportedShare>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
-        pub io_statistics: Option<crate::swordfish::io_statistics::v1_0_1::IOStatistics>,
+        pub io_statistics: Option<crate::swordfish::io_statistics::IOStatistics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::swordfish::file_system::v1_4_0::Links>,
+        pub links: Option<crate::swordfish::file_system::v1_4_1::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LowSpaceWarningThresholdPercents"
@@ -102,7 +102,7 @@ pub mod v1_4_0 {
         )]
         pub max_file_name_length_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
-        pub metrics: Option<crate::swordfish::file_system::v1_4_0::FileSystemMetrics>,
+        pub metrics: Option<crate::swordfish::file_system::v1_4_1::FileSystemMetrics>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -142,7 +142,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum FileSystemAccessCapabilities {
-        V000001(crate::swordfish::file_system::v1_4_0::FileSystemAccessCapabilitiesN1),
+        V000001(crate::swordfish::file_system::v1_4_1::FileSystemAccessCapabilitiesN1),
         DataStorageLoSCapabilitiesStorageAccessCapability(
             crate::swordfish::data_storage_los_capabilities::StorageAccessCapability,
         ),
@@ -161,12 +161,12 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum FileSystemCharacterCodeSet {
-        V010400(crate::swordfish::file_system::v1_4_0::CharacterCodeSet),
-        V000001(crate::swordfish::file_system::v1_4_0::FileSystemCharacterCodeSetN1),
+        V010401(crate::swordfish::file_system::v1_4_1::CharacterCodeSet),
+        V000001(crate::swordfish::file_system::v1_4_1::FileSystemCharacterCodeSetN1),
     }
     impl Default for FileSystemCharacterCodeSet {
         fn default() -> Self {
-            Self::V010400(Default::default())
+            Self::V010401(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -178,7 +178,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum FileSystemDescription {
-        V000001(crate::swordfish::file_system::v1_4_0::FileSystemDescriptionN1),
+        V000001(crate::swordfish::file_system::v1_4_1::FileSystemDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for FileSystemDescription {
@@ -195,7 +195,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum FileSystemMetrics {
-        V000001(crate::swordfish::file_system::v1_4_0::FileSystemMetricsN1),
+        V000001(crate::swordfish::file_system::v1_4_1::FileSystemMetricsN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for FileSystemMetrics {
