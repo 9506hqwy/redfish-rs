@@ -38,6 +38,14 @@ unzip "${SWORDFISH_FILE}" -d ./swordfish
 unzip "swordfish/Swordfish_v${SWORDFISH_VERSION}_Schema.zip" -d ./swordfish/schemas
 mv ./swordfish/schemas/yaml/* ./spec/schemas/swordfish/v1
 
+# Replace URI.
+# Because the StorageSystemCollection's schema is difference in swordfish 1.2.7.
+#  - Draft:   http://redfish.dmtf.org/schemas/swordfish/v1/StorageSystemCollection.yaml
+#  - Release: http://redfish.dmtf.org/schemas/v1/StorageSystemCollection.yaml
+# In swordfish 1.2.6, draft schema is same.
+sed -i ./spec/schemas/swordfish/v1/openapi.yaml \
+    -e 's|schemas/v1/StorageSystemCollection.yaml|schemas/swordfish/v1/StorageSystemCollection.yaml|'
+
 # tool
 curl -sSLO "${TOOLS_URL}"
 tar -zxf "${TOOLS_FILE}"
