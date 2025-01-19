@@ -224,6 +224,7 @@ pub mod storage_collection;
 pub mod storage_controller;
 pub mod storage_controller_collection;
 pub mod storage_controller_metrics;
+pub mod storage_metrics;
 pub mod switch;
 pub mod switch_collection;
 pub mod switch_metrics;

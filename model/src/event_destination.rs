@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-pub type EventDestination = crate::event_destination::v1_15_0::EventDestination;
+pub type EventDestination = crate::event_destination::v1_15_1::EventDestination;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum EventFormatType {
     #[default]
@@ -532,7 +532,7 @@ pub mod v1_14_1 {
         Warning,
     }
 }
-pub mod v1_15_0 {
+pub mod v1_15_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -541,15 +541,15 @@ pub mod v1_15_0 {
             rename = "#EventDestination.ResumeSubscription"
         )]
         pub event_destination_resume_subscription:
-            Option<crate::event_destination::v1_15_0::ResumeSubscription>,
+            Option<crate::event_destination::v1_15_1::ResumeSubscription>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#EventDestination.SuspendSubscription"
         )]
         pub event_destination_suspend_subscription:
-            Option<crate::event_destination::v1_15_0::SuspendSubscription>,
+            Option<crate::event_destination::v1_15_1::SuspendSubscription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::event_destination::v1_15_0::OemActions>,
+        pub oem: Option<crate::event_destination::v1_15_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DeliveryRetryPolicy {
@@ -566,7 +566,7 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EventDestination {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::event_destination::v1_15_0::Actions>,
+        pub actions: Option<crate::event_destination::v1_15_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BackupDestinations")]
         pub backup_destinations: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
@@ -580,14 +580,14 @@ pub mod v1_15_0 {
             rename = "DeliveryRetryPolicy"
         )]
         pub delivery_retry_policy:
-            Option<crate::event_destination::v1_15_0::EventDestinationDeliveryRetryPolicy>,
+            Option<crate::event_destination::v1_15_1::EventDestinationDeliveryRetryPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::event_destination::v1_15_0::EventDestinationDescription>,
+        pub description: Option<crate::event_destination::v1_15_1::EventDestinationDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Destination")]
         pub destination: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventFormatType")]
         pub event_format_type:
-            Option<crate::event_destination::v1_15_0::EventDestinationEventFormatType>,
+            Option<crate::event_destination::v1_15_1::EventDestinationEventFormatType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventTypes")]
         pub event_types: Option<Vec<crate::event::EventType>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExcludeMessageIds")]
@@ -603,7 +603,7 @@ pub mod v1_15_0 {
         )]
         pub heartbeat_interval_minutes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HttpHeaders")]
-        pub http_headers: Option<Vec<crate::event_destination::v1_15_0::HttpHeaderProperty>>,
+        pub http_headers: Option<Vec<crate::event_destination::v1_15_1::HttpHeaderProperty>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(
@@ -650,7 +650,7 @@ pub mod v1_15_0 {
         )]
         pub origin_resources_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Protocol")]
-        pub protocol: Option<crate::event_destination::v1_15_0::EventDestinationProtocol>,
+        pub protocol: Option<crate::event_destination::v1_15_1::EventDestinationProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegistryPrefixes")]
         pub registry_prefixes: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ResourceTypes")]
@@ -658,9 +658,9 @@ pub mod v1_15_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SendHeartbeat")]
         pub send_heartbeat: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Severities")]
-        pub severities: Option<Vec<crate::event_destination::v1_15_0::EventDestinationSeverities>>,
+        pub severities: Option<Vec<crate::event_destination::v1_15_1::EventDestinationSeverities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::event_destination::v1_15_0::SNMPSettings>,
+        pub snmp: Option<crate::event_destination::v1_15_1::SNMPSettings>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(
@@ -669,22 +669,22 @@ pub mod v1_15_0 {
         )]
         pub subordinate_resources: Option<bool>,
         #[serde(rename = "SubscriptionType")]
-        pub subscription_type: crate::event_destination::v1_15_0::EventDestinationSubscriptionType,
+        pub subscription_type: crate::event_destination::v1_15_1::EventDestinationSubscriptionType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SyslogFilters")]
         pub syslog_filters:
-            Option<Vec<crate::event_destination::v1_15_0::EventDestinationSyslogFilters>>,
+            Option<Vec<crate::event_destination::v1_15_1::EventDestinationSyslogFilters>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerifyCertificate")]
         pub verify_certificate: Option<bool>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EventDestinationDeliveryRetryPolicy {
-        V011500(crate::event_destination::v1_15_0::DeliveryRetryPolicy),
-        V000001(crate::event_destination::v1_15_0::EventDestinationDeliveryRetryPolicyN1),
+        V011501(crate::event_destination::v1_15_1::DeliveryRetryPolicy),
+        V000001(crate::event_destination::v1_15_1::EventDestinationDeliveryRetryPolicyN1),
     }
     impl Default for EventDestinationDeliveryRetryPolicy {
         fn default() -> Self {
-            Self::V011500(Default::default())
+            Self::V011501(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -696,7 +696,7 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EventDestinationDescription {
-        V000001(crate::event_destination::v1_15_0::EventDestinationDescriptionN1),
+        V000001(crate::event_destination::v1_15_1::EventDestinationDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for EventDestinationDescription {
@@ -713,7 +713,7 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EventDestinationEventFormatType {
-        V000001(crate::event_destination::v1_15_0::EventDestinationEventFormatTypeN1),
+        V000001(crate::event_destination::v1_15_1::EventDestinationEventFormatTypeN1),
         EventDestinationEventFormatType(crate::event_destination::EventFormatType),
     }
     impl Default for EventDestinationEventFormatType {
@@ -756,7 +756,7 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EventDestinationSeverities {
-        V000001(crate::event_destination::v1_15_0::EventDestinationSeveritiesN1),
+        V000001(crate::event_destination::v1_15_1::EventDestinationSeveritiesN1),
         ResourceHealth(crate::resource::Health),
     }
     impl Default for EventDestinationSeverities {
@@ -773,12 +773,12 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EventDestinationSubscriptionType {
-        V011500(crate::event_destination::v1_15_0::SubscriptionType),
-        V000001(crate::event_destination::v1_15_0::EventDestinationSubscriptionTypeN1),
+        V011501(crate::event_destination::v1_15_1::SubscriptionType),
+        V000001(crate::event_destination::v1_15_1::EventDestinationSubscriptionTypeN1),
     }
     impl Default for EventDestinationSubscriptionType {
         fn default() -> Self {
-            Self::V011500(Default::default())
+            Self::V011501(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -790,12 +790,12 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EventDestinationSyslogFilters {
-        V011500(crate::event_destination::v1_15_0::SyslogFilter),
-        V000001(crate::event_destination::v1_15_0::EventDestinationSyslogFiltersN1),
+        V011501(crate::event_destination::v1_15_1::SyslogFilter),
+        V000001(crate::event_destination::v1_15_1::EventDestinationSyslogFiltersN1),
     }
     impl Default for EventDestinationSyslogFilters {
         fn default() -> Self {
-            Self::V011500(Default::default())
+            Self::V011501(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -871,26 +871,26 @@ pub mod v1_15_0 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::event_destination::v1_15_0::SNMPSettingsAuthenticationProtocol>,
+            Option<crate::event_destination::v1_15_1::SNMPSettingsAuthenticationProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
         pub encryption_protocol:
-            Option<crate::event_destination::v1_15_0::SNMPSettingsEncryptionProtocol>,
+            Option<crate::event_destination::v1_15_1::SNMPSettingsEncryptionProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrapCommunity")]
         pub trap_community: Option<String>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SNMPSettingsAuthenticationProtocol {
-        V011500(crate::event_destination::v1_15_0::SNMPAuthenticationProtocols),
-        V000001(crate::event_destination::v1_15_0::SNMPSettingsAuthenticationProtocolN1),
+        V011501(crate::event_destination::v1_15_1::SNMPAuthenticationProtocols),
+        V000001(crate::event_destination::v1_15_1::SNMPSettingsAuthenticationProtocolN1),
     }
     impl Default for SNMPSettingsAuthenticationProtocol {
         fn default() -> Self {
-            Self::V011500(Default::default())
+            Self::V011501(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -902,12 +902,12 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SNMPSettingsEncryptionProtocol {
-        V011500(crate::event_destination::v1_15_0::SNMPEncryptionProtocols),
-        V000001(crate::event_destination::v1_15_0::SNMPSettingsEncryptionProtocolN1),
+        V011501(crate::event_destination::v1_15_1::SNMPEncryptionProtocols),
+        V000001(crate::event_destination::v1_15_1::SNMPSettingsEncryptionProtocolN1),
     }
     impl Default for SNMPSettingsEncryptionProtocol {
         fn default() -> Self {
-            Self::V011500(Default::default())
+            Self::V011501(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -997,19 +997,19 @@ pub mod v1_15_0 {
     pub struct SyslogFilter {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LogFacilities")]
         pub log_facilities:
-            Option<Vec<crate::event_destination::v1_15_0::SyslogFilterLogFacilities>>,
+            Option<Vec<crate::event_destination::v1_15_1::SyslogFilterLogFacilities>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LowestSeverity")]
-        pub lowest_severity: Option<crate::event_destination::v1_15_0::SyslogFilterLowestSeverity>,
+        pub lowest_severity: Option<crate::event_destination::v1_15_1::SyslogFilterLowestSeverity>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SyslogFilterLogFacilities {
-        V011500(crate::event_destination::v1_15_0::SyslogFacility),
-        V000001(crate::event_destination::v1_15_0::SyslogFilterLogFacilitiesN1),
+        V011501(crate::event_destination::v1_15_1::SyslogFacility),
+        V000001(crate::event_destination::v1_15_1::SyslogFilterLogFacilitiesN1),
     }
     impl Default for SyslogFilterLogFacilities {
         fn default() -> Self {
-            Self::V011500(Default::default())
+            Self::V011501(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1021,12 +1021,12 @@ pub mod v1_15_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SyslogFilterLowestSeverity {
-        V011500(crate::event_destination::v1_15_0::SyslogSeverity),
-        V000001(crate::event_destination::v1_15_0::SyslogFilterLowestSeverityN1),
+        V011501(crate::event_destination::v1_15_1::SyslogSeverity),
+        V000001(crate::event_destination::v1_15_1::SyslogFilterLowestSeverityN1),
     }
     impl Default for SyslogFilterLowestSeverity {
         fn default() -> Self {
-            Self::V011500(Default::default())
+            Self::V011501(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

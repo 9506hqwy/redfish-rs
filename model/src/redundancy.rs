@@ -1,18 +1,18 @@
-pub type Redundancy = crate::redundancy::v1_4_2::Redundancy;
-pub type RedundantGroup = crate::redundancy::v1_4_2::RedundantGroup;
-pub mod v1_4_2 {
+pub type Redundancy = crate::redundancy::v1_5_0::Redundancy;
+pub type RedundantGroup = crate::redundancy::v1_5_0::RedundantGroup;
+pub mod v1_5_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::redundancy::v1_4_2::OemActions>,
+        pub oem: Option<crate::redundancy::v1_5_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Redundancy {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::redundancy::v1_4_2::Actions>,
+        pub actions: Option<crate::redundancy::v1_5_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxNumSupported")]
         pub max_num_supported: Option<i64>,
         #[serde(rename = "MemberId")]
@@ -20,7 +20,7 @@ pub mod v1_4_2 {
         #[serde(rename = "MinNumNeeded")]
         pub min_num_needed: Option<i64>,
         #[serde(rename = "Mode")]
-        pub mode: crate::redundancy::v1_4_2::RedundancyModeAnony,
+        pub mode: crate::redundancy::v1_5_0::RedundancyModeAnony,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(rename = "@odata.id")]
@@ -56,12 +56,12 @@ pub mod v1_4_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum RedundancyModeAnony {
-        V010402(crate::redundancy::v1_4_2::RedundancyMode),
-        V000001(crate::redundancy::v1_4_2::RedundancyModeN1),
+        V010500(crate::redundancy::v1_5_0::RedundancyMode),
+        V000001(crate::redundancy::v1_5_0::RedundancyModeN1),
     }
     impl Default for RedundancyModeAnony {
         fn default() -> Self {
-            Self::V010402(Default::default())
+            Self::V010500(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -86,6 +86,8 @@ pub mod v1_4_2 {
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct RedundantGroup {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "GroupName")]
+        pub group_name: Option<String>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxSupportedInGroup"
@@ -101,19 +103,19 @@ pub mod v1_4_2 {
         )]
         pub redundancy_group_odata_count: Option<i64>,
         #[serde(rename = "RedundancyType")]
-        pub redundancy_type: crate::redundancy::v1_4_2::RedundantGroupRedundancyType,
+        pub redundancy_type: crate::redundancy::v1_5_0::RedundantGroupRedundancyType,
         #[serde(rename = "Status")]
         pub status: crate::resource::Status,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum RedundantGroupRedundancyType {
-        V010402(crate::redundancy::v1_4_2::RedundancyType),
-        V000001(crate::redundancy::v1_4_2::RedundantGroupRedundancyTypeN1),
+        V010500(crate::redundancy::v1_5_0::RedundancyType),
+        V000001(crate::redundancy::v1_5_0::RedundantGroupRedundancyTypeN1),
     }
     impl Default for RedundantGroupRedundancyType {
         fn default() -> Self {
-            Self::V010402(Default::default())
+            Self::V010500(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

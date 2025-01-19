@@ -294,7 +294,7 @@ pub mod v1_7_2 {
     #[serde(untagged)]
     pub enum RoleMappingMFABypass {
         V000001(crate::external_account_provider::v1_7_2::RoleMappingMFABypassN1),
-        AccountServiceMFABypass(crate::account_service::v1_16_0::MFABypass),
+        AccountServiceMFABypass(crate::account_service::v1_17_0::MFABypass),
     }
     impl Default for RoleMappingMFABypass {
         fn default() -> Self {
@@ -662,7 +662,7 @@ pub mod v1_8_0 {
     #[serde(untagged)]
     pub enum RoleMappingMFABypass {
         V000001(crate::external_account_provider::v1_8_0::RoleMappingMFABypassN1),
-        AccountServiceMFABypass(crate::account_service::v1_16_0::MFABypass),
+        AccountServiceMFABypass(crate::account_service::v1_17_0::MFABypass),
     }
     impl Default for RoleMappingMFABypass {
         fn default() -> Self {

@@ -1,4 +1,4 @@
-pub type Chassis = crate::chassis::v1_25_2::Chassis;
+pub type Chassis = crate::chassis::v1_26_0::Chassis;
 pub mod v1_25_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -657,19 +657,19 @@ pub mod v1_25_1 {
         TopExhaust,
     }
 }
-pub mod v1_25_2 {
+pub mod v1_26_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Chassis.Reset")]
-        pub chassis_reset: Option<crate::chassis::v1_25_2::Reset>,
+        pub chassis_reset: Option<crate::chassis::v1_26_0::Reset>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::chassis::v1_25_2::OemActions>,
+        pub oem: Option<crate::chassis::v1_26_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Chassis {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::chassis::v1_25_2::Actions>,
+        pub actions: Option<crate::chassis::v1_26_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
@@ -677,15 +677,15 @@ pub mod v1_25_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "ChassisType")]
-        pub chassis_type: crate::chassis::v1_25_2::ChassisType,
+        pub chassis_type: crate::chassis::v1_26_0::ChassisType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Controls")]
         pub controls: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DepthMm")]
         pub depth_mm: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::chassis::v1_25_2::ChassisDescription>,
+        pub description: Option<crate::chassis::v1_26_0::ChassisDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Doors")]
-        pub doors: Option<crate::chassis::v1_25_2::Doors>,
+        pub doors: Option<crate::chassis::v1_26_0::Doors>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Drives")]
         pub drives: Option<crate::odata_v4::IdRef>,
         #[serde(
@@ -701,7 +701,7 @@ pub mod v1_25_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentalClass")]
-        pub environmental_class: Option<crate::chassis::v1_25_2::ChassisEnvironmentalClass>,
+        pub environmental_class: Option<crate::chassis::v1_26_0::ChassisEnvironmentalClass>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FabricAdapters")]
         pub fabric_adapters: Option<crate::odata_v4::IdRef>,
         #[serde(
@@ -721,9 +721,11 @@ pub mod v1_25_2 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<crate::chassis::v1_25_2::ChassisIndicatorLED>,
+        pub indicator_led: Option<crate::chassis::v1_26_0::ChassisIndicatorLED>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "LeakDetectors")]
+        pub leak_detectors: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::chassis::v1_25_2::Links>,
+        pub links: Option<crate::chassis::v1_26_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -770,11 +772,11 @@ pub mod v1_25_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeSlots")]
         pub pcie_slots: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PhysicalSecurity")]
-        pub physical_security: Option<crate::chassis::v1_25_2::PhysicalSecurity>,
+        pub physical_security: Option<crate::chassis::v1_26_0::PhysicalSecurity>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Power")]
         pub power: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<crate::chassis::v1_25_2::ChassisPowerState>,
+        pub power_state: Option<crate::chassis::v1_26_0::ChassisPowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSubsystem")]
         pub power_subsystem: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PoweredByParent")]
@@ -796,7 +798,7 @@ pub mod v1_25_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Thermal")]
         pub thermal: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ThermalDirection")]
-        pub thermal_direction: Option<crate::chassis::v1_25_2::ChassisThermalDirection>,
+        pub thermal_direction: Option<crate::chassis::v1_26_0::ChassisThermalDirection>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ThermalManagedByParent"
@@ -807,7 +809,7 @@ pub mod v1_25_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrustedComponents")]
         pub trusted_components: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::chassis::v1_25_2::ChassisUUID>,
+        pub uuid: Option<crate::chassis::v1_26_0::ChassisUUID>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WeightKg")]
@@ -818,7 +820,7 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ChassisDescription {
-        V000001(crate::chassis::v1_25_2::ChassisDescriptionN1),
+        V000001(crate::chassis::v1_26_0::ChassisDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ChassisDescription {
@@ -835,12 +837,12 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ChassisEnvironmentalClass {
-        V012502(crate::chassis::v1_25_2::EnvironmentalClass),
-        V000001(crate::chassis::v1_25_2::ChassisEnvironmentalClassN1),
+        V012600(crate::chassis::v1_26_0::EnvironmentalClass),
+        V000001(crate::chassis::v1_26_0::ChassisEnvironmentalClassN1),
     }
     impl Default for ChassisEnvironmentalClass {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -852,12 +854,12 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ChassisIndicatorLED {
-        V012502(crate::chassis::v1_25_2::IndicatorLED),
-        V000001(crate::chassis::v1_25_2::ChassisIndicatorLEDN1),
+        V012600(crate::chassis::v1_26_0::IndicatorLED),
+        V000001(crate::chassis::v1_26_0::ChassisIndicatorLEDN1),
     }
     impl Default for ChassisIndicatorLED {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -869,7 +871,7 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ChassisPowerState {
-        V000001(crate::chassis::v1_25_2::ChassisPowerStateN1),
+        V000001(crate::chassis::v1_26_0::ChassisPowerStateN1),
         ResourcePowerState(crate::resource::PowerState),
     }
     impl Default for ChassisPowerState {
@@ -886,12 +888,12 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ChassisThermalDirection {
-        V012502(crate::chassis::v1_25_2::ThermalDirection),
-        V000001(crate::chassis::v1_25_2::ChassisThermalDirectionN1),
+        V012600(crate::chassis::v1_26_0::ThermalDirection),
+        V000001(crate::chassis::v1_26_0::ChassisThermalDirectionN1),
     }
     impl Default for ChassisThermalDirection {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -955,7 +957,7 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ChassisUUID {
-        V000001(crate::chassis::v1_25_2::ChassisUUIDN1),
+        V000001(crate::chassis::v1_26_0::ChassisUUIDN1),
         ResourceUUID(String),
     }
     impl Default for ChassisUUID {
@@ -972,7 +974,7 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Door {
         #[serde(skip_serializing_if = "Option::is_none", rename = "DoorState")]
-        pub door_state: Option<crate::chassis::v1_25_2::DoorDoorState>,
+        pub door_state: Option<crate::chassis::v1_26_0::DoorDoorState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Locked")]
         pub locked: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserLabel")]
@@ -981,12 +983,12 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DoorDoorState {
-        V012502(crate::chassis::v1_25_2::DoorState),
-        V000001(crate::chassis::v1_25_2::DoorDoorStateN1),
+        V012600(crate::chassis::v1_26_0::DoorState),
+        V000001(crate::chassis::v1_26_0::DoorDoorStateN1),
     }
     impl Default for DoorDoorState {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1010,19 +1012,19 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Doors {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Front")]
-        pub front: Option<crate::chassis::v1_25_2::DoorsFront>,
+        pub front: Option<crate::chassis::v1_26_0::DoorsFront>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Rear")]
-        pub rear: Option<crate::chassis::v1_25_2::DoorsRear>,
+        pub rear: Option<crate::chassis::v1_26_0::DoorsRear>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DoorsFront {
-        V012502(crate::chassis::v1_25_2::Door),
-        V000001(crate::chassis::v1_25_2::DoorsFrontN1),
+        V012600(crate::chassis::v1_26_0::Door),
+        V000001(crate::chassis::v1_26_0::DoorsFrontN1),
     }
     impl Default for DoorsFront {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1034,12 +1036,12 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DoorsRear {
-        V012502(crate::chassis::v1_25_2::Door),
-        V000001(crate::chassis::v1_25_2::DoorsRearN1),
+        V012600(crate::chassis::v1_26_0::Door),
+        V000001(crate::chassis::v1_26_0::DoorsRearN1),
     }
     impl Default for DoorsRear {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1170,7 +1172,7 @@ pub mod v1_25_2 {
         )]
         pub pcie_devices_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerDistribution")]
-        pub power_distribution: Option<crate::chassis::v1_25_2::LinksPowerDistribution>,
+        pub power_distribution: Option<crate::chassis::v1_26_0::LinksPowerDistribution>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerOutlets")]
         pub power_outlets: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -1224,7 +1226,7 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksPowerDistribution {
-        V000001(crate::chassis::v1_25_2::LinksPowerDistributionN1),
+        V000001(crate::chassis::v1_26_0::LinksPowerDistributionN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksPowerDistribution {
@@ -1243,7 +1245,7 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PhysicalSecurity {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IntrusionSensor")]
-        pub intrusion_sensor: Option<crate::chassis::v1_25_2::PhysicalSecurityIntrusionSensor>,
+        pub intrusion_sensor: Option<crate::chassis::v1_26_0::PhysicalSecurityIntrusionSensor>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "IntrusionSensorNumber"
@@ -1254,17 +1256,17 @@ pub mod v1_25_2 {
             rename = "IntrusionSensorReArm"
         )]
         pub intrusion_sensor_re_arm:
-            Option<crate::chassis::v1_25_2::PhysicalSecurityIntrusionSensorReArm>,
+            Option<crate::chassis::v1_26_0::PhysicalSecurityIntrusionSensorReArm>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PhysicalSecurityIntrusionSensor {
-        V012502(crate::chassis::v1_25_2::IntrusionSensor),
-        V000001(crate::chassis::v1_25_2::PhysicalSecurityIntrusionSensorN1),
+        V012600(crate::chassis::v1_26_0::IntrusionSensor),
+        V000001(crate::chassis::v1_26_0::PhysicalSecurityIntrusionSensorN1),
     }
     impl Default for PhysicalSecurityIntrusionSensor {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1276,12 +1278,12 @@ pub mod v1_25_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PhysicalSecurityIntrusionSensorReArm {
-        V012502(crate::chassis::v1_25_2::IntrusionSensorReArm),
-        V000001(crate::chassis::v1_25_2::PhysicalSecurityIntrusionSensorReArmN1),
+        V012600(crate::chassis::v1_26_0::IntrusionSensorReArm),
+        V000001(crate::chassis::v1_26_0::PhysicalSecurityIntrusionSensorReArmN1),
     }
     impl Default for PhysicalSecurityIntrusionSensorReArm {
         fn default() -> Self {
-            Self::V012502(Default::default())
+            Self::V012600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

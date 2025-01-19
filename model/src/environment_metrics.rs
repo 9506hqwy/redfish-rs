@@ -177,7 +177,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum EnvironmentMetricsPowerLimitWatts {
         V000001(crate::environment_metrics::v1_3_2::EnvironmentMetricsPowerLimitWattsN1),
-        ControlControlSingleExcerpt(crate::control::v1_5_2::ControlSingleExcerpt),
+        ControlControlSingleExcerpt(crate::control::v1_6_0::ControlSingleExcerpt),
     }
     impl Default for EnvironmentMetricsPowerLimitWatts {
         fn default() -> Self {

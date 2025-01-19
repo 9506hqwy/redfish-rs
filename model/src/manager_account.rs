@@ -164,7 +164,7 @@ pub mod v1_12_1 {
     #[serde(untagged)]
     pub enum ManagerAccountMFABypass {
         V000001(crate::manager_account::v1_12_1::ManagerAccountMFABypassN1),
-        AccountServiceMFABypass(crate::account_service::v1_16_0::MFABypass),
+        AccountServiceMFABypass(crate::account_service::v1_17_0::MFABypass),
     }
     impl Default for ManagerAccountMFABypass {
         fn default() -> Self {
@@ -471,7 +471,7 @@ pub mod v1_13_0 {
     #[serde(untagged)]
     pub enum ManagerAccountMFABypass {
         V000001(crate::manager_account::v1_13_0::ManagerAccountMFABypassN1),
-        AccountServiceMFABypass(crate::account_service::v1_16_0::MFABypass),
+        AccountServiceMFABypass(crate::account_service::v1_17_0::MFABypass),
     }
     impl Default for ManagerAccountMFABypass {
         fn default() -> Self {
