@@ -1,4 +1,4 @@
-pub type EthernetInterface = crate::ethernet_interface::v1_12_3::EthernetInterface;
+pub type EthernetInterface = crate::ethernet_interface::v1_12_4::EthernetInterface;
 pub mod v1_12_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -545,12 +545,12 @@ pub mod v1_12_2 {
         XOR,
     }
 }
-pub mod v1_12_3 {
+pub mod v1_12_4 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::ethernet_interface::v1_12_3::OemActions>,
+        pub oem: Option<crate::ethernet_interface::v1_12_4::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum DHCPFallback {
@@ -568,7 +568,7 @@ pub mod v1_12_3 {
         pub dhcp_enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FallbackAddress")]
         pub fallback_address:
-            Option<crate::ethernet_interface::v1_12_3::DHCPv4ConfigurationFallbackAddress>,
+            Option<crate::ethernet_interface::v1_12_4::DHCPv4ConfigurationFallbackAddress>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDNSServers")]
         pub use_dns_servers: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDomainName")]
@@ -583,12 +583,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DHCPv4ConfigurationFallbackAddress {
-        V011203(crate::ethernet_interface::v1_12_3::DHCPFallback),
-        V000001(crate::ethernet_interface::v1_12_3::DHCPv4ConfigurationFallbackAddressN1),
+        V011204(crate::ethernet_interface::v1_12_4::DHCPFallback),
+        V000001(crate::ethernet_interface::v1_12_4::DHCPv4ConfigurationFallbackAddressN1),
     }
     impl Default for DHCPv4ConfigurationFallbackAddress {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -601,7 +601,7 @@ pub mod v1_12_3 {
     pub struct DHCPv6Configuration {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OperatingMode")]
         pub operating_mode:
-            Option<crate::ethernet_interface::v1_12_3::DHCPv6ConfigurationOperatingMode>,
+            Option<crate::ethernet_interface::v1_12_4::DHCPv6ConfigurationOperatingMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDNSServers")]
         pub use_dns_servers: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseDomainName")]
@@ -614,12 +614,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum DHCPv6ConfigurationOperatingMode {
-        V011203(crate::ethernet_interface::v1_12_3::DHCPv6OperatingMode),
-        V000001(crate::ethernet_interface::v1_12_3::DHCPv6ConfigurationOperatingModeN1),
+        V011204(crate::ethernet_interface::v1_12_4::DHCPv6OperatingMode),
+        V000001(crate::ethernet_interface::v1_12_4::DHCPv6ConfigurationOperatingModeN1),
     }
     impl Default for DHCPv6ConfigurationOperatingMode {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -651,21 +651,21 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct EthernetInterface {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::ethernet_interface::v1_12_3::Actions>,
+        pub actions: Option<crate::ethernet_interface::v1_12_4::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AutoNeg")]
         pub auto_neg: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::ethernet_interface::v1_12_3::EthernetInterfaceDescription>,
+        pub description: Option<crate::ethernet_interface::v1_12_4::EthernetInterfaceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCPv4")]
-        pub dhc_pv4: Option<crate::ethernet_interface::v1_12_3::DHCPv4Configuration>,
+        pub dhc_pv4: Option<crate::ethernet_interface::v1_12_4::DHCPv4Configuration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DHCPv6")]
-        pub dhc_pv6: Option<crate::ethernet_interface::v1_12_3::DHCPv6Configuration>,
+        pub dhc_pv6: Option<crate::ethernet_interface::v1_12_4::DHCPv6Configuration>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EthernetInterfaceType"
         )]
         pub ethernet_interface_type:
-            Option<crate::ethernet_interface::v1_12_3::EthernetInterfaceEthernetInterfaceType>,
+            Option<crate::ethernet_interface::v1_12_4::EthernetInterfaceEthernetInterfaceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FQDN")]
         pub fqdn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FullDuplex")]
@@ -683,13 +683,13 @@ pub mod v1_12_3 {
             rename = "IPv4StaticAddresses"
         )]
         pub ipv4_static_addresses:
-            Option<Vec<crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv4StaticAddresses>>,
+            Option<Vec<crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv4StaticAddresses>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "IPv6AddressPolicyTable"
         )]
         pub ipv6_address_policy_table: Option<
-            Vec<crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv6AddressPolicyTable>,
+            Vec<crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv6AddressPolicyTable>,
         >,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPv6Addresses")]
         pub ipv6_addresses: Option<Vec<crate::ip_addresses::IPv6Address>>,
@@ -702,20 +702,20 @@ pub mod v1_12_3 {
             rename = "IPv6StaticAddresses"
         )]
         pub ipv6_static_addresses:
-            Option<Vec<crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv6StaticAddresses>>,
+            Option<Vec<crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv6StaticAddresses>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "IPv6StaticDefaultGateways"
         )]
         pub ipv6_static_default_gateways: Option<
-            Vec<crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv6StaticDefaultGateways>,
+            Vec<crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv6StaticDefaultGateways>,
         >,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LinkStatus")]
-        pub link_status: Option<crate::ethernet_interface::v1_12_3::EthernetInterfaceLinkStatus>,
+        pub link_status: Option<crate::ethernet_interface::v1_12_4::EthernetInterfaceLinkStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::ethernet_interface::v1_12_3::Links>,
+        pub links: Option<crate::ethernet_interface::v1_12_4::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MACAddress")]
-        pub mac_address: Option<crate::ethernet_interface::v1_12_3::EthernetInterfaceMACAddress>,
+        pub mac_address: Option<crate::ethernet_interface::v1_12_4::EthernetInterfaceMACAddress>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxIPv6StaticAddresses"
@@ -742,10 +742,10 @@ pub mod v1_12_3 {
             rename = "PermanentMACAddress"
         )]
         pub permanent_mac_address:
-            Option<crate::ethernet_interface::v1_12_3::EthernetInterfacePermanentMACAddress>,
+            Option<crate::ethernet_interface::v1_12_4::EthernetInterfacePermanentMACAddress>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RoutingScope")]
         pub routing_scope:
-            Option<crate::ethernet_interface::v1_12_3::EthernetInterfaceRoutingScope>,
+            Option<crate::ethernet_interface::v1_12_4::EthernetInterfaceRoutingScope>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedMbps")]
         pub speed_mbps: Option<i64>,
         #[serde(
@@ -753,13 +753,13 @@ pub mod v1_12_3 {
             rename = "StatelessAddressAutoConfig"
         )]
         pub stateless_address_auto_config:
-            Option<crate::ethernet_interface::v1_12_3::StatelessAddressAutoConfiguration>,
+            Option<crate::ethernet_interface::v1_12_4::StatelessAddressAutoConfiguration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StaticNameServers")]
         pub static_name_servers: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TeamMode")]
-        pub team_mode: Option<crate::ethernet_interface::v1_12_3::EthernetInterfaceTeamMode>,
+        pub team_mode: Option<crate::ethernet_interface::v1_12_4::EthernetInterfaceTeamMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UefiDevicePath")]
         pub uefi_device_path: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VLAN")]
@@ -770,7 +770,7 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceDescription {
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceDescriptionN1),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for EthernetInterfaceDescription {
@@ -787,12 +787,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceEthernetInterfaceType {
-        V011203(crate::ethernet_interface::v1_12_3::EthernetDeviceType),
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceEthernetInterfaceTypeN1),
+        V011204(crate::ethernet_interface::v1_12_4::EthernetDeviceType),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceEthernetInterfaceTypeN1),
     }
     impl Default for EthernetInterfaceEthernetInterfaceType {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -804,7 +804,7 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceIPv4StaticAddresses {
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv4StaticAddressesN1),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv4StaticAddressesN1),
         IPAddressesIPv4Address(crate::ip_addresses::v1_1_5::IPv4Address),
     }
     impl Default for EthernetInterfaceIPv4StaticAddresses {
@@ -821,12 +821,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceIPv6AddressPolicyTable {
-        V011203(crate::ethernet_interface::v1_12_3::IPv6AddressPolicyEntry),
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv6AddressPolicyTableN1),
+        V011204(crate::ethernet_interface::v1_12_4::IPv6AddressPolicyEntry),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv6AddressPolicyTableN1),
     }
     impl Default for EthernetInterfaceIPv6AddressPolicyTable {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -838,7 +838,7 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceIPv6StaticAddresses {
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv6StaticAddressesN1),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv6StaticAddressesN1),
         IPAddressesIPv6StaticAddress(crate::ip_addresses::v1_1_5::IPv6StaticAddress),
     }
     impl Default for EthernetInterfaceIPv6StaticAddresses {
@@ -855,7 +855,7 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceIPv6StaticDefaultGateways {
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceIPv6StaticDefaultGatewaysN1),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceIPv6StaticDefaultGatewaysN1),
         IPAddressesIPv6GatewayStaticAddress(crate::ip_addresses::v1_1_5::IPv6GatewayStaticAddress),
     }
     impl Default for EthernetInterfaceIPv6StaticDefaultGateways {
@@ -872,12 +872,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceLinkStatus {
-        V011203(crate::ethernet_interface::v1_12_3::LinkStatus),
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceLinkStatusN1),
+        V011204(crate::ethernet_interface::v1_12_4::LinkStatus),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceLinkStatusN1),
     }
     impl Default for EthernetInterfaceLinkStatus {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -889,12 +889,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceMACAddress {
-        V011203(String),
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceMACAddressN1),
+        V011204(String),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceMACAddressN1),
     }
     impl Default for EthernetInterfaceMACAddress {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -906,12 +906,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfacePermanentMACAddress {
-        V011203(String),
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfacePermanentMACAddressN1),
+        V011204(String),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfacePermanentMACAddressN1),
     }
     impl Default for EthernetInterfacePermanentMACAddress {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -923,12 +923,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceRoutingScope {
-        V011203(crate::ethernet_interface::v1_12_3::RoutingScope),
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceRoutingScopeN1),
+        V011204(crate::ethernet_interface::v1_12_4::RoutingScope),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceRoutingScopeN1),
     }
     impl Default for EthernetInterfaceRoutingScope {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -940,12 +940,12 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetInterfaceTeamMode {
-        V011203(crate::ethernet_interface::v1_12_3::TeamMode),
-        V000001(crate::ethernet_interface::v1_12_3::EthernetInterfaceTeamModeN1),
+        V011204(crate::ethernet_interface::v1_12_4::TeamMode),
+        V000001(crate::ethernet_interface::v1_12_4::EthernetInterfaceTeamModeN1),
     }
     impl Default for EthernetInterfaceTeamMode {
         fn default() -> Self {
-            Self::V011203(Default::default())
+            Self::V011204(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1001,7 +1001,7 @@ pub mod v1_12_3 {
             rename = "NetworkDeviceFunction"
         )]
         pub network_device_function:
-            Option<crate::ethernet_interface::v1_12_3::LinksNetworkDeviceFunction>,
+            Option<crate::ethernet_interface::v1_12_4::LinksNetworkDeviceFunction>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "NetworkDeviceFunctions"
@@ -1029,7 +1029,7 @@ pub mod v1_12_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksNetworkDeviceFunction {
-        V000001(crate::ethernet_interface::v1_12_3::LinksNetworkDeviceFunctionN1),
+        V000001(crate::ethernet_interface::v1_12_4::LinksNetworkDeviceFunctionN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksNetworkDeviceFunction {

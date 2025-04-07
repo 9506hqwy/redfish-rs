@@ -35,7 +35,7 @@ pub enum BootSource {
     #[serde(rename = "Utilities")]
     Utilities,
 }
-pub type ComputerSystem = crate::computer_system::v1_23_1::ComputerSystem;
+pub type ComputerSystem = crate::computer_system::v1_24_0::ComputerSystem;
 pub mod v1_22_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1406,7 +1406,7 @@ pub mod v1_22_2 {
         SMI,
     }
 }
-pub mod v1_23_1 {
+pub mod v1_24_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -1415,31 +1415,31 @@ pub mod v1_23_1 {
             rename = "#ComputerSystem.AddResourceBlock"
         )]
         pub computer_system_add_resource_block:
-            Option<crate::computer_system::v1_23_1::AddResourceBlock>,
+            Option<crate::computer_system::v1_24_0::AddResourceBlock>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComputerSystem.Decommission"
         )]
-        pub computer_system_decommission: Option<crate::computer_system::v1_23_1::Decommission>,
+        pub computer_system_decommission: Option<crate::computer_system::v1_24_0::Decommission>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComputerSystem.RemoveResourceBlock"
         )]
         pub computer_system_remove_resource_block:
-            Option<crate::computer_system::v1_23_1::RemoveResourceBlock>,
+            Option<crate::computer_system::v1_24_0::RemoveResourceBlock>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComputerSystem.Reset"
         )]
-        pub computer_system_reset: Option<crate::computer_system::v1_23_1::Reset>,
+        pub computer_system_reset: Option<crate::computer_system::v1_24_0::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ComputerSystem.SetDefaultBootOrder"
         )]
         pub computer_system_set_default_boot_order:
-            Option<crate::computer_system::v1_23_1::SetDefaultBootOrder>,
+            Option<crate::computer_system::v1_24_0::SetDefaultBootOrder>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::computer_system::v1_23_1::OemActions>,
+        pub oem: Option<crate::computer_system::v1_24_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AddResourceBlock {
@@ -1470,7 +1470,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Boot {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AliasBootOrder")]
-        pub alias_boot_order: Option<Vec<crate::computer_system::v1_23_1::BootAliasBootOrder>>,
+        pub alias_boot_order: Option<Vec<crate::computer_system::v1_24_0::BootAliasBootOrder>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AutomaticRetryAttempts"
@@ -1481,7 +1481,7 @@ pub mod v1_23_1 {
             rename = "AutomaticRetryConfig"
         )]
         pub automatic_retry_config:
-            Option<crate::computer_system::v1_23_1::BootAutomaticRetryConfig>,
+            Option<crate::computer_system::v1_24_0::BootAutomaticRetryConfig>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootNext")]
         pub boot_next: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootOptions")]
@@ -1493,25 +1493,25 @@ pub mod v1_23_1 {
             rename = "BootOrderPropertySelection"
         )]
         pub boot_order_property_selection:
-            Option<crate::computer_system::v1_23_1::BootBootOrderPropertySelection>,
+            Option<crate::computer_system::v1_24_0::BootBootOrderPropertySelection>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "BootSourceOverrideEnabled"
         )]
         pub boot_source_override_enabled:
-            Option<crate::computer_system::v1_23_1::BootBootSourceOverrideEnabled>,
+            Option<crate::computer_system::v1_24_0::BootBootSourceOverrideEnabled>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "BootSourceOverrideMode"
         )]
         pub boot_source_override_mode:
-            Option<crate::computer_system::v1_23_1::BootBootSourceOverrideMode>,
+            Option<crate::computer_system::v1_24_0::BootBootSourceOverrideMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "BootSourceOverrideTarget"
         )]
         pub boot_source_override_target:
-            Option<crate::computer_system::v1_23_1::BootBootSourceOverrideTarget>,
+            Option<crate::computer_system::v1_24_0::BootBootSourceOverrideTarget>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HttpBootUri")]
@@ -1522,13 +1522,13 @@ pub mod v1_23_1 {
         )]
         pub remaining_automatic_retry_attempts: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StopBootOnFault")]
-        pub stop_boot_on_fault: Option<crate::computer_system::v1_23_1::BootStopBootOnFault>,
+        pub stop_boot_on_fault: Option<crate::computer_system::v1_24_0::BootStopBootOnFault>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "TrustedModuleRequiredToBoot"
         )]
         pub trusted_module_required_to_boot:
-            Option<crate::computer_system::v1_23_1::BootTrustedModuleRequiredToBoot>,
+            Option<crate::computer_system::v1_24_0::BootTrustedModuleRequiredToBoot>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UefiTargetBootSourceOverride"
@@ -1538,7 +1538,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootAliasBootOrder {
-        V000001(crate::computer_system::v1_23_1::BootAliasBootOrderN1),
+        V000001(crate::computer_system::v1_24_0::BootAliasBootOrderN1),
         ComputerSystemBootSource(crate::computer_system::BootSource),
     }
     impl Default for BootAliasBootOrder {
@@ -1555,12 +1555,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootAutomaticRetryConfig {
-        V012301(crate::computer_system::v1_23_1::AutomaticRetryConfig),
-        V000001(crate::computer_system::v1_23_1::BootAutomaticRetryConfigN1),
+        V012400(crate::computer_system::v1_24_0::AutomaticRetryConfig),
+        V000001(crate::computer_system::v1_24_0::BootAutomaticRetryConfigN1),
     }
     impl Default for BootAutomaticRetryConfig {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1572,12 +1572,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootBootOrderPropertySelection {
-        V012301(crate::computer_system::v1_23_1::BootOrderTypes),
-        V000001(crate::computer_system::v1_23_1::BootBootOrderPropertySelectionN1),
+        V012400(crate::computer_system::v1_24_0::BootOrderTypes),
+        V000001(crate::computer_system::v1_24_0::BootBootOrderPropertySelectionN1),
     }
     impl Default for BootBootOrderPropertySelection {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1589,12 +1589,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootBootSourceOverrideEnabled {
-        V012301(crate::computer_system::v1_23_1::BootSourceOverrideEnabled),
-        V000001(crate::computer_system::v1_23_1::BootBootSourceOverrideEnabledN1),
+        V012400(crate::computer_system::v1_24_0::BootSourceOverrideEnabled),
+        V000001(crate::computer_system::v1_24_0::BootBootSourceOverrideEnabledN1),
     }
     impl Default for BootBootSourceOverrideEnabled {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1606,12 +1606,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootBootSourceOverrideMode {
-        V012301(crate::computer_system::v1_23_1::BootSourceOverrideMode),
-        V000001(crate::computer_system::v1_23_1::BootBootSourceOverrideModeN1),
+        V012400(crate::computer_system::v1_24_0::BootSourceOverrideMode),
+        V000001(crate::computer_system::v1_24_0::BootBootSourceOverrideModeN1),
     }
     impl Default for BootBootSourceOverrideMode {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1623,7 +1623,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootBootSourceOverrideTarget {
-        V000001(crate::computer_system::v1_23_1::BootBootSourceOverrideTargetN1),
+        V000001(crate::computer_system::v1_24_0::BootBootSourceOverrideTargetN1),
         ComputerSystemBootSource(crate::computer_system::BootSource),
     }
     impl Default for BootBootSourceOverrideTarget {
@@ -1653,7 +1653,7 @@ pub mod v1_23_1 {
         )]
         pub last_boot_time_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastState")]
-        pub last_state: Option<crate::computer_system::v1_23_1::BootProgressLastState>,
+        pub last_state: Option<crate::computer_system::v1_24_0::BootProgressLastState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastStateTime")]
         pub last_state_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -1664,12 +1664,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootProgressLastState {
-        V012301(crate::computer_system::v1_23_1::BootProgressTypes),
-        V000001(crate::computer_system::v1_23_1::BootProgressLastStateN1),
+        V012400(crate::computer_system::v1_24_0::BootProgressTypes),
+        V000001(crate::computer_system::v1_24_0::BootProgressLastStateN1),
     }
     impl Default for BootProgressLastState {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1725,12 +1725,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootStopBootOnFault {
-        V012301(crate::computer_system::v1_23_1::StopBootOnFault),
-        V000001(crate::computer_system::v1_23_1::BootStopBootOnFaultN1),
+        V012400(crate::computer_system::v1_24_0::StopBootOnFault),
+        V000001(crate::computer_system::v1_24_0::BootStopBootOnFaultN1),
     }
     impl Default for BootStopBootOnFault {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1742,12 +1742,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum BootTrustedModuleRequiredToBoot {
-        V012301(crate::computer_system::v1_23_1::TrustedModuleRequiredToBoot),
-        V000001(crate::computer_system::v1_23_1::BootTrustedModuleRequiredToBootN1),
+        V012400(crate::computer_system::v1_24_0::TrustedModuleRequiredToBoot),
+        V000001(crate::computer_system::v1_24_0::BootTrustedModuleRequiredToBootN1),
     }
     impl Default for BootTrustedModuleRequiredToBoot {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1759,7 +1759,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Composition {
         #[serde(skip_serializing_if = "Option::is_none", rename = "UseCases")]
-        pub use_cases: Option<Vec<crate::computer_system::v1_23_1::CompositionUseCases>>,
+        pub use_cases: Option<Vec<crate::computer_system::v1_24_0::CompositionUseCases>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CompositionUseCase {
@@ -1772,12 +1772,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CompositionUseCases {
-        V012301(crate::computer_system::v1_23_1::CompositionUseCase),
-        V000001(crate::computer_system::v1_23_1::CompositionUseCasesN1),
+        V012400(crate::computer_system::v1_24_0::CompositionUseCase),
+        V000001(crate::computer_system::v1_24_0::CompositionUseCasesN1),
     }
     impl Default for CompositionUseCases {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1789,7 +1789,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ComputerSystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::computer_system::v1_23_1::Actions>,
+        pub actions: Option<crate::computer_system::v1_24_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Bios")]
@@ -1797,21 +1797,21 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BiosVersion")]
         pub bios_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Boot")]
-        pub boot: Option<crate::computer_system::v1_23_1::Boot>,
+        pub boot: Option<crate::computer_system::v1_24_0::Boot>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootProgress")]
-        pub boot_progress: Option<crate::computer_system::v1_23_1::ComputerSystemBootProgress>,
+        pub boot_progress: Option<crate::computer_system::v1_24_0::ComputerSystemBootProgress>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Composition")]
-        pub composition: Option<crate::computer_system::v1_23_1::ComputerSystemComposition>,
+        pub composition: Option<crate::computer_system::v1_24_0::ComputerSystemComposition>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::computer_system::v1_23_1::ComputerSystemDescription>,
+        pub description: Option<crate::computer_system::v1_24_0::ComputerSystemDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EthernetInterfaces")]
         pub ethernet_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FabricAdapters")]
         pub fabric_adapters: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GraphicalConsole")]
-        pub graphical_console: Option<crate::computer_system::v1_23_1::HostGraphicalConsole>,
+        pub graphical_console: Option<crate::computer_system::v1_24_0::HostGraphicalConsole>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "GraphicsControllers"
@@ -1820,25 +1820,25 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostName")]
         pub host_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostWatchdogTimer")]
-        pub host_watchdog_timer: Option<crate::computer_system::v1_23_1::WatchdogTimer>,
+        pub host_watchdog_timer: Option<crate::computer_system::v1_24_0::WatchdogTimer>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostedServices")]
-        pub hosted_services: Option<crate::computer_system::v1_23_1::HostedServices>,
+        pub hosted_services: Option<crate::computer_system::v1_24_0::HostedServices>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostingRoles")]
-        pub hosting_roles: Option<Vec<crate::computer_system::v1_23_1::HostingRole>>,
+        pub hosting_roles: Option<Vec<crate::computer_system::v1_24_0::HostingRole>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IdlePowerSaver")]
-        pub idle_power_saver: Option<crate::computer_system::v1_23_1::ComputerSystemIdlePowerSaver>,
+        pub idle_power_saver: Option<crate::computer_system::v1_24_0::ComputerSystemIdlePowerSaver>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IndicatorLED")]
-        pub indicator_led: Option<crate::computer_system::v1_23_1::ComputerSystemIndicatorLED>,
+        pub indicator_led: Option<crate::computer_system::v1_24_0::ComputerSystemIndicatorLED>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyManagement")]
-        pub key_management: Option<crate::computer_system::v1_23_1::ComputerSystemKeyManagement>,
+        pub key_management: Option<crate::computer_system::v1_24_0::ComputerSystemKeyManagement>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastResetCause")]
-        pub last_reset_cause: Option<crate::computer_system::v1_23_1::LastResetCauses>,
+        pub last_reset_cause: Option<crate::computer_system::v1_24_0::LastResetCauses>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastResetTime")]
         pub last_reset_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::computer_system::v1_23_1::Links>,
+        pub links: Option<crate::computer_system::v1_24_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -1857,7 +1857,7 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryDomains")]
         pub memory_domains: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemorySummary")]
-        pub memory_summary: Option<crate::computer_system::v1_23_1::MemorySummary>,
+        pub memory_summary: Option<crate::computer_system::v1_24_0::MemorySummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(rename = "Name")]
@@ -1898,7 +1898,7 @@ pub mod v1_23_1 {
         )]
         pub power_cycle_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerMode")]
-        pub power_mode: Option<crate::computer_system::v1_23_1::ComputerSystemPowerMode>,
+        pub power_mode: Option<crate::computer_system::v1_24_0::ComputerSystemPowerMode>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "PowerOffDelaySeconds"
@@ -1910,11 +1910,11 @@ pub mod v1_23_1 {
         )]
         pub power_on_delay_seconds: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerRestorePolicy")]
-        pub power_restore_policy: Option<crate::computer_system::v1_23_1::PowerRestorePolicyTypes>,
+        pub power_restore_policy: Option<crate::computer_system::v1_24_0::PowerRestorePolicyTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<crate::computer_system::v1_23_1::ComputerSystemPowerState>,
+        pub power_state: Option<crate::computer_system::v1_24_0::ComputerSystemPowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorSummary")]
-        pub processor_summary: Option<crate::computer_system::v1_23_1::ProcessorSummary>,
+        pub processor_summary: Option<crate::computer_system::v1_24_0::ProcessorSummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Processors")]
         pub processors: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
@@ -1927,7 +1927,7 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecureBoot")]
         pub secure_boot: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialConsole")]
-        pub serial_console: Option<crate::computer_system::v1_23_1::HostSerialConsole>,
+        pub serial_console: Option<crate::computer_system::v1_24_0::HostSerialConsole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
         pub serial_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SimpleStorage")]
@@ -1941,27 +1941,27 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SubModel")]
         pub sub_model: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemType")]
-        pub system_type: Option<crate::computer_system::v1_23_1::SystemType>,
+        pub system_type: Option<crate::computer_system::v1_24_0::SystemType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TrustedModules")]
-        pub trusted_modules: Option<Vec<crate::computer_system::v1_23_1::TrustedModules>>,
+        pub trusted_modules: Option<Vec<crate::computer_system::v1_24_0::TrustedModules>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "USBControllers")]
         pub usb_controllers: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::computer_system::v1_23_1::ComputerSystemUUID>,
+        pub uuid: Option<crate::computer_system::v1_24_0::ComputerSystemUUID>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMedia")]
         pub virtual_media: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMediaConfig")]
-        pub virtual_media_config: Option<crate::computer_system::v1_23_1::VirtualMediaConfig>,
+        pub virtual_media_config: Option<crate::computer_system::v1_24_0::VirtualMediaConfig>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemBootProgress {
-        V012301(crate::computer_system::v1_23_1::BootProgress),
-        V000001(crate::computer_system::v1_23_1::ComputerSystemBootProgressN1),
+        V012400(crate::computer_system::v1_24_0::BootProgress),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemBootProgressN1),
     }
     impl Default for ComputerSystemBootProgress {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1973,12 +1973,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemComposition {
-        V012301(crate::computer_system::v1_23_1::Composition),
-        V000001(crate::computer_system::v1_23_1::ComputerSystemCompositionN1),
+        V012400(crate::computer_system::v1_24_0::Composition),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemCompositionN1),
     }
     impl Default for ComputerSystemComposition {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1990,7 +1990,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemDescription {
-        V000001(crate::computer_system::v1_23_1::ComputerSystemDescriptionN1),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ComputerSystemDescription {
@@ -2007,12 +2007,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemIdlePowerSaver {
-        V012301(crate::computer_system::v1_23_1::IdlePowerSaver),
-        V000001(crate::computer_system::v1_23_1::ComputerSystemIdlePowerSaverN1),
+        V012400(crate::computer_system::v1_24_0::IdlePowerSaver),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemIdlePowerSaverN1),
     }
     impl Default for ComputerSystemIdlePowerSaver {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2024,12 +2024,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemIndicatorLED {
-        V012301(crate::computer_system::v1_23_1::IndicatorLED),
-        V000001(crate::computer_system::v1_23_1::ComputerSystemIndicatorLEDN1),
+        V012400(crate::computer_system::v1_24_0::IndicatorLED),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemIndicatorLEDN1),
     }
     impl Default for ComputerSystemIndicatorLED {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2041,12 +2041,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemKeyManagement {
-        V012301(crate::computer_system::v1_23_1::KeyManagement),
-        V000001(crate::computer_system::v1_23_1::ComputerSystemKeyManagementN1),
+        V012400(crate::computer_system::v1_24_0::KeyManagement),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemKeyManagementN1),
     }
     impl Default for ComputerSystemKeyManagement {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2058,12 +2058,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemPowerMode {
-        V012301(crate::computer_system::v1_23_1::PowerMode),
-        V000001(crate::computer_system::v1_23_1::ComputerSystemPowerModeN1),
+        V012400(crate::computer_system::v1_24_0::PowerMode),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemPowerModeN1),
     }
     impl Default for ComputerSystemPowerMode {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2075,7 +2075,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemPowerState {
-        V000001(crate::computer_system::v1_23_1::ComputerSystemPowerStateN1),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemPowerStateN1),
         ResourcePowerState(crate::resource::PowerState),
     }
     impl Default for ComputerSystemPowerState {
@@ -2092,7 +2092,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ComputerSystemUUID {
-        V000001(crate::computer_system::v1_23_1::ComputerSystemUUIDN1),
+        V000001(crate::computer_system::v1_24_0::ComputerSystemUUIDN1),
         ResourceUUID(String),
     }
     impl Default for ComputerSystemUUID {
@@ -2118,7 +2118,7 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ComputerSystemETag")]
         pub computer_system_etag: Option<String>,
         #[serde(rename = "DecommissionTypes")]
-        pub decommission_types: Vec<crate::computer_system::v1_23_1::DecommissionType>,
+        pub decommission_types: Vec<crate::computer_system::v1_24_0::DecommissionType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "OEMDecommissionTypes"
@@ -2142,6 +2142,8 @@ pub mod v1_23_1 {
         NetworkConfig,
         #[serde(rename = "StorageConfig")]
         StorageConfig,
+        #[serde(rename = "TPM")]
+        TPM,
         #[serde(rename = "UserData")]
         UserData,
     }
@@ -2160,7 +2162,7 @@ pub mod v1_23_1 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::computer_system::v1_23_1::GraphicalConnectTypesSupported>>,
+            Option<Vec<crate::computer_system::v1_24_0::GraphicalConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -2174,16 +2176,16 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HostSerialConsole {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPMI")]
-        pub ipmi: Option<crate::computer_system::v1_23_1::SerialConsoleProtocol>,
+        pub ipmi: Option<crate::computer_system::v1_24_0::SerialConsoleProtocol>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
         )]
         pub max_concurrent_sessions: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SSH")]
-        pub ssh: Option<crate::computer_system::v1_23_1::SerialConsoleProtocol>,
+        pub ssh: Option<crate::computer_system::v1_24_0::SerialConsoleProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Telnet")]
-        pub telnet: Option<crate::computer_system::v1_23_1::SerialConsoleProtocol>,
+        pub telnet: Option<crate::computer_system::v1_24_0::SerialConsoleProtocol>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HostedServices {
@@ -2284,7 +2286,7 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheDuration")]
         pub cache_duration: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CachePolicy")]
-        pub cache_policy: Option<crate::computer_system::v1_23_1::KMIPServerCachePolicy>,
+        pub cache_policy: Option<crate::computer_system::v1_24_0::KMIPServerCachePolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Password")]
         pub password: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Port")]
@@ -2295,12 +2297,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum KMIPServerCachePolicy {
-        V012301(crate::computer_system::v1_23_1::KMIPCachePolicy),
-        V000001(crate::computer_system::v1_23_1::KMIPServerCachePolicyN1),
+        V012400(crate::computer_system::v1_24_0::KMIPCachePolicy),
+        V000001(crate::computer_system::v1_24_0::KMIPServerCachePolicyN1),
     }
     impl Default for KMIPServerCachePolicy {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2314,17 +2316,17 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "KMIPCertificates")]
         pub kmip_certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KMIPServers")]
-        pub kmip_servers: Option<Vec<crate::computer_system::v1_23_1::KeyManagementKMIPServers>>,
+        pub kmip_servers: Option<Vec<crate::computer_system::v1_24_0::KeyManagementKMIPServers>>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum KeyManagementKMIPServers {
-        V012301(crate::computer_system::v1_23_1::KMIPServer),
-        V000001(crate::computer_system::v1_23_1::KeyManagementKMIPServersN1),
+        V012400(crate::computer_system::v1_24_0::KMIPServer),
+        V000001(crate::computer_system::v1_24_0::KeyManagementKMIPServersN1),
     }
     impl Default for KeyManagementKMIPServers {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2395,7 +2397,7 @@ pub mod v1_23_1 {
             rename = "HostingComputerSystem"
         )]
         pub hosting_computer_system:
-            Option<crate::computer_system::v1_23_1::LinksHostingComputerSystem>,
+            Option<crate::computer_system::v1_24_0::LinksHostingComputerSystem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagedBy")]
         pub managed_by: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -2457,7 +2459,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksHostingComputerSystem {
-        V000001(crate::computer_system::v1_23_1::LinksHostingComputerSystemN1),
+        V000001(crate::computer_system::v1_24_0::LinksHostingComputerSystemN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksHostingComputerSystem {
@@ -2486,7 +2488,7 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MemorySummary {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryMirroring")]
-        pub memory_mirroring: Option<crate::computer_system::v1_23_1::MemorySummaryMemoryMirroring>,
+        pub memory_mirroring: Option<crate::computer_system::v1_24_0::MemorySummaryMemoryMirroring>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
         pub metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -2505,12 +2507,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum MemorySummaryMemoryMirroring {
-        V012301(crate::computer_system::v1_23_1::MemoryMirroring),
-        V000001(crate::computer_system::v1_23_1::MemorySummaryMemoryMirroringN1),
+        V012400(crate::computer_system::v1_24_0::MemoryMirroring),
+        V000001(crate::computer_system::v1_24_0::MemorySummaryMemoryMirroringN1),
     }
     impl Default for MemorySummaryMemoryMirroring {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2671,13 +2673,13 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion2")]
         pub firmware_version2: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceType")]
-        pub interface_type: Option<crate::computer_system::v1_23_1::TrustedModulesInterfaceType>,
+        pub interface_type: Option<crate::computer_system::v1_24_0::TrustedModulesInterfaceType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "InterfaceTypeSelection"
         )]
         pub interface_type_selection:
-            Option<crate::computer_system::v1_23_1::TrustedModulesInterfaceTypeSelection>,
+            Option<crate::computer_system::v1_24_0::TrustedModulesInterfaceTypeSelection>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
@@ -2686,12 +2688,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum TrustedModulesInterfaceType {
-        V012301(crate::computer_system::v1_23_1::InterfaceType),
-        V000001(crate::computer_system::v1_23_1::TrustedModulesInterfaceTypeN1),
+        V012400(crate::computer_system::v1_24_0::InterfaceType),
+        V000001(crate::computer_system::v1_24_0::TrustedModulesInterfaceTypeN1),
     }
     impl Default for TrustedModulesInterfaceType {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2703,12 +2705,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum TrustedModulesInterfaceTypeSelection {
-        V012301(crate::computer_system::v1_23_1::InterfaceTypeSelection),
-        V000001(crate::computer_system::v1_23_1::TrustedModulesInterfaceTypeSelectionN1),
+        V012400(crate::computer_system::v1_24_0::InterfaceTypeSelection),
+        V000001(crate::computer_system::v1_24_0::TrustedModulesInterfaceTypeSelectionN1),
     }
     impl Default for TrustedModulesInterfaceTypeSelection {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2747,19 +2749,19 @@ pub mod v1_23_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(rename = "TimeoutAction")]
-        pub timeout_action: crate::computer_system::v1_23_1::WatchdogTimerTimeoutAction,
+        pub timeout_action: crate::computer_system::v1_24_0::WatchdogTimerTimeoutAction,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WarningAction")]
-        pub warning_action: Option<crate::computer_system::v1_23_1::WatchdogTimerWarningAction>,
+        pub warning_action: Option<crate::computer_system::v1_24_0::WatchdogTimerWarningAction>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum WatchdogTimerTimeoutAction {
-        V012301(crate::computer_system::v1_23_1::WatchdogTimeoutActions),
-        V000001(crate::computer_system::v1_23_1::WatchdogTimerTimeoutActionN1),
+        V012400(crate::computer_system::v1_24_0::WatchdogTimeoutActions),
+        V000001(crate::computer_system::v1_24_0::WatchdogTimerTimeoutActionN1),
     }
     impl Default for WatchdogTimerTimeoutAction {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -2771,12 +2773,12 @@ pub mod v1_23_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum WatchdogTimerWarningAction {
-        V012301(crate::computer_system::v1_23_1::WatchdogWarningActions),
-        V000001(crate::computer_system::v1_23_1::WatchdogTimerWarningActionN1),
+        V012400(crate::computer_system::v1_24_0::WatchdogWarningActions),
+        V000001(crate::computer_system::v1_24_0::WatchdogTimerWarningActionN1),
     }
     impl Default for WatchdogTimerWarningAction {
         fn default() -> Self {
-            Self::V012301(Default::default())
+            Self::V012400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
