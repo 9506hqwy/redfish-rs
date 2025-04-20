@@ -1,18 +1,18 @@
 use axum::{
     async_trait, extract,
-    http::header::{HeaderMap, HeaderValue, AUTHORIZATION, CONTENT_TYPE, LOCATION},
+    http::header::{AUTHORIZATION, CONTENT_TYPE, HeaderMap, HeaderValue, LOCATION},
     http::status::StatusCode,
     middleware,
     response::IntoResponse,
 };
 use base64::Engine;
 use redfish_model::{
+    RedfishError,
     odata_v4::IdRef,
     service_root::v1_17_0::{Links, ServiceRoot},
     session::v1_7_2::Session,
     session_collection::SessionCollection,
     session_service::v1_1_9::SessionService,
-    RedfishError,
 };
 use redfish_service::service::{
     Service as SerticeTrait, SessionService as SessionServiceTrait,

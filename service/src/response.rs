@@ -71,7 +71,9 @@ impl Response<RedfishError> {
         let body = RedfishError {
             error: RedfishErrorError {
                 code: "Base.1.17.InvalidJSON".to_string(),
-                message: format!("The request body submitted is invalid JSON starting at line {line} and could not be parsed by the receiving service."),
+                message: format!(
+                    "The request body submitted is invalid JSON starting at line {line} and could not be parsed by the receiving service."
+                ),
                 message_extended_info: None,
             },
         };
@@ -151,7 +153,9 @@ impl Response<RedfishError> {
         let body = RedfishError {
             error: RedfishErrorError {
                 code: "Base.1.17.ResourceAlreadyExists".to_string(),
-                message: format!("The requested resource of type {ty} with the property {name} with the value {value} already exists."),
+                message: format!(
+                    "The requested resource of type {ty} with the property {name} with the value {value} already exists."
+                ),
                 message_extended_info: None,
             },
         };

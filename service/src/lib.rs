@@ -7,7 +7,7 @@ use crate::response::Response;
 use crate::service::{
     Service, SessionService, SessionServiceSessions, SessionServiceSessionsSessionId,
 };
-use axum::{extract, http::header::HeaderMap, routing, Router};
+use axum::{Router, extract, http::header::HeaderMap, routing};
 use std::collections::HashMap;
 use std::sync::Arc;
 
