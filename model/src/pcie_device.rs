@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
-pub type PCIeDevice = crate::pcie_device::v1_18_0::PCIeDevice;
-pub type PCIeErrors = crate::pcie_device::v1_18_0::PCIeErrors;
-pub type PCIeInterface = crate::pcie_device::v1_18_0::PCIeInterface;
+pub type PCIeDevice = crate::pcie_device::v1_19_0::PCIeDevice;
+pub type PCIeErrors = crate::pcie_device::v1_19_0::PCIeErrors;
+pub type PCIeInterface = crate::pcie_device::v1_19_0::PCIeInterface;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum PCIeTypes {
     #[default]
@@ -617,12 +617,12 @@ pub mod v1_15_0 {
         U2,
     }
 }
-pub mod v1_18_0 {
+pub mod v1_19_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::pcie_device::v1_18_0::OemActions>,
+        pub oem: Option<crate::pcie_device::v1_19_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CXLDevice {
@@ -631,17 +631,17 @@ pub mod v1_18_0 {
             rename = "CapableProtocolVersions"
         )]
         pub capable_protocol_versions:
-            Option<Vec<crate::pcie_device::v1_18_0::CXLDeviceCapableProtocolVersions>>,
+            Option<Vec<crate::pcie_device::v1_19_0::CXLDeviceCapableProtocolVersions>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CurrentProtocolVersion"
         )]
         pub current_protocol_version:
-            Option<crate::pcie_device::v1_18_0::CXLDeviceCurrentProtocolVersion>,
+            Option<crate::pcie_device::v1_19_0::CXLDeviceCurrentProtocolVersion>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceType")]
-        pub device_type: Option<crate::pcie_device::v1_18_0::CXLDeviceDeviceType>,
+        pub device_type: Option<crate::pcie_device::v1_19_0::CXLDeviceDeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DynamicCapacity")]
-        pub dynamic_capacity: Option<crate::pcie_device::v1_18_0::CXLDeviceDynamicCapacity>,
+        pub dynamic_capacity: Option<crate::pcie_device::v1_19_0::CXLDeviceDynamicCapacity>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EgressPortCongestionSupport"
@@ -673,12 +673,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDeviceCapableProtocolVersions {
-        V011800(crate::pcie_device::v1_18_0::CXLProtocolVersion),
-        V000001(crate::pcie_device::v1_18_0::CXLDeviceCapableProtocolVersionsN1),
+        V011900(crate::pcie_device::v1_19_0::CXLProtocolVersion),
+        V000001(crate::pcie_device::v1_19_0::CXLDeviceCapableProtocolVersionsN1),
     }
     impl Default for CXLDeviceCapableProtocolVersions {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -690,12 +690,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDeviceCurrentProtocolVersion {
-        V011800(crate::pcie_device::v1_18_0::CXLProtocolVersion),
-        V000001(crate::pcie_device::v1_18_0::CXLDeviceCurrentProtocolVersionN1),
+        V011900(crate::pcie_device::v1_19_0::CXLProtocolVersion),
+        V000001(crate::pcie_device::v1_19_0::CXLDeviceCurrentProtocolVersionN1),
     }
     impl Default for CXLDeviceCurrentProtocolVersion {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -707,12 +707,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDeviceDeviceType {
-        V011800(crate::pcie_device::v1_18_0::CXLDeviceType),
-        V000001(crate::pcie_device::v1_18_0::CXLDeviceDeviceTypeN1),
+        V011900(crate::pcie_device::v1_19_0::CXLDeviceType),
+        V000001(crate::pcie_device::v1_19_0::CXLDeviceDeviceTypeN1),
     }
     impl Default for CXLDeviceDeviceType {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -724,12 +724,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDeviceDynamicCapacity {
-        V011800(crate::pcie_device::v1_18_0::CXLDynamicCapacity),
-        V000001(crate::pcie_device::v1_18_0::CXLDeviceDynamicCapacityN1),
+        V011900(crate::pcie_device::v1_19_0::CXLDynamicCapacity),
+        V000001(crate::pcie_device::v1_19_0::CXLDeviceDynamicCapacityN1),
     }
     impl Default for CXLDeviceDynamicCapacity {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -755,7 +755,7 @@ pub mod v1_18_0 {
             rename = "AddCapacityPoliciesSupported"
         )]
         pub add_capacity_policies_supported: Option<
-            Vec<crate::pcie_device::v1_18_0::CXLDynamicCapacityAddCapacityPoliciesSupported>,
+            Vec<crate::pcie_device::v1_19_0::CXLDynamicCapacityAddCapacityPoliciesSupported>,
         >,
         #[serde(
             skip_serializing_if = "Option::is_none",
@@ -769,20 +769,20 @@ pub mod v1_18_0 {
             rename = "MemoryBlockSizesSupported"
         )]
         pub memory_block_sizes_supported:
-            Option<Vec<crate::pcie_device::v1_18_0::CXLDynamicCapacityMemoryBlockSizesSupported>>,
+            Option<Vec<crate::pcie_device::v1_19_0::CXLDynamicCapacityMemoryBlockSizesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReleaseCapacityPoliciesSupported"
         )]
         pub release_capacity_policies_supported: Option<
-            Vec<crate::pcie_device::v1_18_0::CXLDynamicCapacityReleaseCapacityPoliciesSupported>,
+            Vec<crate::pcie_device::v1_19_0::CXLDynamicCapacityReleaseCapacityPoliciesSupported>,
         >,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SanitizationOnReleaseSupport"
         )]
         pub sanitization_on_release_support: Option<
-            Vec<crate::pcie_device::v1_18_0::CXLDynamicCapacitySanitizationOnReleaseSupport>,
+            Vec<crate::pcie_device::v1_19_0::CXLDynamicCapacitySanitizationOnReleaseSupport>,
         >,
         #[serde(
             skip_serializing_if = "Option::is_none",
@@ -793,12 +793,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDynamicCapacityAddCapacityPoliciesSupported {
-        V011800(crate::pcie_device::v1_18_0::CXLDynamicCapacityPolicies),
-        V000001(crate::pcie_device::v1_18_0::CXLDynamicCapacityAddCapacityPoliciesSupportedN1),
+        V011900(crate::pcie_device::v1_19_0::CXLDynamicCapacityPolicies),
+        V000001(crate::pcie_device::v1_19_0::CXLDynamicCapacityAddCapacityPoliciesSupportedN1),
     }
     impl Default for CXLDynamicCapacityAddCapacityPoliciesSupported {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -810,12 +810,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDynamicCapacityMemoryBlockSizesSupported {
-        V011800(crate::pcie_device::v1_18_0::CXLRegionBlockSizes),
-        V000001(crate::pcie_device::v1_18_0::CXLDynamicCapacityMemoryBlockSizesSupportedN1),
+        V011900(crate::pcie_device::v1_19_0::CXLRegionBlockSizes),
+        V000001(crate::pcie_device::v1_19_0::CXLDynamicCapacityMemoryBlockSizesSupportedN1),
     }
     impl Default for CXLDynamicCapacityMemoryBlockSizesSupported {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -839,12 +839,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDynamicCapacityReleaseCapacityPoliciesSupported {
-        V011800(crate::pcie_device::v1_18_0::CXLDynamicCapacityPolicies),
-        V000001(crate::pcie_device::v1_18_0::CXLDynamicCapacityReleaseCapacityPoliciesSupportedN1),
+        V011900(crate::pcie_device::v1_19_0::CXLDynamicCapacityPolicies),
+        V000001(crate::pcie_device::v1_19_0::CXLDynamicCapacityReleaseCapacityPoliciesSupportedN1),
     }
     impl Default for CXLDynamicCapacityReleaseCapacityPoliciesSupported {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -856,12 +856,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CXLDynamicCapacitySanitizationOnReleaseSupport {
-        V011800(crate::pcie_device::v1_18_0::CXLRegionSanitization),
-        V000001(crate::pcie_device::v1_18_0::CXLDynamicCapacitySanitizationOnReleaseSupportN1),
+        V011900(crate::pcie_device::v1_19_0::CXLRegionSanitization),
+        V000001(crate::pcie_device::v1_19_0::CXLDynamicCapacitySanitizationOnReleaseSupportN1),
     }
     impl Default for CXLDynamicCapacitySanitizationOnReleaseSupport {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -932,6 +932,13 @@ pub mod v1_18_0 {
             rename = "Chassis@odata.count"
         )]
         pub chassis_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectedPCIePorts")]
+        pub connected_pcie_ports: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ConnectedPCIePorts@odata.count"
+        )]
+        pub connected_pcie_ports_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeFunctions")]
@@ -949,12 +956,12 @@ pub mod v1_18_0 {
         )]
         pub processors_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Switch")]
-        pub switch: Option<crate::pcie_device::v1_18_0::LinksSwitch>,
+        pub switch: Option<crate::pcie_device::v1_19_0::LinksSwitch>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksSwitch {
-        V000001(crate::pcie_device::v1_18_0::LinksSwitchN1),
+        V000001(crate::pcie_device::v1_19_0::LinksSwitchN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksSwitch {
@@ -973,19 +980,19 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PCIeDevice {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::pcie_device::v1_18_0::Actions>,
+        pub actions: Option<crate::pcie_device::v1_19_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXLDevice")]
-        pub cxl_device: Option<crate::pcie_device::v1_18_0::PCIeDeviceCXLDevice>,
+        pub cxl_device: Option<crate::pcie_device::v1_19_0::PCIeDeviceCXLDevice>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CXLLogicalDevices")]
         pub cxl_logical_devices: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::pcie_device::v1_18_0::PCIeDeviceDescription>,
+        pub description: Option<crate::pcie_device::v1_19_0::PCIeDeviceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeviceType")]
-        pub device_type: Option<crate::pcie_device::v1_18_0::DeviceType>,
+        pub device_type: Option<crate::pcie_device::v1_19_0::DeviceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -993,7 +1000,7 @@ pub mod v1_18_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::pcie_device::v1_18_0::Links>,
+        pub links: Option<crate::pcie_device::v1_19_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -1020,7 +1027,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeFunctions")]
         pub pcie_functions: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeInterface")]
-        pub pcie_interface: Option<crate::pcie_device::v1_18_0::PCIeInterface>,
+        pub pcie_interface: Option<crate::pcie_device::v1_19_0::PCIeInterface>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReadyToRemove")]
         pub ready_to_remove: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -1028,7 +1035,7 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SKU")]
         pub sku: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Slot")]
-        pub slot: Option<crate::pcie_device::v1_18_0::PCIeDeviceSlot>,
+        pub slot: Option<crate::pcie_device::v1_19_0::PCIeDeviceSlot>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SparePartNumber")]
         pub spare_part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StagedVersion")]
@@ -1036,17 +1043,17 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::pcie_device::v1_18_0::PCIeDeviceUUID>,
+        pub uuid: Option<crate::pcie_device::v1_19_0::PCIeDeviceUUID>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PCIeDeviceCXLDevice {
-        V011800(crate::pcie_device::v1_18_0::CXLDevice),
-        V000001(crate::pcie_device::v1_18_0::PCIeDeviceCXLDeviceN1),
+        V011900(crate::pcie_device::v1_19_0::CXLDevice),
+        V000001(crate::pcie_device::v1_19_0::PCIeDeviceCXLDeviceN1),
     }
     impl Default for PCIeDeviceCXLDevice {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1058,7 +1065,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PCIeDeviceDescription {
-        V000001(crate::pcie_device::v1_18_0::PCIeDeviceDescriptionN1),
+        V000001(crate::pcie_device::v1_19_0::PCIeDeviceDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for PCIeDeviceDescription {
@@ -1075,12 +1082,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PCIeDeviceSlot {
-        V011800(crate::pcie_device::v1_18_0::Slot),
-        V000001(crate::pcie_device::v1_18_0::PCIeDeviceSlotN1),
+        V011900(crate::pcie_device::v1_19_0::Slot),
+        V000001(crate::pcie_device::v1_19_0::PCIeDeviceSlotN1),
     }
     impl Default for PCIeDeviceSlot {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1092,7 +1099,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PCIeDeviceUUID {
-        V000001(crate::pcie_device::v1_18_0::PCIeDeviceUUIDN1),
+        V000001(crate::pcie_device::v1_19_0::PCIeDeviceUUIDN1),
         ResourceUUID(String),
     }
     impl Default for PCIeDeviceUUID {
@@ -1147,16 +1154,16 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxLanes")]
         pub max_lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxPCIeType")]
-        pub max_pcie_type: Option<crate::pcie_device::v1_18_0::PCIeInterfaceMaxPCIeType>,
+        pub max_pcie_type: Option<crate::pcie_device::v1_19_0::PCIeInterfaceMaxPCIeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<crate::pcie_device::v1_18_0::PCIeInterfacePCIeType>,
+        pub pcie_type: Option<crate::pcie_device::v1_19_0::PCIeInterfacePCIeType>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PCIeInterfaceMaxPCIeType {
-        V000001(crate::pcie_device::v1_18_0::PCIeInterfaceMaxPCIeTypeN1),
+        V000001(crate::pcie_device::v1_19_0::PCIeInterfaceMaxPCIeTypeN1),
         PCIeDevicePCIeTypes(crate::pcie_device::PCIeTypes),
     }
     impl Default for PCIeInterfaceMaxPCIeType {
@@ -1173,7 +1180,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PCIeInterfacePCIeType {
-        V000001(crate::pcie_device::v1_18_0::PCIeInterfacePCIeTypeN1),
+        V000001(crate::pcie_device::v1_19_0::PCIeInterfacePCIeTypeN1),
         PCIeDevicePCIeTypes(crate::pcie_device::PCIeTypes),
     }
     impl Default for PCIeInterfacePCIeType {
@@ -1192,25 +1199,25 @@ pub mod v1_18_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "HotPluggable")]
         pub hot_pluggable: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LaneSplitting")]
-        pub lane_splitting: Option<crate::pcie_device::v1_18_0::SlotLaneSplitting>,
+        pub lane_splitting: Option<crate::pcie_device::v1_19_0::SlotLaneSplitting>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lanes")]
         pub lanes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeType")]
-        pub pcie_type: Option<crate::pcie_device::v1_18_0::SlotPCIeType>,
+        pub pcie_type: Option<crate::pcie_device::v1_19_0::SlotPCIeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotType")]
-        pub slot_type: Option<crate::pcie_device::v1_18_0::SlotSlotType>,
+        pub slot_type: Option<crate::pcie_device::v1_19_0::SlotSlotType>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SlotLaneSplitting {
-        V011800(crate::pcie_device::v1_18_0::LaneSplittingType),
-        V000001(crate::pcie_device::v1_18_0::SlotLaneSplittingN1),
+        V011900(crate::pcie_device::v1_19_0::LaneSplittingType),
+        V000001(crate::pcie_device::v1_19_0::SlotLaneSplittingN1),
     }
     impl Default for SlotLaneSplitting {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1222,7 +1229,7 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SlotPCIeType {
-        V000001(crate::pcie_device::v1_18_0::SlotPCIeTypeN1),
+        V000001(crate::pcie_device::v1_19_0::SlotPCIeTypeN1),
         PCIeDevicePCIeTypes(crate::pcie_device::PCIeTypes),
     }
     impl Default for SlotPCIeType {
@@ -1239,12 +1246,12 @@ pub mod v1_18_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SlotSlotType {
-        V011800(crate::pcie_device::v1_18_0::SlotType),
-        V000001(crate::pcie_device::v1_18_0::SlotSlotTypeN1),
+        V011900(crate::pcie_device::v1_19_0::SlotType),
+        V000001(crate::pcie_device::v1_19_0::SlotSlotTypeN1),
     }
     impl Default for SlotSlotType {
         fn default() -> Self {
-            Self::V011800(Default::default())
+            Self::V011900(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

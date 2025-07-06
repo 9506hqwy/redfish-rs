@@ -2,6 +2,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum AccountTypes {
     #[default]
+    #[serde(rename = "ControlPanel")]
+    ControlPanel,
     #[serde(rename = "HostConsole")]
     HostConsole,
     #[serde(rename = "IPMI")]
@@ -21,7 +23,7 @@ pub enum AccountTypes {
     #[serde(rename = "WebUI")]
     WebUI,
 }
-pub type ManagerAccount = crate::manager_account::v1_13_0::ManagerAccount;
+pub type ManagerAccount = crate::manager_account::v1_14_0::ManagerAccount;
 pub mod v1_12_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -286,7 +288,7 @@ pub mod v1_12_1 {
         Null,
     }
 }
-pub mod v1_13_0 {
+pub mod v1_14_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -295,27 +297,27 @@ pub mod v1_13_0 {
             rename = "#ManagerAccount.ChangePassword"
         )]
         pub manager_account_change_password:
-            Option<crate::manager_account::v1_13_0::ChangePassword>,
+            Option<crate::manager_account::v1_14_0::ChangePassword>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ManagerAccount.ClearSecretKey"
         )]
         pub manager_account_clear_secret_key:
-            Option<crate::manager_account::v1_13_0::ClearSecretKey>,
+            Option<crate::manager_account::v1_14_0::ClearSecretKey>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ManagerAccount.GenerateSecretKey"
         )]
         pub manager_account_generate_secret_key:
-            Option<crate::manager_account::v1_13_0::GenerateSecretKey>,
+            Option<crate::manager_account::v1_14_0::GenerateSecretKey>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#ManagerAccount.VerifyTimeBasedOneTimePassword"
         )]
         pub manager_account_verify_time_based_one_time_password:
-            Option<crate::manager_account::v1_13_0::VerifyTimeBasedOneTimePassword>,
+            Option<crate::manager_account::v1_14_0::VerifyTimeBasedOneTimePassword>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager_account::v1_13_0::OemActions>,
+        pub oem: Option<crate::manager_account::v1_14_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ChangePassword {
@@ -366,13 +368,13 @@ pub mod v1_13_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "AccountExpiration")]
         pub account_expiration: Option<String>,
         #[serde(rename = "AccountTypes")]
-        pub account_types: Vec<crate::manager_account::v1_13_0::ManagerAccountAccountTypes>,
+        pub account_types: Vec<crate::manager_account::v1_14_0::ManagerAccountAccountTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager_account::v1_13_0::Actions>,
+        pub actions: Option<crate::manager_account::v1_14_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::manager_account::v1_13_0::ManagerAccountDescription>,
+        pub description: Option<crate::manager_account::v1_14_0::ManagerAccountDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EmailAddress")]
         pub email_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
@@ -387,11 +389,11 @@ pub mod v1_13_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Keys")]
         pub keys: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::manager_account::v1_13_0::Links>,
+        pub links: Option<crate::manager_account::v1_14_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Locked")]
         pub locked: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MFABypass")]
-        pub mfa_bypass: Option<crate::manager_account::v1_13_0::ManagerAccountMFABypass>,
+        pub mfa_bypass: Option<crate::manager_account::v1_14_0::ManagerAccountMFABypass>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -427,7 +429,7 @@ pub mod v1_13_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecretKeySet")]
         pub secret_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SNMP")]
-        pub snmp: Option<crate::manager_account::v1_13_0::ManagerAccountSNMP>,
+        pub snmp: Option<crate::manager_account::v1_14_0::ManagerAccountSNMP>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StrictAccountTypes")]
         pub strict_account_types: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserName")]
@@ -436,7 +438,7 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerAccountAccountTypes {
-        V000001(crate::manager_account::v1_13_0::ManagerAccountAccountTypesN1),
+        V000001(crate::manager_account::v1_14_0::ManagerAccountAccountTypesN1),
         ManagerAccountAccountTypes(crate::manager_account::AccountTypes),
     }
     impl Default for ManagerAccountAccountTypes {
@@ -453,7 +455,7 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerAccountDescription {
-        V000001(crate::manager_account::v1_13_0::ManagerAccountDescriptionN1),
+        V000001(crate::manager_account::v1_14_0::ManagerAccountDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ManagerAccountDescription {
@@ -470,7 +472,7 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerAccountMFABypass {
-        V000001(crate::manager_account::v1_13_0::ManagerAccountMFABypassN1),
+        V000001(crate::manager_account::v1_14_0::ManagerAccountMFABypassN1),
         AccountServiceMFABypass(crate::account_service::v1_18_0::MFABypass),
     }
     impl Default for ManagerAccountMFABypass {
@@ -487,12 +489,12 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerAccountSNMP {
-        V011300(crate::manager_account::v1_13_0::SNMPUserInfo),
-        V000001(crate::manager_account::v1_13_0::ManagerAccountSNMPN1),
+        V011400(crate::manager_account::v1_14_0::SNMPUserInfo),
+        V000001(crate::manager_account::v1_14_0::ManagerAccountSNMPN1),
     }
     impl Default for ManagerAccountSNMP {
         fn default() -> Self {
-            Self::V011300(Default::default())
+            Self::V011400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -549,24 +551,24 @@ pub mod v1_13_0 {
             rename = "AuthenticationProtocol"
         )]
         pub authentication_protocol:
-            Option<crate::manager_account::v1_13_0::SNMPUserInfoAuthenticationProtocol>,
+            Option<crate::manager_account::v1_14_0::SNMPUserInfoAuthenticationProtocol>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKey")]
         pub encryption_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionKeySet")]
         pub encryption_key_set: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionProtocol")]
         pub encryption_protocol:
-            Option<crate::manager_account::v1_13_0::SNMPUserInfoEncryptionProtocol>,
+            Option<crate::manager_account::v1_14_0::SNMPUserInfoEncryptionProtocol>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SNMPUserInfoAuthenticationProtocol {
-        V011300(crate::manager_account::v1_13_0::SNMPAuthenticationProtocols),
-        V000001(crate::manager_account::v1_13_0::SNMPUserInfoAuthenticationProtocolN1),
+        V011400(crate::manager_account::v1_14_0::SNMPAuthenticationProtocols),
+        V000001(crate::manager_account::v1_14_0::SNMPUserInfoAuthenticationProtocolN1),
     }
     impl Default for SNMPUserInfoAuthenticationProtocol {
         fn default() -> Self {
-            Self::V011300(Default::default())
+            Self::V011400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -578,12 +580,12 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SNMPUserInfoEncryptionProtocol {
-        V011300(crate::manager_account::v1_13_0::SNMPEncryptionProtocols),
-        V000001(crate::manager_account::v1_13_0::SNMPUserInfoEncryptionProtocolN1),
+        V011400(crate::manager_account::v1_14_0::SNMPEncryptionProtocols),
+        V000001(crate::manager_account::v1_14_0::SNMPUserInfoEncryptionProtocolN1),
     }
     impl Default for SNMPUserInfoEncryptionProtocol {
         fn default() -> Self {
-            Self::V011300(Default::default())
+            Self::V011400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

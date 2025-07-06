@@ -88,7 +88,7 @@ pub mod v1_5_2 {
     #[serde(untagged)]
     pub enum FanPowerWatts {
         V000001(crate::fan::v1_5_2::FanPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_1::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_2::SensorPowerExcerpt),
     }
     impl Default for FanPowerWatts {
         fn default() -> Self {
@@ -105,7 +105,7 @@ pub mod v1_5_2 {
     #[serde(untagged)]
     pub enum FanSecondarySpeedPercent {
         V000001(crate::fan::v1_5_2::FanSecondarySpeedPercentN1),
-        SensorSensorFanExcerpt(crate::sensor::v1_9_1::SensorFanExcerpt),
+        SensorSensorFanExcerpt(crate::sensor::v1_9_2::SensorFanExcerpt),
     }
     impl Default for FanSecondarySpeedPercent {
         fn default() -> Self {
@@ -122,7 +122,7 @@ pub mod v1_5_2 {
     #[serde(untagged)]
     pub enum FanSpeedPercent {
         V000001(crate::fan::v1_5_2::FanSpeedPercentN1),
-        SensorSensorFanExcerpt(crate::sensor::v1_9_1::SensorFanExcerpt),
+        SensorSensorFanExcerpt(crate::sensor::v1_9_2::SensorFanExcerpt),
     }
     impl Default for FanSpeedPercent {
         fn default() -> Self {

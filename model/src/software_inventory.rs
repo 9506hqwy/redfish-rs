@@ -1,6 +1,6 @@
-pub type AdditionalVersions = crate::software_inventory::v1_11_0::AdditionalVersions;
-pub type MeasurementBlock = crate::software_inventory::v1_11_0::MeasurementBlock;
-pub type SoftwareInventory = crate::software_inventory::v1_11_0::SoftwareInventory;
+pub type AdditionalVersions = crate::software_inventory::v1_12_0::AdditionalVersions;
+pub type MeasurementBlock = crate::software_inventory::v1_12_0::MeasurementBlock;
+pub type SoftwareInventory = crate::software_inventory::v1_12_0::SoftwareInventory;
 pub mod v1_10_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -172,12 +172,29 @@ pub mod v1_10_2 {
         SemVer,
     }
 }
-pub mod v1_11_0 {
+pub mod v1_12_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::software_inventory::v1_11_0::OemActions>,
+        pub oem: Option<crate::software_inventory::v1_12_0::OemActions>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#SoftwareInventory.Activate"
+        )]
+        pub software_inventory_activate: Option<crate::software_inventory::v1_12_0::Activate>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Activate {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct ActivateRequestBody {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Targets")]
+        pub targets: Option<Vec<crate::odata_v4::IdRef>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AdditionalVersions {
@@ -198,6 +215,23 @@ pub mod v1_11_0 {
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OSDistribution")]
         pub os_distribution: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Links {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ActiveTargets")]
+        pub active_targets: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ActiveTargets@odata.count"
+        )]
+        pub active_targets_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "StagedTargets")]
+        pub staged_targets: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "StagedTargets@odata.count"
+        )]
+        pub staged_targets_odata_count: Option<i64>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct MeasurementBlock {
@@ -228,18 +262,22 @@ pub mod v1_11_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SoftwareInventory {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::software_inventory::v1_11_0::Actions>,
+        pub actions: Option<crate::software_inventory::v1_12_0::Actions>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Active")]
+        pub active: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditionalVersions")]
-        pub additional_versions: Option<crate::software_inventory::v1_11_0::AdditionalVersions>,
+        pub additional_versions: Option<crate::software_inventory::v1_12_0::AdditionalVersions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AssociatedPhysicalContext"
         )]
         pub associated_physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::software_inventory::v1_11_0::SoftwareInventoryDescription>,
+        pub description: Option<crate::software_inventory::v1_12_0::SoftwareInventoryDescription>,
         #[serde(rename = "Id")]
         pub id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+        pub links: Option<crate::software_inventory::v1_12_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LowestSupportedVersion"
@@ -271,9 +309,16 @@ pub mod v1_11_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReleaseDate")]
         pub release_date: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReleaseType")]
-        pub release_type: Option<crate::software_inventory::v1_11_0::SoftwareInventoryReleaseType>,
+        pub release_type: Option<crate::software_inventory::v1_12_0::SoftwareInventoryReleaseType>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ResetRequiredOnUpdate"
+        )]
+        pub reset_required_on_update: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SoftwareId")]
         pub software_id: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Staged")]
+        pub staged: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UefiDevicePaths")]
@@ -284,14 +329,14 @@ pub mod v1_11_0 {
         pub version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VersionScheme")]
         pub version_scheme:
-            Option<crate::software_inventory::v1_11_0::SoftwareInventoryVersionScheme>,
+            Option<crate::software_inventory::v1_12_0::SoftwareInventoryVersionScheme>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteProtected")]
         pub write_protected: Option<bool>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SoftwareInventoryDescription {
-        V000001(crate::software_inventory::v1_11_0::SoftwareInventoryDescriptionN1),
+        V000001(crate::software_inventory::v1_12_0::SoftwareInventoryDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for SoftwareInventoryDescription {
@@ -308,12 +353,12 @@ pub mod v1_11_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SoftwareInventoryReleaseType {
-        V011100(crate::software_inventory::v1_11_0::ReleaseType),
-        V000001(crate::software_inventory::v1_11_0::SoftwareInventoryReleaseTypeN1),
+        V011200(crate::software_inventory::v1_12_0::ReleaseType),
+        V000001(crate::software_inventory::v1_12_0::SoftwareInventoryReleaseTypeN1),
     }
     impl Default for SoftwareInventoryReleaseType {
         fn default() -> Self {
-            Self::V011100(Default::default())
+            Self::V011200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -325,12 +370,12 @@ pub mod v1_11_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SoftwareInventoryVersionScheme {
-        V011100(crate::software_inventory::v1_11_0::VersionScheme),
-        V000001(crate::software_inventory::v1_11_0::SoftwareInventoryVersionSchemeN1),
+        V011200(crate::software_inventory::v1_12_0::VersionScheme),
+        V000001(crate::software_inventory::v1_12_0::SoftwareInventoryVersionSchemeN1),
     }
     impl Default for SoftwareInventoryVersionScheme {
         fn default() -> Self {
-            Self::V011100(Default::default())
+            Self::V011200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

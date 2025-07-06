@@ -1,4 +1,4 @@
-pub type CoolingUnit = crate::cooling_unit::v1_2_0::CoolingUnit;
+pub type CoolingUnit = crate::cooling_unit::v1_3_0::CoolingUnit;
 pub mod v1_1_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -142,7 +142,7 @@ pub mod v1_1_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_2_0 {
+pub mod v1_3_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -150,9 +150,9 @@ pub mod v1_2_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#CoolingUnit.SetMode"
         )]
-        pub cooling_unit_set_mode: Option<crate::cooling_unit::v1_2_0::SetMode>,
+        pub cooling_unit_set_mode: Option<crate::cooling_unit::v1_3_0::SetMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::cooling_unit::v1_2_0::OemActions>,
+        pub oem: Option<crate::cooling_unit::v1_3_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CoolingEquipmentType {
@@ -163,11 +163,13 @@ pub mod v1_2_0 {
         HeatExchanger,
         #[serde(rename = "ImmersionUnit")]
         ImmersionUnit,
+        #[serde(rename = "RPU")]
+        RPU,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoolingUnit {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::cooling_unit::v1_2_0::Actions>,
+        pub actions: Option<crate::cooling_unit::v1_3_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
@@ -185,11 +187,11 @@ pub mod v1_2_0 {
         )]
         pub cooling_capacity_watts: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::cooling_unit::v1_2_0::CoolingUnitDescription>,
+        pub description: Option<crate::cooling_unit::v1_3_0::CoolingUnitDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
         pub environment_metrics: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "EquipmentType")]
-        pub equipment_type: crate::cooling_unit::v1_2_0::CoolingEquipmentType,
+        pub equipment_type: crate::cooling_unit::v1_3_0::CoolingEquipmentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FilterRedundancy")]
         pub filter_redundancy: Option<Vec<crate::redundancy::RedundantGroup>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Filters")]
@@ -201,7 +203,7 @@ pub mod v1_2_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LeakDetection")]
         pub leak_detection: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::cooling_unit::v1_2_0::Links>,
+        pub links: Option<crate::cooling_unit::v1_3_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
@@ -252,7 +254,7 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolingUnitDescription {
-        V000001(crate::cooling_unit::v1_2_0::CoolingUnitDescriptionN1),
+        V000001(crate::cooling_unit::v1_3_0::CoolingUnitDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for CoolingUnitDescription {
@@ -307,6 +309,6 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SetModeRequestBody {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Mode")]
-        pub mode: Option<crate::cooling_unit::v1_2_0::CoolingUnitMode>,
+        pub mode: Option<crate::cooling_unit::v1_3_0::CoolingUnitMode>,
     }
 }

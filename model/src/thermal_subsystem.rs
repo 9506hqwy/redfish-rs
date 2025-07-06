@@ -1,4 +1,4 @@
-pub type ThermalSubsystem = crate::thermal_subsystem::v1_3_3::ThermalSubsystem;
+pub type ThermalSubsystem = crate::thermal_subsystem::v1_4_0::ThermalSubsystem;
 pub mod v1_3_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -68,19 +68,19 @@ pub mod v1_3_2 {
         Null,
     }
 }
-pub mod v1_3_3 {
+pub mod v1_4_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::thermal_subsystem::v1_3_3::OemActions>,
+        pub oem: Option<crate::thermal_subsystem::v1_4_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ThermalSubsystem {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::thermal_subsystem::v1_3_3::Actions>,
+        pub actions: Option<crate::thermal_subsystem::v1_4_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CoolantConnectorRedundancy"
@@ -89,11 +89,13 @@ pub mod v1_3_3 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolantConnectors")]
         pub coolant_connectors: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::thermal_subsystem::v1_3_3::ThermalSubsystemDescription>,
+        pub description: Option<crate::thermal_subsystem::v1_4_0::ThermalSubsystemDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FanRedundancy")]
         pub fan_redundancy: Option<Vec<crate::redundancy::RedundantGroup>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Fans")]
         pub fans: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Filters")]
+        pub filters: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Heaters")]
         pub heaters: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
@@ -122,7 +124,7 @@ pub mod v1_3_3 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ThermalSubsystemDescription {
-        V000001(crate::thermal_subsystem::v1_3_3::ThermalSubsystemDescriptionN1),
+        V000001(crate::thermal_subsystem::v1_4_0::ThermalSubsystemDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ThermalSubsystemDescription {

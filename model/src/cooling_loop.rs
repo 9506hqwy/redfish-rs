@@ -139,7 +139,7 @@ pub mod v1_0_3 {
     #[serde(untagged)]
     pub enum CoolingLoopCoolantLevelPercent {
         V000001(crate::cooling_loop::v1_0_3::CoolingLoopCoolantLevelPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolingLoopCoolantLevelPercent {
         fn default() -> Self {

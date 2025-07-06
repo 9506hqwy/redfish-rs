@@ -1,4 +1,4 @@
-pub type Manager = crate::manager::v1_21_0::Manager;
+pub type Manager = crate::manager::v1_22_0::Manager;
 pub mod v1_19_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -518,7 +518,7 @@ pub mod v1_19_1 {
         pub service_enabled: Option<bool>,
     }
 }
-pub mod v1_21_0 {
+pub mod v1_22_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -526,26 +526,26 @@ pub mod v1_21_0 {
             skip_serializing_if = "Option::is_none",
             rename = "#Manager.ForceFailover"
         )]
-        pub manager_force_failover: Option<crate::manager::v1_21_0::ForceFailover>,
+        pub manager_force_failover: Option<crate::manager::v1_22_0::ForceFailover>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Manager.ModifyRedundancySet"
         )]
-        pub manager_modify_redundancy_set: Option<crate::manager::v1_21_0::ModifyRedundancySet>,
+        pub manager_modify_redundancy_set: Option<crate::manager::v1_22_0::ModifyRedundancySet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Manager.Reset")]
-        pub manager_reset: Option<crate::manager::v1_21_0::Reset>,
+        pub manager_reset: Option<crate::manager::v1_22_0::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Manager.ResetToDefaults"
         )]
-        pub manager_reset_to_defaults: Option<crate::manager::v1_21_0::ResetToDefaults>,
+        pub manager_reset_to_defaults: Option<crate::manager::v1_22_0::ResetToDefaults>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Manager.UpdateSecurityMode"
         )]
-        pub manager_update_security_mode: Option<crate::manager::v1_21_0::UpdateSecurityMode>,
+        pub manager_update_security_mode: Option<crate::manager::v1_22_0::UpdateSecurityMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::manager::v1_21_0::OemActions>,
+        pub oem: Option<crate::manager::v1_22_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum CommandConnectTypesSupported {
@@ -566,7 +566,7 @@ pub mod v1_21_0 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::manager::v1_21_0::CommandConnectTypesSupported>>,
+            Option<Vec<crate::manager::v1_22_0::CommandConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -627,7 +627,7 @@ pub mod v1_21_0 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::manager::v1_21_0::GraphicalConnectTypesSupported>>,
+            Option<Vec<crate::manager::v1_22_0::GraphicalConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -657,6 +657,13 @@ pub mod v1_21_0 {
             rename = "ManagerForChassis@odata.count"
         )]
         pub manager_for_chassis_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ManagerForFabrics")]
+        pub manager_for_fabrics: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ManagerForFabrics@odata.count"
+        )]
+        pub manager_for_fabrics_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagerForManagers")]
         pub manager_for_managers: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -686,7 +693,7 @@ pub mod v1_21_0 {
             skip_serializing_if = "Option::is_none",
             rename = "SelectedNetworkPort"
         )]
-        pub selected_network_port: Option<crate::manager::v1_21_0::LinksSelectedNetworkPort>,
+        pub selected_network_port: Option<crate::manager::v1_22_0::LinksSelectedNetworkPort>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SoftwareImages")]
         pub software_images: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -698,7 +705,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksSelectedNetworkPort {
-        V000001(crate::manager::v1_21_0::LinksSelectedNetworkPortN1),
+        V000001(crate::manager::v1_22_0::LinksSelectedNetworkPortN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksSelectedNetworkPort {
@@ -715,7 +722,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Manager {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::manager::v1_21_0::Actions>,
+        pub actions: Option<crate::manager::v1_22_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalFirmwareVersions"
@@ -726,7 +733,7 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CommandShell")]
-        pub command_shell: Option<crate::manager::v1_21_0::CommandShell>,
+        pub command_shell: Option<crate::manager::v1_22_0::CommandShell>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DateTime")]
         pub date_time: Option<String>,
         #[serde(
@@ -735,22 +742,22 @@ pub mod v1_21_0 {
         )]
         pub date_time_local_offset: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DateTimeSource")]
-        pub date_time_source: Option<crate::manager::v1_21_0::ManagerDateTimeSource>,
+        pub date_time_source: Option<crate::manager::v1_22_0::ManagerDateTimeSource>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DaylightSavingTime")]
-        pub daylight_saving_time: Option<crate::manager::v1_21_0::DaylightSavingTime>,
+        pub daylight_saving_time: Option<crate::manager::v1_22_0::DaylightSavingTime>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DedicatedNetworkPorts"
         )]
         pub dedicated_network_ports: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::manager::v1_21_0::ManagerDescription>,
+        pub description: Option<crate::manager::v1_22_0::ManagerDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EthernetInterfaces")]
         pub ethernet_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GraphicalConsole")]
-        pub graphical_console: Option<crate::manager::v1_21_0::GraphicalConsole>,
+        pub graphical_console: Option<crate::manager::v1_22_0::GraphicalConsole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostInterfaces")]
         pub host_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Id")]
@@ -758,7 +765,7 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastResetTime")]
         pub last_reset_time: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::manager::v1_21_0::Links>,
+        pub links: Option<crate::manager::v1_22_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -772,9 +779,9 @@ pub mod v1_21_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ManagerDiagnosticData"
         )]
-        pub manager_diagnostic_data: Option<crate::manager::v1_21_0::ManagerManagerDiagnosticData>,
+        pub manager_diagnostic_data: Option<crate::manager::v1_22_0::ManagerManagerDiagnosticData>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ManagerType")]
-        pub manager_type: Option<crate::manager::v1_21_0::ManagerType>,
+        pub manager_type: Option<crate::manager::v1_22_0::ManagerType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
@@ -800,7 +807,7 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<crate::manager::v1_21_0::ManagerPowerState>,
+        pub power_state: Option<crate::manager::v1_22_0::ManagerPowerState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Redundancy")]
         pub redundancy: Option<Vec<crate::redundancy::Redundancy>>,
         #[serde(
@@ -819,11 +826,11 @@ pub mod v1_21_0 {
         )]
         pub remote_redfish_service_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityMode")]
-        pub security_mode: Option<crate::manager::v1_21_0::SecurityModeTypes>,
+        pub security_mode: Option<crate::manager::v1_22_0::SecurityModeTypes>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecurityPolicy")]
-        pub security_policy: Option<crate::manager::v1_21_0::ManagerSecurityPolicy>,
+        pub security_policy: Option<crate::manager::v1_22_0::ManagerSecurityPolicy>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialConsole")]
-        pub serial_console: Option<crate::manager::v1_21_0::SerialConsole>,
+        pub serial_console: Option<crate::manager::v1_22_0::SerialConsole>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialInterfaces")]
         pub serial_interfaces: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -832,7 +839,7 @@ pub mod v1_21_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ServiceEntryPointUUID"
         )]
-        pub service_entry_point_uuid: Option<crate::manager::v1_21_0::ManagerServiceEntryPointUUID>,
+        pub service_entry_point_uuid: Option<crate::manager::v1_22_0::ManagerServiceEntryPointUUID>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ServiceIdentification"
@@ -849,7 +856,7 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "USBPorts")]
         pub usb_ports: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::manager::v1_21_0::ManagerUUID>,
+        pub uuid: Option<crate::manager::v1_22_0::ManagerUUID>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VirtualMedia")]
@@ -858,12 +865,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerDateTimeSource {
-        V012100(crate::manager::v1_21_0::DateTimeSource),
-        V000001(crate::manager::v1_21_0::ManagerDateTimeSourceN1),
+        V012200(crate::manager::v1_22_0::DateTimeSource),
+        V000001(crate::manager::v1_22_0::ManagerDateTimeSourceN1),
     }
     impl Default for ManagerDateTimeSource {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -875,7 +882,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerDescription {
-        V000001(crate::manager::v1_21_0::ManagerDescriptionN1),
+        V000001(crate::manager::v1_22_0::ManagerDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ManagerDescription {
@@ -892,7 +899,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerManagerDiagnosticData {
-        V000001(crate::manager::v1_21_0::ManagerManagerDiagnosticDataN1),
+        V000001(crate::manager::v1_22_0::ManagerManagerDiagnosticDataN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for ManagerManagerDiagnosticData {
@@ -909,7 +916,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerPowerState {
-        V000001(crate::manager::v1_21_0::ManagerPowerStateN1),
+        V000001(crate::manager::v1_22_0::ManagerPowerStateN1),
         ResourcePowerState(crate::resource::PowerState),
     }
     impl Default for ManagerPowerState {
@@ -926,7 +933,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerSecurityPolicy {
-        V000001(crate::manager::v1_21_0::ManagerSecurityPolicyN1),
+        V000001(crate::manager::v1_22_0::ManagerSecurityPolicyN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for ManagerSecurityPolicy {
@@ -953,7 +960,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerServiceEntryPointUUID {
-        V000001(crate::manager::v1_21_0::ManagerServiceEntryPointUUIDN1),
+        V000001(crate::manager::v1_22_0::ManagerServiceEntryPointUUIDN1),
         ResourceUUID(String),
     }
     impl Default for ManagerServiceEntryPointUUID {
@@ -976,6 +983,8 @@ pub mod v1_21_0 {
         BMC,
         #[serde(rename = "EnclosureManager")]
         EnclosureManager,
+        #[serde(rename = "FabricManager")]
+        FabricManager,
         #[serde(rename = "ManagementController")]
         ManagementController,
         #[serde(rename = "RackManager")]
@@ -986,7 +995,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ManagerUUID {
-        V000001(crate::manager::v1_21_0::ManagerUUIDN1),
+        V000001(crate::manager::v1_22_0::ManagerUUIDN1),
         ResourceUUID(String),
     }
     impl Default for ManagerUUID {
@@ -1038,7 +1047,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaultsRequestBody {
         #[serde(rename = "ResetType")]
-        pub reset_type: crate::manager::v1_21_0::ResetToDefaultsType,
+        pub reset_type: crate::manager::v1_22_0::ResetToDefaultsType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetToDefaultsType {
@@ -1087,7 +1096,7 @@ pub mod v1_21_0 {
             rename = "ConnectTypesSupported"
         )]
         pub connect_types_supported:
-            Option<Vec<crate::manager::v1_21_0::SerialConnectTypesSupported>>,
+            Option<Vec<crate::manager::v1_22_0::SerialConnectTypesSupported>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxConcurrentSessions"
@@ -1108,6 +1117,6 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "OEMSecurityMode")]
         pub oem_security_mode: Option<String>,
         #[serde(rename = "SecurityMode")]
-        pub security_mode: crate::manager::v1_21_0::SecurityModeTypes,
+        pub security_mode: crate::manager::v1_22_0::SecurityModeTypes,
     }
 }

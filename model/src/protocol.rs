@@ -70,8 +70,8 @@ pub enum Protocol {
     TFTP,
     #[serde(rename = "UDP")]
     UDP,
-    #[serde(rename = "UEC")]
-    UEC,
+    #[serde(rename = "UET")]
+    UET,
     #[serde(rename = "UHCI")]
     UHCI,
     #[serde(rename = "UPI")]

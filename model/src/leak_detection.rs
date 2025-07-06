@@ -69,7 +69,7 @@ pub mod v1_0_1 {
     #[serde(untagged)]
     pub enum LeakDetectorGroupHumidityPercent {
         V000001(crate::leak_detection::v1_0_1::LeakDetectorGroupHumidityPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for LeakDetectorGroupHumidityPercent {
         fn default() -> Self {
@@ -157,7 +157,7 @@ pub mod v1_1_0 {
     #[serde(untagged)]
     pub enum LeakDetectorGroupHumidityPercent {
         V000001(crate::leak_detection::v1_1_0::LeakDetectorGroupHumidityPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for LeakDetectorGroupHumidityPercent {
         fn default() -> Self {

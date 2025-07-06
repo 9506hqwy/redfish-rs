@@ -1,4 +1,4 @@
-pub type NetworkDeviceFunction = crate::network_device_function::v1_10_0::NetworkDeviceFunction;
+pub type NetworkDeviceFunction = crate::network_device_function::v1_11_0::NetworkDeviceFunction;
 pub mod v1_9_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -621,12 +621,12 @@ pub mod v1_9_2 {
         ProvidedByFabric,
     }
 }
-pub mod v1_10_0 {
+pub mod v1_11_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::network_device_function::v1_10_0::OemActions>,
+        pub oem: Option<crate::network_device_function::v1_11_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AuthenticationMethod {
@@ -682,7 +682,7 @@ pub mod v1_10_0 {
         pub additional_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EthernetInterfaces")]
         pub ethernet_interfaces:
-            Option<crate::network_device_function::v1_10_0::EthernetEthernetInterfaces>,
+            Option<crate::network_device_function::v1_11_0::EthernetEthernetInterfaces>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MACAddress")]
         pub mac_address: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MTUSize")]
@@ -702,7 +702,7 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EthernetEthernetInterfaces {
-        V000001(crate::network_device_function::v1_10_0::EthernetEthernetInterfacesN1),
+        V000001(crate::network_device_function::v1_11_0::EthernetEthernetInterfacesN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for EthernetEthernetInterfaces {
@@ -725,7 +725,7 @@ pub mod v1_10_0 {
         pub allow_fip_vlan_discovery: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BootTargets")]
         pub boot_targets:
-            Option<Vec<crate::network_device_function::v1_10_0::FibreChannelBootTargets>>,
+            Option<Vec<crate::network_device_function::v1_11_0::FibreChannelBootTargets>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FCoEActiveVLANId")]
         pub fc_oe_active_vlan_id: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FCoELocalVLANId")]
@@ -737,7 +737,7 @@ pub mod v1_10_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "PermanentWWPN")]
         pub permanent_wwpn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWNSource")]
-        pub wwn_source: Option<crate::network_device_function::v1_10_0::FibreChannelWWNSource>,
+        pub wwn_source: Option<crate::network_device_function::v1_11_0::FibreChannelWWNSource>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWNN")]
         pub wwnn: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WWPN")]
@@ -746,12 +746,12 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum FibreChannelBootTargets {
-        V011000(crate::network_device_function::v1_10_0::BootTargets),
-        V000001(crate::network_device_function::v1_10_0::FibreChannelBootTargetsN1),
+        V011100(crate::network_device_function::v1_11_0::BootTargets),
+        V000001(crate::network_device_function::v1_11_0::FibreChannelBootTargetsN1),
     }
     impl Default for FibreChannelBootTargets {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -763,12 +763,12 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum FibreChannelWWNSource {
-        V011000(crate::network_device_function::v1_10_0::WWNSource),
-        V000001(crate::network_device_function::v1_10_0::FibreChannelWWNSourceN1),
+        V011100(crate::network_device_function::v1_11_0::WWNSource),
+        V000001(crate::network_device_function::v1_11_0::FibreChannelWWNSourceN1),
     }
     impl Default for FibreChannelWWNSource {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -797,7 +797,7 @@ pub mod v1_10_0 {
             rename = "AuthenticationMethod"
         )]
         pub authentication_method:
-            Option<crate::network_device_function::v1_10_0::ISCSIBootAuthenticationMethod>,
+            Option<crate::network_device_function::v1_11_0::ISCSIBootAuthenticationMethod>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPSecret")]
         pub chap_secret: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CHAPUsername")]
@@ -815,7 +815,7 @@ pub mod v1_10_0 {
         pub initiator_netmask: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPAddressType")]
         pub ip_address_type:
-            Option<crate::network_device_function::v1_10_0::ISCSIBootIPAddressType>,
+            Option<crate::network_device_function::v1_11_0::ISCSIBootIPAddressType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IPMaskDNSViaDHCP")]
         pub ip_mask_dns_via_dhcp: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MutualCHAPSecret")]
@@ -879,12 +879,12 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ISCSIBootAuthenticationMethod {
-        V011000(crate::network_device_function::v1_10_0::AuthenticationMethod),
-        V000001(crate::network_device_function::v1_10_0::ISCSIBootAuthenticationMethodN1),
+        V011100(crate::network_device_function::v1_11_0::AuthenticationMethod),
+        V000001(crate::network_device_function::v1_11_0::ISCSIBootAuthenticationMethodN1),
     }
     impl Default for ISCSIBootAuthenticationMethod {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -896,12 +896,12 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ISCSIBootIPAddressType {
-        V011000(crate::network_device_function::v1_10_0::IPAddressType),
-        V000001(crate::network_device_function::v1_10_0::ISCSIBootIPAddressTypeN1),
+        V011100(crate::network_device_function::v1_11_0::IPAddressType),
+        V000001(crate::network_device_function::v1_11_0::ISCSIBootIPAddressTypeN1),
     }
     impl Default for ISCSIBootIPAddressType {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -945,7 +945,7 @@ pub mod v1_10_0 {
         )]
         pub burst_packets_per_second: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Direction")]
-        pub direction: Option<crate::network_device_function::v1_10_0::LimitDirection>,
+        pub direction: Option<crate::network_device_function::v1_11_0::LimitDirection>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SustainedBytesPerSecond"
@@ -960,12 +960,12 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LimitDirection {
-        V011000(crate::network_device_function::v1_10_0::DataDirection),
-        V000001(crate::network_device_function::v1_10_0::LimitDirectionN1),
+        V011100(crate::network_device_function::v1_11_0::DataDirection),
+        V000001(crate::network_device_function::v1_11_0::LimitDirectionN1),
     }
     impl Default for LimitDirection {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1017,16 +1017,16 @@ pub mod v1_10_0 {
         pub physical_port_assignment: Option<crate::odata_v4::IdRef>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub struct NetworkDeviceFunction { # [serde (skip_serializing_if = "Option::is_none" , rename = "Actions")] pub actions : Option < crate :: network_device_function :: v1_10_0 :: Actions > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AllowDeny")] pub allow_deny : Option < crate :: odata_v4 :: IdRef > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalNetworkPorts")] pub assignable_physical_network_ports : Option < Vec < crate :: odata_v4 :: IdRef > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalNetworkPorts@odata.count")] pub assignable_physical_network_ports_odata_count : Option < i64 > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalPorts")] pub assignable_physical_ports : Option < Vec < crate :: odata_v4 :: IdRef > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalPorts@odata.count")] pub assignable_physical_ports_odata_count : Option < i64 > , # [serde (skip_serializing_if = "Option::is_none" , rename = "BootMode")] pub boot_mode : Option < crate :: network_device_function :: v1_10_0 :: NetworkDeviceFunctionBootMode > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Description")] pub description : Option < crate :: network_device_function :: v1_10_0 :: NetworkDeviceFunctionDescription > , # [serde (skip_serializing_if = "Option::is_none" , rename = "DeviceEnabled")] pub device_enabled : Option < bool > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Ethernet")] pub ethernet : Option < crate :: network_device_function :: v1_10_0 :: Ethernet > , # [serde (skip_serializing_if = "Option::is_none" , rename = "FibreChannel")] pub fibre_channel : Option < crate :: network_device_function :: v1_10_0 :: FibreChannel > , # [serde (skip_serializing_if = "Option::is_none" , rename = "HTTPBoot")] pub http_boot : Option < crate :: network_device_function :: v1_10_0 :: HTTPBoot > , # [serde (rename = "Id")] pub id : String , # [serde (skip_serializing_if = "Option::is_none" , rename = "InfiniBand")] pub infini_band : Option < crate :: network_device_function :: v1_10_0 :: InfiniBand > , # [serde (skip_serializing_if = "Option::is_none" , rename = "iSCSIBoot")] pub iscsi_boot : Option < crate :: network_device_function :: v1_10_0 :: ISCSIBoot > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Limits")] pub limits : Option < Vec < crate :: network_device_function :: v1_10_0 :: NetworkDeviceFunctionLimits > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Links")] pub links : Option < crate :: network_device_function :: v1_10_0 :: Links > , # [serde (skip_serializing_if = "Option::is_none" , rename = "MaxVirtualFunctions")] pub max_virtual_functions : Option < i64 > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Metrics")] pub metrics : Option < crate :: network_device_function :: v1_10_0 :: NetworkDeviceFunctionMetrics > , # [serde (rename = "Name")] pub name : String , # [serde (skip_serializing_if = "Option::is_none" , rename = "NetDevFuncCapabilities")] pub net_dev_func_capabilities : Option < Vec < crate :: network_device_function :: v1_10_0 :: NetworkDeviceFunctionNetDevFuncCapabilities > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "NetDevFuncType")] pub net_dev_func_type : Option < crate :: network_device_function :: v1_10_0 :: NetworkDeviceFunctionNetDevFuncType > , # [serde (skip_serializing_if = "Option::is_none" , rename = "@odata.context")] pub odata_context : Option < String > , # [serde (skip_serializing_if = "Option::is_none" , rename = "@odata.etag")] pub odata_etag : Option < String > , # [serde (rename = "@odata.id")] pub odata_id : String , # [serde (rename = "@odata.type")] pub odata_type : String , # [serde (skip_serializing_if = "Option::is_none" , rename = "Oem")] pub oem : Option < crate :: resource :: Oem > , # [serde (skip_serializing_if = "Option::is_none" , rename = "PhysicalNetworkPortAssignment")] pub physical_network_port_assignment : Option < crate :: odata_v4 :: IdRef > , # [serde (skip_serializing_if = "Option::is_none" , rename = "PhysicalPortAssignment")] pub physical_port_assignment : Option < crate :: odata_v4 :: IdRef > , # [serde (skip_serializing_if = "Option::is_none" , rename = "SAVIEnabled")] pub savi_enabled : Option < bool > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Status")] pub status : Option < crate :: resource :: Status > , # [serde (skip_serializing_if = "Option::is_none" , rename = "VirtualFunctionsEnabled")] pub virtual_functions_enabled : Option < bool > }
+    pub struct NetworkDeviceFunction { # [serde (skip_serializing_if = "Option::is_none" , rename = "Actions")] pub actions : Option < crate :: network_device_function :: v1_11_0 :: Actions > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AllowDeny")] pub allow_deny : Option < crate :: odata_v4 :: IdRef > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalNetworkPorts")] pub assignable_physical_network_ports : Option < Vec < crate :: odata_v4 :: IdRef > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalNetworkPorts@odata.count")] pub assignable_physical_network_ports_odata_count : Option < i64 > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalPorts")] pub assignable_physical_ports : Option < Vec < crate :: odata_v4 :: IdRef > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "AssignablePhysicalPorts@odata.count")] pub assignable_physical_ports_odata_count : Option < i64 > , # [serde (skip_serializing_if = "Option::is_none" , rename = "BootMode")] pub boot_mode : Option < crate :: network_device_function :: v1_11_0 :: NetworkDeviceFunctionBootMode > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Description")] pub description : Option < crate :: network_device_function :: v1_11_0 :: NetworkDeviceFunctionDescription > , # [serde (skip_serializing_if = "Option::is_none" , rename = "DeviceEnabled")] pub device_enabled : Option < bool > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Ethernet")] pub ethernet : Option < crate :: network_device_function :: v1_11_0 :: Ethernet > , # [serde (skip_serializing_if = "Option::is_none" , rename = "FibreChannel")] pub fibre_channel : Option < crate :: network_device_function :: v1_11_0 :: FibreChannel > , # [serde (skip_serializing_if = "Option::is_none" , rename = "HTTPBoot")] pub http_boot : Option < crate :: network_device_function :: v1_11_0 :: HTTPBoot > , # [serde (rename = "Id")] pub id : String , # [serde (skip_serializing_if = "Option::is_none" , rename = "InfiniBand")] pub infini_band : Option < crate :: network_device_function :: v1_11_0 :: InfiniBand > , # [serde (skip_serializing_if = "Option::is_none" , rename = "iSCSIBoot")] pub iscsi_boot : Option < crate :: network_device_function :: v1_11_0 :: ISCSIBoot > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Limits")] pub limits : Option < Vec < crate :: network_device_function :: v1_11_0 :: NetworkDeviceFunctionLimits > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Links")] pub links : Option < crate :: network_device_function :: v1_11_0 :: Links > , # [serde (skip_serializing_if = "Option::is_none" , rename = "MaxVirtualFunctions")] pub max_virtual_functions : Option < i64 > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Metrics")] pub metrics : Option < crate :: network_device_function :: v1_11_0 :: NetworkDeviceFunctionMetrics > , # [serde (rename = "Name")] pub name : String , # [serde (skip_serializing_if = "Option::is_none" , rename = "NetDevFuncCapabilities")] pub net_dev_func_capabilities : Option < Vec < crate :: network_device_function :: v1_11_0 :: NetworkDeviceFunctionNetDevFuncCapabilities > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "NetDevFuncType")] pub net_dev_func_type : Option < crate :: network_device_function :: v1_11_0 :: NetworkDeviceFunctionNetDevFuncType > , # [serde (skip_serializing_if = "Option::is_none" , rename = "@odata.context")] pub odata_context : Option < String > , # [serde (skip_serializing_if = "Option::is_none" , rename = "@odata.etag")] pub odata_etag : Option < String > , # [serde (rename = "@odata.id")] pub odata_id : String , # [serde (rename = "@odata.type")] pub odata_type : String , # [serde (skip_serializing_if = "Option::is_none" , rename = "Oem")] pub oem : Option < crate :: resource :: Oem > , # [serde (skip_serializing_if = "Option::is_none" , rename = "PhysicalNetworkPortAssignment")] pub physical_network_port_assignment : Option < crate :: odata_v4 :: IdRef > , # [serde (skip_serializing_if = "Option::is_none" , rename = "PhysicalPortAssignment")] pub physical_port_assignment : Option < crate :: odata_v4 :: IdRef > , # [serde (skip_serializing_if = "Option::is_none" , rename = "SAVIEnabled")] pub savi_enabled : Option < bool > , # [serde (skip_serializing_if = "Option::is_none" , rename = "Status")] pub status : Option < crate :: resource :: Status > , # [serde (skip_serializing_if = "Option::is_none" , rename = "VirtualFunctionAllocation")] pub virtual_function_allocation : Option < i64 > , # [serde (skip_serializing_if = "Option::is_none" , rename = "VirtualFunctionsEnabled")] pub virtual_functions_enabled : Option < bool > }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NetworkDeviceFunctionBootMode {
-        V011000(crate::network_device_function::v1_10_0::BootMode),
-        V000001(crate::network_device_function::v1_10_0::NetworkDeviceFunctionBootModeN1),
+        V011100(crate::network_device_function::v1_11_0::BootMode),
+        V000001(crate::network_device_function::v1_11_0::NetworkDeviceFunctionBootModeN1),
     }
     impl Default for NetworkDeviceFunctionBootMode {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1038,7 +1038,7 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NetworkDeviceFunctionDescription {
-        V000001(crate::network_device_function::v1_10_0::NetworkDeviceFunctionDescriptionN1),
+        V000001(crate::network_device_function::v1_11_0::NetworkDeviceFunctionDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for NetworkDeviceFunctionDescription {
@@ -1055,12 +1055,12 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NetworkDeviceFunctionLimits {
-        V011000(crate::network_device_function::v1_10_0::Limit),
-        V000001(crate::network_device_function::v1_10_0::NetworkDeviceFunctionLimitsN1),
+        V011100(crate::network_device_function::v1_11_0::Limit),
+        V000001(crate::network_device_function::v1_11_0::NetworkDeviceFunctionLimitsN1),
     }
     impl Default for NetworkDeviceFunctionLimits {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1072,7 +1072,7 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NetworkDeviceFunctionMetrics {
-        V000001(crate::network_device_function::v1_10_0::NetworkDeviceFunctionMetricsN1),
+        V000001(crate::network_device_function::v1_11_0::NetworkDeviceFunctionMetricsN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for NetworkDeviceFunctionMetrics {
@@ -1089,14 +1089,14 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NetworkDeviceFunctionNetDevFuncCapabilities {
-        V011000(crate::network_device_function::v1_10_0::NetworkDeviceTechnology),
+        V011100(crate::network_device_function::v1_11_0::NetworkDeviceTechnology),
         V000001(
-            crate::network_device_function::v1_10_0::NetworkDeviceFunctionNetDevFuncCapabilitiesN1,
+            crate::network_device_function::v1_11_0::NetworkDeviceFunctionNetDevFuncCapabilitiesN1,
         ),
     }
     impl Default for NetworkDeviceFunctionNetDevFuncCapabilities {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1108,12 +1108,12 @@ pub mod v1_10_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NetworkDeviceFunctionNetDevFuncType {
-        V011000(crate::network_device_function::v1_10_0::NetworkDeviceTechnology),
-        V000001(crate::network_device_function::v1_10_0::NetworkDeviceFunctionNetDevFuncTypeN1),
+        V011100(crate::network_device_function::v1_11_0::NetworkDeviceTechnology),
+        V000001(crate::network_device_function::v1_11_0::NetworkDeviceFunctionNetDevFuncTypeN1),
     }
     impl Default for NetworkDeviceFunctionNetDevFuncType {
         fn default() -> Self {
-            Self::V011000(Default::default())
+            Self::V011100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

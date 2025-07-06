@@ -92,7 +92,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum ReservoirFluidLevelPercent {
         V000001(crate::reservoir::v1_0_2::ReservoirFluidLevelPercentN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for ReservoirFluidLevelPercent {
         fn default() -> Self {
@@ -126,7 +126,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum ReservoirInternalPressurekPa {
         V000001(crate::reservoir::v1_0_2::ReservoirInternalPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for ReservoirInternalPressurekPa {
         fn default() -> Self {

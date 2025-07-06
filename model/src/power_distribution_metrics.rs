@@ -65,7 +65,7 @@ pub mod v1_3_2 {
         V000001(
             crate::power_distribution_metrics::v1_3_2::PowerDistributionMetricsAbsoluteHumidityN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsAbsoluteHumidity {
         fn default() -> Self {
@@ -99,7 +99,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum PowerDistributionMetricsEnergykWh {
         V000001(crate::power_distribution_metrics::v1_3_2::PowerDistributionMetricsEnergykWhN1),
-        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_1::SensorEnergykWhExcerpt),
+        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_2::SensorEnergykWhExcerpt),
     }
     impl Default for PowerDistributionMetricsEnergykWh {
         fn default() -> Self {
@@ -118,7 +118,7 @@ pub mod v1_3_2 {
         V000001(
             crate::power_distribution_metrics::v1_3_2::PowerDistributionMetricsHumidityPercentN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsHumidityPercent {
         fn default() -> Self {
@@ -137,7 +137,7 @@ pub mod v1_3_2 {
         V000001(
             crate::power_distribution_metrics::v1_3_2::PowerDistributionMetricsPowerLoadPercentN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsPowerLoadPercent {
         fn default() -> Self {
@@ -154,7 +154,7 @@ pub mod v1_3_2 {
     #[serde(untagged)]
     pub enum PowerDistributionMetricsPowerWatts {
         V000001(crate::power_distribution_metrics::v1_3_2::PowerDistributionMetricsPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_1::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_2::SensorPowerExcerpt),
     }
     impl Default for PowerDistributionMetricsPowerWatts {
         fn default() -> Self {
@@ -173,7 +173,7 @@ pub mod v1_3_2 {
         V000001(
             crate::power_distribution_metrics::v1_3_2::PowerDistributionMetricsTemperatureCelsiusN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsTemperatureCelsius {
         fn default() -> Self {
@@ -219,7 +219,7 @@ pub mod v1_4_0 {
         V000001(
             crate::power_distribution_metrics::v1_4_0::PowerDistributionMetricsAbsoluteHumidityN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsAbsoluteHumidity {
         fn default() -> Self {
@@ -235,7 +235,7 @@ pub mod v1_4_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PowerDistributionMetricsAmbientTemperatureCelsius {
-        V000001 (crate :: power_distribution_metrics :: v1_4_0 :: PowerDistributionMetricsAmbientTemperatureCelsiusN1) , SensorSensorExcerpt (crate :: sensor :: v1_9_1 :: SensorExcerpt) }
+        V000001 (crate :: power_distribution_metrics :: v1_4_0 :: PowerDistributionMetricsAmbientTemperatureCelsiusN1) , SensorSensorExcerpt (crate :: sensor :: v1_9_2 :: SensorExcerpt) }
     impl Default for PowerDistributionMetricsAmbientTemperatureCelsius {
         fn default() -> Self {
             Self::V000001(Default::default())
@@ -268,7 +268,7 @@ pub mod v1_4_0 {
     #[serde(untagged)]
     pub enum PowerDistributionMetricsEnergykWh {
         V000001(crate::power_distribution_metrics::v1_4_0::PowerDistributionMetricsEnergykWhN1),
-        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_1::SensorEnergykWhExcerpt),
+        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_2::SensorEnergykWhExcerpt),
     }
     impl Default for PowerDistributionMetricsEnergykWh {
         fn default() -> Self {
@@ -287,7 +287,7 @@ pub mod v1_4_0 {
         V000001(
             crate::power_distribution_metrics::v1_4_0::PowerDistributionMetricsHumidityPercentN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsHumidityPercent {
         fn default() -> Self {
@@ -306,7 +306,7 @@ pub mod v1_4_0 {
         V000001(
             crate::power_distribution_metrics::v1_4_0::PowerDistributionMetricsPowerLoadPercentN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsPowerLoadPercent {
         fn default() -> Self {
@@ -323,7 +323,7 @@ pub mod v1_4_0 {
     #[serde(untagged)]
     pub enum PowerDistributionMetricsPowerWatts {
         V000001(crate::power_distribution_metrics::v1_4_0::PowerDistributionMetricsPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_1::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_2::SensorPowerExcerpt),
     }
     impl Default for PowerDistributionMetricsPowerWatts {
         fn default() -> Self {
@@ -342,7 +342,7 @@ pub mod v1_4_0 {
         V000001(
             crate::power_distribution_metrics::v1_4_0::PowerDistributionMetricsTemperatureCelsiusN1,
         ),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for PowerDistributionMetricsTemperatureCelsius {
         fn default() -> Self {

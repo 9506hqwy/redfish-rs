@@ -1,4 +1,4 @@
-pub type CoolantConnector = crate::coolant_connector::v1_1_0::CoolantConnector;
+pub type CoolantConnector = crate::coolant_connector::v1_2_0::CoolantConnector;
 pub mod v1_0_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -117,7 +117,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaPressurekPa {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorDeltaPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorDeltaPressurekPa {
         fn default() -> Self {
@@ -134,7 +134,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaTemperatureCelsius {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorDeltaTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorDeltaTemperatureCelsius {
         fn default() -> Self {
@@ -168,7 +168,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorFlowLitersPerMinute {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorFlowLitersPerMinuteN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorFlowLitersPerMinute {
         fn default() -> Self {
@@ -185,7 +185,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorHeatRemovedkW {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorHeatRemovedkWN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorHeatRemovedkW {
         fn default() -> Self {
@@ -202,7 +202,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorReturnPressurekPa {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorReturnPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorReturnPressurekPa {
         fn default() -> Self {
@@ -219,7 +219,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorReturnTemperatureCelsius {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorReturnTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorReturnTemperatureCelsius {
         fn default() -> Self {
@@ -236,7 +236,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorSupplyPressurekPa {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorSupplyPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorSupplyPressurekPa {
         fn default() -> Self {
@@ -253,7 +253,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum CoolantConnectorSupplyTemperatureCelsius {
         V000001(crate::coolant_connector::v1_0_2::CoolantConnectorSupplyTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorSupplyTemperatureCelsius {
         fn default() -> Self {
@@ -341,17 +341,17 @@ pub mod v1_0_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_1_0 {
+pub mod v1_2_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::coolant_connector::v1_1_0::OemActions>,
+        pub oem: Option<crate::coolant_connector::v1_2_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CoolantConnector {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::coolant_connector::v1_1_0::Actions>,
+        pub actions: Option<crate::coolant_connector::v1_2_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Coolant")]
         pub coolant: Option<crate::cooling_loop::Coolant>,
         #[serde(
@@ -359,7 +359,7 @@ pub mod v1_1_0 {
             rename = "CoolantConnectorType"
         )]
         pub coolant_connector_type:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorCoolantConnectorType>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorCoolantConnectorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingLoopName")]
         pub cooling_loop_name: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CoolingManagerURI")]
@@ -369,44 +369,44 @@ pub mod v1_1_0 {
             rename = "DeltaPressureControlkPa"
         )]
         pub delta_pressure_controlk_pa:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorDeltaPressureControlkPa>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorDeltaPressureControlkPa>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeltaPressurekPa")]
         pub delta_pressurek_pa:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorDeltaPressurekPa>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorDeltaPressurekPa>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DeltaTemperatureCelsius"
         )]
         pub delta_temperature_celsius:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorDeltaTemperatureCelsius>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorDeltaTemperatureCelsius>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "DeltaTemperatureControlCelsius"
         )]
         pub delta_temperature_control_celsius: Option<
-            crate::coolant_connector::v1_1_0::CoolantConnectorDeltaTemperatureControlCelsius,
+            crate::coolant_connector::v1_2_0::CoolantConnectorDeltaTemperatureControlCelsius,
         >,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::coolant_connector::v1_1_0::CoolantConnectorDescription>,
+        pub description: Option<crate::coolant_connector::v1_2_0::CoolantConnectorDescription>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FlowControlLitersPerMinute"
         )]
         pub flow_control_liters_per_minute:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorFlowControlLitersPerMinute>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorFlowControlLitersPerMinute>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FlowLitersPerMinute"
         )]
         pub flow_liters_per_minute:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorFlowLitersPerMinute>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorFlowLitersPerMinute>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HeatRemovedkW")]
         pub heat_removedk_w:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorHeatRemovedkW>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorHeatRemovedkW>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::coolant_connector::v1_1_0::Links>,
+        pub links: Option<crate::coolant_connector::v1_2_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocationIndicatorActive"
@@ -438,48 +438,60 @@ pub mod v1_1_0 {
         pub rated_pressurek_pa: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReturnPressurekPa")]
         pub return_pressurek_pa:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorReturnPressurekPa>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorReturnPressurekPa>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReturnTemperatureCelsius"
         )]
         pub return_temperature_celsius:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorReturnTemperatureCelsius>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorReturnTemperatureCelsius>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ReturnTemperatureControlCelsius"
         )]
         pub return_temperature_control_celsius: Option<
-            crate::coolant_connector::v1_1_0::CoolantConnectorReturnTemperatureControlCelsius,
+            crate::coolant_connector::v1_2_0::CoolantConnectorReturnTemperatureControlCelsius,
         >,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupplyPressurekPa")]
         pub supply_pressurek_pa:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorSupplyPressurekPa>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorSupplyPressurekPa>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupplyTemperatureCelsius"
         )]
         pub supply_temperature_celsius:
-            Option<crate::coolant_connector::v1_1_0::CoolantConnectorSupplyTemperatureCelsius>,
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorSupplyTemperatureCelsius>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupplyTemperatureControlCelsius"
         )]
         pub supply_temperature_control_celsius: Option<
-            crate::coolant_connector::v1_1_0::CoolantConnectorSupplyTemperatureControlCelsius,
+            crate::coolant_connector::v1_2_0::CoolantConnectorSupplyTemperatureControlCelsius,
         >,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ValvePositionControlPercent"
+        )]
+        pub valve_position_control_percent:
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorValvePositionControlPercent>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "ValvePositionPercent"
+        )]
+        pub valve_position_percent:
+            Option<crate::coolant_connector::v1_2_0::CoolantConnectorValvePositionPercent>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorCoolantConnectorType {
-        V010100(crate::coolant_connector::v1_1_0::CoolantConnectorType),
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorCoolantConnectorTypeN1),
+        V010200(crate::coolant_connector::v1_2_0::CoolantConnectorType),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorCoolantConnectorTypeN1),
     }
     impl Default for CoolantConnectorCoolantConnectorType {
         fn default() -> Self {
-            Self::V010100(Default::default())
+            Self::V010200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -491,8 +503,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaPressureControlkPa {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorDeltaPressureControlkPaN1),
-        ControlControlSingleLoopExcerpt(crate::control::v1_6_0::ControlSingleLoopExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorDeltaPressureControlkPaN1),
+        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
     }
     impl Default for CoolantConnectorDeltaPressureControlkPa {
         fn default() -> Self {
@@ -508,8 +520,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaPressurekPa {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorDeltaPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorDeltaPressurekPaN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorDeltaPressurekPa {
         fn default() -> Self {
@@ -525,8 +537,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaTemperatureCelsius {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorDeltaTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorDeltaTemperatureCelsiusN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorDeltaTemperatureCelsius {
         fn default() -> Self {
@@ -542,8 +554,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorDeltaTemperatureControlCelsius {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorDeltaTemperatureControlCelsiusN1),
-        ControlControlSingleLoopExcerpt(crate::control::v1_6_0::ControlSingleLoopExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorDeltaTemperatureControlCelsiusN1),
+        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
     }
     impl Default for CoolantConnectorDeltaTemperatureControlCelsius {
         fn default() -> Self {
@@ -559,7 +571,7 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorDescription {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorDescriptionN1),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for CoolantConnectorDescription {
@@ -576,8 +588,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorFlowControlLitersPerMinute {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorFlowControlLitersPerMinuteN1),
-        ControlControlSingleLoopExcerpt(crate::control::v1_6_0::ControlSingleLoopExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorFlowControlLitersPerMinuteN1),
+        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
     }
     impl Default for CoolantConnectorFlowControlLitersPerMinute {
         fn default() -> Self {
@@ -593,8 +605,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorFlowLitersPerMinute {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorFlowLitersPerMinuteN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorFlowLitersPerMinuteN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorFlowLitersPerMinute {
         fn default() -> Self {
@@ -610,8 +622,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorHeatRemovedkW {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorHeatRemovedkWN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorHeatRemovedkWN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorHeatRemovedkW {
         fn default() -> Self {
@@ -627,8 +639,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorReturnPressurekPa {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorReturnPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorReturnPressurekPaN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorReturnPressurekPa {
         fn default() -> Self {
@@ -644,8 +656,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorReturnTemperatureCelsius {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorReturnTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorReturnTemperatureCelsiusN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorReturnTemperatureCelsius {
         fn default() -> Self {
@@ -662,9 +674,9 @@ pub mod v1_1_0 {
     #[serde(untagged)]
     pub enum CoolantConnectorReturnTemperatureControlCelsius {
         V000001(
-            crate::coolant_connector::v1_1_0::CoolantConnectorReturnTemperatureControlCelsiusN1,
+            crate::coolant_connector::v1_2_0::CoolantConnectorReturnTemperatureControlCelsiusN1,
         ),
-        ControlControlSingleLoopExcerpt(crate::control::v1_6_0::ControlSingleLoopExcerpt),
+        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
     }
     impl Default for CoolantConnectorReturnTemperatureControlCelsius {
         fn default() -> Self {
@@ -680,8 +692,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorSupplyPressurekPa {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorSupplyPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorSupplyPressurekPaN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorSupplyPressurekPa {
         fn default() -> Self {
@@ -697,8 +709,8 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CoolantConnectorSupplyTemperatureCelsius {
-        V000001(crate::coolant_connector::v1_1_0::CoolantConnectorSupplyTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_1::SensorExcerpt),
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorSupplyTemperatureCelsiusN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
     }
     impl Default for CoolantConnectorSupplyTemperatureCelsius {
         fn default() -> Self {
@@ -715,9 +727,9 @@ pub mod v1_1_0 {
     #[serde(untagged)]
     pub enum CoolantConnectorSupplyTemperatureControlCelsius {
         V000001(
-            crate::coolant_connector::v1_1_0::CoolantConnectorSupplyTemperatureControlCelsiusN1,
+            crate::coolant_connector::v1_2_0::CoolantConnectorSupplyTemperatureControlCelsiusN1,
         ),
-        ControlControlSingleLoopExcerpt(crate::control::v1_6_0::ControlSingleLoopExcerpt),
+        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
     }
     impl Default for CoolantConnectorSupplyTemperatureControlCelsius {
         fn default() -> Self {
@@ -744,6 +756,40 @@ pub mod v1_1_0 {
         #[serde(rename = "Supply")]
         Supply,
     }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CoolantConnectorValvePositionControlPercent {
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorValvePositionControlPercentN1),
+        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
+    }
+    impl Default for CoolantConnectorValvePositionControlPercent {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CoolantConnectorValvePositionControlPercentN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CoolantConnectorValvePositionPercent {
+        V000001(crate::coolant_connector::v1_2_0::CoolantConnectorValvePositionPercentN1),
+        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
+    }
+    impl Default for CoolantConnectorValvePositionPercent {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CoolantConnectorValvePositionPercentN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConnectedChassis")]
@@ -758,20 +804,20 @@ pub mod v1_1_0 {
             rename = "ConnectedCoolingLoop"
         )]
         pub connected_cooling_loop:
-            Option<crate::coolant_connector::v1_1_0::LinksConnectedCoolingLoop>,
+            Option<crate::coolant_connector::v1_2_0::LinksConnectedCoolingLoop>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConnectedCoolingUnit"
         )]
         pub connected_cooling_unit:
-            Option<crate::coolant_connector::v1_1_0::LinksConnectedCoolingUnit>,
+            Option<crate::coolant_connector::v1_2_0::LinksConnectedCoolingUnit>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksConnectedCoolingLoop {
-        V000001(crate::coolant_connector::v1_1_0::LinksConnectedCoolingLoopN1),
+        V000001(crate::coolant_connector::v1_2_0::LinksConnectedCoolingLoopN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksConnectedCoolingLoop {
@@ -788,7 +834,7 @@ pub mod v1_1_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksConnectedCoolingUnit {
-        V000001(crate::coolant_connector::v1_1_0::LinksConnectedCoolingUnitN1),
+        V000001(crate::coolant_connector::v1_2_0::LinksConnectedCoolingUnitN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksConnectedCoolingUnit {

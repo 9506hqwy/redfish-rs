@@ -1,4 +1,4 @@
-pub type TrustedComponent = crate::trusted_component::v1_3_2::TrustedComponent;
+pub type TrustedComponent = crate::trusted_component::v1_4_0::TrustedComponent;
 pub mod v1_3_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -186,18 +186,18 @@ pub mod v1_3_1 {
         Null,
     }
 }
-pub mod v1_3_2 {
+pub mod v1_4_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::trusted_component::v1_3_2::OemActions>,
+        pub oem: Option<crate::trusted_component::v1_4_0::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#TrustedComponent.TPMGetEventLog"
         )]
         pub trusted_component_tpm_get_event_log:
-            Option<crate::trusted_component::v1_3_2::TPMGetEventLog>,
+            Option<crate::trusted_component::v1_4_0::TPMGetEventLog>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -228,7 +228,7 @@ pub mod v1_3_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Owner")]
-        pub owner: Option<crate::trusted_component::v1_3_2::LinksOwner>,
+        pub owner: Option<crate::trusted_component::v1_4_0::LinksOwner>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SoftwareImages")]
         pub software_images: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(
@@ -240,7 +240,7 @@ pub mod v1_3_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksOwner {
-        V000001(crate::trusted_component::v1_3_2::LinksOwnerN1),
+        V000001(crate::trusted_component::v1_4_0::LinksOwnerN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksOwner {
@@ -288,17 +288,19 @@ pub mod v1_3_2 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct TrustedComponent {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::trusted_component::v1_3_2::Actions>,
+        pub actions: Option<crate::trusted_component::v1_4_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::trusted_component::v1_3_2::TrustedComponentDescription>,
+        pub description: Option<crate::trusted_component::v1_4_0::TrustedComponentDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::trusted_component::v1_3_2::Links>,
+        pub links: Option<crate::trusted_component::v1_4_0::Links>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
+        pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
         pub manufacturer: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
@@ -324,16 +326,16 @@ pub mod v1_3_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TPM")]
-        pub tpm: Option<crate::trusted_component::v1_3_2::TPM>,
+        pub tpm: Option<crate::trusted_component::v1_4_0::TPM>,
         #[serde(rename = "TrustedComponentType")]
-        pub trusted_component_type: crate::trusted_component::v1_3_2::TrustedComponentType,
+        pub trusted_component_type: crate::trusted_component::v1_4_0::TrustedComponentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::trusted_component::v1_3_2::TrustedComponentUUID>,
+        pub uuid: Option<crate::trusted_component::v1_4_0::TrustedComponentUUID>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum TrustedComponentDescription {
-        V000001(crate::trusted_component::v1_3_2::TrustedComponentDescriptionN1),
+        V000001(crate::trusted_component::v1_4_0::TrustedComponentDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for TrustedComponentDescription {
@@ -358,7 +360,7 @@ pub mod v1_3_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum TrustedComponentUUID {
-        V000001(crate::trusted_component::v1_3_2::TrustedComponentUUIDN1),
+        V000001(crate::trusted_component::v1_4_0::TrustedComponentUUIDN1),
         ResourceUUID(String),
     }
     impl Default for TrustedComponentUUID {
