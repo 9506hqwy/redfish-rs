@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '**' ]
+  pull_request:
 
 env:
   CARGO_TERM_COLOR: always
@@ -59,6 +60,9 @@ jobs:
         tar -zcf "${CUR_DIR}/artifacts/help-${RUST_TARGET}.tar.gz" *
         popd
 
+        mkdir -p artifacts/licenses
+        ./tools/cargo-licenses.sh -o artifacts/licenses
+
         echo "RUST_TARGET=${RUST_TARGET}" >> $GITHUB_ENV
 
     - name: Create Archive (Windows)
@@ -89,6 +93,9 @@ jobs:
         }
 
         Compress-Archive -Path 'target\doc\*' -DestinationPath ".\artifacts\help-${RUST_TARGET}.zip"
+
+        New-Item -Type Directory .\artifacts\licenses
+        . "C:\Program Files\Git\bin\bash.exe" ./tools/cargo-licenses.sh -o artifacts/licenses
 
         Write-Output "RUST_TARGET=$RUST_TARGET" >> $env:GITHUB_ENV
 
