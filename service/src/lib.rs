@@ -17,7 +17,7 @@ pub fn routes(state: Arc<dyn Service>) -> Router {
         extract::Query(queries): extract::Query<HashMap<String, String>>,
         headers: HeaderMap,
     ) -> Result<
-        Response<redfish_model::service_root::v1_17_0::ServiceRoot>,
+        Response<redfish_model::service_root::ServiceRoot>,
         Response<redfish_model::RedfishError>,
     > {
         redfish.get(queries, headers).await
@@ -46,7 +46,7 @@ fn session_service_router(state: Arc<dyn SessionService>) -> Router<Arc<dyn Serv
         extract::Query(queries): extract::Query<HashMap<String, String>>,
         headers: HeaderMap,
     ) -> Result<
-        Response<redfish_model::session_service::v1_1_9::SessionService>,
+        Response<redfish_model::session_service::SessionService>,
         Response<redfish_model::RedfishError>,
     > {
         redfish.get(queries, headers).await
@@ -80,7 +80,7 @@ fn session_service_sessions_router(
         extract::Query(queries): extract::Query<HashMap<String, String>>,
         headers: HeaderMap,
         payload: Result<
-            extract::Json<redfish_model::session::v1_7_2::Session>,
+            extract::Json<redfish_model::session::Session>,
             extract::rejection::JsonRejection,
         >,
     ) -> Result<
@@ -138,10 +138,8 @@ fn session_service_sessions_session_router(
         extract::Path(session_id): extract::Path<String>,
         extract::Query(queries): extract::Query<HashMap<String, String>>,
         headers: HeaderMap,
-    ) -> Result<
-        Response<redfish_model::session::v1_7_2::Session>,
-        Response<redfish_model::RedfishError>,
-    > {
+    ) -> Result<Response<redfish_model::session::Session>, Response<redfish_model::RedfishError>>
+    {
         redfish.get(session_id, queries, headers).await
     }
 

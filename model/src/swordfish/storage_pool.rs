@@ -19,42 +19,42 @@ pub enum PoolType {
     #[serde(rename = "Pool")]
     Pool,
 }
-pub type StoragePool = crate::swordfish::storage_pool::v1_9_1::StoragePool;
-pub mod v1_9_1 {
+pub type StoragePool = crate::swordfish::storage_pool::v1_9_2::StoragePool;
+pub mod v1_9_2 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::swordfish::storage_pool::v1_9_1::OemActions>,
+        pub oem: Option<crate::swordfish::storage_pool::v1_9_2::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#StoragePool.AddDrives"
         )]
-        pub storage_pool_add_drives: Option<crate::swordfish::storage_pool::v1_9_1::AddDrives>,
+        pub storage_pool_add_drives: Option<crate::swordfish::storage_pool::v1_9_2::AddDrives>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#StoragePool.RemoveDrives"
         )]
         pub storage_pool_remove_drives:
-            Option<crate::swordfish::storage_pool::v1_9_1::RemoveDrives>,
+            Option<crate::swordfish::storage_pool::v1_9_2::RemoveDrives>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#StoragePool.SetCompressionState"
         )]
         pub storage_pool_set_compression_state:
-            Option<crate::swordfish::storage_pool::v1_9_1::SetCompressionState>,
+            Option<crate::swordfish::storage_pool::v1_9_2::SetCompressionState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#StoragePool.SetDeduplicationState"
         )]
         pub storage_pool_set_deduplication_state:
-            Option<crate::swordfish::storage_pool::v1_9_1::SetDeduplicationState>,
+            Option<crate::swordfish::storage_pool::v1_9_2::SetDeduplicationState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#StoragePool.SetEncryptionState"
         )]
         pub storage_pool_set_encryption_state:
-            Option<crate::swordfish::storage_pool::v1_9_1::SetEncryptionState>,
+            Option<crate::swordfish::storage_pool::v1_9_2::SetEncryptionState>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AddDrives {
@@ -139,7 +139,7 @@ pub mod v1_9_1 {
     pub struct NVMeEnduranceGroupProperties {
         #[serde(skip_serializing_if = "Option::is_none", rename = "EndGrpLifetime")]
         pub end_grp_lifetime: Option<
-            crate::swordfish::storage_pool::v1_9_1::NVMeEnduranceGroupPropertiesEndGrpLifetime,
+            crate::swordfish::storage_pool::v1_9_2::NVMeEnduranceGroupPropertiesEndGrpLifetime,
         >,
         #[serde(
             skip_serializing_if = "Option::is_none",
@@ -150,14 +150,14 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeEnduranceGroupPropertiesEndGrpLifetime {
-        V010901(crate::swordfish::storage_pool::v1_9_1::EndGrpLifetime),
+        V010902(crate::swordfish::storage_pool::v1_9_2::EndGrpLifetime),
         V000001(
-            crate::swordfish::storage_pool::v1_9_1::NVMeEnduranceGroupPropertiesEndGrpLifetimeN1,
+            crate::swordfish::storage_pool::v1_9_2::NVMeEnduranceGroupPropertiesEndGrpLifetimeN1,
         ),
     }
     impl Default for NVMeEnduranceGroupPropertiesEndGrpLifetime {
         fn default() -> Self {
-            Self::V010901(Default::default())
+            Self::V010902(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -170,12 +170,12 @@ pub mod v1_9_1 {
     pub struct NVMeProperties {
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMePoolType")]
         pub nvme_pool_type:
-            Option<crate::swordfish::storage_pool::v1_9_1::NVMePropertiesNVMePoolType>,
+            Option<crate::swordfish::storage_pool::v1_9_2::NVMePropertiesNVMePoolType>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMePropertiesNVMePoolType {
-        V000001(crate::swordfish::storage_pool::v1_9_1::NVMePropertiesNVMePoolTypeN1),
+        V000001(crate::swordfish::storage_pool::v1_9_2::NVMePropertiesNVMePoolTypeN1),
         StoragePoolNVMePoolType(crate::swordfish::storage_pool::NVMePoolType),
     }
     impl Default for NVMePropertiesNVMePoolType {
@@ -267,7 +267,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StoragePool {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::swordfish::storage_pool::v1_9_1::Actions>,
+        pub actions: Option<crate::swordfish::storage_pool::v1_9_2::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedPools")]
         pub allocated_pools: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedVolumes")]
@@ -275,7 +275,7 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "BlockSizeBytes")]
         pub block_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Capacity")]
-        pub capacity: Option<crate::swordfish::capacity::v1_0_0::Capacity>,
+        pub capacity: Option<crate::swordfish::capacity::Capacity>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CapacitySources")]
         pub capacity_sources: Option<Vec<crate::swordfish::capacity::CapacitySource>>,
         #[serde(
@@ -317,7 +317,7 @@ pub mod v1_9_1 {
         )]
         pub default_encryption_behavior: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::swordfish::storage_pool::v1_9_1::StoragePoolDescription>,
+        pub description: Option<crate::swordfish::storage_pool::v1_9_2::StoragePoolDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Encrypted")]
         pub encrypted: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionEnabled")]
@@ -329,7 +329,7 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
         pub io_statistics: Option<crate::swordfish::io_statistics::IOStatistics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::swordfish::storage_pool::v1_9_1::Links>,
+        pub links: Option<crate::swordfish::storage_pool::v1_9_2::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LowSpaceWarningThresholdPercents"
@@ -338,7 +338,7 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaxBlockSizeBytes")]
         pub max_block_size_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
-        pub metrics: Option<crate::swordfish::storage_pool::v1_9_1::StoragePoolMetrics>,
+        pub metrics: Option<crate::swordfish::storage_pool::v1_9_2::StoragePoolMetrics>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(
@@ -346,13 +346,13 @@ pub mod v1_9_1 {
             rename = "NVMeEnduranceGroupProperties"
         )]
         pub nvme_endurance_group_properties:
-            Option<crate::swordfish::storage_pool::v1_9_1::StoragePoolNVMeEnduranceGroupProperties>,
+            Option<crate::swordfish::storage_pool::v1_9_2::StoragePoolNVMeEnduranceGroupProperties>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeProperties")]
         pub nvme_properties:
-            Option<crate::swordfish::storage_pool::v1_9_1::StoragePoolNVMeProperties>,
+            Option<crate::swordfish::storage_pool::v1_9_2::StoragePoolNVMeProperties>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "NVMeSetProperties")]
         pub nvme_set_properties:
-            Option<crate::swordfish::storage_pool::v1_9_1::StoragePoolNVMeSetProperties>,
+            Option<crate::swordfish::storage_pool::v1_9_2::StoragePoolNVMeSetProperties>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -364,7 +364,7 @@ pub mod v1_9_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PoolType")]
-        pub pool_type: Option<Vec<crate::swordfish::storage_pool::v1_9_1::StoragePoolPoolType>>,
+        pub pool_type: Option<Vec<crate::swordfish::storage_pool::v1_9_2::StoragePoolPoolType>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "RecoverableCapacitySourceCount"
@@ -381,22 +381,22 @@ pub mod v1_9_1 {
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedPoolTypes")]
         pub supported_pool_types:
-            Option<Vec<crate::swordfish::storage_pool::v1_9_1::StoragePoolSupportedPoolTypes>>,
+            Option<Vec<crate::swordfish::storage_pool::v1_9_2::StoragePoolSupportedPoolTypes>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "SupportedProvisioningPolicies"
         )]
         pub supported_provisioning_policies: Option<
-            Vec<crate::swordfish::storage_pool::v1_9_1::StoragePoolSupportedProvisioningPolicies>,
+            Vec<crate::swordfish::storage_pool::v1_9_2::StoragePoolSupportedProvisioningPolicies>,
         >,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
         pub supported_raid_types:
-            Option<Vec<crate::swordfish::storage_pool::v1_9_1::StoragePoolSupportedRAIDTypes>>,
+            Option<Vec<crate::swordfish::storage_pool::v1_9_2::StoragePoolSupportedRAIDTypes>>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolDescription {
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolDescriptionN1),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for StoragePoolDescription {
@@ -413,7 +413,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolMetrics {
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolMetricsN1),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolMetricsN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for StoragePoolMetrics {
@@ -430,12 +430,12 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolNVMeEnduranceGroupProperties {
-        V010901(crate::swordfish::storage_pool::v1_9_1::NVMeEnduranceGroupProperties),
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolNVMeEnduranceGroupPropertiesN1),
+        V010902(crate::swordfish::storage_pool::v1_9_2::NVMeEnduranceGroupProperties),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolNVMeEnduranceGroupPropertiesN1),
     }
     impl Default for StoragePoolNVMeEnduranceGroupProperties {
         fn default() -> Self {
-            Self::V010901(Default::default())
+            Self::V010902(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -447,12 +447,12 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolNVMeProperties {
-        V010901(crate::swordfish::storage_pool::v1_9_1::NVMeProperties),
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolNVMePropertiesN1),
+        V010902(crate::swordfish::storage_pool::v1_9_2::NVMeProperties),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolNVMePropertiesN1),
     }
     impl Default for StoragePoolNVMeProperties {
         fn default() -> Self {
-            Self::V010901(Default::default())
+            Self::V010902(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -464,12 +464,12 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolNVMeSetProperties {
-        V010901(crate::swordfish::storage_pool::v1_9_1::NVMeSetProperties),
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolNVMeSetPropertiesN1),
+        V010902(crate::swordfish::storage_pool::v1_9_2::NVMeSetProperties),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolNVMeSetPropertiesN1),
     }
     impl Default for StoragePoolNVMeSetProperties {
         fn default() -> Self {
-            Self::V010901(Default::default())
+            Self::V010902(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -481,7 +481,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolPoolType {
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolPoolTypeN1),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolPoolTypeN1),
         StoragePoolPoolType(crate::swordfish::storage_pool::PoolType),
     }
     impl Default for StoragePoolPoolType {
@@ -498,7 +498,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolSupportedPoolTypes {
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolSupportedPoolTypesN1),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolSupportedPoolTypesN1),
         StoragePoolPoolType(crate::swordfish::storage_pool::PoolType),
     }
     impl Default for StoragePoolSupportedPoolTypes {
@@ -515,7 +515,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolSupportedProvisioningPolicies {
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolSupportedProvisioningPoliciesN1),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolSupportedProvisioningPoliciesN1),
         DataStorageLoSCapabilitiesProvisioningPolicy(
             crate::swordfish::data_storage_los_capabilities::ProvisioningPolicy,
         ),
@@ -534,7 +534,7 @@ pub mod v1_9_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolSupportedRAIDTypes {
-        V000001(crate::swordfish::storage_pool::v1_9_1::StoragePoolSupportedRAIDTypesN1),
+        V000001(crate::swordfish::storage_pool::v1_9_2::StoragePoolSupportedRAIDTypesN1),
         VolumeRAIDType(crate::swordfish::volume::RAIDType),
     }
     impl Default for StoragePoolSupportedRAIDTypes {

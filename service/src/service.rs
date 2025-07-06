@@ -13,7 +13,7 @@ pub trait Service: Send + Sync + 'static {
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<
-        Response<redfish_model::service_root::v1_17_0::ServiceRoot>,
+        Response<redfish_model::service_root::ServiceRoot>,
         Response<redfish_model::RedfishError>,
     > {
         Err(Response::operation_not_allowed())
@@ -32,7 +32,7 @@ pub trait SessionService: Send + Sync + 'static {
         queries: HashMap<String, String>,
         headers: HeaderMap,
     ) -> Result<
-        Response<redfish_model::session_service::v1_1_9::SessionService>,
+        Response<redfish_model::session_service::SessionService>,
         Response<redfish_model::RedfishError>,
     > {
         Err(Response::operation_not_allowed())
@@ -61,7 +61,7 @@ pub trait SessionServiceSessions: Send + Sync + 'static {
         &self,
         queries: HashMap<String, String>,
         headers: HeaderMap,
-        payload: redfish_model::session::v1_7_2::Session,
+        payload: redfish_model::session::Session,
     ) -> Result<
         Response<model::PostSessionServiceSessionsResponse>,
         Response<redfish_model::RedfishError>,
@@ -94,10 +94,8 @@ pub trait SessionServiceSessionsSessionId: Send + Sync + 'static {
         session_id: String,
         queries: HashMap<String, String>,
         headers: HeaderMap,
-    ) -> Result<
-        Response<redfish_model::session::v1_7_2::Session>,
-        Response<redfish_model::RedfishError>,
-    > {
+    ) -> Result<Response<redfish_model::session::Session>, Response<redfish_model::RedfishError>>
+    {
         Err(Response::operation_not_allowed())
     }
 }

@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum PostSessionServiceSessionsResponse {
-    R201(redfish_model::session::v1_7_2::Session),
+    R201(redfish_model::session::Session),
     R202(redfish_model::task::v1_7_4::Task),
     R204,
 }
@@ -12,7 +12,7 @@ pub enum PostSessionServiceSessionsResponse {
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(untagged)]
 pub enum DeleteSessionServiceSessionsSessionIdResponse {
-    R200(redfish_model::session::v1_7_2::Session),
+    R200(redfish_model::session::Session),
     R202(redfish_model::task::v1_7_4::Task),
     R204,
 }

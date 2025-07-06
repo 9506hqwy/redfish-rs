@@ -1,17 +1,22 @@
-pub type StoragePoolMetrics = crate::swordfish::storage_pool_metrics::v1_0_1::StoragePoolMetrics;
-pub mod v1_0_1 {
+pub type StoragePoolMetrics = crate::swordfish::storage_pool_metrics::v1_1_0::StoragePoolMetrics;
+pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::swordfish::storage_pool_metrics::v1_0_1::OemActions>,
+        pub oem: Option<crate::swordfish::storage_pool_metrics::v1_1_0::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StoragePoolMetrics {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::swordfish::storage_pool_metrics::v1_0_1::Actions>,
+        pub actions: Option<crate::swordfish::storage_pool_metrics::v1_1_0::Actions>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "CompressionSavingsBytes"
+        )]
+        pub compression_savings_bytes: Option<i64>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConsistencyCheckErrorCount"
@@ -27,9 +32,14 @@ pub mod v1_0_1 {
             rename = "CorrectableIOWriteErrorCount"
         )]
         pub correctable_io_write_error_count: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "DeduplicationSavingsBytes"
+        )]
+        pub deduplication_savings_bytes: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description:
-            Option<crate::swordfish::storage_pool_metrics::v1_0_1::StoragePoolMetricsDescription>,
+            Option<crate::swordfish::storage_pool_metrics::v1_1_0::StoragePoolMetricsDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "IOStatistics")]
@@ -52,6 +62,11 @@ pub mod v1_0_1 {
         pub state_change_count: Option<f64>,
         #[serde(
             skip_serializing_if = "Option::is_none",
+            rename = "ThinProvisioningSavingsBytes"
+        )]
+        pub thin_provisioning_savings_bytes: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
             rename = "UncorrectableIOReadErrorCount"
         )]
         pub uncorrectable_io_read_error_count: Option<i64>,
@@ -64,7 +79,7 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StoragePoolMetricsDescription {
-        V000001(crate::swordfish::storage_pool_metrics::v1_0_1::StoragePoolMetricsDescriptionN1),
+        V000001(crate::swordfish::storage_pool_metrics::v1_1_0::StoragePoolMetricsDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for StoragePoolMetricsDescription {
