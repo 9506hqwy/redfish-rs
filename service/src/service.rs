@@ -1,7 +1,8 @@
 // TODO: generate from schema
 use crate::model;
 use crate::response::Response;
-use axum::{async_trait, http::header::HeaderMap};
+use async_trait::async_trait;
+use axum::http::header::HeaderMap;
 use std::collections::HashMap;
 use std::sync::Arc;
 

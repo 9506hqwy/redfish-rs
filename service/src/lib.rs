@@ -110,7 +110,7 @@ fn session_service_sessions_router(
 
     if let Some(session_id) = state.session_id() {
         router = router.nest(
-            "/:session_id",
+            "/{session_id}",
             session_service_sessions_session_router(session_id),
         );
     }

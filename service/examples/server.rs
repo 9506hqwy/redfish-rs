@@ -1,5 +1,6 @@
+use async_trait::async_trait;
 use axum::{
-    async_trait, extract,
+    extract,
     http::header::{AUTHORIZATION, CONTENT_TYPE, HeaderMap, HeaderValue, LOCATION},
     http::status::StatusCode,
     middleware,
