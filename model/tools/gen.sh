@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -euo pipefail
 
 DSP8010_VERSION='2025.2'
 SWORDFISH_VERSION='1.2.8'
@@ -16,9 +16,9 @@ TOOLS_FILE="x86_64-unknown-linux-gnu.tar.gz"
 TOOLS_URL="https://github.com/9506hqwy/openapi-spec-rs/releases/download/${TOOLS_VERSION}/${TOOLS_FILE}"
 
 OUTPUT_DIR="$(dirname $0)/../src"
-OUTPUT_DIR=$(cd $OUTPUT_DIR; pwd)
+OUTPUT_DIR=$(cd "${OUTPUT_DIR}"; pwd)
 
-WORK_DIR=`mktemp -d`
+WORK_DIR=$(mktemp -d)
 trap 'rm -rf ${WORK_DIR}' EXIT
 
 pushd "${WORK_DIR}"
@@ -52,7 +52,7 @@ tar -zxf "${TOOLS_FILE}"
 chmod +x openapi-spec-model
 
 # Generating model.
-rm -rf "${OUTPUT_DIR}"/*
+rm -rf "${OUTPUT_DIR:?}"/*
 ./openapi-spec-model ./spec "${OUTPUT_DIR}"
 pushd "${OUTPUT_DIR}"
 cargo fmt --all
