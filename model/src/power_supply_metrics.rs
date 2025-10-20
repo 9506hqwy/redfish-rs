@@ -109,7 +109,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsEnergykWh {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsEnergykWhN1),
-        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_2::SensorEnergykWhExcerpt),
+        SensorSensorEnergykWhExcerpt(crate::sensor::v1_9_3::SensorEnergykWhExcerpt),
     }
     impl Default for PowerSupplyMetricsEnergykWh {
         fn default() -> Self {
@@ -126,7 +126,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsFanSpeedPercent {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsFanSpeedPercentN1),
-        SensorSensorFanExcerpt(crate::sensor::v1_9_2::SensorFanExcerpt),
+        SensorSensorFanExcerpt(crate::sensor::v1_9_3::SensorFanExcerpt),
     }
     impl Default for PowerSupplyMetricsFanSpeedPercent {
         fn default() -> Self {
@@ -143,7 +143,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsFrequencyHz {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsFrequencyHzN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_3::SensorExcerpt),
     }
     impl Default for PowerSupplyMetricsFrequencyHz {
         fn default() -> Self {
@@ -160,7 +160,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsInputCurrentAmps {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsInputCurrentAmpsN1),
-        SensorSensorCurrentExcerpt(crate::sensor::v1_9_2::SensorCurrentExcerpt),
+        SensorSensorCurrentExcerpt(crate::sensor::v1_9_3::SensorCurrentExcerpt),
     }
     impl Default for PowerSupplyMetricsInputCurrentAmps {
         fn default() -> Self {
@@ -177,7 +177,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsInputPowerWatts {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsInputPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_2::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_3::SensorPowerExcerpt),
     }
     impl Default for PowerSupplyMetricsInputPowerWatts {
         fn default() -> Self {
@@ -194,7 +194,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsInputVoltage {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsInputVoltageN1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_2::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_3::SensorVoltageExcerpt),
     }
     impl Default for PowerSupplyMetricsInputVoltage {
         fn default() -> Self {
@@ -211,7 +211,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsOutputPowerWatts {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsOutputPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_2::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_3::SensorPowerExcerpt),
     }
     impl Default for PowerSupplyMetricsOutputPowerWatts {
         fn default() -> Self {
@@ -228,7 +228,7 @@ pub mod v1_1_2 {
     #[serde(untagged)]
     pub enum PowerSupplyMetricsTemperatureCelsius {
         V000001(crate::power_supply_metrics::v1_1_2::PowerSupplyMetricsTemperatureCelsiusN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_3::SensorExcerpt),
     }
     impl Default for PowerSupplyMetricsTemperatureCelsius {
         fn default() -> Self {

@@ -75,7 +75,7 @@ pub mod v1_0_2 {
     #[serde(untagged)]
     pub enum HeaterMetricsPowerWatts {
         V000001(crate::heater_metrics::v1_0_2::HeaterMetricsPowerWattsN1),
-        SensorSensorPowerExcerpt(crate::sensor::v1_9_2::SensorPowerExcerpt),
+        SensorSensorPowerExcerpt(crate::sensor::v1_9_3::SensorPowerExcerpt),
     }
     impl Default for HeaterMetricsPowerWatts {
         fn default() -> Self {

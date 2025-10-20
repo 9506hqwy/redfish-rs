@@ -1,11 +1,11 @@
-pub type ActionInfo = crate::action_info::v1_4_2::ActionInfo;
-pub type Parameters = crate::action_info::v1_4_2::Parameters;
-pub mod v1_4_2 {
+pub type ActionInfo = crate::action_info::v1_5_0::ActionInfo;
+pub type Parameters = crate::action_info::v1_5_0::Parameters;
+pub mod v1_5_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ActionInfo {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::action_info::v1_4_2::ActionInfoDescription>,
+        pub description: Option<crate::action_info::v1_5_0::ActionInfoDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -21,12 +21,12 @@ pub mod v1_4_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Parameters")]
-        pub parameters: Option<Vec<crate::action_info::v1_4_2::Parameters>>,
+        pub parameters: Option<Vec<crate::action_info::v1_5_0::Parameters>>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ActionInfoDescription {
-        V000001(crate::action_info::v1_4_2::ActionInfoDescriptionN1),
+        V000001(crate::action_info::v1_5_0::ActionInfoDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ActionInfoDescription {
@@ -76,13 +76,17 @@ pub mod v1_4_2 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ArraySizeMinimum")]
         pub array_size_minimum: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DataType")]
-        pub data_type: Option<crate::action_info::v1_4_2::ParametersDataType>,
+        pub data_type: Option<crate::action_info::v1_5_0::ParametersDataType>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "DefaultValue")]
+        pub default_value: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MaximumValue")]
         pub maximum_value: Option<f64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MinimumValue")]
         pub minimum_value: Option<f64>,
         #[serde(rename = "Name")]
         pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "NoDefaultValue")]
+        pub no_default_value: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ObjectDataType")]
         pub object_data_type: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Required")]
@@ -91,12 +95,12 @@ pub mod v1_4_2 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ParametersDataType {
-        V010402(crate::action_info::v1_4_2::ParameterTypes),
-        V000001(crate::action_info::v1_4_2::ParametersDataTypeN1),
+        V010500(crate::action_info::v1_5_0::ParameterTypes),
+        V000001(crate::action_info::v1_5_0::ParametersDataTypeN1),
     }
     impl Default for ParametersDataType {
         fn default() -> Self {
-            Self::V010402(Default::default())
+            Self::V010500(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

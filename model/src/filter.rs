@@ -71,7 +71,7 @@ pub mod v1_1_0 {
     #[serde(untagged)]
     pub enum FilterDeltaLiquidPressurekPa {
         V000001(crate::filter::v1_1_0::FilterDeltaLiquidPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_3::SensorExcerpt),
     }
     impl Default for FilterDeltaLiquidPressurekPa {
         fn default() -> Self {

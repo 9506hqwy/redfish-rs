@@ -28,7 +28,7 @@ pub mod v1_0_1 {
     #[serde(untagged)]
     pub enum ResolutionStepActionParameters {
         V000001(crate::resolution_step::v1_0_1::ResolutionStepActionParametersN1),
-        ActionInfoParameters(crate::action_info::v1_4_2::Parameters),
+        ActionInfoParameters(crate::action_info::v1_5_0::Parameters),
     }
     impl Default for ResolutionStepActionParameters {
         fn default() -> Self {

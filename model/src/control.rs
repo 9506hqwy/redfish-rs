@@ -344,7 +344,7 @@ pub mod v1_7_0 {
     #[serde(untagged)]
     pub enum ControlSensor {
         V000001(crate::control::v1_7_0::ControlSensorN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_2::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_9_3::SensorExcerpt),
     }
     impl Default for ControlSensor {
         fn default() -> Self {

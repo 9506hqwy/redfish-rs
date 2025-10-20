@@ -52,7 +52,7 @@ pub mod v1_0_0 {
     #[serde(untagged)]
     pub enum AutomationInstrumentationCurrentAmps {
         V000001(crate::automation_instrumentation::v1_0_0::AutomationInstrumentationCurrentAmpsN1),
-        SensorSensorCurrentExcerpt(crate::sensor::v1_9_2::SensorCurrentExcerpt),
+        SensorSensorCurrentExcerpt(crate::sensor::v1_9_3::SensorCurrentExcerpt),
     }
     impl Default for AutomationInstrumentationCurrentAmps {
         fn default() -> Self {
@@ -119,7 +119,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum AutomationInstrumentationTemperatureCelsius {
-        V000001 (crate :: automation_instrumentation :: v1_0_0 :: AutomationInstrumentationTemperatureCelsiusN1) , SensorSensorExcerpt (crate :: sensor :: v1_9_2 :: SensorExcerpt) }
+        V000001 (crate :: automation_instrumentation :: v1_0_0 :: AutomationInstrumentationTemperatureCelsiusN1) , SensorSensorExcerpt (crate :: sensor :: v1_9_3 :: SensorExcerpt) }
     impl Default for AutomationInstrumentationTemperatureCelsius {
         fn default() -> Self {
             Self::V000001(Default::default())
@@ -135,7 +135,7 @@ pub mod v1_0_0 {
     #[serde(untagged)]
     pub enum AutomationInstrumentationVoltage {
         V000001(crate::automation_instrumentation::v1_0_0::AutomationInstrumentationVoltageN1),
-        SensorSensorVoltageExcerpt(crate::sensor::v1_9_2::SensorVoltageExcerpt),
+        SensorSensorVoltageExcerpt(crate::sensor::v1_9_3::SensorVoltageExcerpt),
     }
     impl Default for AutomationInstrumentationVoltage {
         fn default() -> Self {

@@ -27,6 +27,8 @@ pub mod cable;
 pub mod cable_collection;
 pub mod certificate;
 pub mod certificate_collection;
+pub mod certificate_enrollment;
+pub mod certificate_enrollment_collection;
 pub mod certificate_locations;
 pub mod certificate_service;
 pub mod chassis;
