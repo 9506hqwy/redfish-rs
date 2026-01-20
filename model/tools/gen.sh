@@ -10,7 +10,9 @@ DSP8010_FILE="DSP8010_${DSP8010_VERSION}.zip"
 DSP8010_URL="https://www.dmtf.org/sites/default/files/standards/documents/${DSP8010_FILE}"
 
 SWORDFISH_FILE="Swordfish_v${SWORDFISH_VERSION}.zip"
-SWORDFISH_URL="https://www.snia.org/sites/default/files/technical-work/swordfish/release/v${SWORDFISH_VERSION}/zip/${SWORDFISH_FILE}"
+# Cloudflare Bot Management prevents download file using curl.
+# So, locate file at top directory before executing this script.
+#SWORDFISH_URL="https://www.snia.org/sites/default/files/technical-work/swordfish/release/v${SWORDFISH_VERSION}/zip/${SWORDFISH_FILE}"
 
 TOOLS_FILE="x86_64-unknown-linux-gnu.tar.gz"
 TOOLS_URL="https://github.com/9506hqwy/openapi-spec-rs/releases/download/${TOOLS_VERSION}/${TOOLS_FILE}"
@@ -33,7 +35,8 @@ mv ./redfish/*/openapi/* ./spec/schemas/v1
 # sowrdfish
 mkdir -p ./swordfish/schemas
 mkdir -p ./spec/schemas/swordfish/v1
-curl -sSLO "${SWORDFISH_URL}"
+#curl -sSLO "${SWORDFISH_URL}"
+cp "${OLDPWD}/${SWORDFISH_FILE}" .
 unzip "${SWORDFISH_FILE}" -d ./swordfish
 unzip "swordfish/Swordfish_v${SWORDFISH_VERSION}_Schema.zip" -d ./swordfish/schemas
 mv ./swordfish/schemas/yaml/* ./spec/schemas/swordfish/v1
