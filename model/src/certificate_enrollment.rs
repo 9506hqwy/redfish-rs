@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-pub type CertificateEnrollment = crate::certificate_enrollment::v1_0_0::CertificateEnrollment;
+pub type CertificateEnrollment = crate::certificate_enrollment::v1_0_1::CertificateEnrollment;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub enum EnrollmentProtocolType {
     #[default]
@@ -10,7 +10,7 @@ pub enum EnrollmentProtocolType {
     #[serde(rename = "SCEP")]
     SCEP,
 }
-pub mod v1_0_0 {
+pub mod v1_0_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ACMEChallengeType {
@@ -24,7 +24,7 @@ pub mod v1_0_0 {
     pub struct ACMEConfiguration {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ChallengeType")]
         pub challenge_type:
-            Option<crate::certificate_enrollment::v1_0_0::ACMEConfigurationChallengeType>,
+            Option<crate::certificate_enrollment::v1_0_1::ACMEConfigurationChallengeType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EABKey")]
         pub eab_key: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EABKeyId")]
@@ -35,12 +35,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ACMEConfigurationChallengeType {
-        V010000(crate::certificate_enrollment::v1_0_0::ACMEChallengeType),
-        V000001(crate::certificate_enrollment::v1_0_0::ACMEConfigurationChallengeTypeN1),
+        V010001(crate::certificate_enrollment::v1_0_1::ACMEChallengeType),
+        V000001(crate::certificate_enrollment::v1_0_1::ACMEConfigurationChallengeTypeN1),
     }
     impl Default for ACMEConfigurationChallengeType {
         fn default() -> Self {
-            Self::V010000(Default::default())
+            Self::V010001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -52,7 +52,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::certificate_enrollment::v1_0_0::OemActions>,
+        pub oem: Option<crate::certificate_enrollment::v1_0_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CSRParameters {
@@ -81,7 +81,7 @@ pub mod v1_0_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyPairAlgorithm")]
         pub key_pair_algorithm: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "KeyUsage")]
-        pub key_usage: Option<Vec<crate::certificate_enrollment::v1_0_0::CSRParametersKeyUsage>>,
+        pub key_usage: Option<Vec<crate::certificate_enrollment::v1_0_1::CSRParametersKeyUsage>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Organization")]
         pub organization: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OrganizationalUnit")]
@@ -96,7 +96,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CSRParametersKeyUsage {
-        V000001(crate::certificate_enrollment::v1_0_0::CSRParametersKeyUsageN1),
+        V000001(crate::certificate_enrollment::v1_0_1::CSRParametersKeyUsageN1),
         CertificateKeyUsage(crate::certificate::KeyUsage),
     }
     impl Default for CSRParametersKeyUsage {
@@ -113,26 +113,26 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CertificateEnrollment {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ACME")]
-        pub acme: Option<crate::certificate_enrollment::v1_0_0::CertificateEnrollmentACME>,
+        pub acme: Option<crate::certificate_enrollment::v1_0_1::CertificateEnrollmentACME>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::certificate_enrollment::v1_0_0::Actions>,
+        pub actions: Option<crate::certificate_enrollment::v1_0_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CSRParameters")]
         pub csr_parameters:
-            Option<crate::certificate_enrollment::v1_0_0::CertificateEnrollmentCSRParameters>,
+            Option<crate::certificate_enrollment::v1_0_1::CertificateEnrollmentCSRParameters>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
         pub description:
-            Option<crate::certificate_enrollment::v1_0_0::CertificateEnrollmentDescription>,
+            Option<crate::certificate_enrollment::v1_0_1::CertificateEnrollmentDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
         pub enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnrollmentState")]
         pub enrollment_state:
-            Option<crate::certificate_enrollment::v1_0_0::CertificateEnrollmentEnrollmentState>,
+            Option<crate::certificate_enrollment::v1_0_1::CertificateEnrollmentEnrollmentState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnrollmentType")]
         pub enrollment_type: Option<crate::certificate_enrollment::EnrollmentProtocolType>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::certificate_enrollment::v1_0_0::Links>,
+        pub links: Option<crate::certificate_enrollment::v1_0_1::Links>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
@@ -151,7 +151,7 @@ pub mod v1_0_0 {
         )]
         pub renew_before_expiry_days: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SCEP")]
-        pub scep: Option<crate::certificate_enrollment::v1_0_0::CertificateEnrollmentSCEP>,
+        pub scep: Option<crate::certificate_enrollment::v1_0_1::CertificateEnrollmentSCEP>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ServerURI")]
         pub server_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VerifyCertificate")]
@@ -160,12 +160,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateEnrollmentACME {
-        V010000(crate::certificate_enrollment::v1_0_0::ACMEConfiguration),
-        V000001(crate::certificate_enrollment::v1_0_0::CertificateEnrollmentACMEN1),
+        V010001(crate::certificate_enrollment::v1_0_1::ACMEConfiguration),
+        V000001(crate::certificate_enrollment::v1_0_1::CertificateEnrollmentACMEN1),
     }
     impl Default for CertificateEnrollmentACME {
         fn default() -> Self {
-            Self::V010000(Default::default())
+            Self::V010001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -177,12 +177,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateEnrollmentCSRParameters {
-        V010000(crate::certificate_enrollment::v1_0_0::CSRParameters),
-        V000001(crate::certificate_enrollment::v1_0_0::CertificateEnrollmentCSRParametersN1),
+        V010001(crate::certificate_enrollment::v1_0_1::CSRParameters),
+        V000001(crate::certificate_enrollment::v1_0_1::CertificateEnrollmentCSRParametersN1),
     }
     impl Default for CertificateEnrollmentCSRParameters {
         fn default() -> Self {
-            Self::V010000(Default::default())
+            Self::V010001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -194,7 +194,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateEnrollmentDescription {
-        V000001(crate::certificate_enrollment::v1_0_0::CertificateEnrollmentDescriptionN1),
+        V000001(crate::certificate_enrollment::v1_0_1::CertificateEnrollmentDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for CertificateEnrollmentDescription {
@@ -211,12 +211,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateEnrollmentEnrollmentState {
-        V010000(crate::certificate_enrollment::v1_0_0::EnrollmentState),
-        V000001(crate::certificate_enrollment::v1_0_0::CertificateEnrollmentEnrollmentStateN1),
+        V010001(crate::certificate_enrollment::v1_0_1::EnrollmentState),
+        V000001(crate::certificate_enrollment::v1_0_1::CertificateEnrollmentEnrollmentStateN1),
     }
     impl Default for CertificateEnrollmentEnrollmentState {
         fn default() -> Self {
-            Self::V010000(Default::default())
+            Self::V010001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -228,12 +228,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateEnrollmentSCEP {
-        V010000(crate::certificate_enrollment::v1_0_0::SCEPConfiguration),
-        V000001(crate::certificate_enrollment::v1_0_0::CertificateEnrollmentSCEPN1),
+        V010001(crate::certificate_enrollment::v1_0_1::SCEPConfiguration),
+        V000001(crate::certificate_enrollment::v1_0_1::CertificateEnrollmentSCEPN1),
     }
     impl Default for CertificateEnrollmentSCEP {
         fn default() -> Self {
-            Self::V010000(Default::default())
+            Self::V010001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -246,25 +246,25 @@ pub mod v1_0_0 {
     pub struct EnrollmentState {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastOperation")]
         pub last_operation:
-            Option<crate::certificate_enrollment::v1_0_0::EnrollmentStateLastOperation>,
+            Option<crate::certificate_enrollment::v1_0_1::EnrollmentStateLastOperation>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LastOperationStatus"
         )]
         pub last_operation_status:
-            Option<crate::certificate_enrollment::v1_0_0::EnrollmentStateLastOperationStatus>,
+            Option<crate::certificate_enrollment::v1_0_1::EnrollmentStateLastOperationStatus>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "LastOperationTime")]
         pub last_operation_time: Option<String>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EnrollmentStateLastOperation {
-        V010000(crate::certificate_enrollment::v1_0_0::LastOperationType),
-        V000001(crate::certificate_enrollment::v1_0_0::EnrollmentStateLastOperationN1),
+        V010001(crate::certificate_enrollment::v1_0_1::LastOperationType),
+        V000001(crate::certificate_enrollment::v1_0_1::EnrollmentStateLastOperationN1),
     }
     impl Default for EnrollmentStateLastOperation {
         fn default() -> Self {
-            Self::V010000(Default::default())
+            Self::V010001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -276,12 +276,12 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum EnrollmentStateLastOperationStatus {
-        V010000(crate::certificate_enrollment::v1_0_0::OperationStatus),
-        V000001(crate::certificate_enrollment::v1_0_0::EnrollmentStateLastOperationStatusN1),
+        V010001(crate::certificate_enrollment::v1_0_1::OperationStatus),
+        V000001(crate::certificate_enrollment::v1_0_1::EnrollmentStateLastOperationStatusN1),
     }
     impl Default for EnrollmentStateLastOperationStatus {
         fn default() -> Self {
-            Self::V010000(Default::default())
+            Self::V010001(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -312,20 +312,20 @@ pub mod v1_0_0 {
             rename = "EnrolledCertificate"
         )]
         pub enrolled_certificate:
-            Option<crate::certificate_enrollment::v1_0_0::LinksEnrolledCertificate>,
+            Option<crate::certificate_enrollment::v1_0_1::LinksEnrolledCertificate>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EnrolledCertificateLocation"
         )]
         pub enrolled_certificate_location:
-            Option<crate::certificate_enrollment::v1_0_0::LinksEnrolledCertificateLocation>,
+            Option<crate::certificate_enrollment::v1_0_1::LinksEnrolledCertificateLocation>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
         pub oem: Option<crate::resource::Oem>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksEnrolledCertificate {
-        V000001(crate::certificate_enrollment::v1_0_0::LinksEnrolledCertificateN1),
+        V000001(crate::certificate_enrollment::v1_0_1::LinksEnrolledCertificateN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksEnrolledCertificate {
@@ -336,7 +336,7 @@ pub mod v1_0_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksEnrolledCertificateLocation {
-        V000001(crate::certificate_enrollment::v1_0_0::LinksEnrolledCertificateLocationN1),
+        V000001(crate::certificate_enrollment::v1_0_1::LinksEnrolledCertificateLocationN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksEnrolledCertificateLocation {

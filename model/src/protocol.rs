@@ -68,6 +68,8 @@ pub enum Protocol {
     TCP,
     #[serde(rename = "TFTP")]
     TFTP,
+    #[serde(rename = "UALink")]
+    UALink,
     #[serde(rename = "UDP")]
     UDP,
     #[serde(rename = "UET")]

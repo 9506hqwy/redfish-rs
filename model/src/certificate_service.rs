@@ -1,4 +1,4 @@
-pub type CertificateService = crate::certificate_service::v1_2_0::CertificateService;
+pub type CertificateService = crate::certificate_service::v1_2_1::CertificateService;
 pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -137,7 +137,7 @@ pub mod v1_1_0 {
         pub password: Option<String>,
     }
 }
-pub mod v1_2_0 {
+pub mod v1_2_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
@@ -146,22 +146,22 @@ pub mod v1_2_0 {
             rename = "#CertificateService.GenerateCSR"
         )]
         pub certificate_service_generate_csr:
-            Option<crate::certificate_service::v1_2_0::GenerateCSR>,
+            Option<crate::certificate_service::v1_2_1::GenerateCSR>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#CertificateService.ReplaceCertificate"
         )]
         pub certificate_service_replace_certificate:
-            Option<crate::certificate_service::v1_2_0::ReplaceCertificate>,
+            Option<crate::certificate_service::v1_2_1::ReplaceCertificate>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::certificate_service::v1_2_0::OemActions>,
+        pub oem: Option<crate::certificate_service::v1_2_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
-    pub struct AutomaticCertificateEnrollment { # [serde (skip_serializing_if = "Option::is_none" , rename = "CertificatesSupported")] pub certificates_supported : Option < Vec < crate :: certificate_service :: v1_2_0 :: AutomaticCertificateEnrollmentCertificatesSupported > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "EnrollmentTypes")] pub enrollment_types : Option < Vec < crate :: certificate_service :: v1_2_0 :: AutomaticCertificateEnrollmentEnrollmentTypes > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "ServiceEnabled")] pub service_enabled : Option < bool > }
+    pub struct AutomaticCertificateEnrollment { # [serde (skip_serializing_if = "Option::is_none" , rename = "CertificatesSupported")] pub certificates_supported : Option < Vec < crate :: certificate_service :: v1_2_1 :: AutomaticCertificateEnrollmentCertificatesSupported > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "EnrollmentTypes")] pub enrollment_types : Option < Vec < crate :: certificate_service :: v1_2_1 :: AutomaticCertificateEnrollmentEnrollmentTypes > > , # [serde (skip_serializing_if = "Option::is_none" , rename = "ServiceEnabled")] pub service_enabled : Option < bool > }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum AutomaticCertificateEnrollmentCertificatesSupported {
-        V000001 (crate :: certificate_service :: v1_2_0 :: AutomaticCertificateEnrollmentCertificatesSupportedN1) , CertificateCertificateUsageType (crate :: certificate :: CertificateUsageType) }
+        V000001 (crate :: certificate_service :: v1_2_1 :: AutomaticCertificateEnrollmentCertificatesSupportedN1) , CertificateCertificateUsageType (crate :: certificate :: CertificateUsageType) }
     impl Default for AutomaticCertificateEnrollmentCertificatesSupported {
         fn default() -> Self {
             Self::V000001(Default::default())
@@ -177,7 +177,7 @@ pub mod v1_2_0 {
     #[serde(untagged)]
     pub enum AutomaticCertificateEnrollmentEnrollmentTypes {
         V000001(
-            crate::certificate_service::v1_2_0::AutomaticCertificateEnrollmentEnrollmentTypesN1,
+            crate::certificate_service::v1_2_1::AutomaticCertificateEnrollmentEnrollmentTypesN1,
         ),
         CertificateEnrollmentEnrollmentProtocolType(
             crate::certificate_enrollment::EnrollmentProtocolType,
@@ -197,33 +197,33 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct CertificateService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::certificate_service::v1_2_0::Actions>,
+        pub actions: Option<crate::certificate_service::v1_2_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AutomaticCertificateEnrollment"
         )]
         pub automatic_certificate_enrollment: Option<
-            crate::certificate_service::v1_2_0::CertificateServiceAutomaticCertificateEnrollment,
+            crate::certificate_service::v1_2_1::CertificateServiceAutomaticCertificateEnrollment,
         >,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CertificateEnrollments"
         )]
         pub certificate_enrollments:
-            Option<crate::certificate_service::v1_2_0::CertificateServiceCertificateEnrollments>,
+            Option<crate::certificate_service::v1_2_1::CertificateServiceCertificateEnrollments>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "CertificateLocations"
         )]
         pub certificate_locations: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::certificate_service::v1_2_0::CertificateServiceDescription>,
+        pub description: Option<crate::certificate_service::v1_2_1::CertificateServiceDescription>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EnrollmentCACertificates"
         )]
         pub enrollment_ca_certificates:
-            Option<crate::certificate_service::v1_2_0::CertificateServiceEnrollmentCACertificates>,
+            Option<crate::certificate_service::v1_2_1::CertificateServiceEnrollmentCACertificates>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -242,14 +242,14 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateServiceAutomaticCertificateEnrollment {
-        V010200(crate::certificate_service::v1_2_0::AutomaticCertificateEnrollment),
+        V010201(crate::certificate_service::v1_2_1::AutomaticCertificateEnrollment),
         V000001(
-            crate::certificate_service::v1_2_0::CertificateServiceAutomaticCertificateEnrollmentN1,
+            crate::certificate_service::v1_2_1::CertificateServiceAutomaticCertificateEnrollmentN1,
         ),
     }
     impl Default for CertificateServiceAutomaticCertificateEnrollment {
         fn default() -> Self {
-            Self::V010200(Default::default())
+            Self::V010201(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -261,7 +261,7 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateServiceCertificateEnrollments {
-        V000001(crate::certificate_service::v1_2_0::CertificateServiceCertificateEnrollmentsN1),
+        V000001(crate::certificate_service::v1_2_1::CertificateServiceCertificateEnrollmentsN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for CertificateServiceCertificateEnrollments {
@@ -278,7 +278,7 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateServiceDescription {
-        V000001(crate::certificate_service::v1_2_0::CertificateServiceDescriptionN1),
+        V000001(crate::certificate_service::v1_2_1::CertificateServiceDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for CertificateServiceDescription {
@@ -295,7 +295,7 @@ pub mod v1_2_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum CertificateServiceEnrollmentCACertificates {
-        V000001(crate::certificate_service::v1_2_0::CertificateServiceEnrollmentCACertificatesN1),
+        V000001(crate::certificate_service::v1_2_1::CertificateServiceEnrollmentCACertificatesN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for CertificateServiceEnrollmentCACertificates {

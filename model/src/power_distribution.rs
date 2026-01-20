@@ -1,4 +1,4 @@
-pub type PowerDistribution = crate::power_distribution::v1_5_0::PowerDistribution;
+pub type PowerDistribution = crate::power_distribution::v1_6_0::PowerDistribution;
 pub mod v1_4_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -310,24 +310,24 @@ pub mod v1_4_0 {
         Medium,
     }
 }
-pub mod v1_5_0 {
+pub mod v1_6_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::power_distribution::v1_5_0::OemActions>,
+        pub oem: Option<crate::power_distribution::v1_6_0::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#PowerDistribution.ExportConfiguration"
         )]
         pub power_distribution_export_configuration:
-            Option<crate::power_distribution::v1_5_0::ExportConfiguration>,
+            Option<crate::power_distribution::v1_6_0::ExportConfiguration>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#PowerDistribution.TransferControl"
         )]
         pub power_distribution_transfer_control:
-            Option<crate::power_distribution::v1_5_0::TransferControl>,
+            Option<crate::power_distribution::v1_6_0::TransferControl>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum Component {
@@ -351,18 +351,18 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ExportConfigurationRequestBody {
         #[serde(rename = "Components")]
-        pub components: Vec<crate::power_distribution::v1_5_0::Component>,
+        pub components: Vec<crate::power_distribution::v1_6_0::Component>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "EncryptionPassphrase"
         )]
         pub encryption_passphrase: Option<String>,
         #[serde(rename = "ExportType")]
-        pub export_type: crate::power_distribution::v1_5_0::ExportType,
+        pub export_type: crate::power_distribution::v1_6_0::ExportType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OEMComponents")]
         pub oem_components: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Security")]
-        pub security: Option<crate::power_distribution::v1_5_0::ExportSecurity>,
+        pub security: Option<crate::power_distribution::v1_6_0::ExportSecurity>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ExportSecurity {
@@ -408,15 +408,15 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct PowerDistribution {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::power_distribution::v1_5_0::Actions>,
+        pub actions: Option<crate::power_distribution::v1_6_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Branches")]
         pub branches: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::power_distribution::v1_5_0::PowerDistributionDescription>,
+        pub description: Option<crate::power_distribution::v1_6_0::PowerDistributionDescription>,
         #[serde(rename = "EquipmentType")]
-        pub equipment_type: crate::power_distribution::v1_5_0::PowerEquipmentType,
+        pub equipment_type: crate::power_distribution::v1_6_0::PowerEquipmentType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Feeders")]
         pub feeders: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
@@ -424,7 +424,7 @@ pub mod v1_5_0 {
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::power_distribution::v1_5_0::Links>,
+        pub links: Option<crate::power_distribution::v1_6_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Mains")]
@@ -462,6 +462,11 @@ pub mod v1_5_0 {
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerCapacityVA")]
         pub power_capacity_va: Option<i64>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "PowerDistributionRedundancy"
+        )]
+        pub power_distribution_redundancy: Option<Vec<crate::redundancy::RedundantGroup>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerSupplies")]
         pub power_supplies: Option<crate::odata_v4::IdRef>,
         #[serde(
@@ -484,21 +489,21 @@ pub mod v1_5_0 {
             rename = "TransferConfiguration"
         )]
         pub transfer_configuration:
-            Option<crate::power_distribution::v1_5_0::PowerDistributionTransferConfiguration>,
+            Option<crate::power_distribution::v1_6_0::PowerDistributionTransferConfiguration>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferCriteria")]
         pub transfer_criteria:
-            Option<crate::power_distribution::v1_5_0::PowerDistributionTransferCriteria>,
+            Option<crate::power_distribution::v1_6_0::PowerDistributionTransferCriteria>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UserLabel")]
         pub user_label: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::power_distribution::v1_5_0::PowerDistributionUUID>,
+        pub uuid: Option<crate::power_distribution::v1_6_0::PowerDistributionUUID>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PowerDistributionDescription {
-        V000001(crate::power_distribution::v1_5_0::PowerDistributionDescriptionN1),
+        V000001(crate::power_distribution::v1_6_0::PowerDistributionDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for PowerDistributionDescription {
@@ -515,12 +520,12 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PowerDistributionTransferConfiguration {
-        V010500(crate::power_distribution::v1_5_0::TransferConfiguration),
-        V000001(crate::power_distribution::v1_5_0::PowerDistributionTransferConfigurationN1),
+        V010600(crate::power_distribution::v1_6_0::TransferConfiguration),
+        V000001(crate::power_distribution::v1_6_0::PowerDistributionTransferConfigurationN1),
     }
     impl Default for PowerDistributionTransferConfiguration {
         fn default() -> Self {
-            Self::V010500(Default::default())
+            Self::V010600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -532,12 +537,12 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PowerDistributionTransferCriteria {
-        V010500(crate::power_distribution::v1_5_0::TransferCriteria),
-        V000001(crate::power_distribution::v1_5_0::PowerDistributionTransferCriteriaN1),
+        V010600(crate::power_distribution::v1_6_0::TransferCriteria),
+        V000001(crate::power_distribution::v1_6_0::PowerDistributionTransferCriteriaN1),
     }
     impl Default for PowerDistributionTransferCriteria {
         fn default() -> Self {
-            Self::V010500(Default::default())
+            Self::V010600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -549,7 +554,7 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum PowerDistributionUUID {
-        V000001(crate::power_distribution::v1_5_0::PowerDistributionUUIDN1),
+        V000001(crate::power_distribution::v1_6_0::PowerDistributionUUIDN1),
         ResourceUUID(String),
     }
     impl Default for PowerDistributionUUID {
@@ -645,7 +650,7 @@ pub mod v1_5_0 {
             rename = "TransferSensitivity"
         )]
         pub transfer_sensitivity:
-            Option<crate::power_distribution::v1_5_0::TransferCriteriaTransferSensitivity>,
+            Option<crate::power_distribution::v1_6_0::TransferCriteriaTransferSensitivity>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UnderNominalFrequencyHz"
@@ -660,12 +665,12 @@ pub mod v1_5_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum TransferCriteriaTransferSensitivity {
-        V010500(crate::power_distribution::v1_5_0::TransferSensitivityType),
-        V000001(crate::power_distribution::v1_5_0::TransferCriteriaTransferSensitivityN1),
+        V010600(crate::power_distribution::v1_6_0::TransferSensitivityType),
+        V000001(crate::power_distribution::v1_6_0::TransferCriteriaTransferSensitivityN1),
     }
     impl Default for TransferCriteriaTransferSensitivity {
         fn default() -> Self {
-            Self::V010500(Default::default())
+            Self::V010600(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

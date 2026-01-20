@@ -1,4 +1,4 @@
-pub type Processor = crate::processor::v1_21_0::Processor;
+pub type Processor = crate::processor::v1_22_0::Processor;
 pub mod v1_20_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -791,19 +791,19 @@ pub mod v1_20_1 {
         Enabled,
     }
 }
-pub mod v1_21_0 {
+pub mod v1_22_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::processor::v1_21_0::OemActions>,
+        pub oem: Option<crate::processor::v1_22_0::OemActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "#Processor.Reset")]
-        pub processor_reset: Option<crate::processor::v1_21_0::Reset>,
+        pub processor_reset: Option<crate::processor::v1_22_0::Reset>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Processor.ResetToDefaults"
         )]
-        pub processor_reset_to_defaults: Option<crate::processor::v1_21_0::ResetToDefaults>,
+        pub processor_reset_to_defaults: Option<crate::processor::v1_22_0::ResetToDefaults>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum BaseSpeedPriorityState {
@@ -825,7 +825,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct FPGA {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExternalInterfaces")]
-        pub external_interfaces: Option<Vec<crate::processor::v1_21_0::ProcessorInterface>>,
+        pub external_interfaces: Option<Vec<crate::processor::v1_22_0::ProcessorInterface>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareId")]
         pub firmware_id: Option<String>,
         #[serde(
@@ -836,9 +836,9 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FpgaType")]
-        pub fpga_type: Option<crate::processor::v1_21_0::FpgaType>,
+        pub fpga_type: Option<crate::processor::v1_22_0::FpgaType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HostInterface")]
-        pub host_interface: Option<crate::processor::v1_21_0::ProcessorInterface>,
+        pub host_interface: Option<crate::processor::v1_22_0::ProcessorInterface>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Model")]
         pub model: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -857,7 +857,7 @@ pub mod v1_21_0 {
             skip_serializing_if = "Option::is_none",
             rename = "ReconfigurationSlots"
         )]
-        pub reconfiguration_slots: Option<Vec<crate::processor::v1_21_0::FpgaReconfigurationSlot>>,
+        pub reconfiguration_slots: Option<Vec<crate::processor::v1_22_0::FpgaReconfigurationSlot>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct FpgaReconfigurationSlot {
@@ -874,12 +874,12 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SlotId")]
         pub slot_id: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::processor::v1_21_0::FpgaReconfigurationSlotUUID>,
+        pub uuid: Option<crate::processor::v1_22_0::FpgaReconfigurationSlotUUID>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum FpgaReconfigurationSlotUUID {
-        V000001(crate::processor::v1_21_0::FpgaReconfigurationSlotUUIDN1),
+        V000001(crate::processor::v1_22_0::FpgaReconfigurationSlotUUIDN1),
         ResourceUUID(String),
     }
     impl Default for FpgaReconfigurationSlotUUID {
@@ -956,7 +956,7 @@ pub mod v1_21_0 {
         )]
         pub fabric_adapters_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "GraphicsController")]
-        pub graphics_controller: Option<crate::processor::v1_21_0::LinksGraphicsController>,
+        pub graphics_controller: Option<crate::processor::v1_22_0::LinksGraphicsController>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Memory")]
         pub memory: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Memory@odata.count")]
@@ -986,7 +986,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum LinksGraphicsController {
-        V000001(crate::processor::v1_21_0::LinksGraphicsControllerN1),
+        V000001(crate::processor::v1_22_0::LinksGraphicsControllerN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for LinksGraphicsController {
@@ -1021,7 +1021,7 @@ pub mod v1_21_0 {
         )]
         pub acceleration_functions: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::processor::v1_21_0::Actions>,
+        pub actions: Option<crate::processor::v1_22_0::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AdditionalFirmwareVersions"
@@ -1041,13 +1041,13 @@ pub mod v1_21_0 {
             rename = "BaseSpeedPriorityState"
         )]
         pub base_speed_priority_state:
-            Option<crate::processor::v1_21_0::ProcessorBaseSpeedPriorityState>,
+            Option<crate::processor::v1_22_0::ProcessorBaseSpeedPriorityState>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheMemory")]
         pub cache_memory: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::processor::v1_21_0::ProcessorDescription>,
+        pub description: Option<crate::processor::v1_22_0::ProcessorDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Enabled")]
         pub enabled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EnvironmentMetrics")]
@@ -1057,15 +1057,15 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FPGA")]
-        pub fpga: Option<crate::processor::v1_21_0::FPGA>,
+        pub fpga: Option<crate::processor::v1_22_0::FPGA>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HighSpeedCoreIDs")]
         pub high_speed_core_ids: Option<Vec<i64>>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InstructionSet")]
-        pub instruction_set: Option<crate::processor::v1_21_0::ProcessorInstructionSet>,
+        pub instruction_set: Option<crate::processor::v1_22_0::ProcessorInstructionSet>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::processor::v1_21_0::Links>,
+        pub links: Option<crate::processor::v1_22_0::Links>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(
@@ -1082,7 +1082,7 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Measurements")]
         pub measurements: Option<Vec<crate::software_inventory::MeasurementBlock>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemorySummary")]
-        pub memory_summary: Option<crate::processor::v1_21_0::MemorySummary>,
+        pub memory_summary: Option<crate::processor::v1_22_0::MemorySummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
         pub metrics: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MinSpeedMHz")]
@@ -1110,27 +1110,27 @@ pub mod v1_21_0 {
             rename = "OperatingSpeedRangeMHz"
         )]
         pub operating_speed_range_mhz:
-            Option<crate::processor::v1_21_0::ProcessorOperatingSpeedRangeMHz>,
+            Option<crate::processor::v1_22_0::ProcessorOperatingSpeedRangeMHz>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PartNumber")]
         pub part_number: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ports")]
         pub ports: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PowerState")]
-        pub power_state: Option<crate::processor::v1_21_0::ProcessorPowerState>,
+        pub power_state: Option<crate::processor::v1_22_0::ProcessorPowerState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ProcessorArchitecture"
         )]
         pub processor_architecture:
-            Option<crate::processor::v1_21_0::ProcessorProcessorArchitecture>,
+            Option<crate::processor::v1_22_0::ProcessorProcessorArchitecture>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorId")]
-        pub processor_id: Option<crate::processor::v1_21_0::ProcessorId>,
+        pub processor_id: Option<crate::processor::v1_22_0::ProcessorId>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorIndex")]
         pub processor_index: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorMemory")]
-        pub processor_memory: Option<Vec<crate::processor::v1_21_0::ProcessorMemory>>,
+        pub processor_memory: Option<Vec<crate::processor::v1_22_0::ProcessorMemory>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ProcessorType")]
-        pub processor_type: Option<crate::processor::v1_21_0::ProcessorProcessorType>,
+        pub processor_type: Option<crate::processor::v1_22_0::ProcessorProcessorType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Replaceable")]
         pub replaceable: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SerialNumber")]
@@ -1148,11 +1148,11 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "SubProcessors")]
         pub sub_processors: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SystemInterface")]
-        pub system_interface: Option<crate::processor::v1_21_0::ProcessorInterface>,
+        pub system_interface: Option<crate::processor::v1_22_0::ProcessorInterface>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TDPWatts")]
         pub tdp_watts: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ThrottleCauses")]
-        pub throttle_causes: Option<Vec<crate::processor::v1_21_0::ProcessorThrottleCauses>>,
+        pub throttle_causes: Option<Vec<crate::processor::v1_22_0::ProcessorThrottleCauses>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Throttled")]
         pub throttled: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalCores")]
@@ -1167,9 +1167,11 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "TotalThreads")]
         pub total_threads: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TurboState")]
-        pub turbo_state: Option<crate::processor::v1_21_0::ProcessorTurboState>,
+        pub turbo_state: Option<crate::processor::v1_22_0::ProcessorTurboState>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "UALink")]
+        pub ua_link: Option<crate::processor::v1_22_0::UALink>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "UUID")]
-        pub uuid: Option<crate::processor::v1_21_0::ProcessorUUID>,
+        pub uuid: Option<crate::processor::v1_22_0::ProcessorUUID>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Version")]
         pub version: Option<String>,
     }
@@ -1194,12 +1196,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorBaseSpeedPriorityState {
-        V012100(crate::processor::v1_21_0::BaseSpeedPriorityState),
-        V000001(crate::processor::v1_21_0::ProcessorBaseSpeedPriorityStateN1),
+        V012200(crate::processor::v1_22_0::BaseSpeedPriorityState),
+        V000001(crate::processor::v1_22_0::ProcessorBaseSpeedPriorityStateN1),
     }
     impl Default for ProcessorBaseSpeedPriorityState {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1211,7 +1213,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorDescription {
-        V000001(crate::processor::v1_21_0::ProcessorDescriptionN1),
+        V000001(crate::processor::v1_22_0::ProcessorDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ProcessorDescription {
@@ -1251,12 +1253,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorInstructionSet {
-        V012100(crate::processor::v1_21_0::InstructionSet),
-        V000001(crate::processor::v1_21_0::ProcessorInstructionSetN1),
+        V012200(crate::processor::v1_22_0::InstructionSet),
+        V000001(crate::processor::v1_22_0::ProcessorInstructionSetN1),
     }
     impl Default for ProcessorInstructionSet {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1268,21 +1270,21 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ProcessorInterface {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Ethernet")]
-        pub ethernet: Option<crate::processor::v1_21_0::EthernetInterface>,
+        pub ethernet: Option<crate::processor::v1_22_0::EthernetInterface>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "InterfaceType")]
-        pub interface_type: Option<crate::processor::v1_21_0::ProcessorInterfaceInterfaceType>,
+        pub interface_type: Option<crate::processor::v1_22_0::ProcessorInterfaceInterfaceType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "PCIe")]
         pub pcie: Option<crate::pcie_device::PCIeInterface>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorInterfaceInterfaceType {
-        V012100(crate::processor::v1_21_0::SystemInterfaceType),
-        V000001(crate::processor::v1_21_0::ProcessorInterfaceInterfaceTypeN1),
+        V012200(crate::processor::v1_22_0::SystemInterfaceType),
+        V000001(crate::processor::v1_22_0::ProcessorInterfaceInterfaceTypeN1),
     }
     impl Default for ProcessorInterfaceInterfaceType {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1298,19 +1300,19 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "IntegratedMemory")]
         pub integrated_memory: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryType")]
-        pub memory_type: Option<crate::processor::v1_21_0::ProcessorMemoryMemoryType>,
+        pub memory_type: Option<crate::processor::v1_22_0::ProcessorMemoryMemoryType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SpeedMHz")]
         pub speed_mhz: Option<i64>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorMemoryMemoryType {
-        V012100(crate::processor::v1_21_0::ProcessorMemoryType),
-        V000001(crate::processor::v1_21_0::ProcessorMemoryMemoryTypeN1),
+        V012200(crate::processor::v1_22_0::ProcessorMemoryType),
+        V000001(crate::processor::v1_22_0::ProcessorMemoryMemoryTypeN1),
     }
     impl Default for ProcessorMemoryMemoryType {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1386,7 +1388,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorOperatingSpeedRangeMHz {
-        V000001(crate::processor::v1_21_0::ProcessorOperatingSpeedRangeMHzN1),
+        V000001(crate::processor::v1_22_0::ProcessorOperatingSpeedRangeMHzN1),
         ControlControlRangeExcerpt(crate::control::v1_7_0::ControlRangeExcerpt),
     }
     impl Default for ProcessorOperatingSpeedRangeMHz {
@@ -1403,7 +1405,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorPowerState {
-        V000001(crate::processor::v1_21_0::ProcessorPowerStateN1),
+        V000001(crate::processor::v1_22_0::ProcessorPowerStateN1),
         ResourcePowerState(crate::resource::PowerState),
     }
     impl Default for ProcessorPowerState {
@@ -1420,12 +1422,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorProcessorArchitecture {
-        V012100(crate::processor::v1_21_0::ProcessorArchitecture),
-        V000001(crate::processor::v1_21_0::ProcessorProcessorArchitectureN1),
+        V012200(crate::processor::v1_22_0::ProcessorArchitecture),
+        V000001(crate::processor::v1_22_0::ProcessorProcessorArchitectureN1),
     }
     impl Default for ProcessorProcessorArchitecture {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1437,12 +1439,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorProcessorType {
-        V012100(crate::processor::v1_21_0::ProcessorType),
-        V000001(crate::processor::v1_21_0::ProcessorProcessorTypeN1),
+        V012200(crate::processor::v1_22_0::ProcessorType),
+        V000001(crate::processor::v1_22_0::ProcessorProcessorTypeN1),
     }
     impl Default for ProcessorProcessorType {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1454,12 +1456,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorThrottleCauses {
-        V012100(crate::processor::v1_21_0::ThrottleCause),
-        V000001(crate::processor::v1_21_0::ProcessorThrottleCausesN1),
+        V012200(crate::processor::v1_22_0::ThrottleCause),
+        V000001(crate::processor::v1_22_0::ProcessorThrottleCausesN1),
     }
     impl Default for ProcessorThrottleCauses {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1471,12 +1473,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorTurboState {
-        V012100(crate::processor::v1_21_0::TurboState),
-        V000001(crate::processor::v1_21_0::ProcessorTurboStateN1),
+        V012200(crate::processor::v1_22_0::TurboState),
+        V000001(crate::processor::v1_22_0::ProcessorTurboStateN1),
     }
     impl Default for ProcessorTurboState {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1510,7 +1512,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ProcessorUUID {
-        V000001(crate::processor::v1_21_0::ProcessorUUIDN1),
+        V000001(crate::processor::v1_22_0::ProcessorUUIDN1),
         ResourceUUID(String),
     }
     impl Default for ProcessorUUID {
@@ -1588,5 +1590,10 @@ pub mod v1_21_0 {
         Disabled,
         #[serde(rename = "Enabled")]
         Enabled,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct UALink {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "AcceleratorID")]
+        pub accelerator_id: Option<i64>,
     }
 }

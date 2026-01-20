@@ -8,7 +8,7 @@ use axum::{
 };
 use base64::Engine;
 use redfish_model::{
-    RedfishError, odata_v4::IdRef, service_root::ServiceRoot, service_root::v1_19_0::Links,
+    RedfishError, odata_v4::IdRef, service_root::ServiceRoot, service_root::v1_20_0::Links,
     session::Session, session_collection::SessionCollection, session_service::SessionService,
 };
 use redfish_service::service::{
@@ -188,7 +188,7 @@ impl SessionServiceSessionsTrait for Redfish {
 
         sessions.get(&payload.id).map_or(Ok(()), |s| {
             Err(Response::resource_already_exists(
-                "#Session.v1_6_0.Session",
+                "#Session.v1_8_0.Session",
                 "members",
                 &s.id,
             ))
@@ -231,7 +231,7 @@ impl SessionServiceSessionsSessionIdTrait for Redfish {
 
         sessions
             .get(&session_id)
-            .ok_or_else(|| Response::resource_not_found("#Session.v1_6_0.Session", &session_id))?;
+            .ok_or_else(|| Response::resource_not_found("#Session.v1_8_0.Session", &session_id))?;
 
         let session = sessions.remove(&session_id).unwrap();
 
@@ -254,7 +254,7 @@ impl SessionServiceSessionsSessionIdTrait for Redfish {
         sessions
             .get(&session_id)
             .map(|s| Response::<Session>::from(s.clone()))
-            .ok_or_else(|| Response::resource_not_found("#Session.v1_6_0.Session", &session_id))
+            .ok_or_else(|| Response::resource_not_found("#Session.v1_8_0.Session", &session_id))
     }
 }
 
@@ -291,7 +291,7 @@ fn service_root(session_service: &SessionService) -> ServiceRoot {
 fn session_service(sessoins: &SessionCollection) -> SessionService {
     SessionService {
         odata_id: "/redfish/v1/SessionService".to_string(),
-        odata_type: "#SessionService.v1_1_8.SessionService".to_string(),
+        odata_type: "#SessionService.v1_2_0.SessionService".to_string(),
         id: "0".to_string(),
         name: "SessionService".to_string(),
         sessions: Some(IdRef {
@@ -321,7 +321,7 @@ fn session_init(session: &mut Session) -> Result<(), Response<RedfishError>> {
     let id = &session.id;
 
     session.odata_id = format!("/redfish/v1/SessionService/Sessions/{id}");
-    session.odata_type = "#Session.v1_6_0.Session".to_string();
+    session.odata_type = "#Session.v1_8_0.Session".to_string();
 
     Ok(())
 }

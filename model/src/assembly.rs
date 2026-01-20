@@ -1,4 +1,4 @@
-pub type Assembly = crate::assembly::v1_6_0::Assembly;
+pub type Assembly = crate::assembly::v1_6_1::Assembly;
 pub mod v1_5_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -119,26 +119,26 @@ pub mod v1_5_1 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
 }
-pub mod v1_6_0 {
+pub mod v1_6_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::assembly::v1_6_0::OemActions>,
+        pub oem: Option<crate::assembly::v1_6_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Assembly {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::assembly::v1_6_0::Actions>,
+        pub actions: Option<crate::assembly::v1_6_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assemblies")]
-        pub assemblies: Option<Vec<crate::assembly::v1_6_0::AssemblyData>>,
+        pub assemblies: Option<Vec<crate::assembly::v1_6_1::AssemblyData>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "Assemblies@odata.count"
         )]
         pub assemblies_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::assembly::v1_6_0::AssemblyDescription>,
+        pub description: Option<crate::assembly::v1_6_1::AssemblyDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(rename = "Name")]
@@ -157,7 +157,7 @@ pub mod v1_6_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssemblyData {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::assembly::v1_6_0::AssemblyDataActions>,
+        pub actions: Option<crate::assembly::v1_6_1::AssemblyDataActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "BinaryDataURI")]
         pub binary_data_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
@@ -217,14 +217,14 @@ pub mod v1_6_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssemblyDataActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::assembly::v1_6_0::AssemblyDataOemActions>,
+        pub oem: Option<crate::assembly::v1_6_1::AssemblyDataOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct AssemblyDataOemActions {}
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum AssemblyDescription {
-        V000001(crate::assembly::v1_6_0::AssemblyDescriptionN1),
+        V000001(crate::assembly::v1_6_1::AssemblyDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for AssemblyDescription {
