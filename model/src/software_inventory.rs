@@ -1,6 +1,6 @@
-pub type AdditionalVersions = crate::software_inventory::v1_13_0::AdditionalVersions;
-pub type MeasurementBlock = crate::software_inventory::v1_13_0::MeasurementBlock;
-pub type SoftwareInventory = crate::software_inventory::v1_13_0::SoftwareInventory;
+pub type AdditionalVersions = crate::software_inventory::v1_14_0::AdditionalVersions;
+pub type MeasurementBlock = crate::software_inventory::v1_14_0::MeasurementBlock;
+pub type SoftwareInventory = crate::software_inventory::v1_14_0::SoftwareInventory;
 pub mod v1_12_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -224,17 +224,22 @@ pub mod v1_12_0 {
         SemVer,
     }
 }
-pub mod v1_13_0 {
+pub mod v1_14_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::software_inventory::v1_13_0::OemActions>,
+        pub oem: Option<crate::software_inventory::v1_14_0::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#SoftwareInventory.Activate"
         )]
-        pub software_inventory_activate: Option<crate::software_inventory::v1_13_0::Activate>,
+        pub software_inventory_activate: Option<crate::software_inventory::v1_14_0::Activate>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#SoftwareInventory.Cancel"
+        )]
+        pub software_inventory_cancel: Option<crate::software_inventory::v1_14_0::Cancel>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Activate {
@@ -267,6 +272,18 @@ pub mod v1_13_0 {
         pub oem: Option<crate::resource::Oem>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "OSDistribution")]
         pub os_distribution: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Cancel {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct CancelRequestBody {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Targets")]
+        pub targets: Option<Vec<crate::odata_v4::IdRef>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Links {
@@ -314,24 +331,24 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SoftwareInventory {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::software_inventory::v1_13_0::Actions>,
+        pub actions: Option<crate::software_inventory::v1_14_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Active")]
         pub active: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AdditionalVersions")]
-        pub additional_versions: Option<crate::software_inventory::v1_13_0::AdditionalVersions>,
+        pub additional_versions: Option<crate::software_inventory::v1_14_0::AdditionalVersions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "AssociatedPhysicalContext"
         )]
         pub associated_physical_context: Option<crate::physical_context::PhysicalContext>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::software_inventory::v1_13_0::SoftwareInventoryDescription>,
+        pub description: Option<crate::software_inventory::v1_14_0::SoftwareInventoryDescription>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ImageDataURI")]
         pub image_data_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::software_inventory::v1_13_0::Links>,
+        pub links: Option<crate::software_inventory::v1_14_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LowestSupportedVersion"
@@ -363,7 +380,7 @@ pub mod v1_13_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReleaseDate")]
         pub release_date: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ReleaseType")]
-        pub release_type: Option<crate::software_inventory::v1_13_0::SoftwareInventoryReleaseType>,
+        pub release_type: Option<crate::software_inventory::v1_14_0::SoftwareInventoryReleaseType>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ResetRequiredOnUpdate"
@@ -385,14 +402,14 @@ pub mod v1_13_0 {
         pub version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VersionScheme")]
         pub version_scheme:
-            Option<crate::software_inventory::v1_13_0::SoftwareInventoryVersionScheme>,
+            Option<crate::software_inventory::v1_14_0::SoftwareInventoryVersionScheme>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "WriteProtected")]
         pub write_protected: Option<bool>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SoftwareInventoryDescription {
-        V000001(crate::software_inventory::v1_13_0::SoftwareInventoryDescriptionN1),
+        V000001(crate::software_inventory::v1_14_0::SoftwareInventoryDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for SoftwareInventoryDescription {
@@ -409,12 +426,12 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SoftwareInventoryReleaseType {
-        V011300(crate::software_inventory::v1_13_0::ReleaseType),
-        V000001(crate::software_inventory::v1_13_0::SoftwareInventoryReleaseTypeN1),
+        V011400(crate::software_inventory::v1_14_0::ReleaseType),
+        V000001(crate::software_inventory::v1_14_0::SoftwareInventoryReleaseTypeN1),
     }
     impl Default for SoftwareInventoryReleaseType {
         fn default() -> Self {
-            Self::V011300(Default::default())
+            Self::V011400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -426,12 +443,12 @@ pub mod v1_13_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum SoftwareInventoryVersionScheme {
-        V011300(crate::software_inventory::v1_13_0::VersionScheme),
-        V000001(crate::software_inventory::v1_13_0::SoftwareInventoryVersionSchemeN1),
+        V011400(crate::software_inventory::v1_14_0::VersionScheme),
+        V000001(crate::software_inventory::v1_14_0::SoftwareInventoryVersionSchemeN1),
     }
     impl Default for SoftwareInventoryVersionScheme {
         fn default() -> Self {
-            Self::V011300(Default::default())
+            Self::V011400(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

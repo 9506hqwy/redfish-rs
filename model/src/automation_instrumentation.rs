@@ -86,7 +86,7 @@ pub mod v1_0_0 {
     #[serde(untagged)]
     pub enum AutomationInstrumentationNodeControl {
         V000001(crate::automation_instrumentation::v1_0_0::AutomationInstrumentationNodeControlN1),
-        ControlControlNodeExcerpt(crate::control::v1_7_0::ControlNodeExcerpt),
+        ControlControlNodeExcerpt(crate::control::v1_8_0::ControlNodeExcerpt),
     }
     impl Default for AutomationInstrumentationNodeControl {
         fn default() -> Self {
@@ -103,7 +103,7 @@ pub mod v1_0_0 {
     #[serde(untagged)]
     pub enum AutomationInstrumentationPID {
         V000001(crate::automation_instrumentation::v1_0_0::AutomationInstrumentationPIDN1),
-        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
+        ControlControlSingleLoopExcerpt(crate::control::v1_8_0::ControlSingleLoopExcerpt),
     }
     impl Default for AutomationInstrumentationPID {
         fn default() -> Self {

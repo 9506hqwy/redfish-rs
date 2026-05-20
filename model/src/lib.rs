@@ -133,6 +133,8 @@ pub mod memory_chunks_collection;
 pub mod memory_collection;
 pub mod memory_domain;
 pub mod memory_domain_collection;
+pub mod memory_extent;
+pub mod memory_extent_collection;
 pub mod memory_metrics;
 pub mod memory_region;
 pub mod memory_region_collection;
@@ -300,5 +302,5 @@ pub struct RedfishErrorError {
         skip_serializing_if = "Option::is_none",
         rename = "@Message.ExtendedInfo"
     )]
-    pub message_extended_info: Option<Vec<crate::message::v1_2_1::Message>>,
+    pub message_extended_info: Option<Vec<crate::message::v1_3_0::Message>>,
 }

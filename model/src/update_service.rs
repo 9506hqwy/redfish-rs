@@ -1,5 +1,5 @@
-pub type UpdateParameters = crate::update_service::v1_17_0::UpdateParameters;
-pub type UpdateService = crate::update_service::v1_17_0::UpdateService;
+pub type UpdateParameters = crate::update_service::v1_17_1::UpdateParameters;
+pub type UpdateService = crate::update_service::v1_17_1::UpdateService;
 pub mod v1_16_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -323,39 +323,39 @@ pub mod v1_16_0 {
         Null,
     }
 }
-pub mod v1_17_0 {
+pub mod v1_17_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::update_service::v1_17_0::OemActions>,
+        pub oem: Option<crate::update_service::v1_17_1::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.Activate"
         )]
-        pub update_service_activate: Option<crate::update_service::v1_17_0::Activate>,
+        pub update_service_activate: Option<crate::update_service::v1_17_1::Activate>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.GenerateSSHIdentityKeyPair"
         )]
         pub update_service_generate_ssh_identity_key_pair:
-            Option<crate::update_service::v1_17_0::GenerateSSHIdentityKeyPair>,
+            Option<crate::update_service::v1_17_1::GenerateSSHIdentityKeyPair>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.RemoveSSHIdentityKeyPair"
         )]
         pub update_service_remove_ssh_identity_key_pair:
-            Option<crate::update_service::v1_17_0::RemoveSSHIdentityKeyPair>,
+            Option<crate::update_service::v1_17_1::RemoveSSHIdentityKeyPair>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.SimpleUpdate"
         )]
-        pub update_service_simple_update: Option<crate::update_service::v1_17_0::SimpleUpdate>,
+        pub update_service_simple_update: Option<crate::update_service::v1_17_1::SimpleUpdate>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#UpdateService.StartUpdate"
         )]
-        pub update_service_start_update: Option<crate::update_service::v1_17_0::StartUpdate>,
+        pub update_service_start_update: Option<crate::update_service::v1_17_1::StartUpdate>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Activate {
@@ -404,7 +404,7 @@ pub mod v1_17_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct HttpPushUriApplyTime {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ApplyTime")]
-        pub apply_time: Option<crate::update_service::v1_17_0::ApplyTime>,
+        pub apply_time: Option<crate::update_service::v1_17_1::ApplyTime>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaintenanceWindowDurationInSeconds"
@@ -424,7 +424,7 @@ pub mod v1_17_0 {
             skip_serializing_if = "Option::is_none",
             rename = "HttpPushUriApplyTime"
         )]
-        pub http_push_uri_apply_time: Option<crate::update_service::v1_17_0::HttpPushUriApplyTime>,
+        pub http_push_uri_apply_time: Option<crate::update_service::v1_17_1::HttpPushUriApplyTime>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
@@ -461,7 +461,7 @@ pub mod v1_17_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Targets")]
         pub targets: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "TransferProtocol")]
-        pub transfer_protocol: Option<crate::update_service::v1_17_0::TransferProtocolType>,
+        pub transfer_protocol: Option<crate::update_service::v1_17_1::TransferProtocolType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Username")]
         pub username: Option<String>,
     }
@@ -532,17 +532,17 @@ pub mod v1_17_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct UpdateService {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::update_service::v1_17_0::Actions>,
+        pub actions: Option<crate::update_service::v1_17_1::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ClientCertificates")]
         pub client_certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::update_service::v1_17_0::UpdateServiceDescription>,
+        pub description: Option<crate::update_service::v1_17_1::UpdateServiceDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareInventory")]
         pub firmware_inventory: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HttpPushUri")]
         pub http_push_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "HttpPushUriOptions")]
-        pub http_push_uri_options: Option<crate::update_service::v1_17_0::HttpPushUriOptions>,
+        pub http_push_uri_options: Option<crate::update_service::v1_17_1::HttpPushUriOptions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "HttpPushUriOptionsBusy"
@@ -614,7 +614,7 @@ pub mod v1_17_0 {
             rename = "SupportedUpdateImageFormats"
         )]
         pub supported_update_image_formats:
-            Option<Vec<crate::update_service::v1_17_0::UpdateServiceSupportedUpdateImageFormats>>,
+            Option<Vec<crate::update_service::v1_17_1::UpdateServiceSupportedUpdateImageFormats>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "UpdateServiceCapabilities"
@@ -634,7 +634,7 @@ pub mod v1_17_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum UpdateServiceDescription {
-        V000001(crate::update_service::v1_17_0::UpdateServiceDescriptionN1),
+        V000001(crate::update_service::v1_17_1::UpdateServiceDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for UpdateServiceDescription {
@@ -651,12 +651,12 @@ pub mod v1_17_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum UpdateServiceSupportedUpdateImageFormats {
-        V011700(crate::update_service::v1_17_0::SupportedUpdateImageFormatType),
-        V000001(crate::update_service::v1_17_0::UpdateServiceSupportedUpdateImageFormatsN1),
+        V011701(crate::update_service::v1_17_1::SupportedUpdateImageFormatType),
+        V000001(crate::update_service::v1_17_1::UpdateServiceSupportedUpdateImageFormatsN1),
     }
     impl Default for UpdateServiceSupportedUpdateImageFormats {
         fn default() -> Self {
-            Self::V011700(Default::default())
+            Self::V011701(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]

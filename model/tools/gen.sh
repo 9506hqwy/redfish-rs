@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-DSP8010_VERSION='2025.4'
+DSP8010_VERSION='2026.1'
 SWORDFISH_VERSION='1.2.8'
 TOOLS_VERSION='0.3.0'
 
@@ -51,6 +51,10 @@ mv ./swordfish/schemas/yaml/* ./spec/schemas/swordfish/v1
 # In swordfish 1.2.6, draft schema is same.
 sed -i ./spec/schemas/swordfish/v1/openapi.yaml \
     -e 's|schemas/v1/StorageSystemCollection.yaml|schemas/swordfish/v1/StorageSystemCollection.yaml|'
+# Because the Sensor_SensorLowerCriticalExcerpt was added v1.13.
+# In redfish 2026.1, the Sensor_SensorLowerCriticalExcerpt indicates v1.9.3.
+sed -i ./spec/schemas/v1/Sensor.yaml \
+    -e 's|schemas/v1/Sensor.v1_9_3.yaml#/components/schemas/Sensor_v1_9_3_SensorLowerCriticalExcerpt|schemas/v1/Sensor.v1_13_0.yaml#/components/schemas/Sensor_v1_13_0_SensorLowerCriticalExcerpt|'
 
 # tool
 curl -sSLO "${TOOLS_URL}"

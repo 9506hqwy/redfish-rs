@@ -159,7 +159,7 @@ pub mod v1_2_0 {
     #[serde(untagged)]
     pub enum PumpSpeedControlPercent {
         V000001(crate::pump::v1_2_0::PumpSpeedControlPercentN1),
-        ControlControlSingleLoopExcerpt(crate::control::v1_7_0::ControlSingleLoopExcerpt),
+        ControlControlSingleLoopExcerpt(crate::control::v1_8_0::ControlSingleLoopExcerpt),
     }
     impl Default for PumpSpeedControlPercent {
         fn default() -> Self {

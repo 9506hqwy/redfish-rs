@@ -1,11 +1,11 @@
-pub type ResolutionStep = crate::resolution_step::v1_0_1::ResolutionStep;
-pub mod v1_0_1 {
+pub type ResolutionStep = crate::resolution_step::v1_1_0::ResolutionStep;
+pub mod v1_1_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResolutionStep {
         #[serde(skip_serializing_if = "Option::is_none", rename = "ActionParameters")]
         pub action_parameters:
-            Option<Vec<crate::resolution_step::v1_0_1::ResolutionStepActionParameters>>,
+            Option<Vec<crate::resolution_step::v1_1_0::ResolutionStepActionParameters>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ActionURI")]
         pub action_uri: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
@@ -13,7 +13,7 @@ pub mod v1_0_1 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Priority")]
         pub priority: Option<i64>,
         #[serde(rename = "ResolutionType")]
-        pub resolution_type: crate::resolution_step::v1_0_1::ResolutionStepResolutionType,
+        pub resolution_type: crate::resolution_step::v1_1_0::ResolutionStepResolutionType,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RetryCount")]
         pub retry_count: Option<i64>,
         #[serde(
@@ -27,8 +27,8 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ResolutionStepActionParameters {
-        V000001(crate::resolution_step::v1_0_1::ResolutionStepActionParametersN1),
-        ActionInfoParameters(crate::action_info::v1_5_0::Parameters),
+        V000001(crate::resolution_step::v1_1_0::ResolutionStepActionParametersN1),
+        ActionInfoParameters(crate::action_info::v1_6_0::Parameters),
     }
     impl Default for ResolutionStepActionParameters {
         fn default() -> Self {
@@ -44,12 +44,12 @@ pub mod v1_0_1 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ResolutionStepResolutionType {
-        V010001(crate::resolution_step::v1_0_1::ResolutionType),
-        V000001(crate::resolution_step::v1_0_1::ResolutionStepResolutionTypeN1),
+        V010100(crate::resolution_step::v1_1_0::ResolutionType),
+        V000001(crate::resolution_step::v1_1_0::ResolutionStepResolutionTypeN1),
     }
     impl Default for ResolutionStepResolutionType {
         fn default() -> Self {
-            Self::V010001(Default::default())
+            Self::V010100(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -77,5 +77,7 @@ pub mod v1_0_1 {
         Reset,
         #[serde(rename = "ResetToDefaults")]
         ResetToDefaults,
+        #[serde(rename = "RetryOperation")]
+        RetryOperation,
     }
 }

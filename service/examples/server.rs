@@ -8,7 +8,7 @@ use axum::{
 };
 use base64::Engine;
 use redfish_model::{
-    RedfishError, odata_v4::IdRef, service_root::ServiceRoot, service_root::v1_20_0::Links,
+    RedfishError, odata_v4::IdRef, service_root::ServiceRoot, service_root::v1_21_0::Links,
     session::Session, session_collection::SessionCollection, session_service::SessionService,
 };
 use redfish_service::service::{

@@ -1,4 +1,4 @@
-pub type ServiceRoot = crate::service_root::v1_20_0::ServiceRoot;
+pub type ServiceRoot = crate::service_root::v1_21_0::ServiceRoot;
 pub mod v1_19_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -192,7 +192,7 @@ pub mod v1_19_0 {
         Null,
     }
 }
-pub mod v1_20_0 {
+pub mod v1_21_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct DeepOperations {
@@ -230,12 +230,14 @@ pub mod v1_20_0 {
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ProtocolFeaturesSupported {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ClientContextQuery")]
+        pub client_context_query: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "DeepOperations")]
-        pub deep_operations: Option<crate::service_root::v1_20_0::DeepOperations>,
+        pub deep_operations: Option<crate::service_root::v1_21_0::DeepOperations>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExcerptQuery")]
         pub excerpt_query: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ExpandQuery")]
-        pub expand_query: Option<crate::service_root::v1_20_0::Expand>,
+        pub expand_query: Option<crate::service_root::v1_21_0::Expand>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FilterQuery")]
         pub filter_query: Option<bool>,
         #[serde(
@@ -284,7 +286,7 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "CompositionService")]
         pub composition_service: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::service_root::v1_20_0::ServiceRootDescription>,
+        pub description: Option<crate::service_root::v1_21_0::ServiceRootDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EventService")]
         pub event_service: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Fabrics")]
@@ -302,7 +304,7 @@ pub mod v1_20_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "LicenseService")]
         pub license_service: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Links")]
-        pub links: crate::service_root::v1_20_0::Links,
+        pub links: crate::service_root::v1_21_0::Links,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Managers")]
         pub managers: Option<crate::odata_v4::IdRef>,
         #[serde(rename = "Name")]
@@ -328,7 +330,7 @@ pub mod v1_20_0 {
             rename = "ProtocolFeaturesSupported"
         )]
         pub protocol_features_supported:
-            Option<crate::service_root::v1_20_0::ProtocolFeaturesSupported>,
+            Option<crate::service_root::v1_21_0::ProtocolFeaturesSupported>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RedfishVersion")]
         pub redfish_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "RegisteredClients")]
@@ -375,7 +377,7 @@ pub mod v1_20_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum ServiceRootDescription {
-        V000001(crate::service_root::v1_20_0::ServiceRootDescriptionN1),
+        V000001(crate::service_root::v1_21_0::ServiceRootDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for ServiceRootDescription {

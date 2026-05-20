@@ -1,5 +1,5 @@
-pub type Storage = crate::storage::v1_21_0::Storage;
-pub type StorageController = crate::storage::v1_21_0::StorageController;
+pub type Storage = crate::storage::v1_22_0::Storage;
+pub type StorageController = crate::storage::v1_22_0::StorageController;
 pub mod v1_19_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -761,63 +761,69 @@ pub mod v1_19_0 {
         Baseline,
     }
 }
-pub mod v1_21_0 {
+pub mod v1_22_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::storage::v1_21_0::OemActions>,
+        pub oem: Option<crate::storage::v1_22_0::OemActions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.FreezePersonality"
         )]
-        pub storage_freeze_personality: Option<crate::storage::v1_21_0::FreezePersonality>,
+        pub storage_freeze_personality: Option<crate::storage::v1_22_0::FreezePersonality>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.GetPersonalityNonce"
         )]
-        pub storage_get_personality_nonce: Option<crate::storage::v1_21_0::GetPersonalityNonce>,
+        pub storage_get_personality_nonce: Option<crate::storage::v1_22_0::GetPersonalityNonce>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.ImportForeignDrives"
         )]
-        pub storage_import_foreign_drives: Option<crate::storage::v1_21_0::ImportForeignDrives>,
+        pub storage_import_foreign_drives: Option<crate::storage::v1_22_0::ImportForeignDrives>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.RekeyExternalKey"
         )]
-        pub storage_rekey_external_key: Option<crate::storage::v1_21_0::RekeyExternalKey>,
+        pub storage_rekey_external_key: Option<crate::storage::v1_22_0::RekeyExternalKey>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.ResetToDefaults"
         )]
-        pub storage_reset_to_defaults: Option<crate::storage::v1_21_0::ResetToDefaults>,
+        pub storage_reset_to_defaults: Option<crate::storage::v1_22_0::ResetToDefaults>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.RevertPersonalitiesToDefaults"
         )]
         pub storage_revert_personalities_to_defaults:
-            Option<crate::storage::v1_21_0::RevertPersonalitiesToDefaults>,
+            Option<crate::storage::v1_22_0::RevertPersonalitiesToDefaults>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.SetControllerPassword"
         )]
-        pub storage_set_controller_password: Option<crate::storage::v1_21_0::SetControllerPassword>,
+        pub storage_set_controller_password: Option<crate::storage::v1_22_0::SetControllerPassword>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.SetEncryptionKey"
         )]
-        pub storage_set_encryption_key: Option<crate::storage::v1_21_0::SetEncryptionKey>,
+        pub storage_set_encryption_key: Option<crate::storage::v1_22_0::SetEncryptionKey>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.SetPersonalityKey"
         )]
-        pub storage_set_personality_key: Option<crate::storage::v1_21_0::SetPersonalityKey>,
+        pub storage_set_personality_key: Option<crate::storage::v1_22_0::SetPersonalityKey>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#Storage.SetPredictedMediaLifeLeftThreshold"
+        )]
+        pub storage_set_predicted_media_life_left_threshold:
+            Option<crate::storage::v1_22_0::SetPredictedMediaLifeLeftThreshold>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "#Storage.UnfreezePersonality"
         )]
-        pub storage_unfreeze_personality: Option<crate::storage::v1_21_0::UnfreezePersonality>,
+        pub storage_unfreeze_personality: Option<crate::storage::v1_22_0::UnfreezePersonality>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum AutoVolumeCreate {
@@ -1020,17 +1026,17 @@ pub mod v1_21_0 {
             skip_serializing_if = "Option::is_none",
             rename = "VolumeAssignmentPolicy"
         )]
-        pub volume_assignment_policy: Option<crate::storage::v1_21_0::MPFVolumeAssignmentPolicy>,
+        pub volume_assignment_policy: Option<crate::storage::v1_22_0::MPFVolumeAssignmentPolicy>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum MPFVolumeAssignmentPolicy {
-        V012100(crate::storage::v1_21_0::VolumeAssignmentPolicy),
-        V000001(crate::storage::v1_21_0::MPFVolumeAssignmentPolicyN1),
+        V012200(crate::storage::v1_22_0::VolumeAssignmentPolicy),
+        V000001(crate::storage::v1_22_0::MPFVolumeAssignmentPolicyN1),
     }
     impl Default for MPFVolumeAssignmentPolicy {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1071,29 +1077,29 @@ pub mod v1_21_0 {
     pub struct NVMeConfigurationLockState {
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareCommit")]
         pub firmware_commit:
-            Option<crate::storage::v1_21_0::NVMeConfigurationLockStateFirmwareCommit>,
+            Option<crate::storage::v1_22_0::NVMeConfigurationLockStateFirmwareCommit>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "FirmwareImageDownload"
         )]
         pub firmware_image_download:
-            Option<crate::storage::v1_21_0::NVMeConfigurationLockStateFirmwareImageDownload>,
+            Option<crate::storage::v1_22_0::NVMeConfigurationLockStateFirmwareImageDownload>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Lockdown")]
-        pub lockdown: Option<crate::storage::v1_21_0::NVMeConfigurationLockStateLockdown>,
+        pub lockdown: Option<crate::storage::v1_22_0::NVMeConfigurationLockStateLockdown>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SecuritySend")]
-        pub security_send: Option<crate::storage::v1_21_0::NVMeConfigurationLockStateSecuritySend>,
+        pub security_send: Option<crate::storage::v1_22_0::NVMeConfigurationLockStateSecuritySend>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "VPDWrite")]
-        pub vpd_write: Option<crate::storage::v1_21_0::NVMeConfigurationLockStateVPDWrite>,
+        pub vpd_write: Option<crate::storage::v1_22_0::NVMeConfigurationLockStateVPDWrite>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateFirmwareCommit {
-        V012100(crate::storage::v1_21_0::ConfigLockOptions),
-        V000001(crate::storage::v1_21_0::NVMeConfigurationLockStateFirmwareCommitN1),
+        V012200(crate::storage::v1_22_0::ConfigLockOptions),
+        V000001(crate::storage::v1_22_0::NVMeConfigurationLockStateFirmwareCommitN1),
     }
     impl Default for NVMeConfigurationLockStateFirmwareCommit {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1105,12 +1111,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateFirmwareImageDownload {
-        V012100(crate::storage::v1_21_0::ConfigLockOptions),
-        V000001(crate::storage::v1_21_0::NVMeConfigurationLockStateFirmwareImageDownloadN1),
+        V012200(crate::storage::v1_22_0::ConfigLockOptions),
+        V000001(crate::storage::v1_22_0::NVMeConfigurationLockStateFirmwareImageDownloadN1),
     }
     impl Default for NVMeConfigurationLockStateFirmwareImageDownload {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1122,12 +1128,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateLockdown {
-        V012100(crate::storage::v1_21_0::ConfigLockOptions),
-        V000001(crate::storage::v1_21_0::NVMeConfigurationLockStateLockdownN1),
+        V012200(crate::storage::v1_22_0::ConfigLockOptions),
+        V000001(crate::storage::v1_22_0::NVMeConfigurationLockStateLockdownN1),
     }
     impl Default for NVMeConfigurationLockStateLockdown {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1139,12 +1145,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateSecuritySend {
-        V012100(crate::storage::v1_21_0::ConfigLockOptions),
-        V000001(crate::storage::v1_21_0::NVMeConfigurationLockStateSecuritySendN1),
+        V012200(crate::storage::v1_22_0::ConfigLockOptions),
+        V000001(crate::storage::v1_22_0::NVMeConfigurationLockStateSecuritySendN1),
     }
     impl Default for NVMeConfigurationLockStateSecuritySend {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1156,12 +1162,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeConfigurationLockStateVPDWrite {
-        V012100(crate::storage::v1_21_0::ConfigLockOptions),
-        V000001(crate::storage::v1_21_0::NVMeConfigurationLockStateVPDWriteN1),
+        V012200(crate::storage::v1_22_0::ConfigLockOptions),
+        V000001(crate::storage::v1_22_0::NVMeConfigurationLockStateVPDWriteN1),
     }
     impl Default for NVMeConfigurationLockStateVPDWrite {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1190,7 +1196,7 @@ pub mod v1_21_0 {
             rename = "MinimumRequiredResetType"
         )]
         pub minimum_required_reset_type:
-            Option<crate::storage::v1_21_0::NVMePersonalityMinimumRequiredResetType>,
+            Option<crate::storage::v1_22_0::NVMePersonalityMinimumRequiredResetType>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Pending")]
         pub pending: Option<bool>,
         #[serde(
@@ -1198,17 +1204,17 @@ pub mod v1_21_0 {
             rename = "UnfreezeAuthenticationModes"
         )]
         pub unfreeze_authentication_modes:
-            Option<Vec<crate::storage::v1_21_0::NVMePersonalityUnfreezeAuthenticationModes>>,
+            Option<Vec<crate::storage::v1_22_0::NVMePersonalityUnfreezeAuthenticationModes>>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMePersonalityMinimumRequiredResetType {
-        V012100(crate::storage::v1_21_0::NMVeMinimumRequiredResetType),
-        V000001(crate::storage::v1_21_0::NVMePersonalityMinimumRequiredResetTypeN1),
+        V012200(crate::storage::v1_22_0::NMVeMinimumRequiredResetType),
+        V000001(crate::storage::v1_22_0::NVMePersonalityMinimumRequiredResetTypeN1),
     }
     impl Default for NVMePersonalityMinimumRequiredResetType {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1220,12 +1226,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMePersonalityUnfreezeAuthenticationModes {
-        V012100(crate::storage::v1_21_0::NMVeUnfreezeAuthMode),
-        V000001(crate::storage::v1_21_0::NVMePersonalityUnfreezeAuthenticationModesN1),
+        V012200(crate::storage::v1_22_0::NMVeUnfreezeAuthMode),
+        V000001(crate::storage::v1_22_0::NVMePersonalityUnfreezeAuthenticationModesN1),
     }
     impl Default for NVMePersonalityUnfreezeAuthenticationModes {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1241,13 +1247,13 @@ pub mod v1_21_0 {
             rename = "ActivePersonalities"
         )]
         pub active_personalities:
-            Option<Vec<crate::storage::v1_21_0::NVMeSubsystemPropertiesActivePersonalities>>,
+            Option<Vec<crate::storage::v1_22_0::NVMeSubsystemPropertiesActivePersonalities>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ConfigurationLockState"
         )]
         pub configuration_lock_state:
-            Option<crate::storage::v1_21_0::NVMeSubsystemPropertiesConfigurationLockState>,
+            Option<crate::storage::v1_22_0::NVMeSubsystemPropertiesConfigurationLockState>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "MaxNamespacesSupported"
@@ -1262,12 +1268,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeSubsystemPropertiesActivePersonalities {
-        V012100(crate::storage::v1_21_0::NVMePersonality),
-        V000001(crate::storage::v1_21_0::NVMeSubsystemPropertiesActivePersonalitiesN1),
+        V012200(crate::storage::v1_22_0::NVMePersonality),
+        V000001(crate::storage::v1_22_0::NVMeSubsystemPropertiesActivePersonalitiesN1),
     }
     impl Default for NVMeSubsystemPropertiesActivePersonalities {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1279,12 +1285,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum NVMeSubsystemPropertiesConfigurationLockState {
-        V012100(crate::storage::v1_21_0::NVMeConfigurationLockState),
-        V000001(crate::storage::v1_21_0::NVMeSubsystemPropertiesConfigurationLockStateN1),
+        V012200(crate::storage::v1_22_0::NVMeConfigurationLockState),
+        V000001(crate::storage::v1_22_0::NVMeSubsystemPropertiesConfigurationLockStateN1),
     }
     impl Default for NVMeSubsystemPropertiesConfigurationLockState {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1329,7 +1335,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct ResetToDefaultsRequestBody {
         #[serde(rename = "ResetType")]
-        pub reset_type: crate::storage::v1_21_0::ResetToDefaultsType,
+        pub reset_type: crate::storage::v1_22_0::ResetToDefaultsType,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ResetToDefaultsType {
@@ -1396,23 +1402,35 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct SetPersonalityKeyRequestBody {
         #[serde(rename = "Algorithm")]
-        pub algorithm: crate::storage::v1_21_0::NMVePersonalityKeyAlgorithm,
+        pub algorithm: crate::storage::v1_22_0::NMVePersonalityKeyAlgorithm,
         #[serde(rename = "Key")]
         pub key: String,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct SetPredictedMediaLifeLeftThreshold {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct SetPredictedMediaLifeLeftThresholdRequestBody {
+        #[serde(rename = "PredictedMediaLifeLeftThreshold")]
+        pub predicted_media_life_left_threshold: i64,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Storage {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::storage::v1_21_0::Actions>,
+        pub actions: Option<crate::storage::v1_22_0::Actions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AutoVolumeCreate")]
-        pub auto_volume_create: Option<crate::storage::v1_21_0::StorageAutoVolumeCreate>,
+        pub auto_volume_create: Option<crate::storage::v1_22_0::StorageAutoVolumeCreate>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "BlockSecurityIDPolicy"
         )]
         pub block_security_id_policy: Option<bool>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConfigurationLock")]
-        pub configuration_lock: Option<crate::storage::v1_21_0::StorageConfigurationLock>,
+        pub configuration_lock: Option<crate::storage::v1_22_0::StorageConfigurationLock>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Connections")]
         pub connections: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ConsistencyGroups")]
@@ -1420,13 +1438,13 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Controllers")]
         pub controllers: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
-        pub description: Option<crate::storage::v1_21_0::StorageDescription>,
+        pub description: Option<crate::storage::v1_22_0::StorageDescription>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Drives")]
         pub drives: Option<Vec<crate::odata_v4::IdRef>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Drives@odata.count")]
         pub drives_odata_count: Option<i64>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EncryptionMode")]
-        pub encryption_mode: Option<crate::storage::v1_21_0::StorageEncryptionMode>,
+        pub encryption_mode: Option<crate::storage::v1_22_0::StorageEncryptionMode>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "EndpointGroups")]
         pub endpoint_groups: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FileSystems")]
@@ -1436,22 +1454,22 @@ pub mod v1_21_0 {
             rename = "HotspareActivationPolicy"
         )]
         pub hotspare_activation_policy:
-            Option<crate::storage::v1_21_0::StorageHotspareActivationPolicy>,
+            Option<crate::storage::v1_22_0::StorageHotspareActivationPolicy>,
         #[serde(rename = "Id")]
         pub id: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::storage::v1_21_0::Links>,
+        pub links: Option<crate::storage::v1_22_0::Links>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "LocalEncryptionKeyIdentifier"
         )]
         pub local_encryption_key_identifier: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Metrics")]
-        pub metrics: Option<crate::storage::v1_21_0::StorageMetrics>,
+        pub metrics: Option<crate::storage::v1_22_0::StorageMetrics>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "MPF")]
-        pub mpf: Option<crate::storage::v1_21_0::StorageMPF>,
+        pub mpf: Option<crate::storage::v1_22_0::StorageMPF>,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(
@@ -1459,7 +1477,7 @@ pub mod v1_21_0 {
             rename = "NVMeSubsystemProperties"
         )]
         pub nvme_subsystem_properties:
-            Option<crate::storage::v1_21_0::StorageNVMeSubsystemProperties>,
+            Option<crate::storage::v1_22_0::StorageNVMeSubsystemProperties>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
         pub odata_context: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
@@ -1480,7 +1498,7 @@ pub mod v1_21_0 {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
         pub status: Option<crate::resource::Status>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "StorageControllers")]
-        pub storage_controllers: Option<Vec<crate::storage::v1_21_0::StorageController>>,
+        pub storage_controllers: Option<Vec<crate::storage::v1_22_0::StorageController>>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "StorageControllers@odata.count"
@@ -1495,19 +1513,19 @@ pub mod v1_21_0 {
             rename = "TargetConfigurationLockLevel"
         )]
         pub target_configuration_lock_level:
-            Option<crate::storage::v1_21_0::StorageTargetConfigurationLockLevel>,
+            Option<crate::storage::v1_22_0::StorageTargetConfigurationLockLevel>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Volumes")]
         pub volumes: Option<crate::odata_v4::IdRef>,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageAutoVolumeCreate {
-        V012100(crate::storage::v1_21_0::AutoVolumeCreate),
-        V000001(crate::storage::v1_21_0::StorageAutoVolumeCreateN1),
+        V012200(crate::storage::v1_22_0::AutoVolumeCreate),
+        V000001(crate::storage::v1_22_0::StorageAutoVolumeCreateN1),
     }
     impl Default for StorageAutoVolumeCreate {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1519,12 +1537,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageConfigurationLock {
-        V012100(crate::storage::v1_21_0::ConfigurationLock),
-        V000001(crate::storage::v1_21_0::StorageConfigurationLockN1),
+        V012200(crate::storage::v1_22_0::ConfigurationLock),
+        V000001(crate::storage::v1_22_0::StorageConfigurationLockN1),
     }
     impl Default for StorageConfigurationLock {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1536,23 +1554,23 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageController {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::storage::v1_21_0::StorageControllerActions>,
+        pub actions: Option<crate::storage::v1_22_0::StorageControllerActions>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Assembly")]
         pub assembly: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "AssetTag")]
         pub asset_tag: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "CacheSummary")]
-        pub cache_summary: Option<crate::storage::v1_21_0::CacheSummary>,
+        pub cache_summary: Option<crate::storage::v1_22_0::CacheSummary>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Certificates")]
         pub certificates: Option<crate::odata_v4::IdRef>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "ControllerRates")]
-        pub controller_rates: Option<crate::storage::v1_21_0::Rates>,
+        pub controller_rates: Option<crate::storage::v1_22_0::Rates>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "FirmwareVersion")]
         pub firmware_version: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
         pub identifiers: Option<Vec<crate::resource::Identifier>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
-        pub links: Option<crate::storage::v1_21_0::StorageControllerLinks>,
+        pub links: Option<crate::storage::v1_22_0::StorageControllerLinks>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Location")]
         pub location: Option<crate::resource::Location>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Manufacturer")]
@@ -1595,12 +1613,12 @@ pub mod v1_21_0 {
         pub supported_device_protocols: Option<Vec<crate::protocol::Protocol>>,
         #[serde(skip_serializing_if = "Option::is_none", rename = "SupportedRAIDTypes")]
         pub supported_raid_types:
-            Option<Vec<crate::storage::v1_21_0::StorageControllerSupportedRAIDTypes>>,
+            Option<Vec<crate::storage::v1_22_0::StorageControllerSupportedRAIDTypes>>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerActions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::storage::v1_21_0::StorageControllerOemActions>,
+        pub oem: Option<crate::storage::v1_22_0::StorageControllerOemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct StorageControllerLinks {
@@ -1633,7 +1651,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageControllerSupportedRAIDTypes {
-        V000001(crate::storage::v1_21_0::StorageControllerSupportedRAIDTypesN1),
+        V000001(crate::storage::v1_22_0::StorageControllerSupportedRAIDTypesN1),
         VolumeRAIDType(crate::swordfish::volume::RAIDType),
     }
     impl Default for StorageControllerSupportedRAIDTypes {
@@ -1650,7 +1668,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageDescription {
-        V000001(crate::storage::v1_21_0::StorageDescriptionN1),
+        V000001(crate::storage::v1_22_0::StorageDescriptionN1),
         ResourceDescription(String),
     }
     impl Default for StorageDescription {
@@ -1667,12 +1685,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageEncryptionMode {
-        V012100(crate::storage::v1_21_0::EncryptionMode),
-        V000001(crate::storage::v1_21_0::StorageEncryptionModeN1),
+        V012200(crate::storage::v1_22_0::EncryptionMode),
+        V000001(crate::storage::v1_22_0::StorageEncryptionModeN1),
     }
     impl Default for StorageEncryptionMode {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1684,12 +1702,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageHotspareActivationPolicy {
-        V012100(crate::storage::v1_21_0::HotspareActivationPolicy),
-        V000001(crate::storage::v1_21_0::StorageHotspareActivationPolicyN1),
+        V012200(crate::storage::v1_22_0::HotspareActivationPolicy),
+        V000001(crate::storage::v1_22_0::StorageHotspareActivationPolicyN1),
     }
     impl Default for StorageHotspareActivationPolicy {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1701,12 +1719,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageMPF {
-        V012100(crate::storage::v1_21_0::MPF),
-        V000001(crate::storage::v1_21_0::StorageMPFN1),
+        V012200(crate::storage::v1_22_0::MPF),
+        V000001(crate::storage::v1_22_0::StorageMPFN1),
     }
     impl Default for StorageMPF {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1718,7 +1736,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageMetrics {
-        V000001(crate::storage::v1_21_0::StorageMetricsN1),
+        V000001(crate::storage::v1_22_0::StorageMetricsN1),
         OdataV4IdRef(crate::odata_v4::IdRef),
     }
     impl Default for StorageMetrics {
@@ -1735,12 +1753,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageNVMeSubsystemProperties {
-        V012100(crate::storage::v1_21_0::NVMeSubsystemProperties),
-        V000001(crate::storage::v1_21_0::StorageNVMeSubsystemPropertiesN1),
+        V012200(crate::storage::v1_22_0::NVMeSubsystemProperties),
+        V000001(crate::storage::v1_22_0::StorageNVMeSubsystemPropertiesN1),
     }
     impl Default for StorageNVMeSubsystemProperties {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1752,12 +1770,12 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum StorageTargetConfigurationLockLevel {
-        V012100(crate::storage::v1_21_0::TargetConfigurationLockLevel),
-        V000001(crate::storage::v1_21_0::StorageTargetConfigurationLockLevelN1),
+        V012200(crate::storage::v1_22_0::TargetConfigurationLockLevel),
+        V000001(crate::storage::v1_22_0::StorageTargetConfigurationLockLevelN1),
     }
     impl Default for StorageTargetConfigurationLockLevel {
         fn default() -> Self {
-            Self::V012100(Default::default())
+            Self::V012200(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -1782,7 +1800,7 @@ pub mod v1_21_0 {
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct UnfreezePersonalityRequestBody {
         #[serde(rename = "AuthenticationMethod")]
-        pub authentication_method: crate::storage::v1_21_0::NMVeUnfreezeAuthMode,
+        pub authentication_method: crate::storage::v1_22_0::NMVeUnfreezeAuthMode,
         #[serde(rename = "Key")]
         pub key: String,
         #[serde(skip_serializing_if = "Option::is_none", rename = "Nonce")]
