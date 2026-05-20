@@ -7,7 +7,9 @@ SWORDFISH_VERSION='1.2.8'
 TOOLS_VERSION='0.3.0'
 
 DSP8010_FILE="DSP8010_${DSP8010_VERSION}.zip"
-DSP8010_URL="https://www.dmtf.org/sites/default/files/standards/documents/${DSP8010_FILE}"
+# Cloudflare Bot Management prevents download file using curl.
+# So, locate file at top directory before executing this script.
+#DSP8010_URL="https://www.dmtf.org/sites/default/files/standards/documents/${DSP8010_FILE}"
 
 SWORDFISH_FILE="Swordfish_v${SWORDFISH_VERSION}.zip"
 # Cloudflare Bot Management prevents download file using curl.
@@ -28,7 +30,8 @@ pushd "${WORK_DIR}"
 # redfish
 mkdir ./redfish
 mkdir -p ./spec/schemas/v1
-curl -sSLO "${DSP8010_URL}"
+#curl -sSLO "${DSP8010_URL}"
+cp "${OLDPWD}/${DSP8010_FILE}" .
 unzip "${DSP8010_FILE}" -d ./redfish
 mv ./redfish/*/openapi/* ./spec/schemas/v1
 
