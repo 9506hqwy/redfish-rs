@@ -1,4 +1,4 @@
-pub type CXLLogicalDevice = crate::cxl_logical_device::v1_4_0::CXLLogicalDevice;
+pub type CXLLogicalDevice = crate::cxl_logical_device::v1_5_0::CXLLogicalDevice;
 pub mod v1_4_0 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -299,5 +299,326 @@ pub mod v1_4_0 {
         pub passphrase: String,
         #[serde(rename = "PassphraseType")]
         pub passphrase_type: crate::cxl_logical_device::v1_4_0::PassphraseType,
+    }
+}
+pub mod v1_5_0 {
+    use serde::{Deserialize, Serialize};
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Actions {
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#CXLLogicalDevice.DisablePassphrase"
+        )]
+        pub cxl_logical_device_disable_passphrase:
+            Option<crate::cxl_logical_device::v1_5_0::DisablePassphrase>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#CXLLogicalDevice.DynamicCapacityAdd"
+        )]
+        pub cxl_logical_device_dynamic_capacity_add:
+            Option<crate::cxl_logical_device::v1_5_0::DynamicCapacityAdd>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#CXLLogicalDevice.DynamicCapacityRelease"
+        )]
+        pub cxl_logical_device_dynamic_capacity_release:
+            Option<crate::cxl_logical_device::v1_5_0::DynamicCapacityRelease>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#CXLLogicalDevice.FreezeSecurityState"
+        )]
+        pub cxl_logical_device_freeze_security_state:
+            Option<crate::cxl_logical_device::v1_5_0::FreezeSecurityState>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#CXLLogicalDevice.PassphraseSecureErase"
+        )]
+        pub cxl_logical_device_passphrase_secure_erase:
+            Option<crate::cxl_logical_device::v1_5_0::PassphraseSecureErase>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#CXLLogicalDevice.SetPassphrase"
+        )]
+        pub cxl_logical_device_set_passphrase:
+            Option<crate::cxl_logical_device::v1_5_0::SetPassphrase>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "#CXLLogicalDevice.Unlock"
+        )]
+        pub cxl_logical_device_unlock: Option<crate::cxl_logical_device::v1_5_0::Unlock>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::cxl_logical_device::v1_5_0::OemActions>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct CXLLogicalDevice {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
+        pub actions: Option<crate::cxl_logical_device::v1_5_0::Actions>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "AvailableExtents")]
+        pub available_extents: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "AvailableTags")]
+        pub available_tags: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Description")]
+        pub description: Option<crate::cxl_logical_device::v1_5_0::CXLLogicalDeviceDescription>,
+        #[serde(rename = "Id")]
+        pub id: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Identifiers")]
+        pub identifiers: Option<Vec<crate::resource::Identifier>>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Links")]
+        pub links: Option<crate::cxl_logical_device::v1_5_0::Links>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Log")]
+        pub log: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryRegions")]
+        pub memory_regions: Option<crate::odata_v4::IdRef>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MemorySizeMiB")]
+        pub memory_size_mib: Option<i64>,
+        #[serde(rename = "Name")]
+        pub name: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.context")]
+        pub odata_context: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "@odata.etag")]
+        pub odata_etag: Option<String>,
+        #[serde(rename = "@odata.id")]
+        pub odata_id: String,
+        #[serde(rename = "@odata.type")]
+        pub odata_type: String,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "QoS")]
+        pub qos: Option<crate::cxl_logical_device::v1_5_0::QoS>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "QoSTelemetryCapabilities"
+        )]
+        pub qos_telemetry_capabilities:
+            Option<crate::cxl_logical_device::v1_5_0::QoSTelemetryCapabilities>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "SemanticsSupported")]
+        pub semantics_supported: Option<Vec<crate::cxl_logical_device::v1_5_0::CXLSemantic>>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Status")]
+        pub status: Option<crate::resource::Status>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "TotalSupportedExtents"
+        )]
+        pub total_supported_extents: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "TotalSupportedTags")]
+        pub total_supported_tags: Option<i64>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum CXLLogicalDeviceDescription {
+        V000001(crate::cxl_logical_device::v1_5_0::CXLLogicalDeviceDescriptionN1),
+        ResourceDescription(String),
+    }
+    impl Default for CXLLogicalDeviceDescription {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLLogicalDeviceDescriptionN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum CXLSemantic {
+        #[default]
+        #[serde(rename = "CXLcache")]
+        CXLcache,
+        #[serde(rename = "CXLio")]
+        CXLio,
+        #[serde(rename = "CXLmem")]
+        CXLmem,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DisablePassphrase {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DisablePassphraseRequestBody {
+        #[serde(rename = "Passphrase")]
+        pub passphrase: String,
+        #[serde(rename = "PassphraseType")]
+        pub passphrase_type: crate::cxl_logical_device::v1_5_0::PassphraseType,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DynamicCapacityAdd {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DynamicCapacityAddRequestBody {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ExtentList")]
+        pub extent_list: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Length")]
+        pub length: Option<i64>,
+        #[serde(rename = "Policy")]
+        pub policy: crate::pcie_device::CXLDynamicCapacityPolicies,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "RegionNumber")]
+        pub region_number: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Tag")]
+        pub tag: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DynamicCapacityRelease {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct DynamicCapacityReleaseRequestBody {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "ExtentList")]
+        pub extent_list: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(rename = "ForcedRemoval")]
+        pub forced_removal: bool,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Length")]
+        pub length: Option<i64>,
+        #[serde(rename = "Policy")]
+        pub policy: crate::pcie_device::CXLDynamicCapacityPolicies,
+        #[serde(rename = "SanitizeOnRelease")]
+        pub sanitize_on_release: bool,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Tag")]
+        pub tag: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct FreezeSecurityState {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct FreezeSecurityStateRequestBody {}
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Links {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Endpoints")]
+        pub endpoints: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "Endpoints@odata.count"
+        )]
+        pub endpoints_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryChunks")]
+        pub memory_chunks: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "MemoryChunks@odata.count"
+        )]
+        pub memory_chunks_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "MemoryDomains")]
+        pub memory_domains: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "MemoryDomains@odata.count"
+        )]
+        pub memory_domains_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
+        pub oem: Option<crate::resource::Oem>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "PCIeFunctions")]
+        pub pcie_functions: Option<Vec<crate::odata_v4::IdRef>>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "PCIeFunctions@odata.count"
+        )]
+        pub pcie_functions_odata_count: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "Port")]
+        pub port: Option<crate::cxl_logical_device::v1_5_0::LinksPort>,
+    }
+    #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+    #[serde(untagged)]
+    pub enum LinksPort {
+        V000001(crate::cxl_logical_device::v1_5_0::LinksPortN1),
+        OdataV4IdRef(crate::odata_v4::IdRef),
+    }
+    impl Default for LinksPort {
+        fn default() -> Self {
+            Self::V000001(Default::default())
+        }
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum LinksPortN1 {
+        #[default]
+        #[serde(rename = "null")]
+        Null,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct OemActions {}
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct PassphraseSecureErase {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct PassphraseSecureEraseRequestBody {
+        #[serde(rename = "Passphrase")]
+        pub passphrase: String,
+        #[serde(rename = "PassphraseType")]
+        pub passphrase_type: crate::cxl_logical_device::v1_5_0::PassphraseType,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub enum PassphraseType {
+        #[default]
+        #[serde(rename = "Master")]
+        Master,
+        #[serde(rename = "User")]
+        User,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct QoS {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "AllocatedBandwidth")]
+        pub allocated_bandwidth: Option<i64>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "LimitPercent")]
+        pub limit_percent: Option<i64>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct QoSTelemetryCapabilities {
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "EgressPortBackpressureSupported"
+        )]
+        pub egress_port_backpressure_supported: Option<bool>,
+        #[serde(
+            skip_serializing_if = "Option::is_none",
+            rename = "TemporaryThroughputReductionSupported"
+        )]
+        pub temporary_throughput_reduction_supported: Option<bool>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct SetPassphrase {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct SetPassphraseRequestBody {
+        #[serde(rename = "NewPassphrase")]
+        pub new_passphrase: String,
+        #[serde(rename = "Passphrase")]
+        pub passphrase: String,
+        #[serde(rename = "PassphraseType")]
+        pub passphrase_type: crate::cxl_logical_device::v1_5_0::PassphraseType,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct Unlock {
+        #[serde(skip_serializing_if = "Option::is_none", rename = "target")]
+        pub target: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none", rename = "title")]
+        pub title: Option<String>,
+    }
+    #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
+    pub struct UnlockRequestBody {
+        #[serde(rename = "Passphrase")]
+        pub passphrase: String,
+        #[serde(rename = "PassphraseType")]
+        pub passphrase_type: crate::cxl_logical_device::v1_5_0::PassphraseType,
     }
 }

@@ -10,23 +10,23 @@ pub mod v1_3_0 {
     pub enum BitRate {
         #[default]
         #[serde(rename = "115200")]
-        N115200,
+        NN115200,
         #[serde(rename = "1200")]
-        N1200,
+        NN1200,
         #[serde(rename = "19200")]
-        N19200,
+        NN19200,
         #[serde(rename = "230400")]
-        N230400,
+        NN230400,
         #[serde(rename = "2400")]
-        N2400,
+        NN2400,
         #[serde(rename = "38400")]
-        N38400,
+        NN38400,
         #[serde(rename = "4800")]
-        N4800,
+        NN4800,
         #[serde(rename = "57600")]
-        N57600,
+        NN57600,
         #[serde(rename = "9600")]
-        N9600,
+        NN9600,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum ConnectorType {
@@ -54,13 +54,13 @@ pub mod v1_3_0 {
     pub enum DataBits {
         #[default]
         #[serde(rename = "5")]
-        N5,
+        NN5,
         #[serde(rename = "6")]
-        N6,
+        NN6,
         #[serde(rename = "7")]
-        N7,
+        NN7,
         #[serde(rename = "8")]
-        N8,
+        NN8,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub enum FlowControl {
@@ -215,8 +215,8 @@ pub mod v1_3_0 {
     pub enum StopBits {
         #[default]
         #[serde(rename = "1")]
-        N1,
+        NN1,
         #[serde(rename = "2")]
-        N2,
+        NN2,
     }
 }

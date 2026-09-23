@@ -100,7 +100,7 @@ pub mod v1_2_0 {
     #[serde(untagged)]
     pub enum PumpInletPressurekPa {
         V000001(crate::pump::v1_2_0::PumpInletPressurekPaN1),
-        SensorSensorExcerpt(crate::sensor::v1_9_3::SensorExcerpt),
+        SensorSensorExcerpt(crate::sensor::v1_14_0::SensorExcerpt),
     }
     impl Default for PumpInletPressurekPa {
         fn default() -> Self {
@@ -125,7 +125,7 @@ pub mod v1_2_0 {
     #[serde(untagged)]
     pub enum PumpPumpSpeedPercent {
         V000001(crate::pump::v1_2_0::PumpPumpSpeedPercentN1),
-        SensorSensorPumpExcerpt(crate::sensor::v1_9_3::SensorPumpExcerpt),
+        SensorSensorPumpExcerpt(crate::sensor::v1_14_0::SensorPumpExcerpt),
     }
     impl Default for PumpPumpSpeedPercent {
         fn default() -> Self {
@@ -159,7 +159,7 @@ pub mod v1_2_0 {
     #[serde(untagged)]
     pub enum PumpSpeedControlPercent {
         V000001(crate::pump::v1_2_0::PumpSpeedControlPercentN1),
-        ControlControlSingleLoopExcerpt(crate::control::v1_8_0::ControlSingleLoopExcerpt),
+        ControlControlSingleLoopExcerpt(crate::control::v1_8_1::ControlSingleLoopExcerpt),
     }
     impl Default for PumpSpeedControlPercent {
         fn default() -> Self {

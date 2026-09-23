@@ -2,9 +2,9 @@
 
 set -euo pipefail
 
-DSP8010_VERSION='2026.1'
+DSP8010_VERSION='2026.2'
 SWORDFISH_VERSION='1.2.9'
-TOOLS_VERSION='0.3.0'
+TOOLS_VERSION='0.4.0'
 
 DSP8010_FILE="DSP8010_${DSP8010_VERSION}.zip"
 # Cloudflare Bot Management prevents download file using curl.

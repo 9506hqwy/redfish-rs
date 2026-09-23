@@ -1,18 +1,18 @@
-pub type Redundancy = crate::redundancy::v1_7_0::Redundancy;
-pub type RedundantGroup = crate::redundancy::v1_7_0::RedundantGroup;
-pub mod v1_7_0 {
+pub type Redundancy = crate::redundancy::v1_7_1::Redundancy;
+pub type RedundantGroup = crate::redundancy::v1_7_1::RedundantGroup;
+pub mod v1_7_1 {
     use serde::{Deserialize, Serialize};
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Actions {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Oem")]
-        pub oem: Option<crate::redundancy::v1_7_0::OemActions>,
+        pub oem: Option<crate::redundancy::v1_7_1::OemActions>,
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct OemActions {}
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
     pub struct Redundancy {
         #[serde(skip_serializing_if = "Option::is_none", rename = "Actions")]
-        pub actions: Option<crate::redundancy::v1_7_0::Actions>,
+        pub actions: Option<crate::redundancy::v1_7_1::Actions>,
         #[serde(
             skip_serializing_if = "Option::is_none",
             rename = "ActiveRedundancySet"
@@ -35,7 +35,7 @@ pub mod v1_7_0 {
         )]
         pub min_num_needed_for_fault_tolerance: Option<i64>,
         #[serde(rename = "Mode")]
-        pub mode: crate::redundancy::v1_7_0::RedundancyModeAnony,
+        pub mode: crate::redundancy::v1_7_1::RedundancyModeAnony,
         #[serde(rename = "Name")]
         pub name: String,
         #[serde(rename = "@odata.id")]
@@ -71,12 +71,12 @@ pub mod v1_7_0 {
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum RedundancyModeAnony {
-        V010700(crate::redundancy::v1_7_0::RedundancyMode),
-        V000001(crate::redundancy::v1_7_0::RedundancyModeN1),
+        V010701(crate::redundancy::v1_7_1::RedundancyMode),
+        V000001(crate::redundancy::v1_7_1::RedundancyModeN1),
     }
     impl Default for RedundancyModeAnony {
         fn default() -> Self {
-            Self::V010700(Default::default())
+            Self::V010701(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
@@ -133,19 +133,19 @@ pub mod v1_7_0 {
         )]
         pub redundancy_group_odata_count: Option<i64>,
         #[serde(rename = "RedundancyType")]
-        pub redundancy_type: crate::redundancy::v1_7_0::RedundantGroupRedundancyType,
+        pub redundancy_type: crate::redundancy::v1_7_1::RedundantGroupRedundancyType,
         #[serde(rename = "Status")]
         pub status: crate::resource::Status,
     }
     #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
     #[serde(untagged)]
     pub enum RedundantGroupRedundancyType {
-        V010700(crate::redundancy::v1_7_0::RedundancyType),
-        V000001(crate::redundancy::v1_7_0::RedundantGroupRedundancyTypeN1),
+        V010701(crate::redundancy::v1_7_1::RedundancyType),
+        V000001(crate::redundancy::v1_7_1::RedundantGroupRedundancyTypeN1),
     }
     impl Default for RedundantGroupRedundancyType {
         fn default() -> Self {
-            Self::V010700(Default::default())
+            Self::V010701(Default::default())
         }
     }
     #[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
